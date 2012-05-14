@@ -1,6 +1,6 @@
 [user]
-	name = Adrià Casajús
-	email = adria@ecm.ub.es
+	name = Albert Puig
+	email = apuig@ecm.ub.edu
 [color "branch"]
 	current = yellow reverse
 	local = yellow
@@ -58,5 +58,4 @@
 	upload = false
 [github]
 	user = %{github username}
-	token = %{github token}
 
