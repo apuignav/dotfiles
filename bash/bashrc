@@ -1,81 +1,85 @@
-[ -f "$HOME/.profile" ] && source $HOME/.profile
+# Your previous .profile  (if any) is saved as .profile.dpsaved
+# Setting the path for DarwinPorts.
+  . $HOME/.mybash
 
-export HISTCONTROL=ignoreboth
-export HISTFILE=$HOME/.bash_history
-export HISTSIZE=10000
-export HISTFILESIZE=10000
-
-if [[ $- != *i* ]] ; then
-  # Shell is non-interactive.  Be done now!
-  return
-fi
-
-
-
-# Bash won't get SIGWINCH if another process is in the foreground.
-# Enable checkwinsize so that bash will check the terminal size when
-# it regains control.  #65623
-# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
-shopt -s checkwinsize
-
-# Enable history appending instead of overwriting.  #139609
-shopt -s histappend
-
-# Change the window title of X terminals 
-case ${TERM} in
-  xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-    ;;
-  screen)
-    PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-    ;;
-esac
-
-RCOL="\[\033[00m\]"
-RED="\[\033[0;31m\]"
-GREEN="\[\033[0;32m\]"
-YELLOW="\[\033[0;33m\]"
-BLUE="\[\033[0;34m\]"
-LIGHT_GRAY="\[\033[0;37m\]"
-CYAN="\[\033[0;36m\]"
-
-function git-branch-name {
-  echo $(git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
-}
-
-function git-dirty {
-  st=$(git status 2>/dev/null | tail -n 1)
-  if [[ $st != "nothing to commit (working directory clean)" ]]
-  then
-    echo "*"
+# DIRAC prompt
+  if [ "$DIRACROOT" ]; then
+    export PS1='\[\033[01;31m\](DIRAC) \u@\h\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\]\$ '
   fi
-}
 
-function git-unpushed {
-    brinfo=$(git branch -v | grep git-branch-name)
-    if [[ $brinfo =~ ("[ahead "([[:digit:]]*)]) ]]
-    then
-        echo "(${BASH_REMATCH[2]})"
-    fi
-}
+# Environment variables
+  export BREW=`brew --prefix`
+  export TERM=xterm-color
+  export EDITOR="mate -w"
+  export GIT_EDITOR="vim"
+  export UNISONLOCALHOSTNAME=dc10
+  export OS=Darwin
+  export MANPATH=$MANPATH:$BREW/man
+  export ROOTSYS=/usr/local/root
+  export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r17
 
-function gitify {
-    status=$(git status 2>/dev/null | tail -n 1)
-    if [[ $status == "" ]]
-    then
-        echo ""
-    else
-        echo -e " (git:${RED}$(git-branch-name)${CYAN}$(git-dirty)$(git-unpushed)${BLUE})" | sed 's:\\\]::g' | sed 's:\\\[::g'
-    fi
-}
+# Bash completion
+  if [ -f $BREW/etc/bash_completion ]; then
+    . $BREW/etc/bash_completion
+  fi
+  # DYLD_LIBRARY_PATH
+#  NEW_DYLD_LIBRARY_PATH=$BREW/lib:/opt/subversion/lib/:/usr/lib:/usr/lib:$GNUROOT/lib:$BOOSTROOT/lib
+#  if [ -z "${DYLD_LIBRARY_PATH}" ]; then
+#    DYLD_LIBRARY_PATH=$NEW_DYLD_LIBRARY_PATH; export DYLD_LIBRARY_PATH
+#  else
+#    DYLD_LIBRARY_PATH=$NEW_DYLD_LIBRARY_PATH:$DYLD_LIBRARY_PATH; export DYLD_LIBRARY_PATH
+#  fi
+  # LD_LIBRARY_PATH
+  NEW_LD_LIBRARY_PATH=$ROOTSYS/lib:$BREW/lib:/usr/lib
+  if [ -z "$LD_LIBRARY_PATH}" ]; then
+    LD_LIBRARY_PATH=$NEW_LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+  else
+    LD_LIBRARY_PATH=$NEW_LD_LIBRARY_PATH:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+  fi
+  # PATH
+  NEW_PATH=/Library/Frameworks/Python.framework/Versions/Current/bin/:$BREW/bin:$BREW/sbin:$ROOTSYS/bin
+#:$HOME/src/android-sdk-mac_86/tools
+  if [ -z "${PATH}" ]; then
+    PATH=$NEW_PATH; export PATH
+  else
+    PATH=$NEW_PATH:$PATH; export PATH
+  fi
+  # PYTHONPATH
+  NEW_PYTHONPATH=$BREW/lib:$ROOTSYS/lib:/Users/albert/Arxiu/Fisica/LHCb/Projectes 
+  if [ -z "${PYTHONPATH}" ]; then
+    PYTHONPATH=$NEW_PYTHONPATH; export PYTHONPATH
+  else
+    PYTHONPATH=$PYTHONPATH:$NEW_PYTHONPATH; export PYTHONPATH
+  fi
 
-if [[ ${EUID} == 0 ]] ; then
-  PS1="${RED}\h ${BLUE}\w\$(gitify) >${RCOL} "
-else
-  PS1="${GREEN}\u@\h ${BLUE}\w\$(gitify) >${RCOL} "
-fi
+# Aliases
+  alias ls='/bin/ls -Ghv'
+  alias locateupdate='sudo /usr/libexec/locate.updatedb'
+  alias dhcpserver='ipconfig getoption en0 server_identifier'
+  alias smc='/Applications/smcFanControl.app/Contents/Resources/smc'
+  alias reloadEthernet='sudo kextunload /System/Library/Extensions/IONetworkingFamily.kext/Contents/PlugIns/AppleYukon2.kext;sudo kextload /System/Library/Extensions/IONetworkingFamily.kext/Contents/PlugIns/AppleYukon2.kext'
+  alias vim='/usr/local/Cellar/macvim/7.3-59/MacVim.app/Contents/MacOS/Vim'
+  alias istatRestart='rm ~/Library/Preferences/com.bjango.istatmenus.plist && killall SystemUIServer'
+  alias cernProxy='ssh -D 8080 -Nf cern'
+  alias cernProxyDestroy='ps -ef | grep "ssh -D 8080" | grep -v grep | awk '"'"'{print $2}'"'"' | xargs kill'
 
-alias ls='ls --color=auto'
-alias grep='grep --colour=auto'
+# Functions
+  mycvs(){
+    mykinit
+    echo "Setting environment for CVS: ${1:-lhcb}..."
+    export CVSROOT=:ext:cerncvs:/local/reps/${1:-lhcb}
+    #:pserver:anonymous@isscvs.cern.ch:/local/reps/dirac
+    #export GAUDIKSERVER=:kserver:isscvs.cern.ch:/local/reps/Gaudi
+    #export LHCBKSERVER=:kserver:isscvs.cern.ch:/local/reps/lhcb
+    export CVS_RSH=ssh
+    export CMTPROJECTPATH=/Users/albert/Arxiu/Fisica/LHCb/CVS/cmtuser
+    cd $CMTPROJECTPATH
+  }
 
-[[ -f ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
+# LHCb
+  export LHCBDOC=svn+ssh://svn.cern.ch/reps/lhcbdocs
+
+# Other
+  #test -r /sw/bin/init.sh && . /sw/bin/init.sh
+  #alias mail-trends='cd /usr/local/mail-trends; sudo python main.py   --server=imap.gmail.com   --use_ssl   --username=djkarras@gmail.com   --me=djkarras@gmail.com,albert@thenet.uni.cc,apuig@ecm.ub.es,apuignav@cern.ch,albert.puig.navarro@cern.ch --skip_label && open /Applications/Minefield.app /usr/local/mail-trends/out/index.html; cd $HOME'
+  #defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
