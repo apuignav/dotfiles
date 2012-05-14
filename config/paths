@@ -1,0 +1,33 @@
+# Variables
+export BREW=`brew --prefix`
+export TERM=xterm-color
+export EDITOR="mate -w"
+export GIT_EDITOR="vim"
+export UNISONLOCALHOSTNAME=dc10
+export OS=Darwin
+export MANPATH=$MANPATH:$BREW/man
+export ROOTSYS=/usr/local/root
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r17
+# Path games
+NEW_LD_LIBRARY_PATH=$ROOTSYS/lib:$BREW/lib:/usr/lib
+if [ -z "${LD_LIBRARY_PATH}" ]; then
+  LD_LIBRARY_PATH=$NEW_LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+else
+  LD_LIBRARY_PATHi+=$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+fi
+# PATH
+NEW_PATH=/Library/Frameworks/Python.framework/Versions/Current/bin/:$BREW/bin:$BREW/sbin:$ROOTSYS/bin
+if [ -z "${PATH}" ]; then
+  PATH=$NEW_PATH; export PATH
+else
+  PATH=$NEW_PATH:$PATH; export PATH
+fi
+# PYTHONPATH
+NEW_PYTHONPATH=$BREW/lib:$ROOTSYS/lib:/Users/albert/Arxiu/Fisica/LHCb/Projectes 
+if [ -z "${PYTHONPATH}" ]; then
+  PYTHONPATH=$NEW_PYTHONPATH; export PYTHONPATH
+else
+  PYTHONPATH+=$NEW_PYTHONPATH; export PYTHONPATH
+fi
+
+# EOF

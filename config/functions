@@ -1,0 +1,14 @@
+function mykinit() {
+  passwd=`cat $HOME/.auth`
+  python -c "import subprocess; p=subprocess.Popen(['kinit', 'apuignav'], stdin=subprocess.PIPE, stdout=subprocess.PIPE);stdout=p.communicate(\"$passwd\")[0]"
+  unset passwd
+}
+
+function h() { 
+  if [[ -z $1 ]]; then
+    history | grep $1
+  else
+    history
+  fi
+}
+
