@@ -28,7 +28,7 @@ set backspace=2      " Set backspace work like in most other apps
 
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set nolist
+set list
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
