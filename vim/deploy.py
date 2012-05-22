@@ -23,4 +23,4 @@ for dName in ( "backups", "swaps", "undo" ):
   if not os.path.isdir( dName ):
     os.makedirs( dName )
   
-os.system( "vim +BundleInstall +q" )
+os.system( "vim +BundleInstall +qall" )
