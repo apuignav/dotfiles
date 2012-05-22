@@ -1,6 +1,6 @@
 # Variables
 export BREW=`brew --prefix`
-export TERM=xterm-color
+export TERM=xterm-256color
 export EDITOR="mate -w"
 export GIT_EDITOR="vim"
 export UNISONLOCALHOSTNAME=dc10
