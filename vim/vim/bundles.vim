@@ -15,13 +15,13 @@ Bundle 'gmarik/vundle'
 " Plugin time!
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
-Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'fholgado/minibufexpl.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'surround.vim'
+Bundle 'tpope/vim-surround'
 
 " :)
 filetype plugin indent on
