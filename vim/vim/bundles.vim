@@ -20,6 +20,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdcommenter'
 
 " :)
 filetype plugin indent on
