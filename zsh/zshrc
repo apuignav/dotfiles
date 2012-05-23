@@ -59,6 +59,7 @@ unsetopt FLOW_CONTROL        # Allow C-s and C-q to stop/start the terminal flow
 [[ -f ~/.paths ]] && source ~/.paths
 [[ -f ~/.functions ]] && source ~/.functions
 [[ -f ~/.aliases ]] && source ~/.aliases
+[[ -f ~/.localrc ]] && source ~/.localrc
 
 # EOF
 
