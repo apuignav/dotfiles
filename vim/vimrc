@@ -23,7 +23,7 @@ set title            " Show the filename in the window titlebar
 set showcmd          " Show the (partial) command as it’s being typed
 syntax on            " Enable syntax highlighting
 let mapleader=","    " Change the mapleader
-set textwidth=140     " Max textwidth
+"set textwidth=140     " Max textwidth
 set backspace=2      " Set backspace work like in most other apps 
 
 " Show “invisible” characters
