@@ -22,6 +22,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'vim-scripts/argtextobj.vim'
 
 " :)
 filetype plugin indent on
