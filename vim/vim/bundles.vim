@@ -24,6 +24,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'vim-scripts/argtextobj.vim'
+Bundle 'ervandew/supertab'
 
 " :)
 filetype plugin indent on
