@@ -11,9 +11,11 @@ set background=dark  " Dark bg
 set tabstop=2        " Make tabs as wide as two spaces
 set hlsearch         " Highlight searches
 set ignorecase       " Ignore case of searches
+set smartcase        " Smart handling of case (http://stevelosh.com/blog/2010/09/coming-home-to-vim/#using-the-leader)
 set incsearch        " Highlight dynamically as pattern is typed
+set gdefault         " Defaults replacing with g
 set laststatus=2     " Always show status line
-set mouse=a          " Enable mouse in all modes
+set mouse=v          " Enable mouse in all modes
 set noerrorbells     " Disable error bells
 set nostartofline    " Don’t reset cursor to start of line when moving around.
 set ruler            " Show the cursor position
@@ -21,12 +23,13 @@ set shortmess=atI    " Don’t show the intro message when starting vim
 set showmode         " Show the current mode
 set title            " Show the filename in the window titlebar
 set showcmd          " Show the (partial) command as it’s being typed
+set cmdheight=2
 syntax on            " Enable syntax highlighting
 let mapleader=","    " Change the mapleader
 "set textwidth=140     " Max textwidth
 set backspace=2      " Set backspace work like in most other apps 
 
-" Show “invisible” characters
+" Show invisible characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
 
@@ -64,12 +67,18 @@ nmap <silent> <F3> :set invnumber<CR>:set number?<CR>
 nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
 imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
 " Bind F5 to GUndo
-noremap <F5> :GundoToggle<CR>
-" Bind F8 to TagbarToggle
-noremap <F8> :TagbarToggle<CR>
+noremap <F5> :GundoToggle<CR><CR>
+" Bind F6 to TagbarToggle
+noremap <F6> :TagbarToggle<CR>
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+
+" select previously yanked line
+nnoremap <leader>v V`]
+
+" jj escapes
+inoremap jj <ESC>
 
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
@@ -80,16 +89,27 @@ nmap <leader>hs :set hlsearch! hlsearch?<CR>
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
+" Open vertical split and switch to it
+nnoremap <leader>w <C-w>v<C-w>l
+" Easy resize
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
+endif
+map <c-m> <c-w><
+map <c-x> <c-w>>
 
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 " (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
 
-" Set CrtlP ignores
+" Set CrtlP
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\.git$\|\.hg$\|\.svn$',
 	\ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
 	\ }
+let g:ctrlp_map = '<c-f>'
+let g:ctrlp_extensions = ['cmdline', 'yankring']
 
 " Unicode powerline
 let g:Powerline_symbols="unicode"
