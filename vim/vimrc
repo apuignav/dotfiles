@@ -9,12 +9,13 @@ set binary           " Don't add empty newlines at end of files
 set noeol            " Don't add empty newlines at end of files
 set background=dark  " Dark bg
 set tabstop=2        " Make tabs as wide as two spaces
+set shiftwidth=2
+set expandtab
 set hlsearch         " Highlight searches
 set ignorecase       " Ignore case of searches
 set smartcase        " Smart handling of case (http://stevelosh.com/blog/2010/09/coming-home-to-vim/#using-the-leader)
 set incsearch        " Highlight dynamically as pattern is typed
 set gdefault         " Defaults replacing with g
-set laststatus=2     " Always show status line
 set mouse=v          " Enable mouse in all modes
 set noerrorbells     " Disable error bells
 set nostartofline    " Don’t reset cursor to start of line when moving around.
@@ -28,6 +29,7 @@ syntax on            " Enable syntax highlighting
 let mapleader=","    " Change the mapleader
 "set textwidth=140     " Max textwidth
 set backspace=2      " Set backspace work like in most other apps 
+set shm=AI
 
 " Show invisible characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -112,6 +114,9 @@ let g:ctrlp_custom_ignore = {
 	\ }
 let g:ctrlp_map = '<c-f>'
 let g:ctrlp_extensions = ['cmdline', 'yankring']
+
+" Configuration for yankring
+let g:yankring_history_dir = "$HOME/.vim/yankring_history"
 
 " Unicode powerline
 let g:Powerline_symbols="unicode"
