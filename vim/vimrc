@@ -15,16 +15,16 @@ set hlsearch         " Highlight searches
 set ignorecase       " Ignore case of searches
 set smartcase        " Smart handling of case (http://stevelosh.com/blog/2010/09/coming-home-to-vim/#using-the-leader)
 set incsearch        " Highlight dynamically as pattern is typed
-set gdefault         " Defaults replacing with g
+"set gdefault         " Defaults replacing with g
 set mouse=v          " Enable mouse in all modes
 set noerrorbells     " Disable error bells
 set nostartofline    " Don’t reset cursor to start of line when moving around.
 set ruler            " Show the cursor position
-set shortmess=atI    " Don’t show the intro message when starting vim
+set shortmess=filnxtToO    " Don’t show the intro message when starting vim
 set showmode         " Show the current mode
 set title            " Show the filename in the window titlebar
 set showcmd          " Show the (partial) command as it’s being typed
-set cmdheight=2
+"set cmdheight=2
 syntax on            " Enable syntax highlighting
 let mapleader=","    " Change the mapleader
 "set textwidth=140     " Max textwidth
@@ -82,7 +82,7 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 nnoremap <leader>v V`]
 
 " jj escapes
-inoremap jj <ESC>
+" nnoremap jj <ESC>
 
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
@@ -96,12 +96,12 @@ map <Leader>= <C-w>=
 " Open vertical split and switch to it
 nnoremap <leader>w <C-w>v<C-w>l
 " Easy resize
-if bufwinnr(1)
-  map + <C-W>+
-  map - <C-W>-
-endif
-map <c-m> <c-w><
-map <c-x> <c-w>>
+"if bufwinnr(1)
+  "map + <C-W>+
+  "map - <C-W>-
+"endif
+"map <c-m> <c-w><
+"map <c-x> <c-w>>
 
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 " (it will prompt for sudo password when writing)
@@ -127,4 +127,4 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 
 "Set the badwolf colorsheme
 colorscheme jellybeans
-
+"colorscheme badwolf
