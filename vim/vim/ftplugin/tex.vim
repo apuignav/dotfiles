@@ -5,4 +5,4 @@ else
   exec "setlocal makeprg=make\\ -f\\ ~/.latex.mk\\ " . substitute(bufname("%"),"tex$","pdf", "")
 endif
 "Turn on spelling
-setlocal spell spelllang=en_us
+"setlocal spell spelllang=en_us
