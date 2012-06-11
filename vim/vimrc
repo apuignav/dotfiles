@@ -1,3 +1,4 @@
+set guifont=Monaco:h12
 set nocompatible     " Disable vi-compatibility
 set laststatus=2     " Always show the statusline
 set encoding=utf-8   " Show unicode glyphs
@@ -18,6 +19,8 @@ set incsearch        " Highlight dynamically as pattern is typed
 "set gdefault         " Defaults replacing with g
 set mouse=v          " Enable mouse in all modes
 set noerrorbells     " Disable error bells
+set visualbell
+set t_vb=
 set nostartofline    " Don’t reset cursor to start of line when moving around.
 set ruler            " Show the cursor position
 set shortmess=filnxtToO    " Don’t show the intro message when starting vim
@@ -27,9 +30,11 @@ set showcmd          " Show the (partial) command as it’s being typed
 "set cmdheight=2
 syntax on            " Enable syntax highlighting
 let mapleader=","    " Change the mapleader
+let maplocalleader=","    " Change the mapleader
 "set textwidth=140     " Max textwidth
-set backspace=2      " Set backspace work like in most other apps 
+set backspace=2      " Set backspace work like in most other apps
 set shm=AI
+set spellsuggest=10
 
 " Show invisible characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -74,6 +79,11 @@ noremap <F5> :GundoToggle<CR><CR>
 noremap <F6> :TagbarToggle<CR>
 " Bind F7 to YankRing Show
 noremap <F7> :YRShow<CR>
+" Bind C-T to NERDTreeToggle
+nmap <silent> <leader>t :NERDTreeToggle<CR>
+autocmd vimenter * if !argc() | NERDTree | endif " Open NERDTree if vim is opened without any file
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if NERDTree is the only thing opened
+
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
@@ -95,13 +105,26 @@ nmap <leader>hs :set hlsearch! hlsearch?<CR>
 map <Leader>= <C-w>=
 " Open vertical split and switch to it
 nnoremap <leader>w <C-w>v<C-w>l
-" Easy resize
-"if bufwinnr(1)
-  "map + <C-W>+
-  "map - <C-W>-
-"endif
-"map <c-m> <c-w><
-"map <c-x> <c-w>>
+"
+" Spell Check
+let b:myLang=0
+let g:myLangList=["nospell","en_us", "es_es"]
+function! ToggleSpell()
+  let b:myLang=b:myLang+1
+  if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+  if b:myLang==0
+    setlocal nospell
+  else
+    execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
+  endif
+  echo "spell checking language:" g:myLangList[b:myLang]
+endfunction
+nmap <leader>s :call ToggleSpell()<CR>
+
+" Supertab config
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menu
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 " (it will prompt for sudo password when writing)
@@ -118,13 +141,43 @@ let g:ctrlp_extensions = ['cmdline', 'yankring']
 " Configuration for yankring
 let g:yankring_history_dir = "$HOME/.vim/yankring_history"
 
-" Unicode powerline
-let g:Powerline_symbols="unicode"
-
 " remember previous position
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-"Set the badwolf colorsheme
-colorscheme jellybeans
-"colorscheme badwolf
+" Command to output an external command to a scratch buffer
+:command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
+
+" Configure latex-box
+let g:LatexBox_viewer = '/Applications/Preview.app/Contents/MacOS/Preview'
+let g:LatexBox_latexmk_options = '-pvc'
+"function! MyLatexError()
+"  execute "LatexErrors"
+"  execute "copen"
+"endfunction
+"nmap <leader>le :call MyLatexError()<CR>
+
+" GUI options
+if has("gui_running")
+  set guioptions=-t
+  set mouse=a          " Enable mouse in all modes
+  " Unicode powerline
+  let g:Powerline_symbols="unicode"
+  colorscheme jellybeans
+  "colorscheme badwolf
+endif
+if !has("gui_running")
+  colorscheme default
+  hi LineNr cterm=NONE ctermfg=darkgray
+  hi StatusLine cterm=bold ctermfg=black ctermbg=gray
+  hi StatusLineNC cterm=bold ctermfg=darkgray ctermbg=gray
+  hi CursorLine cterm=NONE  ctermbg=darkred ctermfg=white
+  hi TabLine  term=None cterm=None
+  hi TabLineSel  term=None cterm=None
+  hi Comment ctermfg=darkgray
+  hi Visual          ctermfg=255 ctermbg=130
+  hi Normal term=None
+  set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+  set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P\ 
+endif
+
