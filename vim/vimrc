@@ -84,7 +84,6 @@ nmap <silent> <leader>t :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif " Open NERDTree if vim is opened without any file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if NERDTree is the only thing opened
 
-
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
@@ -151,6 +150,7 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 " Configure latex-box
 let g:LatexBox_viewer = '/Applications/Preview.app/Contents/MacOS/Preview'
 let g:LatexBox_latexmk_options = '-pvc'
+let g:LatexBox_autojump = 1
 "function! MyLatexError()
 "  execute "LatexErrors"
 "  execute "copen"
@@ -181,3 +181,4 @@ if !has("gui_running")
   set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P\ 
 endif
 
+set shell=/usr/local/bin/zsh
