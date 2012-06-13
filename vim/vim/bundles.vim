@@ -30,7 +30,11 @@ Bundle 'ervandew/supertab'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sgur/ctrlp-extensions.vim'
-Bundle 'msanders/snipmate.vim'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
+" SnipMate
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "apuignav/snipmate-snippets"
+Bundle "garbas/vim-snipmate"
 " :)
 filetype plugin indent on
