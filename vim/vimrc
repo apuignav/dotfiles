@@ -1,4 +1,4 @@
-set guifont=Monaco:h12
+:set guifont=Monaco:h12
 set nocompatible     " Disable vi-compatibility
 set laststatus=2     " Always show the statusline
 set encoding=utf-8   " Show unicode glyphs
@@ -181,4 +181,10 @@ if !has("gui_running")
   set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P\ 
 endif
 
-set shell=/usr/local/bin/zsh
+let os=system("uname")
+if os=="Darwin"
+  set shell=/usr/local/bin/zsh
+endif
+
+" Install from GitHub
+let $GIT_SSL_NO_VERIFY = 'true'
