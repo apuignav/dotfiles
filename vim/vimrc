@@ -122,6 +122,7 @@ nmap <leader>s :call ToggleSpell()<CR>
 
 " Supertab config
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 set completeopt=menu
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
@@ -180,8 +181,7 @@ if !has("gui_running")
   set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P\ 
 endif
 
-let os=system("uname")
-if os=="Darwin"
+if has('mac')
   set shell=/usr/local/bin/zsh
   let g:LatexBox_viewer = 'open -a Preview'
 endif
