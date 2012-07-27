@@ -49,6 +49,11 @@ endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
+" Set wrapping
+set wrap
+set linebreak
+set nolist
+
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
@@ -78,7 +83,8 @@ noremap <F5> :GundoToggle<CR><CR>
 noremap <F6> :TagbarToggle<CR>
 let g:tagbar_usearrows = 1
 " Bind F7 to YankRing Show
-noremap <F7> :YRShow<CR>
+"noremap <F7> :YRShow<CR>
+
 " Bind C-T to NERDTreeToggle
 nmap <silent> <leader>t :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif " Open NERDTree if vim is opened without any file
@@ -149,6 +155,7 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 :command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
 
 " Configure latex-box
+let g:tex_fold_enabled=1
 let g:LatexBox_latexmk_options = '-pvc'
 let g:LatexBox_autojump = 1
 "function! MyLatexError()
@@ -191,3 +198,5 @@ let $GIT_SSL_NO_VERIFY = 'true'
 
 " Set expandtab in the end
 set expandtab
+
+" EOF
