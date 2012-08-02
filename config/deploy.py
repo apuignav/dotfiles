@@ -30,10 +30,11 @@ for link, target in ( ( ".latex.mk", os.path.join( here, "latex.mk" ) ), ( ".fun
     if os.path.islink( link ):
       if os.readlink( link ) == target:
         continue
-    if os.path.isdir( link ):
-      shutil.rmtree( link )
     else:
-      os.unlink( link )
-  print "Linking %s -> %s" % ( link, target )
-  os.symlink( target, link )
+      if os.path.isdir( link ):
+        shutil.rmtree( link )
+      else:
+        os.unlink( link )
+      print "Linking %s -> %s" % ( link, target )
+      os.symlink( target, link )
 
