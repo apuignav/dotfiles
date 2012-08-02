@@ -1,0 +1,207 @@
+Protocol 2
+ServerAliveInterval 300
+ForwardX11 yes
+ForwardX11Trusted yes
+GSSAPIKeyExchange no
+
+Host space
+ HostName 192.168.0.3
+ User albert
+ ForwardX11 no
+ ForwardX11Trusted no
+
+Host spacew
+ HostName 192.168.1.10
+ User albert
+ ForwardX11 no
+ ForwardX11Trusted no
+
+Host spaceprinter
+ Hostname 192.168.1.3
+ User albert
+ LocalForward 6310 localhost:631 
+
+Host cern
+ HostName lxplus.cern.ch
+ User apuignav
+ GSSAPIauthentication yes
+ GSSAPIDelegateCredentials yes
+ GSSAPITrustDns yes
+
+Host cerncvs
+ HostName isscvs.cern.ch
+ User apuignav
+ GSSAPIauthentication yes
+ GSSAPIDelegateCredentials yes
+ GSSAPITrustDns yes
+
+Host svn.cern.ch
+ HostName svn.cern.ch
+ User apuignav
+ GSSAPIauthentication yes
+ GSSAPIDelegateCredentials yes
+ GSSAPITrustDns yes
+
+Host cerntunnel
+ Hostname lxplus.cern.ch
+ User apuignav
+ LocalForward 2222 lbgw02.cern.ch:22
+ GSSAPIauthentication yes
+ GSSAPIDelegateCredentials yes
+ GSSAPITrustDns yes
+
+Host onlinetunnel
+ Hostname localhost
+ Port 2222
+ User apuignav
+
+Host monatunnel
+ Hostname lbgw.cern.ch
+ User apuignav
+ LocalForward 2221 mona07:22
+
+Host mona07
+ Hostname localhost
+ Port 2221
+ User apuignav
+
+Host plustunnel
+ Hostname lbgw.cern.ch
+ User apuignav
+ LocalForward 2220 plus07:22
+
+Host plus
+ Hostname localhost
+ Port 2220
+ User apuignav
+
+Host cern3
+ HostName lx32slc4.cern.ch
+ User apuignav
+
+Host ecm
+ HostName lhcb02.ecm.ub.es
+ user apuig
+
+Host lhcb11
+ HostName lhcb11.ecm.ub.es
+ user apuig
+
+Host ecmtunnel
+ Hostname lhcb02.ecm.ub.es
+ User apuig
+ LocalForward 2223 lhcb01:22
+
+Host lhcb19tunnel
+ Hostname localhost
+ Port 2223
+ User apuig
+
+Host pacha
+ HostName 192.168.0.1
+ User albert
+
+Host pachaw
+ HostName 192.168.1.2
+ User albert
+
+Host coccon
+ HostName 192.168.1.6
+ User albert
+
+Host casa
+ Hostname djkarras.mine.nu
+ User albert
+ ForwardX11 no
+ ForwardX11Trusted no
+ 
+Host lhcb08
+ HostName lhcb08.ecm.ub.es
+ User albert
+
+Host lhcb09
+ HostName lhcb09.ecm.ub.es
+ User apuig
+
+Host lhcb12
+ HostName lhcb12.ecm.ub.es
+ User apuig
+
+Host lhcb19
+ HostName lhcb19.ecm.ub.es
+ User apuig
+
+Host lhcb02
+ HostName lhcb02.ecm.ub.es
+ User apuig
+
+Host lhcbsoft
+ HostName lhcb19
+ User lhcbsoft
+
+Host lcg-ce
+ HostName lcg-ce
+ User apuig
+
+Host tresor
+ HostName 192.168.0.2
+ User albert
+
+Host tresorw
+ HostName 192.168.1.8
+ User albert
+
+Host online
+ HostName lbgw
+ User apuignav
+
+Host router
+ HostName 192.168.1.1
+ User root
+
+Host porta
+  HostName porta.ecm.ub.es
+  User ecm2004
+
+Host cernvm
+  HostName 192.168.56.101
+  User apuignav
+
+Host svn.cern.ch
+  HostName svn.cern.ch
+  User apuignav
+  ForwardX11 no
+  ForwardX11Trusted no
+
+Host cernsvn
+  HostName svn.cern.ch
+  User apuignav
+  GSSAPIauthentication yes
+  GSSAPIDelegateCredentials yes
+  GSSAPITrustDns yes
+  ForwardX11 no
+  ForwardX11Trusted no
+
+Host raspi
+  HostName 192.168.2.10
+  User root
+  ForwardX11 no
+  ForwardX11Trusted no
+
+Host epfl
+  HostName lphe1dell1.epfl.ch
+  User puignava
+  ForwardX11Trusted yes
+  ForwardX11 yes
+
+Host epfla lphea lphe1
+  Hostname lphelc1a.epfl.ch
+  User apuignav
+  ForwardX11Trusted yes
+  ForwardX11 yes
+
+Host epflb lpheb lphe2
+  Hostname lphelc1b.epfl.ch
+  User apuignav
+  ForwardX11Trusted yes
+  ForwardX11 yes

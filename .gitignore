@@ -33,3 +33,9 @@ Session.vim
 # SASS
 # ----------------------------------------------------------------------------------------------
 .sass-cache
+
+# SSH
+ssh/ssh/id_dsa*
+ssh/ssh/environment*
+ssh/ssh/authorized_keys
+ssh/ssh/known_hosts
