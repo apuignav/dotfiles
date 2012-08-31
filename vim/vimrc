@@ -1,11 +1,11 @@
-set guifont=Monaco:h12
+  set guifont=Monaco:h11
 set nocompatible     " Disable vi-compatibility
 set laststatus=2     " Always show the statusline
 set encoding=utf-8   " Show unicode glyphs
 set number           " Show line numbers
 set esckeys          " Allow cursor keys in insert mode
 set ttyfast          " Optimize for fast terminal connections
-set gdefault         " Add the g flag to search/replace by default
+"set gdefault         " Add the g flag to search/replace by default
 set binary           " Don't add empty newlines at end of files
 set noeol            " Don't add empty newlines at end of files
 set background=dark  " Dark bg
@@ -154,6 +154,9 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 " Command to output an external command to a scratch buffer
 :command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
 
+" Remove highlighting after search
+nnoremap <leader><space> :noh<cr>
+
 " Configure latex-box
 let g:tex_fold_enabled=1
 let g:LatexBox_latexmk_options = '-pvc'
@@ -163,6 +166,7 @@ let g:LatexBox_autojump = 1
 "  execute "copen"
 "endfunction
 "nmap <leader>le :call MyLatexError()<CR>
+colorscheme jellybeans
 
 " GUI options
 if has("gui_running")
@@ -170,11 +174,9 @@ if has("gui_running")
   set mouse=a          " Enable mouse in all modes
   " Unicode powerline
   let g:Powerline_symbols="unicode"
-  colorscheme jellybeans
   "colorscheme badwolf
 endif
 if !has("gui_running")
-  colorscheme default
   hi LineNr cterm=NONE ctermfg=darkgray
   hi StatusLine cterm=bold ctermfg=black ctermbg=gray
   hi StatusLineNC cterm=bold ctermfg=darkgray ctermbg=gray
@@ -189,7 +191,6 @@ if !has("gui_running")
 endif
 
 if has('mac')
-  set shell=/usr/local/bin/zsh
   let g:LatexBox_viewer = 'open -a Preview'
 endif
 
