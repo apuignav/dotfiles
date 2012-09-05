@@ -129,7 +129,7 @@ nmap <leader>s :call ToggleSpell()<CR>
 " Supertab config
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-set completeopt=menu
+set completeopt=menuone,longest
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
@@ -196,6 +196,13 @@ endif
 
 " Install from GitHub
 let $GIT_SSL_NO_VERIFY = 'true'
+
+" Python stuff
+au FileType python set omnifunc=pythoncomplete#Complete
+
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These are files we are not likely to want to edit or read.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.class
 
 " Set expandtab in the end
 set expandtab
