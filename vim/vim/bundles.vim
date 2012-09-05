@@ -31,6 +31,7 @@ Bundle 'scrooloose/nerdtree'
 "Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sgur/ctrlp-extensions.vim'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'pydoc.vim'
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
