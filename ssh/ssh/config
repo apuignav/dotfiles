@@ -205,3 +205,10 @@ Host epflb lpheb lphe2
   User apuignav
   ForwardX11Trusted yes
   ForwardX11 yes
+
+Host lphelab epfllab
+  Hostname lphe1pc68
+  User albert
+  ForwardX11Trusted yes
+  ForwardX11 yes
+
