@@ -1,6 +1,6 @@
 function mykinit() {
   passwd=`cat $HOME/.auth`
-  python -c "import subprocess; p=subprocess.Popen(['kinit', 'apuignav'], stdin=subprocess.PIPE, stdout=subprocess.PIPE);stdout=p.communicate(\"$passwd\")[0]"
+  python -c "import subprocess; p=subprocess.Popen(['kinit', '--server=CERN.CH', 'apuignav'], stdin=subprocess.PIPE, stdout=subprocess.PIPE);stdout=p.communicate(\"$passwd\")[0]"
   unset passwd
 }
 
