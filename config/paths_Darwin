@@ -1,13 +1,13 @@
 # Variables
 export BREW=`brew --prefix`
 export TERM=xterm-256color
-export EDITOR="vim"
-export GIT_EDITOR="vim"
+export EDITOR=$BREW/bin/mvim
+export GIT_EDITOR=$BREW/bin/mvim
 export UNISONLOCALHOSTNAME=dc10
 export OS=Darwin
 export MANPATH=$MANPATH:$BREW/man
-export ROOTSYS=/usr/local/root
-export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r17
+export ROOTSYS=$(brew --prefix root)
+export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
 # Path games
 NEW_LD_LIBRARY_PATH=$ROOTSYS/lib:$BREW/lib:/usr/lib
 if [ -z "${LD_LIBRARY_PATH}" ]; then
@@ -16,14 +16,14 @@ else
   LD_LIBRARY_PATHi+=$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
 fi
 # PATH
-NEW_PATH=/Library/Frameworks/Python.framework/Versions/Current/bin/:$BREW/bin:$BREW/sbin:$ROOTSYS/bin
+NEW_PATH=$BREW/bin:$BREW/sbin:$ROOTSYS/bin:/usr/local/share/python
 if [ -z "${PATH}" ]; then
   PATH=$NEW_PATH; export PATH
 else
   PATH=$NEW_PATH:$PATH; export PATH
 fi
 # PYTHONPATH
-NEW_PYTHONPATH=$BREW/lib:$ROOTSYS/lib:/Users/albert/Arxiu/Fisica/LHCb/Projectes 
+NEW_PYTHONPATH=$BREW/lib:$ROOTSYS/lib/root:/Users/albert/Arxiu/Fisica/LHCb/Projectes 
 if [ -z "${PYTHONPATH}" ]; then
   PYTHONPATH=$NEW_PYTHONPATH; export PYTHONPATH
 else

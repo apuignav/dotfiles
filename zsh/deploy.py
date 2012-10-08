@@ -10,7 +10,7 @@ if os.path.isdir( omzDir ):
 else:
   os.environ[ "GIT_SSL_NO_VERIFY"] = "true"
 
-  if os.system( "git clone https://github.com/acasajus/oh-my-zsh.git %s" % omzDir ) != 0:
+  if os.system( "git clone https://github.com/apuignav/oh-my-zsh.git %s" % omzDir ) != 0:
     print "Cound not clone oh-my-zsh into %s" % omzDir
     sys.exit( 1 )
 
