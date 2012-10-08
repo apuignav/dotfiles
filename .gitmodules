@@ -1,0 +1,9 @@
+[submodule "scripts/bin/106620-hack"]
+	path = scripts/bin/106620-hack
+	url = git://gist.github.com/106620.git
+[submodule "scripts/bin/106621-ship"]
+	path = scripts/bin/106621-ship
+	url = git://gist.github.com/106621.git
+[submodule "scripts/bin/406262-chop"]
+	path = scripts/bin/406262-chop
+	url = git://gist.github.com/406262.git
