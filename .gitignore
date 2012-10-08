@@ -30,6 +30,7 @@ tags
 *.un~
 Session.vim
 vim/vim/bundle
+vim/vim/yankring_history
 
 # SASS
 # ----------------------------------------------------------------------------------------------
