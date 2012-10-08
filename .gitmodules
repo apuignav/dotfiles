@@ -1,10 +1,3 @@
-
-[submodule "scripts/bin/3852387-chop"]
-	path = scripts/bin/3852387-chop
-	url = git@github.com:3852387.git
-[submodule "scripts/bin/3852405-hack"]
-	path = scripts/bin/3852405-hack
-	url = git@github.com:3852405.git
-[submodule "scripts/bin/3852401-ship"]
-	path = scripts/bin/3852401-ship
-	url = git@github.com:3852401.git
+[submodule "scripts/bin/git-hack-ship-chop"]
+	path = scripts/bin/git-hack-ship-chop
+	url = git@gist.github.com:132be8a5a21dae863481.git
