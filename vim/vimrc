@@ -69,7 +69,9 @@
             Bundle 'matchit.zip'
             Bundle 'Lokaltog/vim-powerline'
             Bundle 'Lokaltog/vim-easymotion'
-            Bundle 'godlygeek/csapprox'
+            if has('gui')
+                Bundle 'godlygeek/csapprox'
+            endif
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
             Bundle 'corntrace/bufexplorer'
@@ -525,7 +527,7 @@
      " }
 
      " MRU {
-        let MRU_Max_Entries = 400
+        let MRU_Max_Entries = 10
         map <leader>f :MRU<CR>
      " }
 
