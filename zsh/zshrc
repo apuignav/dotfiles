@@ -49,8 +49,10 @@ do
   [[ -d "$d" ]] && export PATH="$d:$PATH"
 done
 
-# Last minute vinding
+# Last minute binding
 bindkey "^[[3~" delete-char
+
+cdpath=(~)
 
 unsetopt SHARE_HISTORY
 unsetopt AUTO_NAME_DIRS      # Auto add variable-stored paths to ~ list.
