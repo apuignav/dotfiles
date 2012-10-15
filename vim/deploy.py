@@ -23,6 +23,7 @@ for dName in ( "backups", "swaps", "undo" ):
   if not os.path.isdir( dName ):
     os.makedirs( dName )
 
-os.system("git clone http://github.com/gmarik/vundle.git $HOME/dotfiles/vim/vim/bundle/vundle")
+if not os.path.exists(os.path.expandvars('$HOME/dotfiles/vim/vim/bundle/vundle')):
+    os.system("git clone http://github.com/gmarik/vundle.git $HOME/dotfiles/vim/vim/bundle/vundle")
 os.system("vim +BundleInstall +qall")
-os.system("mkdir vim/yankring_history")
+#os.system("mkdir vim/yankring_history")
