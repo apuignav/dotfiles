@@ -21,6 +21,8 @@ for link, target in ( ( ".ssh", os.path.join( here, "ssh" ) ) , ):
           shutil.copy(fName, fName.replace('.bak',''))
       shutil.rmtree(link+'.bak')
   print "Fixing permissions of ssh folder"
-  os.system('chmod 755 ssh')
+  os.system('chmod 700 .')
+  os.system('chmod 700 ssh')
   os.system('chmod 644 ssh/*')
   os.system('chmod 600 ssh/id_dsa')
+  os.system('chmod 600 ssh/authorized_keys')
