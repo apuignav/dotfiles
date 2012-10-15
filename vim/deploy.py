@@ -24,4 +24,5 @@ for dName in ( "backups", "swaps", "undo" ):
     os.makedirs( dName )
 
 os.system("git clone http://github.com/gmarik/vundle.git $HOME/dotfiles/vim/vim/bundle/vundle")
-os.system( "vim +BundleInstall +qall" )
+os.system("vim +BundleInstall +qall")
+os.system("mkdir vim/yankring_history")

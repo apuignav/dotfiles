@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import glob
 import shutil
 here = os.path.dirname( __file__ )
 
@@ -12,8 +13,14 @@ for link, target in ( ( ".ssh", os.path.join( here, "ssh" ) ) , ):
       if os.readlink( link ) == target:
         continue
     if os.path.isdir( link ):
-      shutil.rmtree( link )
-    else:
-      os.unlink( link )
+      shutil.move( link, link+'.bak' )
   print "Linking %s -> %s" % ( link, target )
   os.symlink( target, link )
+  if os.path.exists( link+'.bak' ):
+      for fName in glob.glob(link+'.bak/*'):
+          shutil.copy(fName, fName.replace('.bak',''))
+      shutil.rmtree(link+'.bak')
+  print "Fixing permissions of ssh folder"
+  os.system('chmod 755 ssh')
+  os.system('chmod 644 ssh/*')
+  os.system('chmod 600 ssh/id_dsa')
