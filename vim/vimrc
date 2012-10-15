@@ -30,6 +30,7 @@
     " Deps
         Bundle 'gmarik/vundle'
         "Bundle 'vim-scripts/YankRing.vim'
+        Bundle 'maxbrunsfeld/vim-yankstack'
         Bundle 'MarcWeber/vim-addon-mw-utils'
         Bundle 'tomtom/tlib_vim'
         if executable('ack-grep')
@@ -184,7 +185,7 @@
 
 " Vim UI {
     colorscheme jellybeans
-    highlight PmenuSel ctermbg=7 guibg=DarkBlue guifg=White
+    highlight PmenuSel ctermfg=White ctermbg=DarkBlue guibg=DarkBlue guifg=White
     set tabpagemax=15               " only show 15 tabs
     set showmode                    " display the current mode
     set title            " Show the filename in the window titlebar
@@ -520,10 +521,11 @@
           \ }
      "}
 
-     " YankRing {
-        "let g:yankring_history_dir = "$HOME/.vim/yankring_history"
-        "map <leader>y :YRShow<CR>
-        "let g:yankring_zap_keys = ''
+     " YankStack {
+        nmap <leader>p <Plug>yankstack_substitute_older_paste 
+        nmap <leader>P <Plug>yankstack_substitute_older_paste 
+        map <leader>y :Yanks<CR>
+        call yankstack#setup()
      " }
 
      " MRU {
