@@ -29,7 +29,7 @@
 " Bundles {
     " Deps
         Bundle 'gmarik/vundle'
-        Bundle 'vim-scripts/YankRing.vim'
+        "Bundle 'vim-scripts/YankRing.vim'
         Bundle 'MarcWeber/vim-addon-mw-utils'
         Bundle 'tomtom/tlib_vim'
         if executable('ack-grep')
@@ -521,9 +521,9 @@
      "}
 
      " YankRing {
-        let g:yankring_history_dir = "$HOME/.vim/yankring_history"
-        map <leader>y :YRShow<CR>
-        let g:yankring_zap_keys = ''
+        "let g:yankring_history_dir = "$HOME/.vim/yankring_history"
+        "map <leader>y :YRShow<CR>
+        "let g:yankring_zap_keys = ''
      " }
 
      " MRU {
