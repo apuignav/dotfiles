@@ -642,6 +642,11 @@ endfunction
     endif
 " }
 
+" Source the vimrc file after saving it
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 " Install from GitHub
 let $GIT_SSL_NO_VERIFY = 'true'
 
