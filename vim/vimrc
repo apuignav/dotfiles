@@ -508,6 +508,7 @@
         let g:pymode_lint_message=1
         let g:pymode_lint_write=0
         map <leader>c :PyLint<CR>
+        map <leader>pd :Pydoc <c-r>=expand("<cword>")<CR><CR>
      " }
 
      " ctrlp {
