@@ -11,7 +11,7 @@ def getSystemType():
 for link, target in ( ( ".aliases", os.path.join( here, "aliases_" + getSystemType()  ) ), ( ".paths", os.path.join( here, "paths_" +
   getSystemType()) ) ):
   target = os.path.realpath( target )
-  link = os.path.expanduser( os.path.join( "~", link ) ) 
+  link = os.path.expanduser( os.path.join( "~", link ) )
   if os.path.exists( link ):
     if os.path.islink( link ):
       if os.readlink( link ) == target:
@@ -23,9 +23,12 @@ for link, target in ( ( ".aliases", os.path.join( here, "aliases_" + getSystemTy
   print "Linking %s -> %s" % ( link, target )
   os.symlink( target, link )
 
+if getSystemType() == 'Darwin':
+    os.system("defaults write com.apple.Dock showhidden -bool YES && killall Dock")
+
 for link, target in ( ( ".latex.mk", os.path.join( here, "latex.mk" ) ), ( ".functions", os.path.join( here, "functions" ) ) ):
   target = os.path.realpath( target )
-  link = os.path.expanduser( os.path.join( "~", link ) ) 
+  link = os.path.expanduser( os.path.join( "~", link ) )
   if os.path.exists( link ):
     if os.path.islink( link ):
       if os.readlink( link ) == target:
