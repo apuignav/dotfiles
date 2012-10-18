@@ -3,7 +3,7 @@
         "The default leader is '\', but many people prefer ',' as it's in a standard
         "location
         let mapleader = ','
-        let localmapleader = ','
+        "let localmapleader = ','
 
         set nocompatible        " must be first line
         set background=dark     " Assume a dark background
@@ -86,6 +86,9 @@
         if count(g:bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
+            if version < 710
+                let g:syntastic_enable_highlighting = 0
+            endif
             Bundle 'garbas/vim-snipmate'
             Bundle 'apuignav/snipmate-snippets'
             " Source support_function.vim to support snipmate-snippets.
@@ -93,7 +96,9 @@
                 source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
             endif
             Bundle 'tpope/vim-fugitive'
-            Bundle 'scrooloose/nerdcommenter'
+            if version > 710
+                Bundle 'scrooloose/nerdcommenter'
+            endif
             Bundle 'godlygeek/tabular'
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
