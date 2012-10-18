@@ -86,7 +86,7 @@
         if count(g:bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
-            if version < 710
+            if version < 702
                 let g:syntastic_enable_highlighting = 0
             endif
             Bundle 'garbas/vim-snipmate'
@@ -96,7 +96,7 @@
                 source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
             endif
             Bundle 'tpope/vim-fugitive'
-            if version > 710
+            if version > 701
                 Bundle 'scrooloose/nerdcommenter'
             endif
             Bundle 'godlygeek/tabular'
