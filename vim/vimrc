@@ -243,7 +243,7 @@
 " }
 
 " Formatting {
-    set nowrap                      " wrap long lines
+    "set nowrap                      " wrap long lines
     set autoindent                  " indent at the same level of the previous line
     set shiftwidth=4                " use indents of 4 spaces
     set expandtab                   " tabs are spaces, not tabs
@@ -502,13 +502,16 @@
      " }
 
      " PyMode {
+       " Disable if python support not present
+        if !has('python')
+           let g:pymode = 1
+        endif
         let g:pymode_lint_checker = "pyflakes"
         let g:pymode_rope=0
         let g:pymode_lint=0
         let g:pymode_lint_message=1
         let g:pymode_lint_write=0
         map <leader>c :PyLint<CR>
-        map <leader>pd :Pydoc <c-r>=expand("<cword>")<CR><CR>
      " }
 
      " ctrlp {
@@ -538,14 +541,6 @@
         nnoremap <silent> <leader>tt :TagbarToggle<CR>
         let g:tagbar_usearrows = 1
      "}
-
-     " PythonMode {
-     " Disable if python support not present
-        if !has('python')
-           let g:pymode = 1
-        endif
-        "autocmd BufWrite *.py :call StripWhitespace()
-     " }
 
      " Fugitive {
         nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -642,11 +637,6 @@ endfunction
         endif
     endif
 " }
-
-" Source the vimrc file after saving it
-if has("autocmd")
-    autocmd bufwritepost .vimrc source $MYVIMRC
-endif
 
 " Install from GitHub
 let $GIT_SSL_NO_VERIFY = 'true'
