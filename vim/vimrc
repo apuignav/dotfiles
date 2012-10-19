@@ -78,7 +78,7 @@
             Bundle 'corntrace/bufexplorer'
             Bundle 'mbbill/undotree'
             "Bundle 'myusuf3/numbers.vim'
-            Bundle 'vim-scripts/mru.vim'
+            "Bundle 'vim-scripts/mru.vim'
             Bundle 'vim-scripts/bufkill.vim'
         endif
 
@@ -522,6 +522,7 @@
      " ctrlp {
         let g:ctrlp_working_path_mode = 0
         let g:ctrlp_map = '<c-f>'
+        let g:ctrlp_cmd = 'CtrlPMRUFiles'
         map <c-b> :CtrlPBuffer<cr>
         let g:ctrlp_max_height = 20
         let g:ctrlp_custom_ignore = {
@@ -535,11 +536,6 @@
         nmap <leader>P <Plug>yankstack_substitute_older_paste 
         map <leader>y :Yanks<CR>
         call yankstack#setup()
-     " }
-
-     " MRU {
-        let MRU_Max_Entries = 10
-        map <leader>f :MRU<CR>
      " }
 
      " TagBar {
