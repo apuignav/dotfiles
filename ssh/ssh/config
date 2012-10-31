@@ -2,7 +2,6 @@ Protocol 2
 ServerAliveInterval 300
 ForwardX11 yes
 ForwardX11Trusted yes
-GSSAPIKeyExchange no
 
 Host space
  HostName 192.168.0.3
@@ -26,21 +25,18 @@ Host cern
  User apuignav
  GSSAPIauthentication yes
  GSSAPIDelegateCredentials yes
- GSSAPITrustDns yes
 
 Host cerncvs
  HostName isscvs.cern.ch
  User apuignav
  GSSAPIauthentication yes
  GSSAPIDelegateCredentials yes
- GSSAPITrustDns yes
 
 Host svn.cern.ch
  HostName svn.cern.ch
  User apuignav
  GSSAPIauthentication yes
  GSSAPIDelegateCredentials yes
- GSSAPITrustDns yes
 
 Host cerntunnel
  Hostname lxplus.cern.ch
@@ -48,7 +44,6 @@ Host cerntunnel
  LocalForward 2222 lbgw02.cern.ch:22
  GSSAPIauthentication yes
  GSSAPIDelegateCredentials yes
- GSSAPITrustDns yes
 
 Host onlinetunnel
  Hostname localhost
@@ -178,7 +173,6 @@ Host cernsvn
   User apuignav
   GSSAPIauthentication yes
   GSSAPIDelegateCredentials yes
-  GSSAPITrustDns yes
   ForwardX11 no
   ForwardX11Trusted no
 
