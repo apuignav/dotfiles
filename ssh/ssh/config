@@ -182,8 +182,8 @@ Host raspi
   ForwardX11 no
   ForwardX11Trusted no
 
-Host epfl
-  HostName lphe1dell1.epfl.ch
+Host epfl lphe
+  HostName lphe.epfl.ch
   User puignava
   ForwardX11Trusted yes
   ForwardX11 yes
