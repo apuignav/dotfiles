@@ -31,8 +31,6 @@
         Bundle 'gmarik/vundle'
         "Bundle 'vim-scripts/YankRing.vim'
         Bundle 'maxbrunsfeld/vim-yankstack'
-        Bundle 'MarcWeber/vim-addon-mw-utils'
-        Bundle 'tomtom/tlib_vim'
         if executable('ack-grep')
             let g:ackprg="ack-grep -H --nocolor --nogroup --column"
             Bundle 'mileszs/ack.vim'
@@ -49,7 +47,7 @@
     " In your .vimrc.bundles.local file"
     " list only the plugin groups you will use
     if !exists('g:bundle_groups')
-        let g:bundle_groups=['general', 'programming', 'python', 'misc']
+        let g:bundle_groups=['general', 'programming', 'python', 'misc', 'snipmate']
     endif
 
     " To override all the included bundles, put
@@ -89,12 +87,6 @@
             if version < 702
                 let g:syntastic_enable_highlighting = 0
             endif
-            Bundle 'garbas/vim-snipmate'
-            Bundle 'apuignav/snipmate-snippets'
-            " Source support_function.vim to support snipmate-snippets.
-            if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
-                source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
-            endif
             Bundle 'tpope/vim-fugitive'
             if version > 701
                 Bundle 'scrooloose/nerdcommenter'
@@ -130,6 +122,19 @@
             "Bundle 'spf13/vim-preview'
             Bundle 'LaTeX-Box-Team/LaTeX-Box'
             Bundle 'ervandew/supertab'
+        endif
+
+    " Snipmate
+        if count(g:bundle_groups, 'snipmate')
+            Bundle 'MarcWeber/vim-addon-mw-utils'
+            Bundle 'tomtom/tlib_vim'
+            Bundle 'garbas/vim-snipmate'
+            Bundle 'apuignav/snipmate-snippets'
+            " Source support_function.vim to support snipmate-snippets.
+            if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
+                source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
+            endif
+
         endif
 
     endif
