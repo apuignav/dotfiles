@@ -462,8 +462,8 @@
         let NERDTreeQuitOnOpen=1
         let NERDTreeShowHidden=0
         let NERDTreeKeepTreeInNewTab=1
-        autocmd vimenter * if !argc() | NERDTree | endif " Open NERDTree if vim is opened without any file
-        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if NERDTree is the only thing opened
+        "autocmd vimenter * if !argc() | NERDTree | endif " Open NERDTree if vim is opened without any file
+        "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if NERDTree is the only thing opened
     " }
 
     " Tabularize {
