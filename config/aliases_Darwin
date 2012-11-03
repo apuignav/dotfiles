@@ -10,3 +10,6 @@ alias vim='mvim'
 alias cvim='/usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/MacOS/Vim'
 alias istatRestart='rm -f ~/Library/Preferences/com.bjango.istatmenus.plist && killall SystemUIServer'
 alias cleanDsStore='find . -type f -name "*.DS_Store" -ls -delete'
+# Alias for git workflow
+alias hsc="hack&&ship&&chop"
+

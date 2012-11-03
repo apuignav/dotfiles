@@ -4,7 +4,7 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
+unset LD_LIBRARY_PATH
 # Set the path to Oh My Zsh.
 export OMZ="$HOME/.oh-my-zsh"
 
@@ -61,9 +61,6 @@ unsetopt CLOBBER             # Don't overwrite existing files with > and >>
 unsetopt PATH_DIRS           # Perform path search even on command names with slashes.
 unsetopt FLOW_CONTROL        # Allow C-s and C-q to stop/start the terminal flow
 
-# Alias for git workflow
-alias hsc="hack&&ship&&chop"
-
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.paths ]] && source ~/.paths
 [[ -f ~/.functions ]] && source ~/.functions
@@ -78,8 +75,8 @@ if [ "`uname`" = "Darwin" ]; then
 fi
 
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # EOF
