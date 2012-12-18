@@ -6,10 +6,18 @@ alias locateupdate='sudo /usr/libexec/locate.updatedb'
 alias dhcpserver='ipconfig getoption en0 server_identifier'
 alias smc='/Applications/smcFanControl.app/Contents/Resources/smc'
 alias reloadEthernet='sudo kextunload /System/Library/Extensions/IONetworkingFamily.kext/Contents/PlugIns/AppleYukon2.kext;sudo kextload /System/Library/Extensions/IONetworkingFamily.kext/Contents/PlugIns/AppleYukon2.kext'
-alias vim='mvim'
+#alias vim='open -a MacVim' 
 alias cvim='/usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/MacOS/Vim'
 alias istatRestart='rm -f ~/Library/Preferences/com.bjango.istatmenus.plist && killall SystemUIServer'
 alias cleanDsStore='find . -type f -name "*.DS_Store" -ls -delete'
 # Alias for git workflow
-alias hsc="hack&&ship&&chop"
+alias hsc='hack&&ship&&chop'
+alias backupMP3='rsync -aE --delete --progress MP3/ /Volumes/RaspiHD/Music'
 
+function vim() {
+    if [ -f $1 ]; then
+        open -a MacVim $1
+    else
+        mvim $1
+    fi
+}
