@@ -39,6 +39,10 @@
 
     #remotes
     upr = remote update --prune
+
+    #Other
+    master = checkout master
+    rollback = reset --hard HEAD@{1}
     
 [format]
     pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
