@@ -42,6 +42,8 @@ zstyle ':omz:module:prompt' theme 'apuignav'
 # This will make you shout: OH MY ZSHELL!
 source "$OMZ/init.zsh"
 
+autoload zmv
+
 # Customize to your needs...
 
 for d in /usr/local/mysql/bin $HOME/bin
