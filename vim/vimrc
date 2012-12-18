@@ -3,7 +3,7 @@
         "The default leader is '\', but many people prefer ',' as it's in a standard
         "location
         let mapleader = ','
-        "let localmapleader = ','
+        let maplocalleader = ','
 
         set nocompatible        " must be first line
         set background=dark     " Assume a dark background
@@ -407,6 +407,8 @@
     
     " SuperTab {
       let g:SuperTabDefaultCompletionType = "context"
+      let g:SuperTabContextTextFileTypeExclusions = ['tex']
+      let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
     " }
 
     " OmniComplete {
@@ -448,6 +450,7 @@
         " Setting the author var
         " If forking, please overwrite in your .vimrc.local file
         let g:snips_author = 'Albert Puig (albert.puig@epfl.ch)'
+        let g:snips_trigger_key = '<tab>'
     " }
 
     " NerdTree {
@@ -646,6 +649,12 @@ let $GIT_SSL_NO_VERIFY = 'true'
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.class,.pdf
+
+" ROOT Ctags
+"set tags+=~/.vim/tags/root.tags
+"let g:syntastic_cpp_include_dirs += '/usr/local/opt/root/include'
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['cpp'] }
+
 
 " Set expandtab in the end
 set expandtab
