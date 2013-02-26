@@ -1,3 +1,6 @@
 [submodule "scripts/bin/git-hack-ship-chop"]
 	path = scripts/bin/git-hack-ship-chop
 	url = git@gist.github.com:132be8a5a21dae863481.git
+[submodule "scripts/bin/git-rebase-upstream"]
+	path = scripts/bin/git-rebase-upstream
+	url = https://gist.github.com/5038654.git
