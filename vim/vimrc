@@ -114,7 +114,7 @@
             Bundle 'python.vim'
             Bundle 'python_match.vim'
             Bundle 'pythoncomplete'
-            Bundle 'mkomitee/vim-gf-python'
+            "Bundle 'mkomitee/vim-gf-python'
         endif
 
     " Ruby
@@ -388,6 +388,9 @@
     " Easier horizontal scrolling
     map zl zL
     map zh zH
+
+    " Map gf to open a new tab
+    map gf :wincmd gf<CR>
 " }
 
 " Plugins {
