@@ -114,7 +114,7 @@
             Bundle 'python.vim'
             Bundle 'python_match.vim'
             Bundle 'pythoncomplete'
-            "Bundle 'mkomitee/vim-gf-python'
+            Bundle 'apuignav/vim-gf-python'
         endif
 
     " Ruby
@@ -390,7 +390,7 @@
     map zh zH
 
     " Map gf to open a new tab
-    map gf :wincmd gf<CR>
+    "map gf :wincmd gf<CR>
 " }
 
 " Plugins {
