@@ -105,11 +105,12 @@
             endif
             Bundle 'michaeljsmith/vim-indent-object'
             Bundle 'vim-scripts/argtextobj.vim'
+            Bundle 'vim-scripts/swap-parameters.git'
         endif
 
     " Python
         if count(g:bundle_groups, 'python')
-            " Pick either python-mode or pyflakes & pydoc
+            Bundle 'davidhalter/jedi-vim'
             Bundle 'klen/python-mode'
             Bundle 'python.vim'
             Bundle 'python_match.vim'
@@ -131,6 +132,7 @@
             "Bundle 'spf13/vim-preview'
             Bundle 'LaTeX-Box-Team/LaTeX-Box'
             Bundle 'ervandew/supertab'
+            Bundle 'vim-scripts/cern_root.vim'
         endif
 
     endif
@@ -436,7 +438,8 @@
 
         " automatically open and close the popup menu / preview window
         au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-        set completeopt=menu,preview,longest
+        "set completeopt=menu,preview,longest
+        set completeopt=menu,longest
     " }
 
     " Ctags {
@@ -514,16 +517,32 @@
      " }
 
      " PyMode {
+       " Doc: https://github.com/klen/python-mode 
        " Disable if python support not present
         if !has('python')
            let g:pymode = 1
         endif
+        " Syntax checling
+        "let g:pymode_lint_checker = "pyflakes,pep8"
         let g:pymode_lint_checker = "pyflakes"
         let g:pymode_rope=0
-        let g:pymode_lint=0
+        let g:pymode_lint=1
+        " Don't open error window
+        let g:pymode_lint_cwindow = 0
         let g:pymode_lint_message=1
         let g:pymode_lint_write=0
-        map <leader>c :PyLint<CR>
+        map <leader>l :PyLint<CR>
+        " Load motion
+        let g:pymode_motion = 1
+        " Highlight "print" as function
+        let g:pymode_syntax_print_as_function = 1
+     " }
+     " Jedi-Vim {
+        let g:jedi#popup_on_dot = 0
+        let g:jedi#auto_vim_configuration = 0
+        let g:jedi#show_function_definition = "0"
+        let g:jedi#popup_select_first = 1
+        let g:jedi#autocompletion_command = "<Tab>"
      " }
 
      " ctrlp {
@@ -655,9 +674,15 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 
 " ROOT Ctags
 "set tags+=~/.vim/tags/root.tags
-"let g:syntastic_cpp_include_dirs += '/usr/local/opt/root/include'
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['cpp'] }
+let g:syntastic_cpp_include_dirs = ['/usr/local/opt/root/include/root/']
+let g:syntastic_quiet_warnings=0
+"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['cpp'] }
+let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_python_checkers=['']
 
 
 " Set expandtab in the end
 set expandtab
+
+" EOF
+"
