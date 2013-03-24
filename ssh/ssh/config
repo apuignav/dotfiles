@@ -127,7 +127,7 @@ Host casa
  User albert
  ForwardX11 no
  ForwardX11Trusted no
- 
+
 Host lhcb08
  HostName lhcb08.ecm.ub.es
  User albert
@@ -206,7 +206,7 @@ Host cernsvn svn.cern.ch
   ForwardX11Trusted no
 
 Host raspi
-  HostName 192.168.0.20
+  HostName 192.168.1.120
   User pi
   ForwardX11 no
   ForwardX11Trusted no
