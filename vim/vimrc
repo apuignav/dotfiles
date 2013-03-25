@@ -476,8 +476,16 @@
     " }
 
     " Tabularize {
-        nmap <Leader>a= :Tabularize /=<CR>
-        vmap <Leader>a= :Tabularize /=<CR>
+        function! CustomTabularPatterns()
+            if exists('g:tabular_loaded')
+                AddTabularPattern! eq              /^[^=]*\zs=/l1c1l1
+                AddTabularPattern! chunks          / \S\+/l0
+            endif
+        endfunction
+        autocmd VimEnter * call CustomTabularPatterns()
+        " some shortcuts
+        nmap <Leader>a= :Tabularize eq<CR>
+        vmap <Leader>a= :Tabularize eq<CR>
         nmap <Leader>a: :Tabularize /:<CR>
         vmap <Leader>a: :Tabularize /:<CR>
         nmap <Leader>a:: :Tabularize /:\zs<CR>
@@ -486,6 +494,7 @@
         vmap <Leader>a, :Tabularize /,<CR>
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+
 
         " The following function automatically aligns when typing a
         " supported character
