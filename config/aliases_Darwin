@@ -13,11 +13,16 @@ alias cleanDsStore='find . -type f -name "*.DS_Store" -ls -delete'
 # Alias for git workflow
 alias hsc='hack&&ship&&chop'
 alias backupMP3='rsync -aE --delete --progress MP3/ /Volumes/RaspiHD/Music'
+alias backupRadiative='rsync --delete -avPe ssh lphea:/panasas/radiative /Volumes/HAL/LHCb/.'
+alias backupSciFi='rsync --delete -avPe ssh lphea:/panasas/scifi_testbeam /Volumes/HAL/LHCb/SciFi/TestBeam/.'
+# Quick way to rebuild the Launch Services database and get rid of duplicates in the Open With submenu.
+# http://www.leancrew.com/all-this/2013/02/getting-rid-of-open-with-duplicates/
+alias fixOpenWith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
 function vim() {
     if [ -f $1 ]; then
-        open -a MacVim $1
+        open -a MacVim $@
     else
-        mvim $1
+        mvim $@
     fi
 }
