@@ -4,3 +4,6 @@
 [submodule "scripts/bin/git-rebase-upstream"]
 	path = scripts/bin/git-rebase-upstream
 	url = https://gist.github.com/5038654.git
+[submodule "scripts/bin/lphe-ja.py"]
+	path = scripts/bin/lphe-ja.py
+	url = https://gist.github.com/5319479.git
