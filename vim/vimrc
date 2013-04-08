@@ -3,7 +3,7 @@
         "The default leader is '\', but many people prefer ',' as it's in a standard
         "location
         let mapleader = ','
-        "let localmapleader = ','
+        let maplocalleader = ','
 
         set nocompatible        " must be first line
         set background=dark     " Assume a dark background
@@ -97,16 +97,17 @@
             endif
             Bundle 'michaeljsmith/vim-indent-object'
             Bundle 'vim-scripts/argtextobj.vim'
+            Bundle 'vim-scripts/swap-parameters.git'
         endif
 
     " Python
         if count(g:bundle_groups, 'python')
-            " Pick either python-mode or pyflakes & pydoc
+            Bundle 'davidhalter/jedi-vim'
             Bundle 'klen/python-mode'
             Bundle 'python.vim'
             Bundle 'python_match.vim'
             Bundle 'pythoncomplete'
-            Bundle 'mkomitee/vim-gf-python'
+            Bundle 'apuignav/vim-gf-python'
         endif
 
     " Ruby
@@ -123,6 +124,7 @@
             "Bundle 'spf13/vim-preview'
             Bundle 'LaTeX-Box-Team/LaTeX-Box'
             Bundle 'ervandew/supertab'
+            Bundle 'vim-scripts/cern_root.vim'
         endif
 
     " Snipmate
@@ -393,6 +395,9 @@
     " Easier horizontal scrolling
     map zl zL
     map zh zH
+
+    " Map gf to open a new tab
+    "map gf :wincmd gf<CR>
 " }
 
 " Plugins {
@@ -412,6 +417,8 @@
     
     " SuperTab {
       let g:SuperTabDefaultCompletionType = "context"
+      "let g:SuperTabContextTextFileTypeExclusions = ['tex']
+      let g:SuperTabContextDefaultCompletionType = "<c-p>"
     " }
 
     " OmniComplete {
@@ -436,7 +443,8 @@
 
         " automatically open and close the popup menu / preview window
         au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-        set completeopt=menu,preview,longest
+        "set completeopt=menu,preview,longest
+        set completeopt=menu,longest
     " }
 
     " Ctags {
@@ -453,6 +461,7 @@
         " Setting the author var
         " If forking, please overwrite in your .vimrc.local file
         let g:snips_author = 'Albert Puig (albert.puig@epfl.ch)'
+        let g:snips_trigger_key = '<tab>'
     " }
 
     " NerdTree {
@@ -467,39 +476,45 @@
         let NERDTreeQuitOnOpen=1
         let NERDTreeShowHidden=0
         let NERDTreeKeepTreeInNewTab=1
-        autocmd vimenter * if !argc() | NERDTree | endif " Open NERDTree if vim is opened without any file
-        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if NERDTree is the only thing opened
+        "autocmd vimenter * if !argc() | NERDTree | endif " Open NERDTree if vim is opened without any file
+        "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if NERDTree is the only thing opened
     " }
 
     " Tabularize {
-        if exists(":Tabularize")
-          nmap <Leader>a= :Tabularize /=<CR>
-          vmap <Leader>a= :Tabularize /=<CR>
-          nmap <Leader>a: :Tabularize /:<CR>
-          vmap <Leader>a: :Tabularize /:<CR>
-          nmap <Leader>a:: :Tabularize /:\zs<CR>
-          vmap <Leader>a:: :Tabularize /:\zs<CR>
-          nmap <Leader>a, :Tabularize /,<CR>
-          vmap <Leader>a, :Tabularize /,<CR>
-          nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-          vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+        function! CustomTabularPatterns()
+            if exists('g:tabular_loaded')
+                AddTabularPattern! eq              /^[^=]*\zs=/l1c1l1
+                AddTabularPattern! chunks          / \S\+/l0
+            endif
+        endfunction
+        autocmd VimEnter * call CustomTabularPatterns()
+        " some shortcuts
+        nmap <Leader>a= :Tabularize eq<CR>
+        vmap <Leader>a= :Tabularize eq<CR>
+        nmap <Leader>a: :Tabularize /:<CR>
+        vmap <Leader>a: :Tabularize /:<CR>
+        nmap <Leader>a:: :Tabularize /:\zs<CR>
+        vmap <Leader>a:: :Tabularize /:\zs<CR>
+        nmap <Leader>a, :Tabularize /,<CR>
+        vmap <Leader>a, :Tabularize /,<CR>
+        nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+        vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
-          " The following function automatically aligns when typing a
-          " supported character
-          inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
-          function! s:align()
-              let p = '^\s*|\s.*\s|\s*$'
-              if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-                  let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-                  let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-                  Tabularize/|/l1
-                  normal! 0
-                  call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-              endif
-          endfunction
+        " The following function automatically aligns when typing a
+        " supported character
+        inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
-        endif
+        function! s:align()
+            let p = '^\s*|\s.*\s|\s*$'
+            if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+                let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+                let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+                Tabularize/|/l1
+                normal! 0
+                call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+            endif
+        endfunction
      " }
 
      " Session List {
@@ -513,16 +528,33 @@
      " }
 
      " PyMode {
+       " Doc: https://github.com/klen/python-mode 
        " Disable if python support not present
         if !has('python')
            let g:pymode = 1
         endif
-        let g:pymode_lint_checker = "pyflakes"
+        " Syntax checling
+        "let g:pymode_lint_checker = "pyflakes,pep8"
+        let g:pymode_lint_checker = "pylint"
         let g:pymode_rope=0
         let g:pymode_lint=0
+        " Don't open error window
+        let g:pymode_lint_cwindow = 0
         let g:pymode_lint_message=1
         let g:pymode_lint_write=0
-        map <leader>c :PyLint<CR>
+        let g:pymode_lint_signs=1
+        map <leader>l :PyLint<CR>
+        " Load motion
+        let g:pymode_motion = 1
+        " Highlight "print" as function
+        let g:pymode_syntax_print_as_function = 1
+     " }
+     " Jedi-Vim {
+        let g:jedi#popup_on_dot = 0
+        let g:jedi#auto_vim_configuration = 0
+        let g:jedi#show_function_definition = "0"
+        let g:jedi#popup_select_first = 1
+        "let g:jedi#autocompletion_command = "<Tab>"
      " }
 
      " ctrlp {
@@ -652,5 +684,18 @@ let $GIT_SSL_NO_VERIFY = 'true'
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.class,.pdf
 
+" ROOT Ctags
+"set tags+=~/.vim/tags/root.tags
+let g:syntastic_cpp_include_dirs = ['/usr/local/opt/root/include/root/']
+let g:syntastic_quiet_warnings=0
+"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['cpp'] }
+let g:syntastic_python_checkers=['pylint']
+let g:syntastic_python_checker_args = '--rcfile=~/.pylintrc'
+"let g:syntastic_python_checkers=['']
+
+
 " Set expandtab in the end
 set expandtab
+
+" EOF
+"

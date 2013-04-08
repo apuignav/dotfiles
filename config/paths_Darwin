@@ -10,14 +10,14 @@ export ROOTSYS=$(brew --prefix root)
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
 # Path games
 cdpath+=(~/Arxiu/Fisica/LHCb/Projectes)
-NEW_LD_LIBRARY_PATH=$ROOTSYS/lib:$BREW/lib:/usr/lib
+NEW_LD_LIBRARY_PATH=$ROOTSYS/lib/root:$BREW/lib:/usr/lib:/usr/local/cuda/lib
 if [ -z "${LD_LIBRARY_PATH}" ]; then
   LD_LIBRARY_PATH=$NEW_LD_LIBRARY_PATH; export LD_LIBRARY_PATH
 else
-  LD_LIBRARY_PATHi+=$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+  LD_LIBRARY_PATH+=$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
 fi
 # PATH
-NEW_PATH=$BREW/bin:$BREW/sbin:$ROOTSYS/bin:/usr/local/share/python
+NEW_PATH=$BREW/bin:$BREW/sbin:$ROOTSYS/bin:/usr/local/share/python:/usr/local/cuda/bin
 if [ -z "${PATH}" ]; then
   PATH=$NEW_PATH; export PATH
 else

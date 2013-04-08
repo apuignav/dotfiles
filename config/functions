@@ -1,14 +1,17 @@
 function mykinit() {
-  passwd=`cat $HOME/.auth`
-  python -c "import subprocess; p=subprocess.Popen(['kinit', '--server=CERN.CH', 'apuignav'], stdin=subprocess.PIPE, stdout=subprocess.PIPE);stdout=p.communicate(\"$passwd\")[0]"
-  unset passwd
+    passwd=`cat $HOME/.auth`
+    python -c "import subprocess; p=subprocess.Popen(['kinit', '--server=CERN.CH', 'apuignav'], stdin=subprocess.PIPE, stdout=subprocess.PIPE);stdout=p.communicate(\"$passwd\")[0]"
+    unset passwd
 }
 
 function h() { 
-  if [[ -z $1 ]]; then
-    history | grep $1
-  else
-    history
-  fi
+    if [[ -z $1 ]]; then
+        history | grep $1
+    else
+        history
+    fi
 }
 
+mkc () {
+    mkdir -p "$@" && cd "$@"
+}

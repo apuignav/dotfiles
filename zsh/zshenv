@@ -1,0 +1,2 @@
+#source $HOME/.paths
+[[ -f ~/.paths ]] && source ~/.paths

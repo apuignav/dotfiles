@@ -1,3 +1,9 @@
-[submodule "scripts/bin/git-hack-ship-chop"]
-	path = scripts/bin/git-hack-ship-chop
-	url = git@gist.github.com:132be8a5a21dae863481.git
+[submodule "scripts/gists/lphe-ja"]
+	path = scripts/gists/lphe-ja
+	url = https://gist.github.com/5319680.git
+[submodule "scripts/gists/git-rebase-upstream"]
+	path = scripts/gists/git-rebase-upstream
+	url = https://gist.github.com/5038654.git
+[submodule "scripts/gists/git-hack-ship-chop"]
+	path = scripts/gists/git-hack-ship-chop
+	url = https://gist.github.com/132be8a5a21dae863481.git
