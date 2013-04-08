@@ -23,21 +23,22 @@ def which(program):
 
     return None
 
-commands = ['chflags nohidden /Users/albert/Library']
-brewPackages = ['gfortran', 'python', 'ssh-copy-id', 'cmake', 'git', 'gsl', 'readline', 'tmux', 'wget', 'glib', 'gettext', 'ctags']
+if os.uname()[0] == 'Darwin':
+    commands = ['chflags nohidden /Users/albert/Library']
+    brewPackages = ['gfortran', 'python', 'ssh-copy-id', 'cmake', 'git', 'gsl', 'readline', 'tmux', 'wget', 'glib', 'gettext', 'ctags']
 
-for command in commands:
-    os.system(command)
+    for command in commands:
+        os.system(command)
 
-if not which('brew'): # Need to install homebrew!
-    os.system('ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"')
-    os.system('brew install {0}'.format(' '.join(brewPackages)))
-    os.system("""cd /System/Library/Frameworks/Python.framework/Versions &&
-                 sudo mv Current Current-sys &&
-                 sudo ln -s /usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7 Current &&
-                 brew install macvim &&
-                 sudo mv Current Current-brew &&
-                 sudo mv Current-sys Current""")
+    if not which('brew'): # Need to install homebrew!
+        os.system('ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"')
+        os.system('brew install {0}'.format(' '.join(brewPackages)))
+        os.system("""cd /System/Library/Frameworks/Python.framework/Versions &&
+                    sudo mv Current Current-sys &&
+                    sudo ln -s /usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7 Current &&
+                    brew install macvim &&
+                    sudo mv Current Current-brew &&
+                    sudo mv Current-sys Current""")
 
 
 # EOF
