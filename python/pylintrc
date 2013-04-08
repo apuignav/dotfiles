@@ -83,7 +83,7 @@ module-rgx=(([a-z][A-Za-z0-9]*)|([A-Z][a-zA-Z0-9]+))$
 
 # Regular expression which should only match correct module level names
 #const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__))$
-const-rgx=_?[a-z][A-Za-z0-9]{1,30}$
+const-rgx=_?[a-zA-Z][A-Za-z0-9]{1,30}$
 
 # Regular expression which should only match correct class names
 class-rgx=[A-Z_][a-zA-Z0-9]+$
@@ -166,7 +166,7 @@ ignore-mixin-members=yes
 
 # List of classes names for which member attributes should not be checked
 # (useful for classes with attributes dynamically set).
-ignored-classes=SQLObject
+ignored-classes=SQLObject,ROOT,Hist,Style
 
 # When zope mode is activated, add a predefined set of Zope acquired attributes
 # to generated-members.
