@@ -23,8 +23,10 @@ Host spaceprinter
 Host cern
  HostName lxplus.cern.ch
  User apuignav
- GSSAPIauthentication yes
+ PubkeyAuthentication no
+ GSSAPIAuthentication yes
  GSSAPIDelegateCredentials yes
+ StrictHostKeyChecking no
 
 Host cerncvs
  HostName isscvs.cern.ch
@@ -205,4 +207,10 @@ Host lphelab epfllab
   User albert
   ForwardX11Trusted yes
   ForwardX11 yes
+
+Host gitolite
+  Protocol 2
+  HostName lphelc1a.epfl.ch
+  User gitolite
+  IdentityFile ~/.ssh/id_dsa_git
 
