@@ -102,7 +102,9 @@
 
     " Python
         if count(g:bundle_groups, 'python')
-            Bundle 'davidhalter/jedi-vim'
+            if version > 701
+                Bundle 'davidhalter/jedi-vim'
+            endif
             Bundle 'klen/python-mode'
             Bundle 'python.vim'
             Bundle 'python_match.vim'
