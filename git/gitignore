@@ -56,3 +56,7 @@ Session.vim
 *.out
 *.synctex.gz
 
+# Python
+*.py[cod] 
+
+# EOF
