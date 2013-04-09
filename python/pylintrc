@@ -94,7 +94,7 @@ function-rgx=_?[a-z][A-Za-z0-9]{1,30}$
 
 # Regular expression which should only match correct method names
 #method-rgx=[a-z_][a-z0-9_]{2,30}$
-method-rgx=_?[a-z][A-Za-z0-9]{1,30}$
+method-rgx=_?[a-z_][A-Za-z0-9_]{1,30}$
 
 # Regular expression which should only match correct instance attribute names
 #attr-rgx=[a-z_][a-z0-9_]{2,30}$

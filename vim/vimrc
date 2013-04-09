@@ -693,7 +693,7 @@ let g:syntastic_quiet_warnings=0
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['cpp'] }
 let g:syntastic_python_checkers=['pylint']
 let g:syntastic_python_checker_args = '--rcfile=~/.pylintrc'
-"let g:syntastic_python_checkers=['']
+let g:syntastic_tex_checkers=['']
 
 
 " Set expandtab in the end
