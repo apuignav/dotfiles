@@ -15,3 +15,7 @@ function h() {
 mkc () {
     mkdir -p "$@" && cd "$@"
 }
+
+function sdu() {
+    du -sk $@ | sort -nr | cut -f2 | sed -e "s/^/\"/g;s/$/\"/g" | xargs du -sh
+}
