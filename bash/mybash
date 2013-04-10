@@ -1,0 +1,74 @@
+#!/bin/bash
+################################################################################
+# Exports
+################################################################################
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
+}
+
+export PYTHONSTARTUP=$HOME/.pythonrc
+# Todo: add date to prompt
+export PS1='\[\033[00;32m\]\u@\h\[\033[00m\]\[\033[00;31m\]$(parse_git_branch)\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\]\$ '
+export DARKRED_PROMPT='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\]\$ '
+export RED_PROMPT='\[\033[00;31m\]\u@\h\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\]\$ '
+export LIGHT_PROMPT='\[\033[00;34m\]\u@\h\[\033[00m\]:\[\033[00;31m\]\w\[\033[00m\]\$ '
+export PURPLE_PROMPT='\[\033[00;35m\]\u@\h\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\]\$ '
+export BROWN_PROMPT='\[\033[00;33m\]\u@\h\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\]\$ '
+if [ "$TERM" = screen ]; then
+  PS1=$RED_PROMPT
+fi
+
+# History stuff
+export HISTCONTROL=erasedups
+export HISTSIZE=10000
+shopt -s histappend
+export CVSEDITOR=vim
+export SVN_EDITOR=vim
+#export LSCOLORS=exfxcxdxbxegedabagacad
+export LSCOLORS=gxfxcxdxbxegedabagacad
+export LS_COLORS="di=00;34"
+
+################################################################################
+# Aliases
+################################################################################
+alias ls='ls -vh --color=auto'
+alias ll='ls -hl'
+alias scpresume='rsync --partial --progress --rsh=ssh --archive'
+alias grep='grep --color=auto'
+
+################################################################################
+# Other
+################################################################################
+complete -W "$(echo `cat $HOME/.ssh/config | grep "Host " | cut -d = -f 2`;)" ssh
+if test -d /home/apuignav/.unison; then
+  complete -W "$(echo `ls $HOME/.unison/*.prf | cut -d / -f 5 | cut -d . -f 1`;)" unison
+fi
+
+################################################################################
+# Functions
+################################################################################
+mykinit() { 
+  passwd=`cat $HOME/.auth`
+  python -c "import subprocess; p=subprocess.Popen(['kinit', '-f', '-l1d', 'apuignav'], stdin=subprocess.PIPE, stdout=subprocess.PIPE);stdout=p.communicate(\"$passwd\")[0]"
+  unset passwd
+}
+
+manview() { man -t $1 > /tmp/$1.ps; open /tmp/$1.ps; return; }
+homeconfupdate() { cd $HOME; svn update; source .bashrc; }
+function h() { 
+  if [ $1 ]; then
+    history | grep $1
+  else
+    history
+  fi }
+myscreen(){
+  if [ $1 ]; then
+    screen -S $1
+  else
+    screen
+  fi }
+
+light(){
+  PS1=$LIGHT_PROMPT
+  export LSCOLORS=""
+}
