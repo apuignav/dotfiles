@@ -2,7 +2,7 @@
 export BREW=`brew --prefix`
 export TERM=xterm-256color
 export EDITOR=$BREW/bin/mvim
-export GIT_EDITOR=$BREW/bin/mvim
+export GIT_EDITOR=vi
 export UNISONLOCALHOSTNAME=dc10
 export OS=Darwin
 export MANPATH=$MANPATH:$BREW/man
