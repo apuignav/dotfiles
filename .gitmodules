@@ -7,3 +7,6 @@
 [submodule "scripts/gists/git-hack-ship-chop"]
 	path = scripts/gists/git-hack-ship-chop
 	url = https://gist.github.com/132be8a5a21dae863481.git
+[submodule "scripts/gitinspector"]
+	path = scripts/gitinspector
+	url = https://code.google.com/p/gitinspector
