@@ -45,7 +45,7 @@
     dt = difftool
 
     #log
-     log = log --decorate --graph --date=short
+    log = log --decorate --graph --date=short
     l = log
     changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
     short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
@@ -64,6 +64,9 @@
 
     # SourceTree
     sourcetree = "!open -a SourceTree ."
+
+    # Git count lines
+    count-lines = "!git ls-files | grep -v externals | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr"
     
 [format]
     pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
@@ -93,5 +96,7 @@
 [push]
 	default = simple
 
-# EOF
+[core]
+	editor = vi
 
+# EOF
