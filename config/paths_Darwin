@@ -2,7 +2,7 @@
 export BREW=`brew --prefix`
 export TERM=xterm-256color
 export EDITOR=$BREW/bin/mvim
-export GIT_EDITOR=vi
+export GIT_EDITOR=vim
 export UNISONLOCALHOSTNAME=dc10
 export OS=Darwin
 export MANPATH=$MANPATH:$BREW/man
@@ -24,7 +24,7 @@ else
   PATH=$NEW_PATH:$PATH; export PATH
 fi
 # PYTHONPATH
-NEW_PYTHONPATH=$BREW/lib:$ROOTSYS/lib/root:/Users/albert/Arxiu/Fisica/LHCb/Projectes 
+NEW_PYTHONPATH=$BREW/lib:$ROOTSYS/lib/root:/Users/albert/Arxiu/Fisica/LHCb/Projectes:
 if [ -z "${PYTHONPATH}" ]; then
   PYTHONPATH=$NEW_PYTHONPATH; export PYTHONPATH
 else
