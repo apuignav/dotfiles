@@ -66,7 +66,7 @@
     sourcetree = "!open -a SourceTree ."
 
     # Git count lines
-    count-lines = "!git ls-files | grep -v externals | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr"
+    inspect = "!gitinspector -Hlmr -fC,cxx,dec,cc,hh,sh,java,c,cpp,h,hpp,py,glsl,rb,js,sql"
     
 [format]
     pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
