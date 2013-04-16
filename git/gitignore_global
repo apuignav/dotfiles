@@ -1,5 +1,6 @@
 # OSX       taken from: https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
 # ----------------------------------------------------------------------------------------------
+*~
 .DS_Store
 # Thumbnails
 ._*
@@ -54,6 +55,8 @@ Session.vim
 *.mtc
 *.mtc1
 *.out
+*.fls
+*.fdb_latexmk
 *.synctex.gz
 
 # Python
