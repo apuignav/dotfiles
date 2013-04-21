@@ -1,7 +1,11 @@
 Protocol 2
 ServerAliveInterval 300
-ForwardX11 yes
-ForwardX11Trusted yes
+
+Host raspi
+  HostName 192.168.1.120
+  User pi
+  ForwardX11 no
+  ForwardX11Trusted no
 
 Host space
  HostName 192.168.0.3
@@ -208,12 +212,6 @@ Host cernsvn svn.cern.ch
   ForwardX11 no
   ForwardX11Trusted no
 
-Host raspi
-  HostName 192.168.1.120
-  User pi
-  ForwardX11 no
-  ForwardX11Trusted no
-
 Host epfl lphe
   HostName lphe1dell1.epfl.ch
   User puignava
@@ -249,4 +247,7 @@ Host testbeam
   User albert
   ForwardX11Trusted yes
   ForwardX11 yes
+
+ForwardX11 yes
+ForwardX11Trusted yes
 
