@@ -33,12 +33,14 @@ if os.uname()[0] == 'Darwin':
     if not which('brew'): # Need to install homebrew!
         os.system('ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"')
         os.system('brew install {0}'.format(' '.join(brewPackages)))
+        # Install macvim
         os.system("""cd /System/Library/Frameworks/Python.framework/Versions &&
                     sudo mv Current Current-sys &&
                     sudo ln -s /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7 Current &&
                     brew install macvim &&
                     sudo mv Current Current-brew &&
                     sudo mv Current-sys Current""")
+        os.system("ln -s /usr/local/bin/mvim /usr/local/bin/vi")
 
 
 # EOF
