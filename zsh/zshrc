@@ -63,6 +63,9 @@ unsetopt CLOBBER             # Don't overwrite existing files with > and >>
 unsetopt PATH_DIRS           # Perform path search even on command names with slashes.
 unsetopt FLOW_CONTROL        # Allow C-s and C-q to stop/start the terminal flow
 
+# Report CPU usage for commands running longer than 20 seconds
+REPORTTIME=20
+
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.paths ]] && source ~/.paths
 [[ -f ~/.functions ]] && source ~/.functions
@@ -76,9 +79,6 @@ if [ "`uname`" = "Darwin" ]; then
   compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open alias run='open -a'
 fi
 
-
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # EOF
