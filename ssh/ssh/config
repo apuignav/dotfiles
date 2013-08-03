@@ -1,5 +1,6 @@
-Protocol 2
-ServerAliveInterval 300
+Host *
+  Protocol 2
+  ServerAliveInterval 300
 
 Host raspi
   HostName 192.168.1.120
@@ -31,6 +32,9 @@ Host cern
  GSSAPIAuthentication yes
  GSSAPIDelegateCredentials yes
  StrictHostKeyChecking no
+ ForwardX11 yes
+ ForwardX11Trusted yes
+
 
 Host cerncvs
  HostName isscvs.cern.ch
@@ -131,7 +135,7 @@ Host coccon
  User albert
 
 Host casa
- Hostname djkarras.mine.nu
+ Hostname djkarras.chickenkiller.com
  User albert
  ForwardX11 no
  ForwardX11Trusted no
@@ -247,7 +251,4 @@ Host testbeam
   User albert
   ForwardX11Trusted yes
   ForwardX11 yes
-
-ForwardX11 yes
-ForwardX11Trusted yes
 
