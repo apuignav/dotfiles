@@ -24,22 +24,107 @@ def which(program):
     return None
 
 if os.uname()[0] == 'Darwin':
-    commands = ['chflags nohidden /Users/albert/Library', 'defaults write com.apple.desktopservices DSDontWriteNetworkStores true']
-    brewPackages = ['gfortran', 'python', 'ssh-copy-id', 'cmake', 'git', 'gsl', 'readline', 'tmux', 'wget', 'glib', 'gettext', 'ctags']
+    commands = ['chflags nohidden /Users/albert/Library',
+                'defaults write com.apple.desktopservices DSDontWriteNetworkStores true']
+    brewPackages = [# Compiling libraries
+                    'glib',
+                    'gfortran',
+                    'cairo',
+                    'cmake',
+                    'rubber',
+                    'vala',
+                    'yasm',
+                    'autoconf',
+                    'automake',
+                    'llvm',
+                    'lua',
+                    'readline',
+                    # Python
+                    'python',
+                    # Utils
+                    'ack',
+                    'git',
+                    'git-extras',
+                    'gettext',
+                    'ssh-copy-id',
+                    # The rest, in no particular order
+                    'boost',
+                    'cloog',
+                    'cscope',
+                    'ctags',
+                    'faac',
+                    'ffmpeg',
+                    'fftw',
+                    'flac',
+                    'fontconfig',
+                    'fontforge',
+                    'freetype',
+                    'gd',
+                    'gdbm',
+                    'ghostscript',
+                    'gmp',
+                    'gnuplot',
+                    'graphviz',
+                    'gsl',
+                    'harfbuzz',
+                    'hub',
+                    'icu4c',
+                    'imagemagick',
+                    'imagesnap',
+                    'intltool',
+                    'isl',
+                    'jasper',
+                    'jbig2dec',
+                    'jpeg',
+                    'lame',
+                    'lcdf-typetools',
+                    'libebml',
+                    'libevent',
+                    'libffi',
+                    'libmagic',
+                    'libmatroska',
+                    'libmpc',
+                    'libogg',
+                    'libpng',
+                    'libtiff',
+                    'libtool',
+                    'libvorbis',
+                    'libyaml',
+                    'little-cms',
+                    'little-cms2',
+                    'lzo',
+                    'mkvtoolnix',
+                    'mpfr',
+                    'netpbm',
+                    'pango',
+                    'pcre',
+                    'pixman',
+                    'pkg-config',
+                    'potrace',
+                    'rbenv',
+                    'root',
+                    'sqlite',
+                    'texi2html',
+                    'tmux',
+                    'wget',
+                    'x264',
+                    'xvid',
+                    'xz']
 
     for command in commands:
         os.system(command)
 
     if not which('brew'): # Need to install homebrew!
         os.system('ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"')
-        os.system('brew install {0}'.format(' '.join(brewPackages)))
+        for package in brewPackages:
+            os.system('brew install %s' % package)
         # Install macvim
         os.system("""cd /System/Library/Frameworks/Python.framework/Versions &&
                     sudo mv Current Current-sys &&
-                    sudo ln -s /usr/local/Cellar/python/2.7.4/Frameworks/Python.framework/Versions/2.7 Current &&
+                    sudo ln -s /usr/local/Cellar/python/2.7.5/Frameworks/Python.framework/Versions/2.7 Current &&
                     brew install macvim &&
                     sudo mv Current Current-brew &&
-                    sudo mv Current-sys Current""")
+                    sudo cp Current-sys Current""")
         os.system("ln -s /usr/local/bin/mvim /usr/local/bin/vi")
 
 
