@@ -2,3 +2,4 @@ alias scpresume='rsync --partial --progress --rsh=ssh --archive'
 alias grep='grep --color=auto'
 alias cernProxy='ssh -D 8080 -Nf cern'
 alias cernProxyDestroy='ps -ef | grep "ssh -D 8080" | grep -v grep | awk '"'"'{print $2}'"'"' | xargs kill'
+alias root="root -l"
