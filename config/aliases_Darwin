@@ -1,7 +1,3 @@
-alias scpresume='rsync --partial --progress --rsh=ssh --archive'
-alias grep='grep --color=auto'
-alias cernProxy='ssh -D 8080 -Nf cern'
-alias cernProxyDestroy='ps -ef | grep "ssh -D 8080" | grep -v grep | awk '"'"'{print $2}'"'"' | xargs kill'
 alias locateupdate='sudo /usr/libexec/locate.updatedb'
 alias dhcpserver='ipconfig getoption en0 server_identifier'
 alias smc='/Applications/smcFanControl.app/Contents/Resources/smc'
@@ -26,9 +22,6 @@ alias upgradeMacVim='brew remove macvim && cd /System/Library/Frameworks/Python.
 alias tmlog="syslog -F '\$Time \$Message' -k Sender com.apple.backupd-auto -k Time ge -30m | tail -n 1"
 alias ip="curl icanhazip.com"
 alias stfu="osascript -e 'set volume output muted true'"
-
-# ROOT
-alias root="root -l"
 
 # Apps
 alias sourcetree='open -a SourceTree .'

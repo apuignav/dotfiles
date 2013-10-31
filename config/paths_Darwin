@@ -1,8 +1,8 @@
 # Variables
 export BREW=`brew --prefix`
+export HOMEBREW_BUILD_FROM_SOURCE=1
 export TERM=xterm-256color
 export EDITOR=$BREW/bin/mvim
-export GIT_EDITOR=vim
 export UNISONLOCALHOSTNAME=dc10
 export OS=Darwin
 export MANPATH=$MANPATH:$BREW/man
@@ -17,7 +17,7 @@ else
   LD_LIBRARY_PATH+=$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
 fi
 # PATH
-NEW_PATH=$BREW/bin:$BREW/sbin:$ROOTSYS/bin:/usr/local/share/python:/usr/local/cuda/bin
+NEW_PATH=$BREW/bin:$BREW/sbin:$ROOTSYS/bin:/usr/local/cuda/bin
 if [ -z "${PATH}" ]; then
   PATH=$NEW_PATH; export PATH
 else
