@@ -101,4 +101,7 @@
 	editor = vi
     excludesfile = ~/.gitignore_global
 
+[help]
+	autocorrect = 5
+
 # EOF
