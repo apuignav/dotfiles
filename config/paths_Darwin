@@ -14,7 +14,7 @@ NEW_LD_LIBRARY_PATH=$ROOTSYS/lib/root:$BREW/lib:/usr/lib:/usr/local/cuda/lib
 if [ -z "${LD_LIBRARY_PATH}" ]; then
   LD_LIBRARY_PATH=$NEW_LD_LIBRARY_PATH; export LD_LIBRARY_PATH
 else
-  LD_LIBRARY_PATH+=$LD_LIBRARY_PATH; export LD_LIBRARY_PATH
+  LD_LIBRARY_PATH+=:$NEW_LD_LIBRARY_PATH; export LD_LIBRARY_PATH
 fi
 # PATH
 NEW_PATH=$BREW/bin:$BREW/sbin:$ROOTSYS/bin:/usr/local/cuda/bin
@@ -24,11 +24,11 @@ else
   PATH=$NEW_PATH:$PATH; export PATH
 fi
 # PYTHONPATH
-NEW_PYTHONPATH=$BREW/lib:$ROOTSYS/lib/root:/Users/albert/Arxiu/Fisica/LHCb/Projectes:
+NEW_PYTHONPATH=$BREW/lib:$ROOTSYS/lib/root:/Users/albert/Arxiu/Fisica/LHCb/Projectes:/Users/albert/Arxiu/Fisica/LHCb/Projectes/SciFi/python
 if [ -z "${PYTHONPATH}" ]; then
   PYTHONPATH=$NEW_PYTHONPATH; export PYTHONPATH
 else
-  PYTHONPATH+=$NEW_PYTHONPATH; export PYTHONPATH
+  PYTHONPATH+=:$NEW_PYTHONPATH; export PYTHONPATH
 fi
 
 # EOF
