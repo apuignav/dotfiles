@@ -98,6 +98,7 @@
             Bundle 'michaeljsmith/vim-indent-object'
             Bundle 'vim-scripts/argtextobj.vim'
             Bundle 'vim-scripts/swap-parameters.git'
+            Bundle 'gregsexton/MatchTag'
         endif
 
     " Python
@@ -218,7 +219,7 @@
         set laststatus=2
         set statusline=%!Pl#Statusline(0,1)
         " Broken down into easily includeable segments
-         "set statusline=%<%f\    " Filename
+        "set statusline=%<%f\    " Filename
         "set statusline+=%w%h%m%r " Options
         "set statusline+=%{fugitive#statusline()} "  Git Hotness
         "set statusline+=\ [%{&ff}/%Y]            " filetype
@@ -697,6 +698,9 @@ let g:syntastic_quiet_warnings=0
 let g:syntastic_python_checkers=['pylint']
 let g:syntastic_python_checker_args = '--rcfile=~/.pylintrc'
 let g:syntastic_tex_checkers=['']
+
+" Indent
+map <leader>i gg=G''
 
 
 " Set expandtab in the end
