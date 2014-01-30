@@ -7,3 +7,5 @@ alias root="root -l"
 # Environment
 export LSCOLORS="gxfxcxdxbxegedabagacad"
 export GIT_EDITOR=vim
+# LHCb
+export DLHCB=svn+ssh://svn.cern.ch/reps/lhcbdocs
