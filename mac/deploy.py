@@ -116,6 +116,8 @@ if os.uname()[0] == 'Darwin':
 
     if not which('brew'): # Need to install homebrew!
         os.system('ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"')
+        os.system('brew tap homebrew/science')
+        os.system('brew tap homebrew/dupes')
         for package in brewPackages:
             os.system('brew install %s' % package)
         # Install macvim
@@ -126,6 +128,7 @@ if os.uname()[0] == 'Darwin':
                     sudo mv Current Current-brew &&
                     sudo cp Current-sys Current""")
         os.system("ln -s /usr/local/bin/mvim /usr/local/bin/vi")
+        os.system("sudo ln -s /usr/X11/include/freetype2/freetype /usr/X11/include/.")
 
 
 # EOF
