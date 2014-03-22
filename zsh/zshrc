@@ -69,6 +69,7 @@ REPORTTIME=20
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.paths ]] && source ~/.paths
 [[ -f ~/.functions ]] && source ~/.functions
+[[ -f ~/.common ]] && source ~/.common
 [[ -f ~/.localrc ]] && source ~/.localrc
 
 [[ -f ~/.pythonrc ]] && export PYTHONSTARTUP=~/.pythonrc
@@ -80,5 +81,8 @@ if [ "`uname`" = "Darwin" ]; then
 fi
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Autojump
+[[ -s `brew --prefix`/etc/autojump.zsh ]] && source `brew --prefix`/etc/autojump.zsh
 
 # EOF

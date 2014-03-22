@@ -8,13 +8,7 @@ Host raspi
   ForwardX11 no
   ForwardX11Trusted no
 
-Host space
- HostName 192.168.0.3
- User albert
- ForwardX11 no
- ForwardX11Trusted no
-
-Host spacew
+Host space space spacew
  HostName 192.168.1.10
  User albert
  ForwardX11 no
@@ -25,7 +19,7 @@ Host spaceprinter
  User albert
  LocalForward 6310 localhost:631 
 
-Host cern
+Host cern lxplus.cern.ch
  HostName lxplus.cern.ch
  User apuignav
  PubkeyAuthentication no

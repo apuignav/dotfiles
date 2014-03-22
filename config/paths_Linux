@@ -1,6 +1,5 @@
 # Variables
 export TERM=xterm-256color
 export EDITOR="vim"
-export GIT_EDITOR="vim"
 
 # EOF
