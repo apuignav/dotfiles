@@ -29,9 +29,6 @@ Host cern
  HostName lxplus.cern.ch
  User apuignav
  PubkeyAuthentication no
- GSSAPIAuthentication yes
- GSSAPIDelegateCredentials yes
- StrictHostKeyChecking no
  ForwardX11 yes
  ForwardX11Trusted yes
 
