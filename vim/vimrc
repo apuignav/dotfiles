@@ -66,7 +66,8 @@
             "Bundle 'sgur/ctrlp-extensions.vim'
             Bundle 'vim-scripts/sessionman.vim'
             Bundle 'matchit.zip'
-            Bundle 'Lokaltog/vim-powerline'
+            "Bundle 'Lokaltog/vim-powerline'
+            Bundle 'bling/vim-airline'
             Bundle 'Lokaltog/vim-easymotion'
             if has('gui')
                 Bundle 'godlygeek/csapprox'
@@ -218,7 +219,7 @@
 
     if has('statusline')
         set laststatus=2
-        set statusline=%!Pl#Statusline(0,1)
+        "set statusline=%!Pl#Statusline(0,1)
         " Broken down into easily includeable segments
         "set statusline=%<%f\    " Filename
         "set statusline+=%w%h%m%r " Options
@@ -230,7 +231,8 @@
 
     if has("gui_running")
       set guioptions=-t
-      let g:Powerline_symbols="unicode"
+      "let g:Powerline_symbols="unicode"
+      let g:airline_powerline_fonts=1
     endif
 
     set backspace=indent,eol,start  " backspace for dummies
@@ -249,7 +251,8 @@
     set scrolljump=5                " lines to scroll when cursor leaves screen
     set scrolloff=3                 " minimum lines to keep above and below cursor
     "set foldenable                  " auto fold code
-    set foldlevel=10
+    set foldlevel=99
+    set foldlevelstart=99
     set foldmethod=indent
     set nolist
     set listchars=tab:,.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
@@ -288,7 +291,6 @@
     map <leader>sp [s
     map <leader>sa zg
     map <leader>s? z=
-    
     " Spelling switcher
     "let b:myLang=0
     "let g:myLangList=["nospell","en_us", "es"]
@@ -420,6 +422,15 @@
         endif
         " Make sure tex is loaded properly
         au BufNewFile,BufRead *.tex set filetype=tex
+    " }
+   
+    " Airline {
+      let g:airline#extensions#syntastic#enabled = 1
+      let g:airline#extensions#tagbar#enabled = 1
+      let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
+      let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+      let g:airline_detect_whitespace=0
+      let g:airline_enable_branch= 1
     " }
     
     " SuperTab {
@@ -556,6 +567,8 @@
         let g:pymode_motion = 1
         " Highlight "print" as function
         let g:pymode_syntax_print_as_function = 1
+        " Disable folding
+        let g:pymode_folding = 0
      " }
      " Jedi-Vim {
         let g:jedi#popup_on_dot = 0
@@ -617,7 +630,7 @@
     if has('gui_running')
         set guioptions-=T           " remove the toolbar
         "set lines=50                " 40 lines of text instead of 24,
-        set guifont=Source_Code_Pro:h12
+        set guifont=Source_Code_Pro_for_Powerline:h12
     else
         if &term == 'xterm' || &term == 'screen'
             set t_Co=256                 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
@@ -701,7 +714,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " ROOT Ctags
 "set tags+=~/.vim/tags/root.tags
 let g:syntastic_cpp_include_dirs = ['/usr/local/opt/root/include/root/']
-let g:syntastic_quiet_warnings=0
+"let g:syntastic_quiet_warnings=0
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['cpp'] }
 let g:syntastic_python_checkers=['pylint']
 let g:syntastic_python_checker_args = '--rcfile=~/.pylintrc'
