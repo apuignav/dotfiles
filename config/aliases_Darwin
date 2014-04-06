@@ -23,6 +23,9 @@ alias tmlog="syslog -F '\$Time \$Message' -k Sender com.apple.backupd-auto -k Ti
 alias ip="curl icanhazip.com"
 alias stfu="osascript -e 'set volume output muted true'"
 
+# Pyp alias
+alias pypr="pyp --rerun"
+
 # Apps
 alias sourcetree='open -a SourceTree .'
 alias vlc='open -a VLC'
