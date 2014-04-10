@@ -130,5 +130,8 @@ if os.uname()[0] == 'Darwin':
         os.system("ln -s /usr/local/bin/mvim /usr/local/bin/vi")
         os.system("sudo ln -s /usr/X11/include/freetype2/freetype /usr/X11/include/.")
 
+    # Git
+    os.system('git config --global push.default "Simple"')
+
 
 # EOF
