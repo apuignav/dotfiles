@@ -8,6 +8,8 @@ export OS=Darwin
 export MANPATH=$MANPATH:$BREW/man
 export ROOTSYS=$(brew --prefix root)
 export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r20.0.3
+# Dir aliases
+hash -d cmtuser=~/Arxiu/Fisica/LHCb/Projectes/CernVM/cmtuser
 # Path games
 cdpath+=(~/Arxiu/Fisica/LHCb/Projectes)
 # LD_LIBRARY_PATH

@@ -5,9 +5,6 @@ alias reloadEthernet='sudo kextunload /System/Library/Extensions/IONetworkingFam
 alias istatRestart='rm -f ~/Library/Preferences/com.bjango.istatmenus.plist && killall SystemUIServer'
 alias cleanDsStore='find . -type f -name "*.DS_Store" -ls -delete'
 
-# Alias for git workflow
-alias hsc='hack&&ship&&chop'
-
 # Backup
 alias backupMP3='rsync -aE --delete --progress MP3/ /Volumes/RaspiHD/Music'
 alias backupRadiative='rsync --delete -avPe ssh lphea:/panasas/radiative /Volumes/HAL/LHCb/.'
@@ -22,9 +19,6 @@ alias upgradeMacVim='brew remove macvim && cd /System/Library/Frameworks/Python.
 alias tmlog="syslog -F '\$Time \$Message' -k Sender com.apple.backupd-auto -k Time ge -30m | tail -n 1"
 alias ip="curl icanhazip.com"
 alias stfu="osascript -e 'set volume output muted true'"
-
-# Pyp alias
-alias pypr="pyp --rerun"
 
 # Apps
 alias sourcetree='open -a SourceTree .'
