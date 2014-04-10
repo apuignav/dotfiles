@@ -29,11 +29,20 @@ REPORTTIME=20
 #######################################################################
 # Aliases
 #######################################################################
+# Global aliases
+alias -g G=" | grep"
+alias -g P=" | pyp"
+alias -g NUL="> /dev/null 2>&1"
+# General things
 alias scpresume='rsync --partial --progress --rsh=ssh --archive'
 alias grep='grep --color=auto'
 alias cernProxy='ssh -D 8080 -Nf cern'
 alias cernProxyDestroy='ps -ef | grep "ssh -D 8080" | grep -v grep | awk '"'"'{print $2}'"'"' | xargs kill'
 alias root="root -l"
+# Alias for git workflow
+alias hsc='hack&&ship&&chop'
+# Pyp alias
+alias pypr="pyp --rerun"
 # Environment
 #export LSCOLORS="gxfxcxdxbxegedabagacad"
 # LHCb
