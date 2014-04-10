@@ -31,6 +31,7 @@ fi
 # Paths
 #######################################################################
 [[ -d ~/.scripts ]] && export PATH=$PATH:$HOME/.scripts
+[[ -d ~/.local/bin ]] && export PATH=$PATH:$HOME/.local/bin
 # Platform-dependent paths
 [[ -f ~/.paths ]] && source ~/.paths
 # Ensure path arrays do not contain duplicates.
