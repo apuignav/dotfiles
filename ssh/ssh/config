@@ -29,7 +29,6 @@ Host cern lxplus.cern.ch
  ForwardX11 yes
  ForwardX11Trusted yes
 
-
 Host cerncvs
  HostName isscvs.cern.ch
  User apuignav
@@ -198,10 +197,6 @@ Host porta
  ForwardX11 yes
  ForwardX11Trusted yes
 
-Host cernvm
-  HostName 192.168.56.101
-  User apuignav
-
 Host cernsvn svn.cern.ch
   HostName svn.cern.ch
   User apuignav
@@ -246,3 +241,10 @@ Host testbeam
   ForwardX11Trusted yes
   ForwardX11 yes
 
+Host cernvm
+  Hostname 192.168.139.129
+  User apuignav
+  
+Host gitlab
+  Hostname lpheserv6.epfl.ch
+  User apuignav
