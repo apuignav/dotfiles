@@ -59,7 +59,6 @@
         if count(g:bundle_groups, 'general')
             Bundle 'scrooloose/nerdtree'
             Bundle 'nanotech/jellybeans.vim'
-            Bundle 'spf13/vim-colors'
             Bundle 'tpope/vim-surround'
             Bundle 'Townk/vim-autoclose'
             Bundle 'kien/ctrlp.vim'
@@ -73,7 +72,6 @@
                 Bundle 'godlygeek/csapprox'
             endif
             Bundle 'jistr/vim-nerdtree-tabs'
-            Bundle 'flazz/vim-colorschemes'
             Bundle 'corntrace/bufexplorer'
             Bundle 'mbbill/undotree'
             "Bundle 'myusuf3/numbers.vim'
@@ -86,9 +84,9 @@
         if count(g:bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
-            if version < 702
-                let g:syntastic_enable_highlighting = 0
-            endif
+            let g:syntastic_enable_highlighting = 0
+            let g:syntastic_error_symbol = '✗'
+            let g:syntastic_warning_symbol = '⚠'
             Bundle 'tpope/vim-fugitive'
             if version > 701
                 Bundle 'scrooloose/nerdcommenter'
@@ -130,6 +128,7 @@
             Bundle 'LaTeX-Box-Team/LaTeX-Box'
             Bundle 'ervandew/supertab'
             Bundle 'vim-scripts/cern_root.vim'
+            Bundle 'thomwiggers/vim-colors-solarized'
         endif
 
     " Snipmate
@@ -202,8 +201,9 @@
 " }
 
 " Vim UI {
-    colorscheme jellybeans
-    highlight PmenuSel ctermfg=White ctermbg=DarkBlue guibg=DarkBlue guifg=White
+    "colorscheme jellybeans
+    "highlight PmenuSel ctermfg=White ctermbg=DarkBlue guibg=DarkBlue guifg=White
+    colorscheme solarized
     set tabpagemax=15               " only show 15 tabs
     set showmode                    " display the current mode
     set title            " Show the filename in the window titlebar
