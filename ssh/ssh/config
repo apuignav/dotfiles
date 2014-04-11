@@ -213,13 +213,13 @@ Host epfl lphe
 
 Host epfla lphea lphe1
   Hostname lphelc1a.epfl.ch
-  User apuignav
+  User puignava
   ForwardX11Trusted yes
   ForwardX11 yes
 
 Host epflb lpheb lphe2
   Hostname lphelc1b.epfl.ch
-  User apuignav
+  User puignava
   ForwardX11Trusted yes
   ForwardX11 yes
 
@@ -228,12 +228,6 @@ Host lphelab epfllab
   User albert
   ForwardX11Trusted yes
   ForwardX11 yes
-
-Host gitolite
-  Protocol 2
-  HostName lphelc1a.epfl.ch
-  User gitolite
-  IdentityFile ~/.ssh/id_dsa_git
 
 Host testbeam
   Hostname 128.141.109.23
