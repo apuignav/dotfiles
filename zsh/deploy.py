@@ -13,5 +13,6 @@ else:
     if os.system('git clone --recursive https://github.com/sorin-ionescu/prezto.git  "%s"' % prezto_dir) != 0:
         print "Cound not clone prezto into %s" % prezto_dir
         sys.exit(1)
-    os.system('cp ~/dotfiles/zsh/prompt/prompt_apuignav_setup %s' % os.path.join(prezto_dir, 'modules/prompt/functions/prompt_apuignav_setup'))
+    os.symlink(os.path.expanduser('~/dotfiles/zsh/prompt/prompt_apuignav_setup'),
+               os.path.join(prezto_dir, 'modules/prompt/functions/prompt_apuignav_setup'))
 
