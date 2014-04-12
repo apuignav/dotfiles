@@ -7,8 +7,8 @@ here = os.path.dirname( __file__ )
 def getSystemType():
     return os.uname()[0]
 
-things_to_link = ( ( ".aliases", os.path.join( here, "aliases_" + getSystemType()  ) ),
-                   ( ".paths", os.path.join( here, "paths_" + getSystemType()) ),
+things_to_link = ( ( ".aliases", os.path.join( here, getSystemType(), "aliases_" + getSystemType() ) ),
+                   ( ".paths", os.path.join( here, getSystemType(), "paths_" + getSystemType()) ),
                    ( ".common", os.path.join( here, "common" ) ),
                    ( ".functions", os.path.join( here, "functions" ) ),
                    #( ".latex.mk", os.path.join( here, "latex.mk" ) ),
