@@ -217,6 +217,8 @@
                                     " selected characters/lines in visual mode
     endif
 
+
+
     if has('statusline')
         set laststatus=2
         "set statusline=%!Pl#Statusline(0,1)
@@ -628,15 +630,27 @@
 " GUI Settings {
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
+        if has('gui_macvim')
+            set transparency=0
+        endif
         set guioptions-=T           " remove the toolbar
         "set lines=50                " 40 lines of text instead of 24,
-        set guifont=Source_Code_Pro_for_Powerline:h12
+        set guifont=Source_Code_Pro_for_Powerline:h13
     else
+        if $TERM_PROGRAM == 'Apple_Terminal'
+            if &background == 'dark'
+                hi Visual term=reverse cterm=reverse ctermfg=10 ctermbg=7
+            endif
+            let g:solarized_termtrans = 1
+            let g:solarized_termcolors = 256
+        endif
+
         if &term == 'xterm' || &term == 'screen'
             set t_Co=256                 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         endif
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
+    colorscheme solarized
     " Disable scrollbars (real hackers don't use scrollbars for navigation!)
     set guioptions-=r
     set guioptions-=R
