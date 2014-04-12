@@ -85,8 +85,8 @@
             " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
             let g:syntastic_enable_highlighting = 0
-            let g:syntastic_error_symbol = '✗'
-            let g:syntastic_warning_symbol = '⚠'
+            "let g:syntastic_error_symbol = '✗'
+            "let g:syntastic_warning_symbol = '⚠'
             Bundle 'tpope/vim-fugitive'
             if version > 701
                 Bundle 'scrooloose/nerdcommenter'
@@ -149,9 +149,9 @@
 
 " General {
     set background=dark         " Assume a dark background
-    if !has('gui')
+    "if !has('gui')
         "set term=$TERM          " Make arrow and other keys work
-    endif
+    "endif
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " syntax highlighting
     set mouse=a                 " automatically enable mouse usage
@@ -216,8 +216,6 @@
         set showcmd                 " show partial commands in status line and
                                     " selected characters/lines in visual mode
     endif
-
-
 
     if has('statusline')
         set laststatus=2
@@ -638,11 +636,13 @@
         set guifont=Source_Code_Pro_for_Powerline:h13
     else
         if $TERM_PROGRAM == 'Apple_Terminal'
+            "colorscheme jellybeans
             if &background == 'dark'
                 hi Visual term=reverse cterm=reverse ctermfg=10 ctermbg=7
             endif
-            let g:solarized_termtrans = 1
+            "let g:solarized_termtrans = 1
             let g:solarized_termcolors = 256
+            colorscheme solarized
         endif
 
         if &term == 'xterm' || &term == 'screen'
@@ -650,7 +650,6 @@
         endif
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
-    colorscheme solarized
     " Disable scrollbars (real hackers don't use scrollbars for navigation!)
     set guioptions-=r
     set guioptions-=R
@@ -743,4 +742,3 @@ map <leader>i gg=G''
 set expandtab
 
 " EOF
-"
