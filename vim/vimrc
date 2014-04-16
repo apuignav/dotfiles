@@ -84,7 +84,7 @@
         if count(g:bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
-            let g:syntastic_enable_highlighting = 0
+            let g:syntastic_enable_highlighting = 1
             "let g:syntastic_error_symbol = '✗'
             "let g:syntastic_warning_symbol = '⚠'
             Bundle 'tpope/vim-fugitive'
@@ -447,9 +447,9 @@
                 \endif
         endif
 
-        hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
-        hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
-        hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
+        "hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
+        "hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+        "hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
 
         " some convenient mappings
         "inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
@@ -635,19 +635,20 @@
         "set lines=50                " 40 lines of text instead of 24,
         set guifont=Source_Code_Pro_for_Powerline:h13
     else
-        if $TERM_PROGRAM == 'Apple_Terminal'
-            "colorscheme jellybeans
-            if &background == 'dark'
-                hi Visual term=reverse cterm=reverse ctermfg=10 ctermbg=7
-            endif
-            "let g:solarized_termtrans = 1
-            let g:solarized_termcolors = 256
-            colorscheme solarized
-        endif
-
+        colorscheme jellybeans
+        "if $TERM_PROGRAM == 'Apple_Terminal'
+            ""colorscheme jellybeans
+            "if &background == 'dark'
+                "hi Visual term=reverse cterm=reverse ctermfg=10 ctermbg=7
+            "endif
+            ""let g:solarized_termtrans = 1
+            "let g:solarized_termcolors = 256
+            "colorscheme solarized
+        "endif
         if &term == 'xterm' || &term == 'screen'
             set t_Co=256                 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         endif
+        set t_Co=256                 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
     " Disable scrollbars (real hackers don't use scrollbars for navigation!)
@@ -736,7 +737,6 @@ let g:syntastic_tex_checkers=['']
 
 " Indent
 map <leader>i gg=G''
-
 
 " Set expandtab in the end
 set expandtab
