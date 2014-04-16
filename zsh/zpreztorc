@@ -42,8 +42,8 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'utility' \
   'history-substring-search' \
-  'prompt'
-  #'syntax-highlighting' \
+  'prompt' \
+  'syntax-highlighting' \
   
 ########################################################################
 # Editor
@@ -109,38 +109,40 @@ zstyle ':prezto:module:ssh:load' identities 'id_dsa'
 # Syntax Highlighting
 ########################################################################
 # Set syntax highlighters.
-#zstyle ':prezto:module:syntax-highlighting' color 'yes'
+zstyle ':prezto:module:syntax-highlighting' color 'yes'
 ## By default, only the main highlighter is enabled.
-#zstyle ':prezto:module:syntax-highlighting' highlighters \
-   #'main' \
-   #'brackets' \
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+   'main' \
+   'brackets' #\
    #'pattern' \
    #'cursor' \
    #'root'
 #
 # Set syntax highlighting styles.
-#zstyle ':prezto:module:syntax-highlighting' styles \
-        #'default' 'none' \
-        #'unknown-token' 'fg=009' \
-        #'reserved-word' 'fg=009,standout' \
-        #'alias' 'fg=white,bold' \
-        #'builtin' 'fg=white,bold' \
-        #'function' 'fg=white,bold' \
-        #'command' 'fg=white,bold' \
-        #'precommand' 'fg=white,underline' \
-        #'commandseparator' 'none' \
-        #'hashed-command' 'fg=009' \
-        #'path' 'fg=214,underline' \
-        #'globbing' 'fg=063' \
-        #'history-expansion' 'fg=white,underline' \
-        #'single-hyphen-option' 'none' \
-        #'double-hyphen-option' 'none' \
-        #'back-quoted-argument' 'none' \
-        #'single-quoted-argument' 'fg=063' \
-        #'double-quoted-argument' 'fg=063' \
-        #'dollar-double-quoted-argument' 'fg=009' \
-        #'back-double-quoted-argument' 'fg=009' \
-        #'assign' 'none'
+zstyle ':prezto:module:syntax-highlighting' styles \
+        'default' 'none' \
+        'unknown-token' 'fg=red,bold' \
+        'reserved-word' 'fg=cyan' \
+        'alias' 'none' \
+        'builtin' 'none' \
+        'function' 'none' \
+        'command' 'none' \
+        'precommand' 'none' \
+        'commandseparator' 'none' \
+        'hashed-command' 'none' \
+        'path' 'none' \
+        'path_prefix' 'none' \
+        'path_approx' 'none' \
+        'globbing' 'none' \
+        'history-expansion' 'fg=blue' \
+        'single-hyphen-option' 'none' \
+        'double-hyphen-option' 'none' \
+        'back-quoted-argument' 'none' \
+        'single-quoted-argument' 'fg=yellow' \
+        'double-quoted-argument' 'fg=yellow' \
+        'dollar-double-quoted-argument' 'fg=yellow' \
+        'back-double-quoted-argument' 'fg=yellow' \
+        'assign' 'none'
 
 ########################################################################
 # Terminal
