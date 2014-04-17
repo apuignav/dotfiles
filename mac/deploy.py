@@ -38,6 +38,7 @@ if os.uname()[0] == 'Darwin':
                     'llvm',
                     'lua',
                     'readline',
+                    'zsh',
                     # Python
                     'python',
                     # Utils
