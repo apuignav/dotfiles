@@ -25,6 +25,7 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
+  'archive' \
   'terminal' \
   'editor' \
   'ssh' \
@@ -45,6 +46,11 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'syntax-highlighting' \
   
+########################################################################
+# Environment
+########################################################################
+# Color grep
+zstyle ':prezto:module:environment:grep' color 'yes'
 ########################################################################
 # Editor
 ########################################################################
