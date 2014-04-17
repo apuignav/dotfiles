@@ -6,7 +6,6 @@
 import os
 
 def which(program):
-    import os
     def is_exe(fpath):
         return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
 
@@ -126,9 +125,12 @@ if os.uname()[0] == 'Darwin':
                     sudo ln -s /usr/local/Cellar/python/2.7.5/Frameworks/Python.framework/Versions/2.7 Current &&
                     brew install macvim &&
                     sudo mv Current Current-brew &&
-                    sudo cp Current-sys Current""")
+                    sudo mv Current-sys Current""")
         os.system("ln -s /usr/local/bin/mvim /usr/local/bin/vi")
         os.system("sudo ln -s /usr/X11/include/freetype2/freetype /usr/X11/include/.")
+
+    # Git
+    os.system('git config --global push.default "Simple"')
 
 
 # EOF

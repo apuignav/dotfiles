@@ -26,7 +26,6 @@ Host cern lxplus.cern.ch
  ForwardX11 yes
  ForwardX11Trusted yes
 
-
 Host cerncvs
  HostName isscvs.cern.ch
  User apuignav
@@ -195,10 +194,6 @@ Host porta
  ForwardX11 yes
  ForwardX11Trusted yes
 
-Host cernvm
-  HostName 192.168.56.101
-  User apuignav
-
 Host cernsvn svn.cern.ch
   HostName svn.cern.ch
   User apuignav
@@ -215,13 +210,13 @@ Host epfl lphe
 
 Host epfla lphea lphe1
   Hostname lphelc1a.epfl.ch
-  User apuignav
+  User puignava
   ForwardX11Trusted yes
   ForwardX11 yes
 
 Host epflb lpheb lphe2
   Hostname lphelc1b.epfl.ch
-  User apuignav
+  User puignava
   ForwardX11Trusted yes
   ForwardX11 yes
 
@@ -231,15 +226,16 @@ Host lphelab epfllab
   ForwardX11Trusted yes
   ForwardX11 yes
 
-Host gitolite
-  Protocol 2
-  HostName lphelc1a.epfl.ch
-  User gitolite
-  IdentityFile ~/.ssh/id_dsa_git
-
 Host testbeam
   Hostname 128.141.109.23
   User albert
   ForwardX11Trusted yes
   ForwardX11 yes
 
+Host cernvm
+  Hostname 192.168.139.129
+  User apuignav
+  
+Host gitlab
+  Hostname lpheserv6.epfl.ch
+  User apuignav

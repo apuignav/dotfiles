@@ -39,8 +39,9 @@ load-plugins=
 # R0913: Too many arguments (%s/%s)
 # R0915: Too many statements (%s/%s)
 # W0142: Used * or ** magic
+# C0326: Exactly one space required before assignment
 #
-disable = R0901,R0902,R0903,R0904,R0913,R0915,W0142
+disable = R0901,R0902,R0903,R0904,R0913,R0915,W0142,C0326
 
 [REPORTS]
 
@@ -133,7 +134,7 @@ no-docstring-rgx=__.*__
 [FORMAT]
 
 # Maximum number of characters on a single line.
-max-line-length=100
+max-line-length=120
 
 # Maximum number of lines in a module
 max-module-lines=1000
