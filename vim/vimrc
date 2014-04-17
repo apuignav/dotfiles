@@ -58,7 +58,7 @@
     " General
         if count(g:bundle_groups, 'general')
             Bundle 'scrooloose/nerdtree'
-            Bundle 'nanotech/jellybeans.vim'
+            "Bundle 'nanotech/jellybeans.vim'
             Bundle 'tpope/vim-surround'
             Bundle 'Townk/vim-autoclose'
             Bundle 'kien/ctrlp.vim'
@@ -635,7 +635,7 @@
         "set lines=50                " 40 lines of text instead of 24,
         set guifont=Source_Code_Pro_for_Powerline:h13
     else
-        colorscheme jellybeans
+        "colorscheme jellybeans
         "if $TERM_PROGRAM == 'Apple_Terminal'
             ""colorscheme jellybeans
             "if &background == 'dark'
