@@ -202,19 +202,23 @@ Host cernsvn svn.cern.ch
   ForwardX11 no
   ForwardX11Trusted no
 
-Host epfl lphe
+Host lphe lphecluster 
+  User puignava
+  ProxyCommand ~/.scripts/ballast -c ~/.ballast.conf %h
+
+Host lpheserver
   HostName lphe1dell1.epfl.ch
   User puignava
   ForwardX11Trusted yes
   ForwardX11 yes
 
-Host epfla lphea lphe1
+Host epfla lphea
   Hostname lphelc1a.epfl.ch
   User puignava
   ForwardX11Trusted yes
   ForwardX11 yes
 
-Host epflb lpheb lphe2
+Host epflb lpheb
   Hostname lphelc1b.epfl.ch
   User puignava
   ForwardX11Trusted yes
@@ -239,3 +243,4 @@ Host cernvm
 Host gitlab
   Hostname lpheserv6.epfl.ch
   User apuignav
+
