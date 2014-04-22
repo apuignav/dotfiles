@@ -237,7 +237,6 @@
 
     set backspace=indent,eol,start  " backspace for dummies
     set linespace=0                 " No extra spaces between rows
-    set nu                          " Line numbers on
     set showmatch                   " show matching brackets/parenthesis
     set shm=AI
     set incsearch                   " find as you type search
@@ -622,6 +621,10 @@
         let g:goyo_margin_top = 2
         let g:goyo_margin_bottom = 2
      " }
+     " Numbers {
+        "set number
+        "nnoremap <leader>n :NumbersToggle<CR>
+     " }
 
 " }
 
@@ -703,6 +706,19 @@ function! NERDTreeInitAsNeeded()
     endif
 endfunction
 " }
+
+function! NumberToggle()
+  if( &relativenumber == 1 )
+    set number
+    set norelativenumber
+  else
+    set number
+    set relativenumber
+  endif
+endfunc
+
+set number
+nnoremap <leader>n :call NumberToggle()<cr>
 
 " Use local vimrc if available {
     if filereadable(expand("~/.vimrc.local"))
