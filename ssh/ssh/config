@@ -205,6 +205,8 @@ Host cernsvn svn.cern.ch
 Host lphe lphecluster 
   User puignava
   ProxyCommand ~/.scripts/ballast -c ~/.ballast.conf %h
+  ForwardX11Trusted yes
+  ForwardX11 yes
 
 Host lpheserver
   HostName lphe1dell1.epfl.ch
