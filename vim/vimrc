@@ -232,7 +232,7 @@
     if has("gui_running")
       set guioptions=-t
       "let g:Powerline_symbols="unicode"
-      let g:airline_powerline_fonts=1
+      "let g:airline_powerline_fonts=1
     endif
 
     set backspace=indent,eol,start  " backspace for dummies
@@ -630,6 +630,7 @@
 
 " GUI Settings {
     " GVIM- (here instead of .gvimrc)
+    let g:airline_powerline_fonts=1
     if has('gui_running')
         if has('gui_macvim')
             set transparency=0
