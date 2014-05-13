@@ -44,7 +44,16 @@ function prompt_apuignav_setup {
     'prompt' '%F{red}[%f$(coalesce "%b" "%p" "%c")%F{red}%s]' \
     'rprompt' '%A%B%S%a%d%m%r%U%u'
 
-  PROMPT='%F{green}%n@%m:%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{white}$%f%b) '
+  function ssh_connection() {
+    if [[ -n $SSH_CONNECTION ]]; then
+        echo "%F{green}%m:"
+    fi
+  } 
+
+  # Original
+  #PROMPT='%F{green}%n@%m:%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{white}$%f%b) '
+  # New test version
+  PROMPT='[%T]$(ssh_connection)%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{white}$%f%b) '
   #RPROMPT='${editor_info[keymap]}${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   #RPROMPT='[%T]%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
