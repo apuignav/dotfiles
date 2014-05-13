@@ -9,6 +9,10 @@
 # General
 #######################################################################
 
+# Fix cd ..
+# http://stackoverflow.com/questions/564648/zsh-tab-completion-for-cd
+zstyle ':completion:*' special-dirs true
+
 # Set case-sensitivity for completion, history lookup, etc.
 # zstyle ':prezto:*:*' case-sensitive 'yes'
 
