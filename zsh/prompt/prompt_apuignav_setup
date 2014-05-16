@@ -59,7 +59,7 @@ function prompt_apuignav_setup {
   # Original
   #PROMPT='%F{green}%n@%m:%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{white}$%f%b) '
   # New test version
-  PROMPT='[%T]$(check_screen)$(ssh_connection)%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{white}$%f%b) '
+  PROMPT='[%T]$(check_screen)$(ssh_connection)%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{brwhite}$%f%b) '
   #RPROMPT='${editor_info[keymap]}${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   #RPROMPT='[%T]%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
