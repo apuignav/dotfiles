@@ -1,6 +1,6 @@
 Host *
   Protocol 2
-  ServerAliveInterval 300
+  ServerAliveInterval 100
 
 Host raspi
   HostName 192.168.1.120
@@ -125,7 +125,7 @@ Host coccon
  User albert
 
 Host casa
- Hostname djkarras.chickenkiller.com
+ Hostname djkarras.mooo.com
  User albert
  ForwardX11 no
  ForwardX11Trusted no
@@ -202,12 +202,6 @@ Host cernsvn svn.cern.ch
   ForwardX11 no
   ForwardX11Trusted no
 
-Host lphe lphecluster 
-  User puignava
-  ProxyCommand ~/.scripts/ballast -c ~/.ballast.conf %h
-  ForwardX11Trusted yes
-  ForwardX11 yes
-
 Host lpheserver
   HostName lphe1dell1.epfl.ch
   User puignava
@@ -241,8 +235,15 @@ Host testbeam
 Host cernvm
   Hostname 192.168.139.129
   User apuignav
+  ForwardX11Trusted yes
+  ForwardX11 yes
   
 Host gitlab
   Hostname lpheserv6.epfl.ch
   User apuignav
 
+Host lphe lphe1
+  User puignava
+  ProxyCommand ~/.scripts/ballast -c ~/.ballast.conf lphe1
+  ForwardX11Trusted yes
+  ForwardX11 yes
