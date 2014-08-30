@@ -68,9 +68,6 @@
             "Bundle 'Lokaltog/vim-powerline'
             Bundle 'bling/vim-airline'
             Bundle 'Lokaltog/vim-easymotion'
-            if has('gui')
-                Bundle 'godlygeek/csapprox'
-            endif
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'corntrace/bufexplorer'
             Bundle 'mbbill/undotree'
@@ -568,11 +565,14 @@
         let g:pymode_syntax_print_as_function = 1
         " Disable folding
         let g:pymode_folding = 0
+        " No line at 80
+        let g:pymode_options_max_line_length = 0
      " }
      " Jedi-Vim {
+        let g:jedi#auto_initialization = 1
         let g:jedi#popup_on_dot = 0
-        let g:jedi#auto_vim_configuration = 0
-        let g:jedi#show_function_definition = "0"
+        let g:jedi#auto_vim_configuration = 1
+        let g:jedi#show_call_signatures = 1
         let g:jedi#popup_select_first = 1
         "let g:jedi#autocompletion_command = "<Tab>"
      " }
@@ -647,11 +647,7 @@
             "endif
             ""let g:solarized_termtrans = 1
             "let g:solarized_termcolors = 256
-            "colorscheme solarized
         "endif
-        if &term == 'xterm' || &term == 'screen'
-            set t_Co=256                 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
-        endif
         set t_Co=256                 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
