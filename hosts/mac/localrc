@@ -6,3 +6,4 @@ alias cernvm_ummount="cd $HOME && umount ~/Arxiu/Fisica/LHCb/Projectes/CernVM/cm
 unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
+archey -c
