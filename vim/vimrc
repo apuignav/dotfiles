@@ -132,13 +132,8 @@
         if count(g:bundle_groups, 'snipmate')
             Plugin 'MarcWeber/vim-addon-mw-utils'
             Plugin 'tomtom/tlib_vim'
-            Plugin 'garbas/vim-snipmate'
-            Plugin 'apuignav/snipmate-snippets'
-            " Source support_function.vim to support snipmate-snippets.
-            if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
-                source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
-            endif
-
+            Plugin 'SirVer/ultisnips'
+            Plugin 'honza/vim-snippets'
         endif
 
     endif
@@ -471,12 +466,16 @@
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
     " }
 
-    " SnipMate {
-        " Setting the author var
-        " If forking, please overwrite in your .vimrc.local file
-        let g:snips_author = 'Albert Puig (albert.puig@epfl.ch)'
-        imap <tab> <Plug>snipMateNextOrTrigger
-        smap <tab> <Plug>snipMateNextOrTrigger
+    " UltiSnips {
+        " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+        let g:UltiSnipsExpandTrigger="<tab>"
+        let g:UltiSnipsJumpForwardTrigger="<tab>"
+        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+        " If you want :UltiSnipsEdit to split your window.
+        let g:UltiSnipsEditSplit="vertical"
+        let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+        " Some python config
+        let g:ultisnips_python_style = "sphinx"
     " }
 
     " NerdTree {
