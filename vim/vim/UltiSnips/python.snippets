@@ -4,10 +4,12 @@ snippet myh "Write my usual header" b
 # =============================================================================
 # @file   `!p snip.rv=snip.fn`
 # @author Albert Puig (albert.puig@cern.ch)
-# @date   `!p from time import strftime;snip.rv=strftime("%d.%m.%Y")`
+# @date   `date +%d.%m.%Y`
 # =============================================================================
 """${1}"""
+
 ${2}
 
 # EOF
+
 endsnippet
