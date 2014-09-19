@@ -1,0 +1,9 @@
+priority 0
+
+snippet tab "tabular / array environment with booktabs" b
+\begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
+	\toprule
+	$0${2/((?<=.)c|l|r)|./(?1: & )/g}
+	\bottomrule
+\end{$1${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+endsnippet
