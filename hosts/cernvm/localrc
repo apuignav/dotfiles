@@ -14,6 +14,7 @@ if [ -f /cvmfs/lhcb.cern.ch/lib/group_extra_settings.sh ]; then
       . /cvmfs/lhcb.cern.ch/lib/group_extra_settings.sh
 fi
 
+export PYTHONPATH=$HOME/python:$PYTHONPATH
 export LSCOLORS="gxfxcxdxbxegedabagacad"
 alias ls='ls --color'
 #DISABLE_LS_COLORS="false"

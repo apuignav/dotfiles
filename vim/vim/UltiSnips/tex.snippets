@@ -1,0 +1,64 @@
+priority 0
+
+# Booktabs
+snippet tab "tabular / array environment with booktabs" b
+\begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
+	\toprule
+	$0${2/((?<=.)c|l|r)|./(?1: & )/g}
+	\bottomrule
+\end{$1${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+endsnippet
+
+# Font style
+snippet it "italic text"
+\textit{${1:${VISUAL}}}
+endsnippet
+
+snippet bf "bold face text"
+\textbf{${1:${VISUAL}}}
+endsnippet
+
+snippet under "underline text"
+\underline{${1:${VISUAL}}}
+endsnippet
+
+snippet emp "emphasize text"
+\emph{${1:${VISUAL}}}
+endsnippet
+
+snippet sc "small caps text"
+\textsc{${1:${VISUAL}}}
+endsnippet
+
+snippet sf "sans serif text"
+\textsf{${1:${VISUAL}}}
+endsnippet
+
+snippet rm "roman font text"
+\textrm{${1:${VISUAL}}}
+endsnippet
+
+snippet tt "typewriter (monospace) text"
+\texttt{${1:${VISUAL}}}
+endsnippet
+
+#References
+snippet figure "Reference to a figure"
+	${1:Fig.}~\ref{fig:${2}}
+endsnippet
+
+snippet table "Reference to a table"
+	${1:Table}~\ref{tab:${2}}
+endsnippet
+
+snippet section "Reference to a section"
+	${1:\S}\ref{sec:${2}}
+endsnippet
+
+snippet page "Reference to a page"
+	${1:Page}~\pageref{${2}}
+endsnippet
+
+snippet ref "Reference to a publication"
+	${1:Ref.}~\cite{${2}}
+endsnippet

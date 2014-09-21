@@ -49,7 +49,10 @@ packages = [ 'Fabric',
              'PyYAML',
              'pycolors',
              'oauth2',
-             'pathfinder'
+             'pathfinder',
+             'enum34',
+             'bibtexparser',
+             'python-docx'
            ]
 
 if __name__ == '__main__':

@@ -17,7 +17,7 @@
         endif
     " }
     "
-    " Setup Bundle Support {
+    " Setup Plugin Support {
     " The next three lines ensure that the ~/.vim/bundle/ system works
         filetype off
         set rtp+=~/.vim/bundle/vundle
@@ -26,16 +26,16 @@
 
 " }
 
-" Bundles {
+" Plugins {
     " Deps
-        Bundle 'gmarik/vundle'
-        "Bundle 'vim-scripts/YankRing.vim'
-        Bundle 'maxbrunsfeld/vim-yankstack'
+        Plugin 'gmarik/vundle'
+        "Plugin 'vim-scripts/YankRing.vim'
+        Plugin 'maxbrunsfeld/vim-yankstack'
         if executable('ack-grep')
             let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-            Bundle 'mileszs/ack.vim'
+            Plugin 'mileszs/ack.vim'
         elseif executable('ack')
-            Bundle 'mileszs/ack.vim'
+            Plugin 'mileszs/ack.vim'
         endif
 
     " Use local bundles if available {
@@ -57,65 +57,62 @@
 
     " General
         if count(g:bundle_groups, 'general')
-            Bundle 'scrooloose/nerdtree'
-            "Bundle 'nanotech/jellybeans.vim'
-            Bundle 'tpope/vim-surround'
-            Bundle 'Townk/vim-autoclose'
-            Bundle 'kien/ctrlp.vim'
-            "Bundle 'sgur/ctrlp-extensions.vim'
-            Bundle 'vim-scripts/sessionman.vim'
-            Bundle 'matchit.zip'
-            "Bundle 'Lokaltog/vim-powerline'
-            Bundle 'bling/vim-airline'
-            Bundle 'Lokaltog/vim-easymotion'
-            if has('gui')
-                Bundle 'godlygeek/csapprox'
-            endif
-            Bundle 'jistr/vim-nerdtree-tabs'
-            Bundle 'corntrace/bufexplorer'
-            Bundle 'mbbill/undotree'
-            "Bundle 'myusuf3/numbers.vim'
-            "Bundle 'vim-scripts/mru.vim'
-            Bundle 'vim-scripts/bufkill.vim'
-            Bundle 'junegunn/goyo.vim'
+            Plugin 'scrooloose/nerdtree'
+            "Plugin 'nanotech/jellybeans.vim'
+            Plugin 'tpope/vim-surround'
+            Plugin 'Townk/vim-autoclose'
+            Plugin 'kien/ctrlp.vim'
+            "Plugin 'sgur/ctrlp-extensions.vim'
+            Plugin 'vim-scripts/sessionman.vim'
+            Plugin 'matchit.zip'
+            "Plugin 'Lokaltog/vim-powerline'
+            Plugin 'bling/vim-airline'
+            Plugin 'Lokaltog/vim-easymotion'
+            Plugin 'jistr/vim-nerdtree-tabs'
+            Plugin 'corntrace/bufexplorer'
+            Plugin 'mbbill/undotree'
+            "Plugin 'myusuf3/numbers.vim'
+            "Plugin 'vim-scripts/mru.vim'
+            Plugin 'vim-scripts/bufkill.vim'
+            Plugin 'junegunn/goyo.vim'
         endif
 
     " General Programming
         if count(g:bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
-            Bundle 'scrooloose/syntastic'
+            Plugin 'scrooloose/syntastic'
             let g:syntastic_enable_highlighting = 1
             "let g:syntastic_error_symbol = '✗'
             "let g:syntastic_warning_symbol = '⚠'
-            Bundle 'tpope/vim-fugitive'
+            Plugin 'tpope/vim-fugitive'
             if version > 701
-                Bundle 'scrooloose/nerdcommenter'
+                Plugin 'scrooloose/nerdcommenter'
             endif
-            Bundle 'godlygeek/tabular'
+            Plugin 'godlygeek/tabular'
             if executable('ctags')
-                Bundle 'majutsushi/tagbar'
+                Plugin 'majutsushi/tagbar'
             endif
-            Bundle 'michaeljsmith/vim-indent-object'
-            Bundle 'vim-scripts/argtextobj.vim'
-            Bundle 'vim-scripts/swap-parameters.git'
-            Bundle 'gregsexton/MatchTag'
+            Plugin 'michaeljsmith/vim-indent-object'
+            Plugin 'vim-scripts/argtextobj.vim'
+            Plugin 'vim-scripts/swap-parameters.git'
+            Plugin 'gregsexton/MatchTag'
         endif
 
     " Python
         if count(g:bundle_groups, 'python')
             if version > 701
-                Bundle 'davidhalter/jedi-vim'
+                Plugin 'davidhalter/jedi-vim'
             endif
-            Bundle 'klen/python-mode'
-            Bundle 'python.vim'
-            Bundle 'python_match.vim'
-            Bundle 'pythoncomplete'
-            Bundle 'apuignav/vim-gf-python'
+            Plugin 'klen/python-mode'
+            Plugin 'python.vim'
+            Plugin 'python_match.vim'
+            Plugin 'pythoncomplete'
+            Plugin 'apuignav/vim-gf-python'
         endif
 
     " Ruby
         if count(g:bundle_groups, 'ruby')
-            Bundle 'tpope/vim-rails'
+            Plugin 'tpope/vim-rails'
             let g:rubycomplete_buffer_loading = 1
             "let g:rubycomplete_classes_in_global = 1
             "let g:rubycomplete_rails = 1
@@ -123,25 +120,20 @@
 
     " Misc
         if count(g:bundle_groups, 'misc')
-            "Bundle 'tpope/vim-markdown'
-            "Bundle 'spf13/vim-preview'
-            Bundle 'LaTeX-Box-Team/LaTeX-Box'
-            Bundle 'ervandew/supertab'
-            Bundle 'vim-scripts/cern_root.vim'
-            Bundle 'thomwiggers/vim-colors-solarized'
+            "Plugin 'tpope/vim-markdown'
+            "Plugin 'spf13/vim-preview'
+            Plugin 'LaTeX-Box-Team/LaTeX-Box'
+            Plugin 'ervandew/supertab'
+            Plugin 'vim-scripts/cern_root.vim'
+            Plugin 'thomwiggers/vim-colors-solarized'
         endif
 
     " Snipmate
         if count(g:bundle_groups, 'snipmate')
-            Bundle 'MarcWeber/vim-addon-mw-utils'
-            Bundle 'tomtom/tlib_vim'
-            Bundle 'garbas/vim-snipmate'
-            Bundle 'apuignav/snipmate-snippets'
-            " Source support_function.vim to support snipmate-snippets.
-            if filereadable(expand("~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim"))
-                source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
-            endif
-
+            Plugin 'MarcWeber/vim-addon-mw-utils'
+            Plugin 'tomtom/tlib_vim'
+            Plugin 'SirVer/ultisnips'
+            Plugin 'honza/vim-snippets'
         endif
 
     endif
@@ -474,12 +466,16 @@
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
     " }
 
-    " SnipMate {
-        " Setting the author var
-        " If forking, please overwrite in your .vimrc.local file
-        let g:snips_author = 'Albert Puig (albert.puig@epfl.ch)'
-        imap <tab> <Plug>snipMateNextOrTrigger
-        smap <tab> <Plug>snipMateNextOrTrigger
+    " UltiSnips {
+        " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+        let g:UltiSnipsExpandTrigger="<tab>"
+        let g:UltiSnipsJumpForwardTrigger="<tab>"
+        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+        " If you want :UltiSnipsEdit to split your window.
+        let g:UltiSnipsEditSplit="vertical"
+        let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+        " Some python config
+        let g:ultisnips_python_style = "sphinx"
     " }
 
     " NerdTree {
@@ -568,11 +564,14 @@
         let g:pymode_syntax_print_as_function = 1
         " Disable folding
         let g:pymode_folding = 0
+        " No line at 80
+        let g:pymode_options_max_line_length = 0
      " }
      " Jedi-Vim {
+        let g:jedi#auto_initialization = 1
         let g:jedi#popup_on_dot = 0
-        let g:jedi#auto_vim_configuration = 0
-        let g:jedi#show_function_definition = "0"
+        let g:jedi#auto_vim_configuration = 1
+        let g:jedi#show_call_signatures = 1
         let g:jedi#popup_select_first = 1
         "let g:jedi#autocompletion_command = "<Tab>"
      " }
@@ -622,8 +621,18 @@
         let g:goyo_margin_bottom = 2
      " }
      " Numbers {
-        "set number
-        "nnoremap <leader>n :NumbersToggle<CR>
+        function! NumberToggle()
+          if( &relativenumber == 1 )
+            set number
+            set norelativenumber
+          else
+            set number
+            set relativenumber
+          endif
+        endfunc
+
+        set number
+        nnoremap <leader>n :call NumberToggle()<cr>
      " }
 
 " }
@@ -647,11 +656,7 @@
             "endif
             ""let g:solarized_termtrans = 1
             "let g:solarized_termcolors = 256
-            "colorscheme solarized
         "endif
-        if &term == 'xterm' || &term == 'screen'
-            set t_Co=256                 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
-        endif
         set t_Co=256                 " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         "set term=builtin_ansi       " Make arrow and other keys work
     endif
@@ -707,19 +712,6 @@ function! NERDTreeInitAsNeeded()
     endif
 endfunction
 " }
-
-function! NumberToggle()
-  if( &relativenumber == 1 )
-    set number
-    set norelativenumber
-  else
-    set number
-    set relativenumber
-  endif
-endfunc
-
-set number
-nnoremap <leader>n :call NumberToggle()<cr>
 
 " Use local vimrc if available {
     if filereadable(expand("~/.vimrc.local"))
