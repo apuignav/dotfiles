@@ -621,8 +621,18 @@
         let g:goyo_margin_bottom = 2
      " }
      " Numbers {
-        "set number
-        "nnoremap <leader>n :NumbersToggle<CR>
+        function! NumberToggle()
+          if( &relativenumber == 1 )
+            set number
+            set norelativenumber
+          else
+            set number
+            set relativenumber
+          endif
+        endfunc
+
+        set number
+        nnoremap <leader>n :call NumberToggle()<cr>
      " }
 
 " }
@@ -702,19 +712,6 @@ function! NERDTreeInitAsNeeded()
     endif
 endfunction
 " }
-
-function! NumberToggle()
-  if( &relativenumber == 1 )
-    set number
-    set norelativenumber
-  else
-    set number
-    set relativenumber
-  endif
-endfunc
-
-set number
-nnoremap <leader>n :call NumberToggle()<cr>
 
 " Use local vimrc if available {
     if filereadable(expand("~/.vimrc.local"))
