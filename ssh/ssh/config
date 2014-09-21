@@ -37,6 +37,8 @@ Host svn.cern.ch
  User apuignav
  GSSAPIauthentication yes
  GSSAPIDelegateCredentials yes
+ Protocol 2 
+ ForwardX11 no
 
 Host cerntunnel
  Hostname lxplus.cern.ch
