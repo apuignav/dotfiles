@@ -62,3 +62,46 @@ endsnippet
 snippet ref "Reference to a publication"
 	${1:Ref.}~\cite{${2}}
 endsnippet
+
+# Headers
+
+snippet myh "My file skeleton"
+% =============================================================================
+% @file   `!p snip.rv=snip.fn`
+% @author Albert Puig (albert.puig@cern.ch)
+% @date   `date +%d.%m.%Y`
+% =============================================================================
+
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage[mathlf]{MinionPro}
+\usepackage{amsmath}
+\usepackage{nicefrac}
+\userpackage{booktabs}
+\usepackage{enumitem}
+
+% Bullets in itemize
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\Box$}}$}
+
+\title{${1}}
+\author{Albert Puig}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+${2:${VISUAL}}
+
+\end{document}
+
+% EOF
+
+endsnippet
+
+snippet myhead "My header only"
+% =============================================================================
+% @file   `!p snip.rv=snip.fn`
+% @author Albert Puig (albert.puig@cern.ch)
+% @date   `date +%d.%m.%Y`
+% =============================================================================
+
+endsnippet
