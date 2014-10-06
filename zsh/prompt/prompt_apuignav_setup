@@ -54,7 +54,8 @@ function prompt_apuignav_setup {
     if [[ "$TERM" == "screen" ]]; then
         echo "%F{red}(screen)"
     else
-        local n_screen=$(screen -ls 2> /dev/null | grep -c '[Dd]etach[^)]*)$')
+        #local n_screen=$(screen -ls 2> /dev/null | grep -c '[Dd]etach[^)]*)$')
+        local n_screen=$(screen -ls 2> /dev/null | grep -c 'tached)$')
          if [[ $n_screen != "0" ]] ; then
              echo "%F{red}($n_screen)"
          fi
