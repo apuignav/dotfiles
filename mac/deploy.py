@@ -103,6 +103,7 @@ if os.uname()[0] == 'Darwin':
                     'potrace',
                     'rbenv',
                     'root',
+                    'ranger',
                     'sqlite',
                     'texi2html',
                     'tmux',
