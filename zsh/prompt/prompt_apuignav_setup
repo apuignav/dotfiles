@@ -53,6 +53,22 @@ function prompt_apuignav_setup {
   function check_screen() {
     if [[ "$TERM" == "screen" ]]; then
         echo "%F{red}(screen)"
+    else
+        local n_screen=$(screen -ls 2> /dev/null | grep -c '[Dd]etach[^)]*)$')
+         if [[ $n_screen != "0" ]] ; then
+             echo "%F{red}($n_screen)"
+         fi
+    fi
+  }
+
+  function check_jobs(){
+    #local running=$(( $(jobs -r | wc -l) ))
+    local stopped=$(( $(jobs -s | wc -l) ))
+    #if [[ $running != "0" || $stopped != "0" ]] ; then
+        #echo "%F{white}($running|$stopped)"
+    if [[ $stopped != "0" ]] ; then
+        echo "%F{green}($stopped)"
+
     fi
   }
 
@@ -70,7 +86,7 @@ function prompt_apuignav_setup {
 
   # New test version
   #PROMPT='[%T${timer_show}]$(check_screen)$(ssh_connection)%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{brwhite}$%f%b) '
-  PROMPT='[%T]$(check_screen)$(ssh_connection)%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{brwhite}$%f%b) '
+  PROMPT='[%T]$(ssh_connection)$(check_screen)$(check_jobs)%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{brwhite}$%f%b) '
   #RPROMPT='${editor_info[keymap]}${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   #RPROMPT='[%T]%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
