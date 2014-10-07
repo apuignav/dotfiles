@@ -42,3 +42,8 @@ ssh/ssh/id_dsa*
 ssh/ssh/environment*
 ssh/ssh/authorized_keys
 ssh/ssh/known_hosts
+
+# Ranger
+ranger/ranger/bookmarks
+ranger/ranger/tagged
+ranger/ranger/history

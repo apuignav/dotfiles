@@ -115,6 +115,21 @@ if exists percol; then
     bindkey '^R' percol_select_history
 fi
 
+# Ranger
+
+if exists ranger; then
+    # after ranger quits, cd to the chosen directory.
+    function ranger() {
+        tempfile='/tmp/chosendir'
+        `/usr/bin/which ranger` --choosedir="$tempfile" "${@:-$(pwd)}"
+        test -f "$tempfile" &&
+        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+            cd -- "$(cat "$tempfile")"
+        fi
+        rm -f -- "$tempfile"
+    }
+fi
+
 #######################################################################
 # Machine-dependent things
 #######################################################################
