@@ -52,7 +52,7 @@ packages = [ 'Fabric',
              'pathfinder',
              'enum34',
              'bibtexparser',
-             'python-docx'
+             'persol'
            ]
 
 if __name__ == '__main__':
