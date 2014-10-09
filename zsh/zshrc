@@ -47,6 +47,10 @@ alias pypr="pyp --rerun"
 #export LSCOLORS="gxfxcxdxbxegedabagacad"
 # LHCb
 export DLHCB=svn+ssh://svn.cern.ch/reps/lhcbdocs
+# Git
+alias git-sync-fork="git fetch upstream; git checkout master; git merge upstream/master"
+alias git-rebase-fork="git fetch upstream; git checkout master; git rebase upstream/master"
+
 # Platform-dependent aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
