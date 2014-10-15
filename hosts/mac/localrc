@@ -8,4 +8,6 @@ log_study() {python $HOME/github/study-logger/log_study.py --db=$HOME/github/stu
 unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
-archey -c
+if [[ -z "$TMPSHELL" ]]; then
+    archey -c
+fi

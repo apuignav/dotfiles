@@ -91,6 +91,10 @@ function prompt_apuignav_setup {
   #RPROMPT='${editor_info[keymap]}${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   #RPROMPT='[%T]%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+  if [ -n "$TMPSHELL" ]; then
+    PROMPT="%F{red}[[temp shell]]%F{brwhite}$PROMPT"
+  fi
+  
 }
 
 prompt_apuignav_setup "$@"

@@ -13,3 +13,6 @@
 [submodule "scripts/gists/pyp_beta"]
 	path = scripts/gists/pyp_beta
 	url = https://gist.github.com/apuignav/10508582
+[submodule "scripts/gists/temp_shell"]
+	path = scripts/gists/temp_shell
+	url = git@gist.github.com:/f6f145c27f24ee302558.git
