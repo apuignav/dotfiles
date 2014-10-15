@@ -103,7 +103,6 @@ tbrowser () {
 }
 
 # Percol
-
 function exists { which $1 &> /dev/null }
 
 if exists percol; then
@@ -120,7 +119,6 @@ if exists percol; then
 fi
 
 # Ranger
-
 if exists ranger; then
     # after ranger quits, cd to the chosen directory.
     function ranger() {
@@ -133,6 +131,13 @@ if exists ranger; then
         rm -f -- "$tempfile"
     }
 fi
+
+# Git
+function git-attic() {
+    git log --raw --no-renames --date=short --format="%h %cd" "$@" |
+    awk '/^[0-9a-f]/ { commit=$1; date=$2 } /^:/ && $5 == "D" { print date, commit "^:" $6 }' |
+    git -p column
+}
 
 #######################################################################
 # Machine-dependent things
