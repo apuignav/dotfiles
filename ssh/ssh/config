@@ -8,6 +8,12 @@ Host raspi
   ForwardX11 no
   ForwardX11Trusted no
 
+Host raspih
+  HostName djkarras-raspi.mooo.com
+  User pi
+  ForwardX11 no
+  ForwardX11Trusted no
+
 Host space space spacew
  HostName 192.168.1.10
  User albert
