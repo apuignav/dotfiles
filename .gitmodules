@@ -16,3 +16,6 @@
 [submodule "scripts/gists/temp_shell"]
 	path = scripts/gists/temp_shell
 	url = git@gist.github.com:/f6f145c27f24ee302558.git
+[submodule "scripts/gists/replace"]
+	path = scripts/gists/replace
+	url = git@gist.github.com:/ecdc950a9e4610b4cde2.git
