@@ -31,11 +31,15 @@
         Plugin 'gmarik/vundle'
         "Plugin 'vim-scripts/YankRing.vim'
         Plugin 'maxbrunsfeld/vim-yankstack'
-        if executable('ack-grep')
-            let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-            Plugin 'mileszs/ack.vim'
-        elseif executable('ack')
-            Plugin 'mileszs/ack.vim'
+        if executable('ag')
+            Plugin 'rking/ag.vim'
+        else
+            if executable('ack-grep')
+                let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+                Plugin 'mileszs/ack.vim'
+            elseif executable('ack')
+                Plugin 'mileszs/ack.vim'
+            endif
         endif
 
     " Use local bundles if available {

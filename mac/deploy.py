@@ -43,6 +43,7 @@ if os.uname()[0] == 'Darwin':
                     'python',
                     # Utils
                     'ack',
+                    'ag',
                     'git',
                     'git-extras',
                     'gettext',
