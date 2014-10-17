@@ -11,6 +11,7 @@ Host raspi
 Host raspih
   HostName djkarras-raspi.mooo.com
   User pi
+  Port 2222
   ForwardX11 no
   ForwardX11Trusted no
 
