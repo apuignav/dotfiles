@@ -42,11 +42,17 @@ percol.import_keymap({
 # Change PROMPT in response to the status of case sensitivity
 percol.view.__class__.PROMPT = property(
     lambda self:
-    ur"<bold><cyan>QUERY </cyan>[a]:</bold> %q" if percol.model.finder.case_insensitive
+    ur"<bold><blue>QUERY </blue>[a]:</bold> %q" if percol.model.finder.case_insensitive
     else ur"<bold><yellow>QUERY </yellow>[A]:</bold> %q"
 )
 # Display finder name in RPROMPT
 percol.view.prompt_replacees["F"] = lambda self, **args: self.model.finder.get_name()
 percol.view.RPROMPT = ur"\<%F\> (%i/%I) [%n/%N]"
+
+# Colors
+percol.view.CANDIDATES_LINE_BASIC    = ("on_default", "default")
+percol.view.CANDIDATES_LINE_SELECTED = ("on_blue", "white", "dim")
+percol.view.CANDIDATES_LINE_MARKED   = ("bold", "on_cyan", "black")
+percol.view.CANDIDATES_LINE_QUERY    = ("red", "bold")
 
 ## /prompt
