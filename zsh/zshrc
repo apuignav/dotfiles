@@ -32,6 +32,7 @@ REPORTTIME=20
 # Global aliases
 alias -g G=" | grep"
 alias -g P=" | pyp"
+alias -g C=" | percol"
 alias -g NUL="> /dev/null 2>&1"
 # General things
 alias scpresume='rsync --partial --progress --rsh=ssh --archive'
