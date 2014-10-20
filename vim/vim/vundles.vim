@@ -107,8 +107,16 @@ if !exists("g:override_bundles")
     endif
 
     if count(g:bundle_groups, 'test')
-        " Plugin 'Valloric/YouCompleteMe'
-        Plugin 'corntrace/bufexplorer'
+        Plugin 'Valloric/YouCompleteMe'
+    endif
+
+    if count(g:bundle_groups, 'unite')
+        " Resources
+        " http://bling.github.io/blog/2013/06/02/unite-dot-vim-the-plugin-you-didnt-know-you-need/
+        " https://github.com/Shougo/unite.vim
+        " http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html
+        Plugin 'Shougo/vimproc.vim'
+        Plugin 'Shougo/unite.vim'
     endif
 
 endif
