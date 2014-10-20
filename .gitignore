@@ -31,7 +31,7 @@ tags
 Session.vim
 vim/vim/bundle
 vim/vim/yankring_history
-vim/vim/sessions/
+vim/vim/undo
 
 # SASS
 # ----------------------------------------------------------------------------------------------
