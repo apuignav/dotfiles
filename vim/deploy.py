@@ -18,7 +18,7 @@ for link, target in ( ( ".vimrc", os.path.join( here, "vimrc" ) ), ( ".vim", os.
     print "Linking %s -> %s" % ( link, target )
     os.symlink( target, link )
 
-for dName in ( "backups", "swaps", "undo" ):
+for dName in ( "undo", ):
     dName = os.path.expanduser( os.path.join( "~", ".vim", dName ) )
     if not os.path.isdir( dName ):
         os.makedirs( dName )
