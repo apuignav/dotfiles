@@ -69,7 +69,9 @@ if !exists("g:override_bundles")
             Plugin 'scrooloose/nerdcommenter'
         endif
         Plugin 'godlygeek/tabular'
+        Plugin 'Rip-Rip/clang_complete'
         if executable('ctags')
+            " Plugin 'thawk/OmniCppComplete'
             Plugin 'majutsushi/tagbar'
         endif
         Plugin 'michaeljsmith/vim-indent-object'
@@ -93,7 +95,7 @@ if !exists("g:override_bundles")
     " Misc
     if count(g:bundle_groups, 'misc')
         Plugin 'LaTeX-Box-Team/LaTeX-Box'
-        Plugin 'vim-scripts/cern_root.vim'
+        Plugin 'parnmatt/vim-root'
         Plugin 'amix/vim-zenroom2'
         Plugin 'junegunn/goyo.vim'
     endif

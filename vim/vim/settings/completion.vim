@@ -26,7 +26,7 @@ set wildignore+=*.png,*.jpg,*.gif
 set completeopt=menu,longest
 
 " Ctags 
-set tags=./tags;/,~/.vimtags,~/.vim/tags/root.tags
+" set tags=./tags;/,~/.vimtags,~/.vim/tags/root.tags
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
