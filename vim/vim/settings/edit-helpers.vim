@@ -15,3 +15,6 @@ map [F $
 imap [F $
 map [H g0
 imap [H g0
+
+"Go to last edit location with ,.
+nnoremap ,. '.
