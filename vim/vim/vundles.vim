@@ -56,6 +56,7 @@ if !exists("g:override_bundles")
             endif
         endif
         Plugin 'tpope/vim-unimpaired'
+        Plugin 'kristijanhusak/vim-multiple-cursors'
     endif
 
     " General Programming
