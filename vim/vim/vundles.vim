@@ -74,7 +74,7 @@ if !exists("g:override_bundles")
         endif
         Plugin 'michaeljsmith/vim-indent-object'
         Plugin 'vim-scripts/argtextobj.vim'
-        Plugin 'vim-scripts/swap-parameters.git'
+        Plugin 'mutewinter/swap-parameters'
         Plugin 'gregsexton/MatchTag'
     endif
 
