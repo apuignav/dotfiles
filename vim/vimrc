@@ -4,6 +4,7 @@
 
 " ================ Leader ====================
 let mapleader = ','
+" let mapleader = "\<Space>"
 let maplocalleader = ','
 set nocompatible        " must be first line
 
