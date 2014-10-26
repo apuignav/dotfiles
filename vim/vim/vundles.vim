@@ -55,6 +55,7 @@ if !exists("g:override_bundles")
                 Plugin 'mileszs/ack.vim'
             endif
         endif
+        Plugin 'tpope/vim-unimpaired'
     endif
 
     " General Programming
