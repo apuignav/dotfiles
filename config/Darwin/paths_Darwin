@@ -33,5 +33,7 @@ if [ -z "${PYTHONPATH}" ]; then
 else
   PYTHONPATH+=:$NEW_PYTHONPATH; export PYTHONPATH
 fi
+# DYLD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=/usr/local/lib/llvm-3.4/lib
 
 # EOF
