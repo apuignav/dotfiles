@@ -100,6 +100,7 @@ if !exists("g:override_bundles")
         Plugin 'parnmatt/vim-root'
         Plugin 'amix/vim-zenroom2'
         Plugin 'junegunn/goyo.vim'
+        " Plugin 'tpope/vim-speeddating'
     endif
 
     " Ultisnips
