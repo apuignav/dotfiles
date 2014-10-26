@@ -92,6 +92,7 @@ if !exists("g:override_bundles")
         Plugin 'python_match.vim'
         Plugin 'pythoncomplete'
         Plugin 'apuignav/vim-gf-python'
+        Plugin 'thinca/vim-quickrun'
     endif
 
     " Misc
