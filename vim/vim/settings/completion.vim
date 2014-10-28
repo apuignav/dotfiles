@@ -22,7 +22,7 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-"set completeopt=menu,preview,longest
+" set completeopt=menu,preview,longest
 set completeopt=menu,longest
 
 " Ctags 

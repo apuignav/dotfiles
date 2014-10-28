@@ -1,3 +1,7 @@
+" Set splits properly
+set splitbelow
+set splitright
+
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 " Open vertical split and switch to it
