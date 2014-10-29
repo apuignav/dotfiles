@@ -90,7 +90,7 @@ if !exists("g:override_bundles")
         Plugin 'klen/python-mode'
         Plugin 'python.vim'
         Plugin 'python_match.vim'
-        " Plugin 'pythoncomplete'
+        Plugin 'pythoncomplete'
         Plugin 'apuignav/vim-gf-python'
         Plugin 'thinca/vim-quickrun'
     endif
