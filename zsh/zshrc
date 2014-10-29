@@ -34,6 +34,8 @@ alias -g G=" | grep"
 alias -g P=" | pyp"
 alias -g C=" | percol"
 alias -g NUL="> /dev/null 2>&1"
+# ZSH
+alias mmv='noglob zmv -W'
 # General things
 alias scpresume='rsync --partial --progress --rsh=ssh --archive'
 alias grep='grep --color=auto'
