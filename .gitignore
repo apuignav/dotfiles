@@ -44,6 +44,6 @@ ssh/ssh/authorized_keys
 ssh/ssh/known_hosts
 
 # Ranger
-ranger/ranger/bookmarks
-ranger/ranger/tagged
-ranger/ranger/history
+config/ranger/bookmarks
+config/ranger/tagged
+config/ranger/history

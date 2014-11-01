@@ -1,3 +1,4 @@
+#!/bin/bash
 set -e
 
 /usr/bin/which -s git || abort "brew install git first!"

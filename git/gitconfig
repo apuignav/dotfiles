@@ -92,7 +92,7 @@
     upload = false
 
 [github]
-    user = %{github username}
+    user = apuignav
 
 [core]
 	editor = vi
@@ -100,5 +100,8 @@
 
 [help]
 	autocorrect = 5
+
+[push]
+    default = simple
 
 # EOF

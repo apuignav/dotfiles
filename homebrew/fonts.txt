@@ -1,0 +1,4 @@
+font-sauce-code-powerline
+font-inconsolata-dz-for-powerline
+font-source-code-pro
+font-source-sans-pro

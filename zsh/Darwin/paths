@@ -1,6 +1,7 @@
 # Variables
 export BREW=`brew --prefix`
 export HOMEBREW_BUILD_FROM_SOURCE=1
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export TERM=xterm-256color
 export EDITOR=$BREW/bin/mvim
 export UNISONLOCALHOSTNAME=dc10
