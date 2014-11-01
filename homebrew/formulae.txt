@@ -20,6 +20,7 @@ zsh
 wget
 curl
 python
+ruby
 pkg-config
 rubber
 boost
@@ -61,3 +62,5 @@ mobile-shell
 pandoc
 cloc
 graphviz
+mackup
+svn
