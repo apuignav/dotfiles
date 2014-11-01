@@ -167,6 +167,8 @@ def execute(command, get_output=False):
 
 install_bash = False
 
+# TODO: mackup
+
 if __name__ == '__main__':
     logging.info("Welcome to the deploy script. Fasten your seatbelt!")
     # Now let's work
