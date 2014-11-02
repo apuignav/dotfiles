@@ -16,6 +16,7 @@ istumbler
 iterm2-beta
 latexit
 libreoffice
+macdown
 mactex
 mediainfo
 nvalt
