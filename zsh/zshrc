@@ -23,6 +23,14 @@ unsetopt CLOBBER             # Don't overwrite existing files with > and >>
 unsetopt PATH_DIRS           # Perform path search even on command names with slashes.
 unsetopt FLOW_CONTROL        # Allow C-s and C-q to stop/start the terminal flow
 
+setopt autopushd pushdsilent pushdtohome
+# Remove duplicate entries
+setopt pushdignoredups
+# This reverts the +/- operators.
+setopt pushdminus
+# Overwrite prezto
+for index ({1..9}) alias "$index"="cd -${index}"; unset index
+
 # Report CPU usage for commands running longer than 20 seconds
 REPORTTIME=20
 
