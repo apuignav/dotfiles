@@ -34,6 +34,7 @@ alias -g G=" | grep"
 alias -g P=" | pyp"
 alias -g C=" | percol"
 alias -g NUL="> /dev/null 2>&1"
+alias -g W=" | wc -l"
 # ZSH
 alias mmv='noglob zmv -W'
 # General things
