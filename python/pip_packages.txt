@@ -15,7 +15,6 @@ docutils
 enum34
 Fabric
 filemagic
-fitbit
 flake8
 fonttools
 fs
