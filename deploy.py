@@ -171,6 +171,8 @@ install_bash = False
 
 if __name__ == '__main__':
     logging.info("Welcome to the deploy script. Fasten your seatbelt!")
+    # First, let's make a dir
+    mkdir('$HOME/.local')
     # Now let's work
     if is_mac():
         with cd('homebrew'):
@@ -183,6 +185,9 @@ if __name__ == '__main__':
             execute('./brew_formulae.sh')
             logging.info("Opening casks, please wait...")
             execute('./open_casks.sh')
+    else:  # Assume Linux without sudo
+        # Install pip and ranger
+        pass
 
     with cd('zsh'):
         execute('./deploy_prezto.sh')
