@@ -43,6 +43,13 @@ alias -g P=" | pyp"
 alias -g C=" | percol"
 alias -g NUL="> /dev/null 2>&1"
 alias -g W=" | wc -l"
+alias -g A=" | awk "
+alias -g A1="| awk '{print \$1}'"
+alias -g A2="| awk '{print \$2}'"
+alias -g A3="| awk '{print \$3}'"
+alias -g A4="| awk '{print \$4}'"
+alias -g A5="| awk '{print \$5}'"
+alias -g A6="| awk '{print \$6}'"
 # ZSH
 alias mmv='noglob zmv -W'
 # General things
