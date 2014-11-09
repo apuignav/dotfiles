@@ -2,3 +2,16 @@ font-sauce-code-powerline
 font-inconsolata-dz-for-powerline
 font-source-code-pro
 font-source-sans-pro
+font-raleway
+font-raleway-dots
+font-aleo
+font-fjalla-one
+font-alfa-slab-one
+font-montserrat
+font-montserrat-alternates
+font-montserrat-subrayada
+font-titillium-web
+font-antic-slab
+font-crimson-text
+font-domine
+font-bitter
