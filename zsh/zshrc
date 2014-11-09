@@ -29,7 +29,8 @@ setopt pushdignoredups
 # This reverts the +/- operators.
 setopt pushdminus
 # Overwrite prezto
-for index ({1..9}) alias "$index"="cd -${index}"; unset index
+for index ({1..9}) unalias "$index"
+for index ({1..9}) alias "c$index"="cd -${index}"; unset index
 
 # Report CPU usage for commands running longer than 20 seconds
 REPORTTIME=20
@@ -37,21 +38,22 @@ REPORTTIME=20
 #######################################################################
 # Aliases
 #######################################################################
+function exists { which $1 &> /dev/null }
 # Global aliases
-alias -g G=" | grep"
+if exists ag; then
+    alias -g G=" | ag"
+else
+    alias -g G=" | grep"
+fi
 alias -g P=" | pyp"
 alias -g C=" | percol"
 alias -g NUL="> /dev/null 2>&1"
 alias -g W=" | wc -l"
-alias -g A=" | awk "
-alias -g A1="| awk '{print \$1}'"
-alias -g A2="| awk '{print \$2}'"
-alias -g A3="| awk '{print \$3}'"
-alias -g A4="| awk '{print \$4}'"
-alias -g A5="| awk '{print \$5}'"
-alias -g A6="| awk '{print \$6}'"
+alias -g F=" | field "
 # ZSH
 alias mmv='noglob zmv -W'
+# An extra ag
+alias ag='ag --color-match="37;45"'
 # General things
 alias scpresume='rsync --partial --progress --rsh=ssh --archive'
 alias grep='grep --color=auto'
@@ -120,9 +122,6 @@ tbrowser () {
     root -l $* $HOME/.scripts/new_browser.C
   fi
 }
-
-# Percol
-function exists { which $1 &> /dev/null }
 
 if exists percol; then
     function percol_select_history() {

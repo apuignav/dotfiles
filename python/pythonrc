@@ -1,20 +1,47 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# =============================================================================
-# @file   pythonrc
-# @author Albert Puig (albert.puig@cern.ch)
-# @date   04.11.2014
-# =============================================================================
-"""Pythonrc using fancycompleter."""
+"""
+This file is executed when the Python interactive shell is started if
+$PYTHONSTARTUP is in your environment and points to this file. It's just
+regular Python commands, so do what you will. Your ~/.inputrc file can greatly
+complement this file.
 
-import sys
+"""
 import os
 
 try:
-    import fancycompleter
+    import readline
+    import rlcompleter
+    import atexit
 except ImportError:
-    print("You need fancycompleter")
+    print("You need readline, rlcompleter, and atexit")
 
+
+# Make this work properly in Darwin and Linux
+if 'libedit' in readline.__doc__:
+    readline.parse_and_bind("bind ^I rl_complete")
+else:
+    readline.parse_and_bind("tab: complete")
+
+class Completer(object):
+    def __init__(self):
+        # Enable a History
+        self.HISTFILE=os.path.expanduser("%s/.pyhistory" % os.environ["HOME"])
+
+        # Read the existing history if there is one
+        if os.path.exists(self.HISTFILE):
+            readline.read_history_file(self.HISTFILE)
+
+        # Set maximum number of items that will be written to the history file
+        readline.set_history_length(300)
+        atexit.register(self.savehist)
+
+    def savehist(self):
+        import readline
+        readline.write_history_file(self.HISTFILE)
+
+
+c = Completer()
+
+WELCOME=''
 # Color Support
 class TermColors(dict):
     """Gives easy access to ANSI color codes. Attempts to fall back to no color
@@ -44,20 +71,21 @@ class TermColors(dict):
 
     def __init__(self):
         if os.environ.get('TERM') in ('xterm-color', 'xterm-256color', 'linux',
-                                      'screen', 'screen-256color', 'screen-bce'):
+                                    'screen', 'screen-256color', 'screen-bce'):
             self.update(dict([(k, self._base % v) for k,v in self.COLOR_TEMPLATES]))
         else:
             self.update(dict([(k, self.NoColor) for k,v in self.COLOR_TEMPLATES]))
-
 _c = TermColors()
 
+
+
+import sys
 # Enable Color Prompts
 sys.ps1 = '%s>>> %s' % (_c['Green'], _c['Normal'])
 sys.ps2 = '%s... %s' % (_c['Red'], _c['Normal'])
 
-# Pretty printing by default
-def pp_hook(value):
-    """Print using pprint"""
+# Enable Pretty Printing for stdout
+def my_displayhook(value):
     if value is not None:
         try:
             import __builtin__
@@ -69,8 +97,47 @@ def pp_hook(value):
         pprint.pprint(value)
         del pprint
 
-sys.displayhook = pp_hook
+sys.displayhook = my_displayhook
 
-fancycompleter.interact('~/.pyhistory')
+# Start an external editor with \e
+# http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/438813/
 
-# EOF
+EDITOR = os.environ.get('EDITOR', 'vim')
+EDIT_CMD = '\e'
+
+from tempfile import mkstemp
+from code import InteractiveConsole
+
+class EditableBufferInteractiveConsole(InteractiveConsole):
+    def __init__(self, *args, **kwargs):
+        self.last_buffer = [] # This holds the last executed statement
+        InteractiveConsole.__init__(self, *args, **kwargs)
+
+    def runsource(self, source, *args):
+        self.last_buffer = [ source.encode('latin-1') ]
+        return InteractiveConsole.runsource(self, source, *args)
+
+    def raw_input(self, *args):
+        line = InteractiveConsole.raw_input(self, *args)
+        if line == EDIT_CMD:
+            fd, tmpfl = mkstemp('.py')
+            os.write(fd, b'\n'.join(self.last_buffer))
+            os.close(fd)
+            os.system('%s %s' % (EDITOR, tmpfl))
+            line = open(tmpfl).read()
+            os.unlink(tmpfl)
+            tmpfl = ''
+            lines = line.split( '\n' )
+            for i in range(len(lines) - 1): self.push( lines[i] )
+            line = lines[-1]
+        return line
+
+# clean up namespace
+del sys
+
+c = EditableBufferInteractiveConsole(locals=locals())
+c.interact(banner=WELCOME)
+
+# Exit the Python shell on exiting the InteractiveConsole
+import sys
+sys.exit()

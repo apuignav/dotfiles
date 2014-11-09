@@ -19,3 +19,6 @@
 [submodule "scripts/gists/replace"]
 	path = scripts/gists/replace
 	url = git@gist.github.com:/ecdc950a9e4610b4cde2.git
+[submodule "scripts/gists/summer-of-scripts"]
+	path = scripts/gists/summer-of-scripts
+	url = git@gist.github.com:/54cd2f75df01615172c0.git
