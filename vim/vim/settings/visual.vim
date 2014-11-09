@@ -27,8 +27,8 @@ function! VisualSelection(direction) range
 endfunction
 
 " Visual mode pressing * or # searches for the current selection
-vnoremap <silent> * :call VisualSelection('f', '')<CR>
-vnoremap <silent> # :call VisualSelection('b', '')<CR>
+vnoremap <silent> * :call VisualSelection('f')<CR>
+vnoremap <silent> # :call VisualSelection('b')<CR>
 " When you press gv you vimgrep after the selected text
 " vnoremap <silent> gv :call VisualSelection('gv')<CR>
 " When you press <leader>s you can search and replace the selected text
@@ -37,3 +37,7 @@ vnoremap <silent> <leader>s :call VisualSelection('replace')<CR>
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv
+
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv

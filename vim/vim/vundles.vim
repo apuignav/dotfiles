@@ -57,6 +57,7 @@ if !exists("g:override_bundles")
         endif
         Plugin 'tpope/vim-unimpaired'
         Plugin 'kristijanhusak/vim-multiple-cursors'
+        Plugin 'haya14busa/incsearch.vim'
     endif
 
     " General Programming
@@ -114,7 +115,8 @@ if !exists("g:override_bundles")
     endif
 
     if count(g:bundle_groups, 'test')
-        Plugin 'Valloric/YouCompleteMe'
+        Plugin 'davidhalter/jedi-vim'
+        " Plugin 'Valloric/YouCompleteMe'
     endif
 
     if count(g:bundle_groups, 'unite')

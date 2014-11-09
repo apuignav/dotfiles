@@ -18,3 +18,6 @@ imap [H g0
 
 "Go to last edit location with ,.
 nnoremap ,. '.
+
+" Fast save
+map ww :w<cr>

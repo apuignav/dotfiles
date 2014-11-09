@@ -11,4 +11,4 @@ endfunc
 
 " Keybinding
 set number
-nnoremap <leader>n :call NumberToggle()<cr>
+nnoremap <leader>nn :call NumberToggle()<cr>
