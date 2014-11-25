@@ -21,7 +21,7 @@ endif
 " In the .vimrc.bundles.local file
 " list only the plugin groups to use
 if !exists('g:bundle_groups')
-    let g:bundle_groups=['general', 'programming', 'python', 'misc', 'ultisnips']
+    let g:bundle_groups=['general', 'programming', 'python', 'misc', 'ultisnips', 'last']
     " let g:bundle_groups=['test']
 endif
 
@@ -55,9 +55,7 @@ if !exists("g:override_bundles")
                 Plugin 'mileszs/ack.vim'
             endif
         endif
-        Plugin 'tpope/vim-unimpaired'
         Plugin 'kristijanhusak/vim-multiple-cursors'
-        Plugin 'haya14busa/incsearch.vim'
     endif
 
     " General Programming
@@ -126,6 +124,10 @@ if !exists("g:override_bundles")
         " http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html
         Plugin 'Shougo/vimproc.vim'
         Plugin 'Shougo/unite.vim'
+    endif
+
+    if count(g:bundle_groups, 'last')
+        Plugin 'tpope/vim-unimpaired'
     endif
 
 endif
