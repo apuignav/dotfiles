@@ -4,7 +4,7 @@ set hlsearch                    " highlight search terms
 set ignorecase                  " ignore case when searching
 set smartcase                   " case sensitive when uc present
 "clearing highlighted search
-nmap <silent> // :nohlsearch<CR>
+nmap <silent> <leader>/ :nohlsearch<CR>
 " Toggle hlsearch with <leader>hs
 nmap <leader>hl :set hlsearch! hlsearch?<CR>
 
