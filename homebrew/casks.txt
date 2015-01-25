@@ -32,4 +32,5 @@ todoist
 transmission
 truecrypt
 unison
+xquartz
 vlc
