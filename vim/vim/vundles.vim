@@ -56,6 +56,7 @@ if !exists("g:override_bundles")
             endif
         endif
         Plugin 'kristijanhusak/vim-multiple-cursors'
+        Plugin 'EinfachToll/DidYouMean'
     endif
 
     " General Programming
