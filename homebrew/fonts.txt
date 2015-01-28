@@ -2,6 +2,7 @@ font-sauce-code-powerline
 font-inconsolata-dz-for-powerline
 font-source-code-pro
 font-source-sans-pro
+font-source-serif-pro
 font-raleway
 font-raleway-dots
 font-aleo
