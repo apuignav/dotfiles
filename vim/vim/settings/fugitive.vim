@@ -13,3 +13,7 @@ nnoremap <silent> <leader>gp :Git push<CR>
 " fugitive buffers. This prevents this from becomming an issue:
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" Gitv
+nmap <leader>gv :Gitv --all<cr>
+nmap <leader>gV :Gitv! --all<cr>
+vmap <leader>gV :Gitv! --all<cr>
