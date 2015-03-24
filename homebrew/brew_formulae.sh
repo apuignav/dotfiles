@@ -4,6 +4,12 @@ formulae=$(<formulae.txt)
 # echo $formulae
 # exit
 brew update
+# Taps
+brew tap homebrew/science
+brew tap homebrew/versions
+brew tap homebrew/dupes
+
+# Install
 for app in "${formulae[@]}"
 do
     brew install $app
