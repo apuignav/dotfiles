@@ -1,7 +1,6 @@
 automake
 autoconf
 llvm
-llvm34
 gcc
 lua
 cairo
