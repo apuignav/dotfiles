@@ -18,6 +18,7 @@ latexit
 libreoffice
 macdown
 mactex
+menumeters
 mediainfo
 nvalt
 scummvm
