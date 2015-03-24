@@ -1,6 +1,6 @@
 Host *
   Protocol 2
-  ServerAliveInterval 100
+  ServerAliveInterval 30
 
 Host raspi
   HostName 192.168.1.120
