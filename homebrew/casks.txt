@@ -9,10 +9,10 @@ cyberduck
 day-o
 dropbox
 evernote
+fitbit-connect
 gfxcardstatus
 google-chrome
 inkscape
-istumbler
 iterm2-beta
 latexit
 libreoffice
@@ -27,10 +27,11 @@ smcfancontrol
 sourcetree
 spectacle
 spotify
+sqlitebrowser
 textwrangler
 todoist
 transmission
 truecrypt
 unison
-xquartz
 vlc
+xquartz
