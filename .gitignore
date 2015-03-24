@@ -33,6 +33,7 @@ vim/vim/bundle
 vim/vim/plugged
 vim/vim/yankring_history
 vim/vim/undo
+vim/vim/autoload/plug.vim
 
 # SASS
 # ----------------------------------------------------------------------------------------------
