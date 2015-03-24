@@ -221,7 +221,7 @@ if __name__ == '__main__':
     with cd('python'):
         execute('pip install --upgrade -r pip_packages.txt')
         for pyfile in ['pylintrc', 'pythonrc', 'percol.d']:
-            symlink('pylintrc', '$HOME/.%s' % pyfile)
+            symlink(pyfile, '$HOME/.%s' % pyfile)
 
     with cd('git'):
         symlink('gitignore_global', '$HOME/.gitignore_global')
