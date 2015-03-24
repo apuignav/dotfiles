@@ -241,7 +241,7 @@ if __name__ == '__main__':
         symlink('vim', '$HOME/.vim')
         symlink('vimrc', '$HOME/.vimrc')
         symlink('gvimrc', '$HOME/.gvimrc')
-        execute('./install_vundle.sh')
+        execute('./install_plug.sh')
 
     with cd('scripts'):
         symlink('bin', '$HOME/.scripts')
