@@ -1,8 +1,8 @@
 #!/bin/bash
 
 formulae=$(<formulae.txt)
-echo $formulae
-exit
+# echo $formulae
+# exit
 brew update
 for app in "${formulae[@]}"
 do
