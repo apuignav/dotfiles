@@ -63,6 +63,7 @@ if !exists("g:override_bundles")
         "let g:syntastic_warning_symbol = '⚠'
         let g:syntastic_aggregate_errors = 0
         Plug 'tpope/vim-fugitive'
+        Plug 'gregsexton/gitv'
         if version > 701
             Plug 'scrooloose/nerdcommenter'
         endif
