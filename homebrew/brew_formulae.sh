@@ -1,6 +1,6 @@
 #!/bin/bash
 
-formulae=$(<brew_formulae.txt)
+formulae=$(<formulae.txt)
 echo $formulae
 exit
 brew update
