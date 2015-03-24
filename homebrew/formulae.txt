@@ -4,7 +4,6 @@ llvm
 gcc
 lua
 cairo
-make
 cmake
 glib
 pango
