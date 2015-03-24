@@ -10,4 +10,7 @@ brew tap homebrew/dupes
 brew tap caskroom/versions
 brew tap caskroom/homebrew-fonts
 
+# Install cask
+brew install caskroom/cask/brew-cask
+
 # EOF

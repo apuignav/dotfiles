@@ -3,10 +3,8 @@ autoconf
 llvm
 gcc
 lua
-cairo
 cmake
 glib
-pango
 vala
 readline
 gettext
@@ -25,7 +23,6 @@ boost
 berkeley-db
 sqlite
 openssl
-ack
 the_silver_searcher
 fontforge
 freetype

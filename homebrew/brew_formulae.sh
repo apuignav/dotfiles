@@ -1,13 +1,10 @@
 #!/bin/bash
 
 formulae=$(<formulae.txt)
-# echo $formulae
-# exit
 brew update
-# Taps
-brew tap homebrew/science
-brew tap homebrew/versions
-brew tap homebrew/dupes
+
+# Install requirement
+brew cask install xquartz --appdir=/Applications
 
 # Install
 for app in "${formulae[@]}"
