@@ -2,6 +2,9 @@
 
 casks=$(<casks.txt)
 
+# Install cask
+brew install caskroom/cask/brew-cask
+
 # Open casks!
 for app in "${casks[@]}"
 do

@@ -44,7 +44,6 @@ htop-osx
 iftop
 tmux
 reattach-to-user-namespace
-brew-cask
 ssh-copy-id
 ranger
 archey
