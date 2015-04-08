@@ -29,6 +29,7 @@ tags
 .*.sw[a-z]
 *.un~
 Session.vim
+vim/vim/.netrwhist
 vim/vim/bundle
 vim/vim/plugged
 vim/vim/yankring_history

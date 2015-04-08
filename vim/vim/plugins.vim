@@ -53,6 +53,7 @@ if !exists("g:override_bundles")
         endif
         Plug 'kristijanhusak/vim-multiple-cursors'
         Plug 'EinfachToll/DidYouMean'
+        Plug 'DavidGamba/vim-vmath'
     endif
 
     " General Programming
