@@ -5,6 +5,9 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Vi mode (http://dougblack.io/words/zsh-vi-mode.html)
+bindkey -v
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -13,6 +16,19 @@ fi
 #######################################################################
 # ZSH
 #######################################################################
+export KEYTIMEOUT=1
+# Use vim cli mode
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+# backspace and ^h working even after
+# returning from command mode
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+
+# ctrl-w removed word backwards
+bindkey '^w' backward-kill-word
+
 # Last minute binding
 bindkey "^[[3~" delete-char
 
@@ -194,6 +210,7 @@ function tab-title () {
 # Completion for mac
 if [ "`uname`" = "Darwin" ]; then
   compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open alias run='open -a'
+  if which passpie > /dev/null; then eval "$(passpie complete zsh)"; fi
 fi
 
 # Load machine-dependent rc (if needed)

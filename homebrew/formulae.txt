@@ -58,3 +58,4 @@ cloc
 graphviz
 mackup
 svn
+passpie
