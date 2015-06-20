@@ -95,7 +95,7 @@
     user = apuignav
 
 [core]
-	editor = vi
+	editor = mvim -v
     excludesfile = ~/.gitignore_global
 
 [help]
