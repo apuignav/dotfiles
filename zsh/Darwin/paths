@@ -1,6 +1,6 @@
 # Variables
 export BREW=`brew --prefix`
-export HOMEBREW_BUILD_FROM_SOURCE=1
+# export HOMEBREW_BUILD_FROM_SOURCE=1
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export TERM=xterm-256color
 # Setting the editors properly
