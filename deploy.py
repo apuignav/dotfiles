@@ -255,4 +255,7 @@ if __name__ == '__main__':
         mkdir('$HOME/.config')
         symlink('ranger', '$HOME/.config/ranger')
 
+    # Passpie
+    symlink('$HOME/Dropbox/Backup/Security/.passpie', '$HOME/.passpie')
+
 # EOF
