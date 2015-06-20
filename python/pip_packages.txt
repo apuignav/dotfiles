@@ -103,3 +103,4 @@ ZConfig
 zdaemon
 ZODB
 zope.interface
+passpie
