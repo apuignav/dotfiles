@@ -35,7 +35,8 @@ if !exists("g:override_bundles")
         Plug 'bling/vim-airline'
         Plug 'Lokaltog/vim-easymotion'
         Plug 'jistr/vim-nerdtree-tabs'
-        Plug 'corntrace/bufexplorer'
+        " Plug 'corntrace/bufexplorer'
+        Plug 'jeetsukumaran/vim-buffergator'
         Plug 'mbbill/undotree'
         Plug 'vim-scripts/bufkill.vim'
         Plug 'maxbrunsfeld/vim-yankstack'
@@ -98,8 +99,9 @@ if !exists("g:override_bundles")
         Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': ['tex', 'latex']}
         Plug 'parnmatt/vim-root'
         Plug 'amix/vim-zenroom2', {'for': 'mkd'}
-        Plug 'junegunn/goyo.vim', {'for': 'mkd'}
+        Plug 'junegunn/goyo.vim', {'for': ['mkd', 'tex']}
         Plug 'plasticboy/vim-markdown', {'for': 'mkd'}
+        Plug 'chrisbra/csv.vim', {'for': 'csv'}
         " Plug 'tpope/vim-speeddating'
     endif
 
