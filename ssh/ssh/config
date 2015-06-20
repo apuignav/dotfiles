@@ -33,6 +33,14 @@ Host cern lxplus.cern.ch
  ForwardX11 yes
  ForwardX11Trusted yes
 
+Host lxplus*.cern.ch
+ User apuignav
+ PubkeyAuthentication no
+ ForwardX11 yes
+ ForwardX11Trusted yes
+ ControlPath ~/.ssh/%h.%p.%r
+ ControlMaster auto
+
 Host cerncvs
  HostName isscvs.cern.ch
  User apuignav
