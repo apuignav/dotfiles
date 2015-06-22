@@ -4,7 +4,7 @@
 "
 " This file contains the list of plugin installed using vundle plugin manager.
 " Filetype off is required by vundle
-filetype off
+filetype on
 
 call plug#begin()
 
@@ -98,9 +98,9 @@ if !exists("g:override_bundles")
     if count(g:bundle_groups, 'misc')
         Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': ['tex', 'latex']}
         Plug 'parnmatt/vim-root'
-        Plug 'amix/vim-zenroom2', {'for': 'mkd'}
         Plug 'junegunn/goyo.vim', {'for': ['mkd', 'tex']}
-        Plug 'plasticboy/vim-markdown', {'for': 'mkd'}
+        Plug 'amix/vim-zenroom2', {'for': 'mkd'}
+        " Plug 'plasticboy/vim-markdown', {'for': 'mkd'}
         Plug 'chrisbra/csv.vim', {'for': 'csv'}
         " Plug 'tpope/vim-speeddating'
     endif
