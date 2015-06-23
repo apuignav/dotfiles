@@ -20,3 +20,4 @@ font-open-sans
 font-open-sans-condensed
 font-fira-mono-for-powerline
 font-fira-sans
+font-lato
