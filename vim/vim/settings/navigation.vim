@@ -5,6 +5,7 @@ set nostartofline    " Don’t reset cursor to start of line when moving around.
 " Scrolling
 set scrolljump=5                " lines to scroll when cursor leaves screen
 set scrolloff=3                 " minimum lines to keep above and below cursor
+set sidescrolloff=5
 
 " Set wrapping
 set linebreak
