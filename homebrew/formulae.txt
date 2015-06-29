@@ -29,7 +29,7 @@ freetype
 fontconfig
 lcdf-typetools
 parallel
-r
+coreutils
 fftw
 gsl
 xrootd
@@ -42,7 +42,6 @@ iftop
 tmux
 reattach-to-user-namespace
 ssh-copy-id
-ranger
 archey
 gd
 flac

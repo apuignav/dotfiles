@@ -251,9 +251,6 @@ if __name__ == '__main__':
         symlink('ballast.conf', '$HOME/.ballast.conf')
         # Tmux
         symlink('tmux.conf', '$HOME/.tmux.conf')
-        # Ranger
-        mkdir('$HOME/.config')
-        symlink('ranger', '$HOME/.config/ranger')
 
     # Passpie
     symlink('$HOME/Dropbox/Backup/Security/.passpie', '$HOME/.passpie')
