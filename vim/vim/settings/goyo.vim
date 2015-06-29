@@ -4,4 +4,4 @@ let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
 
 " Keybinding
-nmap <leader>z :Goyo<CR>
+nmap <leader>g :Goyo<CR>
