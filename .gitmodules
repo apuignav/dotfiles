@@ -25,3 +25,6 @@
 [submodule "scripts/latexrun"]
 	path = scripts/latexrun
 	url = git@github.com:aclements/latexrun.git
+[submodule "zsh/k"]
+	path = zsh/k
+	url = git@github.com:rimraf/k.git

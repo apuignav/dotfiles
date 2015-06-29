@@ -88,6 +88,12 @@ export DLHCB=svn+ssh://svn.cern.ch/reps/lhcbdocs
 alias git-sync-fork="git fetch upstream; git checkout master; git merge upstream/master"
 alias git-rebase-fork="git fetch upstream; git checkout master; git rebase upstream/master"
 
+# Load k.sh
+# https://github.com/rimraf/k
+if [[ -s "$HOME/dotfiles/zsh/k/k.sh" ]]; then
+  source "$HOME/dotfiles/zsh/k/k.sh"
+fi
+
 
 # Platform-dependent aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
