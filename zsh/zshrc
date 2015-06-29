@@ -88,6 +88,7 @@ export DLHCB=svn+ssh://svn.cern.ch/reps/lhcbdocs
 alias git-sync-fork="git fetch upstream; git checkout master; git merge upstream/master"
 alias git-rebase-fork="git fetch upstream; git checkout master; git rebase upstream/master"
 
+
 # Platform-dependent aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
@@ -188,6 +189,11 @@ function tab-title () {
     add-zsh-hook -d preexec _terminal-set-titles-with-command
     # Set the title
     set-tab-title "$@"
+}
+
+# Pandoc - LaTeX
+function markdown2beamer () {
+    pandoc -t beamer -V theme:m -V themeopts:titleprogressbar --latex-engine xelatex --template ~/dotfiles/pandoc/templates/default.beamer -s "$1" -o "`basename $1 .md`.pdf"
 }
 
 #######################################################################
