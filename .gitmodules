@@ -28,3 +28,6 @@
 [submodule "zsh/k"]
 	path = zsh/k
 	url = git@github.com:rimraf/k.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
