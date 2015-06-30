@@ -21,17 +21,13 @@
     ~/.pythonrc: python/pythonrc
     ~/.percol.d: python/percol.d/
 - shell:
-    - [pip install --upgrade -r python pip_packages.txt, Installing python packages]
+    - [pip install --upgrade -r python/pip_packages.txt, Installing python packages]
 
 # Git
+- shell:
+    - [cp git/gitconfig ~/.gitconfig]
 - link:
     ~/.gitignore_global: git/gitignore_global
-    ~/.gitconfig:
-        force: yes
-        relink: true
-        path: git/gitconfig
-- shell:
-    [pip install --upgrade -r python/pip_packages.txt, Installing python packages]
 
 # ssh
 - link:
