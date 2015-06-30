@@ -16,3 +16,15 @@
     ~/.zprezto/modules/prompt/functions/prompt_apuignav_setup: zsh/prompt/prompt_apuignav_setup
 
 # Python
+- link:
+    ~/.pylintrc: python/pylintrc
+    ~/.pythonrc: python/pythonrc
+    ~/.percol.d: python/percol.d
+
+# Git
+- link:
+    ~/.gitignore_global: git/gitignore_global
+    ~/.gitconfig:
+        force: yes
+        relink: true
+        path: git/gitconfig
