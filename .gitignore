@@ -50,3 +50,6 @@ ssh/ssh/known_hosts
 config/ranger/bookmarks
 config/ranger/tagged
 config/ranger/history
+
+# Local dotfiles
+local/
