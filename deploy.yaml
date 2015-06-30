@@ -19,7 +19,9 @@
 - link:
     ~/.pylintrc: python/pylintrc
     ~/.pythonrc: python/pythonrc
-    ~/.percol.d: python/percol.d
+    ~/.percol.d: python/percol.d/
+- shell:
+    - [pip install --upgrade -r python pip_packages.txt, Installing python packages]
 
 # Git
 - link:
@@ -28,10 +30,12 @@
         force: yes
         relink: true
         path: git/gitconfig
+- shell:
+    [pip install --upgrade -r python/pip_packages.txt, Installing python packages]
 
 # ssh
 - link:
-    ~/.ssh: ssh/ssh
+    ~/.ssh: ssh/ssh/
 - shell:
     - [ssh/setup_keys.sh && ssh/fix_permissions.sh, Setting up ssh keys and permissions]
 
@@ -40,3 +44,4 @@
     ~/.scripts: scripts/bin
     ~/.ballast.conf: config/ballast.conf
     ~/.tmux.conf: config/tmux.conf
+

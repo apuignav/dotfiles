@@ -3,256 +3,122 @@
 # =============================================================================
 # @file   deploy.py
 # @author Albert Puig (albert.puig@cern.ch)
-# @date   31.10.2014
+# @date   30.06.2015
 # =============================================================================
-"""Deploy dotfiles."""
+"""Deploy my dotfiles with dotbot."""
 
 import os
-import shutil
-import logging
-
-import platform
 import subprocess
-from contextlib import contextmanager
 
-#############
-#  Logging  #
-#############
 
-logging.basicConfig(level=logging.INFO)
+class DotbotError(Exception):
+    """Error in deployment with dotbot."""
+    pass
 
-####################
-#  Host functions  #
-####################
 
-def is_mac():
-    """Is this machine a Mac?
+def run_command(cmd, *args):
+    """Run given command with args on the command line.
 
-    :rtype: bool
+    :param cmd: command to execute
+    :type cmd: string
+    :param args: arguments of the command
+    :type args: list
 
-    """
-    return 'Darwin' in platform.platform()
-
-#############
-#  Helpers  #
-#############
-
-def which(command):
-    """Get location of a command.
-
-    :param command: Command to look for.
-    :type command: str
-
-    :returns: Command location
+    :return: list of lines of the output
 
     """
-    def is_exe(path):
-        """Is executable?
+    process = subprocess.Popen([cmd]+list(args),
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.STDOUT)
 
-        :param path: Path to check.
-        :type path: str
-
-        :rtype: bool
-
-        """
-        return os.path.isfile(path) and os.access(path, os.X_OK)
-
-    command_path, _ = os.path.split(command)
-    if command_path:
-        if is_exe(command):
-            return command
-    else:
-        for path in os.environ["PATH"].split(os.pathsep):
-            path = path.strip('"')
-            exe_file = os.path.join(path, command)
-            if is_exe(exe_file):
-                return exe_file
-    return None
+    output = [line
+              for line in process.communicate()[0].split('\n')
+              if line]
+    return (process.returncode, output)
 
 
-def mkdir(path):
-    """Make dir.
+def git(*args):
+    """Execute a git command.
 
-    :param path: Path to make.
-    :type path: str
+    If arguments with spaces are given, they are automatically split.
 
     """
-    path = os.path.abspath(os.path.expandvars(os.path.expanduser(path)))
-    if not os.path.isdir(path):
-        os.mkdir(path)
 
-#############
-#  Actions  #
-#############
-
-@contextmanager
-def cd(path):
-    """Context manager for cd.
-
-    :param path: Path to cd into.
-    :type path: str
-
-    """
-    prev_cwd = os.getcwd()
-    os.chdir(path)
-    try:
-        yield
-    finally:
-        os.chdir(prev_cwd)
+    myargs = [element for arg in args for element in arg.split()]
+    return run_command('git', myargs)
 
 
-def symlink(origin, destination):
-    """Create symbolic link.
+def dotbot(config_file, base_dir):
+    """Execute dotbot.
 
-    :param origin: Source of link.
-    :type origin: str
-    :param destination: Destination of link
-    :type destination: str
+    :param config_file: Dotbot configuration file.
+    :type config_file: str
+    :param base_dir: Directory to run dotbot in.
+    :type base_dir: str
+
+    :returns: Dotbot execution status.
+    :rtype: int
 
     """
-    origin = os.path.abspath(origin)
-    destination = os.path.abspath(os.path.expandvars(os.path.expanduser(destination)))
-    logging.debug("Requested symlink from %s to %s", origin, destination)
-    if os.path.islink(destination):
-        if origin == os.readlink(destination):
-            logging.info("Link %s -> %s already set up", origin, destination)
-            return
-    if os.path.exists(destination):
-        os.unlink(destination)
-    logging.info("Linking %s -> %s", origin, destination)
-    os.symlink(origin, destination)
+    dotbot_bin = os.path.join(DOTBOT_DIR, 'bin/dotbot')
+    if os.path.exists(config_file):
+        status = subprocess.call([dotbot_bin, "-d%s" % base_dir, "-c%s" % config_file])
+    return status
 
 
-def copy(origin, destination):
-    """Copy file.
+def deploy():
+    """Deploy dotfiles.
 
-    The file is copied only if the destination doesn't exist.
-
-    :param origin: Source file.
-    :type origin: str
-    :param destination: Destination file
-    :type destination: str
+    1. Clone the local git repository, update if necessary.
+    2. Ask user for which machine is going to be used.
+    3. Deploy a pre-dotfiles local machine dotfiles if necessary
+    4. Deploy the dotfiles
+    5. Deploy the local machine dotfiles
 
     """
-    origin = os.path.abspath(origin)
-    destination = os.path.abspath(os.path.expandvars(os.path.expanduser(destination)))
-    logging.debug("Requested copy from %s to %s", origin, destination)
-    if not os.path.exists(destination):
-        logging.info("Copying %s -> %s", origin, destination)
-        shutil.copy(origin, destination)
+
+    # Clone local git repo, update if necessary
+    if not os.path.exists(LOCAL_DIR):
+        status, _ = git("clone", "https://github.com/apuignav/dotfiles-local.git", "local")
+        if status:
+            raise OSError("Failed cloning/updated local git repo!")
+        # Magic: fetch all remote branches and create trackingi local ones
+        # http://stackoverflow.com/questions/67699/clone-all-remote-branches-with-git
+        os.chdir(LOCAL_DIR)
+        os.system(r"git branch -a |"
+                  r"grep -v HEAD | "
+                  r"perl -ne 'chomp($_); s|^\*?\s*||; if (m|(.+)/(.+)| && not $d{$2})"
+                  r"{print qq(git branch --track $2 $1/$2\n)} else {$d{$_}=1}' "
+                  r"| sh -xfs")
+    os.chdir(LOCAL_DIR)
+    git("pull --all")
+    # Choose machine
+    branches = [branch
+                for _, branch in git('branch')
+                if branch not in ['* master']]
+    machine = None
+    while machine not in branches:
+        machine = raw_input('Choose a machine [%s]' % (','.join(branches)))
+    git("checkout", machine)
+    os.chdir(DOTFILES_DIR)
+    git("git submodule update --init --recursive dotbot")
+    # Now deploy pre-dotfiles for local machine
+    if dotbot(os.path.join(LOCAL_DIR, 'deploy_pre.yaml'), LOCAL_DIR):
+        raise DotbotError("Error deploying pre-dotfiles for local machine!")
+    # Now deploy dotfiles
+    if dotbot(os.path.join(DOTFILES_DIR, 'deploy.yaml'), DOTFILES_DIR):
+        raise DotbotError("Error deploying dotfiles!")
+    # Now deploy local machine dotfiles
+    if dotbot(os.path.join(LOCAL_DIR, 'deploy.yaml'), LOCAL_DIR):
+        raise DotbotError("Error deploying dotfiles for local machine!")
 
 
-def execute(command, get_output=False):
-    """Execute command.
-
-    :param command: Command to execute.
-    :type command: str
-    :param get_output: Get the output?
-    :type: bool
-
-    :returns: Lines of output (if requested)
-    :rtype: list
-
-    """
-    logging.info("Executing '%s'", command)
-    if get_output:
-        return [line for line in subprocess.Popen(command.split(),
-                                                  stdout=subprocess.PIPE,
-                                                  stderr=subprocess.STDOUT).communicate()[0].split('\n')
-                if line]
-    else:
-        os.system(command)
-        return
-
-
-install_bash = False
-
-# TODO: mackup
+DOTFILES_DIR = os.path.basename(__file__)
+LOCAL_DIR = os.path.join(DOTFILES_DIR, 'local')
+DOTBOT_DIR = os.path.join(DOTFILES_DIR, 'dotbot')
+CURRENT_DIR = os.getcwd()
 
 if __name__ == '__main__':
-    logging.info("Welcome to the deploy script. Fasten your seatbelt!")
-    # First, let's make a dir
-    mkdir('$HOME/.local')
-    # Now let's work
-    if is_mac():
-        with cd('homebrew'):
-            # Install brew
-            if not which('brew'):
-                logging.info("Installing homebrew")
-                execute('./install.sh')
-            # Now brew!
-            logging.info("Brewing, this may take a while...")
-            execute('./brew_formulae.sh')
-            logging.info("Opening casks, please wait...")
-            execute('./open_casks.sh')
-    else:  # Assume Linux without sudo
-        # Install pip and ranger
-        pass
-
-    with cd('zsh'):
-        execute('./deploy_prezto.sh')
-        for zfile in ['zlogin', 'zlogout', 'zpreztorc', 'zprofile', 'zshrc']:
-            symlink(zfile, '$HOME/.%s' % zfile)
-        symlink('prompt/prompt_apuignav_setup',
-                '$HOME/.zprezto/modules/prompt/functions/prompt_apuignav_setup')
-        system = 'Darwin' if is_mac() else 'Linux'
-        with cd(system):
-            symlink('paths', '$HOME/.paths')
-            symlink('aliases', '$HOME/.aliases')
-
-    if install_bash:
-        with cd('bash'):
-            for bfile in ['bash_profile', 'common', 'functions', 'mybash']:
-                symlink(bfile, '$HOME/.%s' % bfile)
-
-    with cd('hosts'):
-        if is_mac():
-            with cd('mac'):
-                symlink('localrc', '$HOME/.localrc')
-                execute('./defaults.sh')
-        elif 'el6' in execute('uname -r', True)[0]:
-            with cd('slc6'):
-                symlink('localrc', '$HOME/.localrc')
-                symlink('vimrc.local', '$HOME/.vimrc.local')
-        elif which('cernvm-update'):
-            with cd('cernvm'):
-                symlink('localrc', '$HOME/.localrc')
-
-    with cd('python'):
-        execute('pip install --upgrade -r pip_packages.txt')
-        for pyfile in ['pylintrc', 'pythonrc', 'percol.d']:
-            symlink(pyfile, '$HOME/.%s' % pyfile)
-
-    with cd('git'):
-        symlink('gitignore_global', '$HOME/.gitignore_global')
-        copy('gitconfig', '$HOME/.gitconfig')
-        # execute("git config --global color.ui true")
-        # execute('git config --global author.name "Albert Puig"')
-        # execute('git config --global author.email "albert.puig@cern.ch"')
-        # execute('git config --global push.default simple')
-        # execute('git config --global core.excludesfile ~/.gitignore_global')
-
-    with cd('ssh'):
-        symlink('ssh', '$HOME/.ssh')
-        execute('./setup_keys.sh')
-        execute('./fix_permissions.sh')
-
-    with cd('vim'):
-        symlink('vim', '$HOME/.vim')
-        symlink('vimrc', '$HOME/.vimrc')
-        symlink('gvimrc', '$HOME/.gvimrc')
-        execute('./install_plug.sh')
-
-    with cd('scripts'):
-        symlink('bin', '$HOME/.scripts')
-
-    with cd('config'):
-        # Ballast
-        symlink('ballast.conf', '$HOME/.ballast.conf')
-        # Tmux
-        symlink('tmux.conf', '$HOME/.tmux.conf')
-
-    # Passpie
-    symlink('$HOME/Dropbox/Backup/Security/.passpie', '$HOME/.passpie')
+    deploy()
 
 # EOF
