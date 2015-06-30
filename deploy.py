@@ -45,7 +45,7 @@ def git(*args):
     """
 
     myargs = [element for arg in args for element in arg.split()]
-    return run_command('git', myargs)
+    return run_command('git', *myargs)
 
 
 def dotbot(config_file, base_dir):
@@ -62,7 +62,7 @@ def dotbot(config_file, base_dir):
     """
     dotbot_bin = os.path.join(DOTBOT_DIR, 'bin/dotbot')
     if os.path.exists(config_file):
-        status = subprocess.call([dotbot_bin, "-d%s" % base_dir, "-c%s" % config_file])
+        status = subprocess.call([dotbot_bin, "-v", "-d%s" % base_dir, "-c%s" % config_file])
     return status
 
 
@@ -93,12 +93,12 @@ def deploy():
     os.chdir(LOCAL_DIR)
     git("pull --all")
     # Choose machine
-    branches = [branch
-                for _, branch in git('branch')
-                if branch not in ['* master']]
+    branches = [branch.replace('*', '').strip()
+                for branch in git('branch')[1]
+                if 'master' not in branch]
     machine = None
     while machine not in branches:
-        machine = raw_input('Choose a machine [%s]' % (','.join(branches)))
+        machine = raw_input('Choose a machine [%s]: ' % (','.join(branches)))
     git("checkout", machine)
     os.chdir(DOTFILES_DIR)
     git("git submodule update --init --recursive dotbot")
@@ -113,7 +113,7 @@ def deploy():
         raise DotbotError("Error deploying dotfiles for local machine!")
 
 
-DOTFILES_DIR = os.path.basename(__file__)
+DOTFILES_DIR = os.path.abspath(os.path.dirname(__file__))
 LOCAL_DIR = os.path.join(DOTFILES_DIR, 'local')
 DOTBOT_DIR = os.path.join(DOTFILES_DIR, 'dotbot')
 CURRENT_DIR = os.getcwd()
