@@ -5,7 +5,7 @@
 
 # Zsh
 - shell:
-    - [zsh/deploy_prezto.sh, 'Deploying/updating prezto']
+    - [zsh/deploy_prezto.sh, Deploying/updating prezto]
 
 - link:
     ~/.zlogin: zsh/zlogin
@@ -28,3 +28,15 @@
         force: yes
         relink: true
         path: git/gitconfig
+
+# ssh
+- link:
+    ~/.ssh: ssh/ssh
+- shell:
+    - [ssh/setup_keys.sh && ssh/fix_permissions.sh, Setting up ssh keys and permissions]
+
+# more simlinks
+- link:
+    ~/.scripts: scripts/bin
+    ~/.ballast.conf: config/ballast.conf
+    ~/.tmux.conf: config/tmux.conf
