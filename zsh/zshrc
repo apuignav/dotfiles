@@ -199,7 +199,9 @@ function tab-title () {
 
 # Pandoc - LaTeX
 function markdown2beamer () {
-    pandoc -t beamer -V theme:m -V themeopts:titleprogressbar --latex-engine xelatex --template ~/dotfiles/pandoc/templates/default.beamer -s "$1" -o "`basename $1 .md`.pdf"
+    filename=$1
+    shift
+    pandoc -t beamer -V theme:m -V themeopts:progressbar=frametitle,noframetitleoffset,block=fill --latex-engine xelatex --template ~/dotfiles/pandoc/templates/default.beamer --filter ~/dotfiles/pandoc/filters/alert_filter.py "$@" -s "$filename" -o "`basename $filename .md`.pdf"
 }
 
 #######################################################################
