@@ -99,9 +99,9 @@ if !exists("g:override_bundles")
     if count(g:bundle_groups, 'misc')
         Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': ['tex', 'latex']}
         Plug 'parnmatt/vim-root'
+        " Plug 'tpope/vim-markdown', {'for': ['mkd', 'markdown']}
         Plug 'junegunn/goyo.vim', {'for': ['markdown', 'mkd', 'tex']}
         Plug 'amix/vim-zenroom2', {'for': ['markdown', 'mkd']}
-        " Plug 'plasticboy/vim-markdown', {'for': 'mkd'}
         Plug 'chrisbra/csv.vim', {'for': 'csv'}
         " Plug 'tpope/vim-speeddating'
     endif
