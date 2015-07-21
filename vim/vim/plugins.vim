@@ -56,6 +56,8 @@ if !exists("g:override_bundles")
         Plug 'kristijanhusak/vim-multiple-cursors'
         Plug 'EinfachToll/DidYouMean'
         Plug 'DavidGamba/vim-vmath'
+        Plug 'vim-pandoc/vim-pandoc-syntax'
+        Plug 'vim-pandoc/vim-pandoc'
     endif
 
     " General Programming
@@ -97,7 +99,8 @@ if !exists("g:override_bundles")
 
     " Misc
     if count(g:bundle_groups, 'misc')
-        Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': ['tex', 'latex']}
+        " Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': ['tex', 'latex']}
+        Plug 'lervag/vimtex', {'for': ['tex', 'latex']}
         Plug 'parnmatt/vim-root'
         " Plug 'tpope/vim-markdown', {'for': ['mkd', 'markdown']}
         Plug 'junegunn/goyo.vim', {'for': ['markdown', 'mkd', 'tex']}

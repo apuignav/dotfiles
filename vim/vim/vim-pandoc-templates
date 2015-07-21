@@ -1,0 +1,1 @@
+slides|beamer -V theme:m -V themeopts:progressbar=frametitle,noframetitleoffset,block=fill --template ~/dotfiles/pandoc/templates/default.beamer --filter ~/dotfiles/pandoc/filters/alert_filter.py --standalone
