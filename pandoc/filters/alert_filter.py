@@ -20,11 +20,20 @@ def make_alert(key, value, *args):
         if len(value) == 1:
             if value[0]['t'] == 'Emph':
                 content = value[0]['c']
-                if len(content) == 1:
-                    if content[0]['t'] == 'Str':
-                        return [latex(r'\alert{%s}' % content[0]['c'])]
+                file_.write('%s %s\n' % (value, content))
+                # Build the content
+                final_str = ""
+                for element in content:
+                    if element['t'] == 'Str':
+                        final_str += element['c']
+                    elif element['t'] == 'Space':
+                        final_str += ' '
+                    else:
+                        return
+                return [latex(r'\alert{%s}' % final_str)]
 
 if __name__ == "__main__":
+    file_ = open('log', 'w')
     pf.toJSONFilter(make_alert)
 
 # EOF

@@ -40,4 +40,5 @@
     ~/.scripts: scripts/bin
     ~/.ballast.conf: config/ballast.conf
     ~/.tmux.conf: config/tmux.conf
+    ~/.pandoc: pandoc/
 
