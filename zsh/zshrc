@@ -51,6 +51,9 @@ for index ({1..9}) alias "c$index"="cd -${index}"; unset index
 # Report CPU usage for commands running longer than 20 seconds
 REPORTTIME=20
 
+# Improve vim tab completion 
+zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.pdf'
+
 #######################################################################
 # Aliases
 #######################################################################
@@ -213,11 +216,6 @@ function markdown2beamersource () {
 #######################################################################
 # Machine-dependent things
 #######################################################################
-# Completion for mac
-if [ "`uname`" = "Darwin" ]; then
-  compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open alias run='open -a'
-  if which passpie > /dev/null; then eval "$(passpie complete zsh)"; fi
-fi
 
 # Load machine-dependent rc (if needed)
 [[ -f ~/.localrc ]] && source ~/.localrc
