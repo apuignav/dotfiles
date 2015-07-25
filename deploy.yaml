@@ -35,9 +35,17 @@
 - shell:
     - [ssh/setup_keys.sh && ssh/fix_permissions.sh, Setting up ssh keys and permissions]
 
+# vim
+- link:
+    ~/.vim: vim/vim/
+    ~/.vimrc: vim/vimrc
+    ~/.gvimrc: vim/gvimrc
+- shell:
+    - [vim/configure_vim.sh, Configuring vim]
+
 # more simlinks
 - link:
-    ~/.scripts: scripts/bin
+    ~/.scripts: scripts/bin/
     ~/.ballast.conf: config/ballast.conf
     ~/.tmux.conf: config/tmux.conf
     ~/.pandoc: pandoc/
