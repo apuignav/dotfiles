@@ -160,6 +160,10 @@ $endfor$
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
+$if(pagenumbers)$
+\renewcommand{\pagemark}{}
+$endif$
+
 \begin{document}
 $if(title)$
 \maketitle
