@@ -1,1 +1,2 @@
 slides|beamer -V theme:m -V themeopts:progressbar=frametitle,noframetitleoffset,block=fill --filter ~/.pandoc/filters/alert_filter.py --standalone
+nice|pdf --latex-engine xelatex --template=nice -V documentclass:scrartcl -V papersize:a4paper -V fontsize:11pt --standalone
