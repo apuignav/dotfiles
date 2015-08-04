@@ -20,26 +20,11 @@ $endif$
   \fi
   \defaultfontfeatures{Mapping=tex-text}
   \setallmainfonts[Numbers={Proportional,OldStyle}]{Minion Pro}
-  \setsansfont[Numbers={Proportional,OldStyle}]{Open Sans}
+  \setsansfont[Numbers={Proportional,OldStyle}]{Myriad Pro Bold Condensed}
   \setmathsfont(Digits,Latin,Greek)[Numbers={Proportional,Lining}]{Minion Pro}
+  \setmonofont[Scale=MatchLowercase]{Inconsolata}
   \setmathrm[Numbers=Lining]{Minion Pro}
   \newcommand{\euro}{€}
-$if(mainfont)$
-    \setmainfont{$mainfont$}
-$endif$
-$if(sansfont)$
-    \setsansfont{$sansfont$}
-$endif$
-$if(monofont)$
-    \setmonofont[Mapping=tex-ansi]{$monofont$}
-$endif$
-$if(mathfont)$
-    \setmathfont(Digits,Latin,Greek){$mathfont$}
-$endif$
-$if(CJKmainfont)$
-    \usepackage{xeCJK}
-    \setCJKmainfont[$CJKoptions$]{$CJKmainfont$}
-$endif$
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -165,16 +150,40 @@ $else$
 \renewcommand{\pagemark}{}
 $endif$
 
-\usepackage[left=2.5cm,top=2.5cm,right=2.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\usepackage[left=2.5cm,top=1.5cm,right=2.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+
+
+\usepackage{xcolor}
+\definecolor{cvblue}{rgb}{0.22,0.45,0.70}
+\definecolor{darkgray}{HTML}{333333}
+\definecolor{white}{RGB}{255,255,255}
+
+\usepackage{tikz}
+
+\newfontfamily\nameheaderfont[]{Myriad Pro SemiCondensed}
+\newfontfamily\rolefont[]{Myriad Pro Light}
+
+
+\newcommand{\header}[2]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node [rectangle, fill=cvblue, anchor=north, minimum width=\paperwidth, minimum height=2.4cm] (box) at (current page.north){};
+    \node [above=-05pt] (name) at (box) {%
+      \fontsize{24pt}{42pt}\color{white}%
+      {\nameheaderfont #1}
+    };
+    \node [below=0pt] at (name.south) {%
+      \fontsize{16pt}{24pt}\color{white}%
+      \rolefont #2%
+    };
+  \end{tikzpicture}
+  \vspace{2.0cm}
+  \vspace{-2\parskip}
+}
 
 \begin{document}
 $if(title)$
-\maketitle
-$endif$
-$if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
+\makeatletter
+\header{\@title}{\@author}
 $endif$
 
 $for(include-before)$

@@ -20,7 +20,6 @@ def make_alert(key, value, *args):
         if len(value) == 1:
             if value[0]['t'] == 'Emph':
                 content = value[0]['c']
-                file_.write('%s %s\n' % (value, content))
                 # Build the content
                 final_str = ""
                 for element in content:
@@ -33,7 +32,6 @@ def make_alert(key, value, *args):
                 return [latex(r'\alert{%s}' % final_str)]
 
 if __name__ == "__main__":
-    file_ = open('log', 'w')
     pf.toJSONFilter(make_alert)
 
 # EOF
