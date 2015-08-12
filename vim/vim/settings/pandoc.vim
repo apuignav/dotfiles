@@ -13,7 +13,7 @@ let g:pandoc#modules#disabled = ["folding", "keyboard"]
 let g:pandoc#formatting#textwidth = 100
 
 " Disable message buffer
-g:pandoc#command#use_message_buffer = 1
+let g:pandoc#command#use_message_buffer = 1
 
 " Set spelling language
 let g:pandoc#spell#default_langs = ["en_us"]
