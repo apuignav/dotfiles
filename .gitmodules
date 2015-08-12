@@ -31,3 +31,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "scripts/markdown2ctags"]
+	path = scripts/markdown2ctags
+	url = git@github.com:jszakmeister/markdown2ctags.git
