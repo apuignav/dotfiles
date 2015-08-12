@@ -6,4 +6,4 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
 " Some python config
-let g:ultisnips_python_style = "sphinx"
+let g:ultisnips_python_style = "google"
