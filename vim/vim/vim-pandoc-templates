@@ -1,4 +1,4 @@
-slides|beamer -V theme:m -V themeopts:progressbar=frametitle,noframetitleoffset,block=fill --filter ~/.pandoc/filters/alert_filter.py --standalone
+slides|beamer -V theme:m -V themeopts:progressbar=frametitle,noframetitleoffset,block=fill --filter ~/.pandoc/filters/alert_filter.py --filter ~/.pandoc/filters/column_filter.py --filter ~/.pandoc/filters/center_filter.py --standalone
 nice|pdf --latex-engine xelatex --template=nice -V documentclass:scrartcl -V papersize:a4paper -V fontsize:11pt --standalone
 nicetex|latex --template=nice -V documentclass:scrartcl -V papersize:a4paper -V fontsize:11pt --standalone
 cvstyle|pdf --latex-engine xelatex --template=cvstyle -V documentclass:scrartcl -V papersize:a4paper -V fontsize:12pt --standalone
