@@ -19,17 +19,7 @@ def make_alert(key, value, *args):
     if key == "Strong":
         if len(value) == 1:
             if value[0]['t'] == 'Emph':
-                content = value[0]['c']
-                # Build the content
-                final_str = ""
-                for element in content:
-                    if element['t'] == 'Str':
-                        final_str += element['c']
-                    elif element['t'] == 'Space':
-                        final_str += ' '
-                    else:
-                        return
-                return [latex(r'\alert{%s}' % final_str)]
+                return [latex(r'\alert{')] + value[0]['c'] + [latex(u'}')]
 
 if __name__ == "__main__":
     pf.toJSONFilter(make_alert)
