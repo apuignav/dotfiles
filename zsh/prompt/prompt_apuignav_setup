@@ -9,6 +9,9 @@ function prompt_apuignav_precmd {
   if (( $+functions[git-info] )); then
     git-info
   fi
+  if (( $+functions[python-info] )); then
+    python-info
+  fi
 }
 
 function prompt_apuignav_setup {
@@ -43,6 +46,9 @@ function prompt_apuignav_setup {
   zstyle ':prezto:module:git:info:keys' format \
     'prompt' '%F{red}[%f$(coalesce "%b" "%p" "%c")%F{red}%s]' \
     'rprompt' '%A%B%S%a%d%m%r%U%u'
+
+  # %v - virtualenv name.
+  zstyle ':prezto:module:python:info:virtualenv' format '%%B%F{white}(%v)%f%%b'
 
   function ssh_connection() {
     if [[ -n $SSH_CONNECTION ]]; then
@@ -87,7 +93,7 @@ function prompt_apuignav_setup {
 
   # New test version
   #PROMPT='[%T${timer_show}]$(check_screen)$(ssh_connection)%F{cyan}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{brwhite}$%f%b) '
-  PROMPT='[%T]$(check_screen)$(check_jobs)$(ssh_connection)%F{blue}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}%(!.%B%F{red}#%f%b.%F{brwhite}$%f%b) '
+  PROMPT='[%T]$(check_screen)$(check_jobs)$(ssh_connection)%F{blue}${PWD/#$HOME/~}%f${git_info:+${(e)git_info[prompt]}}$python_info[virtualenv]%(!.%B%F{red}#%f%b.%F{brwhite}$%f%b) '
   #RPROMPT='${editor_info[keymap]}${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   #RPROMPT='[%T]%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
