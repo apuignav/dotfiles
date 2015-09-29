@@ -27,7 +27,7 @@ endif
 if !exists("g:override_bundles")
     " General
     if count(g:bundle_groups, 'general')
-        Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+        Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeTabsToggle']}
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-dispatch'
         Plug 'Townk/vim-autoclose'
