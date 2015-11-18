@@ -17,7 +17,7 @@ endif
 " In the .vimrc.bundles.local file
 " list only the plugin groups to use
 if !exists('g:bundle_groups')
-    let g:bundle_groups=['general', 'programming', 'python', 'misc', 'ultisnips', 'last']
+    let g:bundle_groups=['general', 'programming', 'python', 'misc', 'ultisnips', 'last', 'test']
     " let g:bundle_groups=['test']
 endif
 
@@ -30,7 +30,8 @@ if !exists("g:override_bundles")
         Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeTabsToggle']}
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-dispatch'
-        Plug 'Townk/vim-autoclose'
+        " Plug 'Townk/vim-autoclose'
+        Plug 'jiangmiao/auto-pairs'
         Plug 'kien/ctrlp.vim'
         Plug 'matchit.zip'
         Plug 'bling/vim-airline'
@@ -41,7 +42,6 @@ if !exists("g:override_bundles")
         Plug 'mbbill/undotree'
         Plug 'vim-scripts/bufkill.vim'
         Plug 'maxbrunsfeld/vim-yankstack'
-        Plug 'ervandew/supertab'
         Plug 'thomwiggers/vim-colors-solarized'
         if executable('ag')
             Plug 'rking/ag.vim'
@@ -82,13 +82,14 @@ if !exists("g:override_bundles")
         Plug 'vim-scripts/argtextobj.vim'
         Plug 'mutewinter/swap-parameters'
         Plug 'gregsexton/MatchTag'
+        Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
     endif
 
     " Python
     if count(g:bundle_groups, 'python')
-        if version > 701
-            Plug 'davidhalter/jedi-vim', {'for': 'python'}
-        endif
+        " if version > 701
+            " Plug 'davidhalter/jedi-vim', {'for': 'python'}
+        " endif
         Plug 'klen/python-mode', {'for': 'python'}
         Plug 'python.vim', {'for': 'python'}
         Plug 'python_match.vim', {'for': 'python'}
@@ -118,8 +119,12 @@ if !exists("g:override_bundles")
     endif
 
     if count(g:bundle_groups, 'test')
-        Plug 'davidhalter/jedi-vim'
-        " Plug 'Valloric/YouCompleteMe'
+        " Plug 'davidhalter/jedi-vim'
+        Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+        " Plug 'MarcWeber/vim-addon-mw-utils'
+        " Plug 'tomtom/tlib_vim'
+        " Plug 'SirVer/ultisnips'
+        " Plug 'honza/vim-snippets'
     endif
 
     if count(g:bundle_groups, 'unite')

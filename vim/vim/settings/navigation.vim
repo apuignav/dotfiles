@@ -16,8 +16,8 @@ set whichwrap=b,s,h,l,<,>,[,]   " backspace and cursor keys wrap to
 nnoremap j gj
 nnoremap k gk
 " Map the arrow keys to be based on display lines, not physical lines
-map <Down> gj
-map <Up> gk
+" map <Down> gj
+" map <Up> gk
 
 " The following two lines conflict with moving to top and bottom of the " screen
 " If you prefer that functionality, comment them out.
