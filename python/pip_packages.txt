@@ -104,3 +104,5 @@ zdaemon
 ZODB
 zope.interface
 passpie
+zenlog
+cookiecutter
