@@ -4,7 +4,7 @@ Host *
 
 Host raspi
   HostName 192.168.1.120
-  User pi
+  User osmc
   ForwardX11 no
   ForwardX11Trusted no
 
@@ -220,7 +220,7 @@ Host cernsvn svn.cern.ch
   ForwardX11Trusted no
 
 Host lpheserver
-  HostName lphe1dell1.epfl.ch
+  HostName lpheserv2.epfl.ch
   User puignava
   ForwardX11Trusted yes
   ForwardX11 yes
