@@ -1,0 +1,2 @@
+let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
+let g:AutoClosePreserveDotReg = 0
