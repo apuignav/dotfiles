@@ -83,7 +83,7 @@ if !exists("g:override_bundles")
         Plug 'vim-scripts/argtextobj.vim'
         Plug 'mutewinter/swap-parameters'
         Plug 'gregsexton/MatchTag'
-        Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+        Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
     endif
 
     " Python
@@ -94,7 +94,7 @@ if !exists("g:override_bundles")
         Plug 'klen/python-mode', {'for': 'python'}
         Plug 'python.vim', {'for': 'python'}
         Plug 'python_match.vim', {'for': 'python'}
-        Plug 'pythoncomplete', {'for': 'python'}
+        " Plug 'pythoncomplete', {'for': 'python'}
         Plug 'apuignav/vim-gf-python', {'for': 'python'}
         Plug 'thinca/vim-quickrun', {'for': 'python'}
     endif
