@@ -18,9 +18,8 @@ import bibtexparser
 from pandocfilters import toJSONFilter, RawInline
 
 #  logging.basicConfig(filename='filter.log', level=logging.DEBUG)
-
-logger = logging.getLogger('bibtexparser.bparser')
-logger.addHandler(logging.StreamHandler())
+#  logger = logging.getLogger('bibtexparser.bparser')
+#  logger.addHandler(logging.StreamHandler())
 
 
 ABBREVIATIONS = {'JHEP'                   : 'JHEP',
@@ -117,13 +116,13 @@ def format_cite(record):
                 output_str += ' %s' % record['volume']
             if not 'year' in record:
                 raise KeyError("Missing year")
-            output_str += ' (%s) ' % record['year']
+            output_str += ' (%s)' % record['year']
             if not eprint:
                 if not 'pages' in record:
-                    output_str = 'doi:%s (%s)' % (record['doi'],
-                                                  record['year'])
+                    output_str = ' doi:%s (%s)' % (record['doi'],
+                                                   record['year'])
                 else:
-                    output_str += record['pages']
+                    output_str += ' %s' % record['pages']
         elif entry_type == 'lhcbreport':
             output_str = record['ID']
         elif entry_type == 'mastersthesis':
@@ -167,10 +166,8 @@ class BibTeXFormatter(object):
         if not self.bib:
             if 'bibliography' in meta:
                 self.bib = {}
-                bib_files = meta['bibliography']['c']
-                if not isinstance(bib_files, list):
-                    bib_files = [bib_files]
-                logging.debug("Found bibliography files -> %s", ', '.join(bib_files))
+                bib_files = [file_block['c'][0]['c'] for file_block in meta['bibliography']['c']]
+                logging.debug("Found bibliography files -> %s", bib_files)
                 for bib_file in bib_files:
                     logging.debug('Loading bibliography -> %s', bib_file)
                     self.bib.update(load_bib(bib_file).entries_dict)
