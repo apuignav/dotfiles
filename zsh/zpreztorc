@@ -49,6 +49,7 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'prompt' \
   'syntax-highlighting' \
+  'autosuggestions'
   
 ########################################################################
 # Environment
@@ -123,36 +124,39 @@ zstyle ':prezto:module:syntax-highlighting' color 'yes'
 ## By default, only the main highlighter is enabled.
 zstyle ':prezto:module:syntax-highlighting' highlighters \
    'main' \
-   'brackets' #\
-   #'pattern' \
-   #'cursor' \
-   #'root'
+   'brackets' \
+   'pattern' \
+   'cursor' \
+   'root' 
 #
 # Set syntax highlighting styles.
-zstyle ':prezto:module:syntax-highlighting' styles \
-        'default' 'none' \
-        'unknown-token' 'fg=red,bold' \
-        'reserved-word' 'fg=cyan' \
-        'alias' 'none' \
-        'builtin' 'none' \
-        'function' 'none' \
-        'command' 'none' \
-        'precommand' 'none' \
-        'commandseparator' 'none' \
-        'hashed-command' 'none' \
-        'path' 'none' \
-        'path_prefix' 'none' \
-        'path_approx' 'none' \
-        'globbing' 'none' \
-        'history-expansion' 'fg=blue' \
-        'single-hyphen-option' 'none' \
-        'double-hyphen-option' 'none' \
-        'back-quoted-argument' 'none' \
-        'single-quoted-argument' 'fg=yellow' \
-        'double-quoted-argument' 'fg=yellow' \
-        'dollar-double-quoted-argument' 'fg=yellow' \
-        'back-double-quoted-argument' 'fg=yellow' \
-        'assign' 'none'
+# zstyle ':prezto:module:syntax-highlighting' styles \
+        # 'default' 'none' \
+        # 'unknown-token' 'fg=red,bold' \
+        # 'reserved-word' 'fg=cyan' \
+        # 'alias' 'none' \
+        # 'builtin' 'none' \
+        # 'function' 'none' \
+        # 'command' 'none' \
+        # 'precommand' 'none' \
+        # 'commandseparator' 'none' \
+        # 'hashed-command' 'none' \
+        # 'path' 'none' \
+        # 'path_prefix' 'none' \
+        # 'path_approx' 'none' \
+        # 'globbing' 'none' \
+        # 'history-expansion' 'fg=blue' \
+        # 'single-hyphen-option' 'none' \
+        # 'double-hyphen-option' 'none' \
+        # 'back-quoted-argument' 'none' \
+        # 'single-quoted-argument' 'fg=yellow' \
+        # 'double-quoted-argument' 'fg=yellow' \
+        # 'dollar-double-quoted-argument' 'fg=yellow' \
+        # 'back-double-quoted-argument' 'fg=yellow' \
+        # 'assign' 'none'
+
+# Don't highlight pasted strings
+zle_highlight=(paste:none)
 
 ########################################################################
 # Terminal
@@ -171,3 +175,6 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 # zstyle ':prezto:module:tmux:auto-start' local 'yes'
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+#
+zstyle ':prezto:module:autosuggestions:color' found 'fg=brwhite,underline'
+zstyle ':prezto:module:autosuggestions' color 'yes'
