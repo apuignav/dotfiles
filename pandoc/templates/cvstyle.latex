@@ -1,4 +1,8 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\usepackage{xcolor}
+\definecolor{cvblue}{rgb}{0.22,0.45,0.70}
+\definecolor{darkgray}{HTML}{333333}
+\definecolor{white}{RGB}{255,255,255}
 $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
@@ -18,12 +22,13 @@ $endif$
   \else
     \usepackage{fontspec}
   \fi
+
   \defaultfontfeatures{Mapping=tex-text}
-  \setallmainfonts[Numbers={Proportional,OldStyle}]{Minion Pro}
+  \setallmainfonts[Numbers={Proportional,OldStyle},Colour=darkgray]{Minion Pro}
   \setsansfont[Numbers={Proportional,OldStyle}]{Myriad Pro Bold Condensed}
-  \setmathsfont(Digits,Latin,Greek)[Numbers={Proportional,Lining}]{Minion Pro}
+  \setmathsfont(Digits,Latin,Greek)[Numbers={Proportional,Lining},Colour=darkgray]{Minion Pro}
   \setmonofont[Scale=MatchLowercase]{Inconsolata}
-  \setmathrm[Numbers=Lining]{Minion Pro}
+  \setmathrm[Numbers=Lining,Colour=darkgray]{Minion Pro}
   \newcommand{\euro}{€}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
@@ -43,7 +48,6 @@ $endif$
 \else
   \usepackage[unicode=true]{hyperref}
 \fi
-\usepackage[usenames,dvipsnames]{color}
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={$author-meta$},
@@ -153,11 +157,6 @@ $endif$
 \usepackage[left=2.5cm,top=1.5cm,right=2.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
 
 
-\usepackage{xcolor}
-\definecolor{cvblue}{rgb}{0.22,0.45,0.70}
-\definecolor{darkgray}{HTML}{333333}
-\definecolor{white}{RGB}{255,255,255}
-
 \usepackage{tikz}
 
 \newfontfamily\nameheaderfont[]{Myriad Pro SemiCondensed}
@@ -166,7 +165,7 @@ $endif$
 
 \newcommand{\header}[2]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=cvblue, anchor=north, minimum width=\paperwidth, minimum height=2.4cm] (box) at (current page.north){};
+    \node [rectangle, fill=cvblue, anchor=north, minimum width=\paperwidth, minimum height=2.7cm] (box) at (current page.north){};
     \node [above=-05pt] (name) at (box) {%
       \fontsize{24pt}{42pt}\color{white}%
       {\nameheaderfont #1}
@@ -176,7 +175,7 @@ $endif$
       \rolefont #2%
     };
   \end{tikzpicture}
-  \vspace{2.0cm}
+  \vspace{2.2cm}
   \vspace{-2\parskip}
 }
 
@@ -203,6 +202,7 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
+
 $body$
 
 $if(natbib)$
