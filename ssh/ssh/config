@@ -264,3 +264,10 @@ Host lphe lphe1
   ProxyCommand ~/.scripts/ballast -c ~/.ballast.conf lphe1
   ForwardX11Trusted yes
   ForwardX11 yes
+
+Host uzh
+  Hostname linux.physik.uzh.ch
+  User apuignav
+  ForwardX11Trusted yes
+  ForwardX11 yes
+
