@@ -265,8 +265,14 @@ Host lphe lphe1
   ForwardX11Trusted yes
   ForwardX11 yes
 
-Host uzh
-  Hostname linux.physik.uzh.ch
+Host uzh-farm uzh
+  Hostname farm-ui.physik.uzh.ch
+  User apuignav
+  ForwardX11Trusted yes
+  ForwardX11 yes
+
+Host uzh-grid
+  Hostname grid-ui.physik.uzh.ch
   User apuignav
   ForwardX11Trusted yes
   ForwardX11 yes
