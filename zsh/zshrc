@@ -28,6 +28,8 @@ bindkey '^h' backward-delete-char
 
 # ctrl-w removed word backwards
 bindkey '^w' backward-kill-word
+bindkey '^ ' forward-word
+
 
 # Last minute binding
 bindkey "^[[3~" delete-char
@@ -50,6 +52,9 @@ for index ({1..9}) alias "c$index"="cd -${index}"; unset index
 
 # Report CPU usage for commands running longer than 20 seconds
 REPORTTIME=20
+
+# Change suggestion style
+ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
 
 # Improve vim tab completion 
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.pdf'
