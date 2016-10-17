@@ -1,30 +1,13 @@
 Host *
   Protocol 2
   ServerAliveInterval 30
+  PubkeyAcceptedKeyTypes ssh-dss
 
 Host raspi
   HostName 192.168.1.120
   User osmc
   ForwardX11 no
   ForwardX11Trusted no
-
-Host raspih
-  HostName djkarras-raspi.mooo.com
-  User pi
-  Port 2222
-  ForwardX11 no
-  ForwardX11Trusted no
-
-Host space space spacew
- HostName 192.168.1.10
- User albert
- ForwardX11 no
- ForwardX11Trusted no
-
-Host spaceprinter
- Hostname 192.168.1.3
- User albert
- LocalForward 6310 localhost:631 
 
 Host cern lxplus.cern.ch
  HostName lxplus.cern.ch
@@ -41,20 +24,6 @@ Host lxplus*.cern.ch
  ControlPath ~/.ssh/%h.%p.%r
  ControlMaster auto
 
-Host cerncvs
- HostName isscvs.cern.ch
- User apuignav
- GSSAPIauthentication yes
- GSSAPIDelegateCredentials yes
-
-Host svn.cern.ch
- HostName svn.cern.ch
- User apuignav
- GSSAPIauthentication yes
- GSSAPIDelegateCredentials yes
- Protocol 2 
- ForwardX11 no
-
 Host cerntunnel
  Hostname lxplus.cern.ch
  User apuignav
@@ -67,20 +36,6 @@ Host cerntunnel
 Host onlinetunnel
  Hostname localhost
  Port 2222
- User apuignav
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host monatunnel
- Hostname lbgw.cern.ch
- User apuignav
- LocalForward 2221 mona07:22
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host mona07
- Hostname localhost
- Port 2221
  User apuignav
  ForwardX11 yes
  ForwardX11Trusted yes
@@ -99,101 +54,11 @@ Host plus
  ForwardX11 yes
  ForwardX11Trusted yes
 
-Host cern3
- HostName lx32slc4.cern.ch
- User apuignav
-
-Host ecm
- HostName lhcb02.ecm.ub.es
- user apuig
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host lhcb11
- HostName lhcb11.ecm.ub.es
- user apuig
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host ecmtunnel
- Hostname lhcb02.ecm.ub.es
- User apuig
- LocalForward 2223 lhcb01:22
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host lhcb19tunnel
- Hostname localhost
- Port 2223
- User apuig
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host pacha
- HostName 192.168.0.1
- User albert
-
-Host pachaw
- HostName 192.168.1.2
- User albert
-
-Host coccon
- HostName 192.168.1.6
- User albert
-
 Host casa
  Hostname djkarras.mooo.com
  User albert
  ForwardX11 no
  ForwardX11Trusted no
-
-Host lhcb08
- HostName lhcb08.ecm.ub.es
- User albert
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host lhcb09
- HostName lhcb09.ecm.ub.es
- User apuig
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host lhcb12
- HostName lhcb12.ecm.ub.es
- User apuig
-
-Host lhcb19
- HostName lhcb19.ecm.ub.es
- User apuig
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host lhcb02
- HostName lhcb02.ecm.ub.es
- User apuig
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host lhcbsoft
- HostName lhcb19
- User lhcbsoft
-
-Host lcg-ce
- HostName lcg-ce
- User apuig
-
-Host tresor
- HostName 192.168.0.2
- User albert
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host tresorw
- HostName 192.168.1.8
- User albert
- ForwardX11 yes
- ForwardX11Trusted yes
 
 Host online
  HostName lbgw
@@ -237,28 +102,12 @@ Host epflb lpheb
   ForwardX11Trusted yes
   ForwardX11 yes
 
-Host lphelab epfllab
-  Hostname lphe1pc68
-  User albert
-  ForwardX11Trusted yes
-  ForwardX11 yes
-
-Host testbeam
-  Hostname 128.141.109.23
-  User albert
-  ForwardX11Trusted yes
-  ForwardX11 yes
-
 Host cernvm
   Hostname 192.168.139.129
   User apuignav
   ForwardX11Trusted yes
   ForwardX11 yes
   
-Host gitlab
-  Hostname lpheserv6.epfl.ch
-  User apuignav
-
 Host lphe lphe1
   User puignava
   ProxyCommand ~/.scripts/ballast -c ~/.ballast.conf lphe1
@@ -266,14 +115,20 @@ Host lphe lphe1
   ForwardX11 yes
 
 Host uzh-farm uzh
-  Hostname farm-ui.physik.uzh.ch
   User apuignav
   ForwardX11Trusted yes
   ForwardX11 yes
+  HostName farm-ui.physik.uzh.ch
 
 Host uzh-grid
-  Hostname grid-ui.physik.uzh.ch
   User apuignav
   ForwardX11Trusted yes
   ForwardX11 yes
+  HostName grid-ui.physik.uzh.ch
+
+Host uzh-dalli dalli
+  User apuignav
+  ForwardX11Trusted yes
+  ForwardX11 yes
+  HostName dalli.physik.uzh.ch
 
