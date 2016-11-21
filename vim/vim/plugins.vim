@@ -33,8 +33,6 @@ if !exists("g:override_bundles")
         " Plug 'Townk/vim-autoclose'
         Plug 'jiangmiao/auto-pairs'
         Plug 'kien/ctrlp.vim'
-        "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-        "Plug 'junegunn/fzf.vim'
         Plug 'matchit.zip'
         Plug 'bling/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
