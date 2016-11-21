@@ -6,5 +6,6 @@ elseif executable('ag')
 elseif executable('aco-grep')
     let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 endif
+nmap <leader>f :Ack ""<Left>
 " nmap ,ag :Ag ""<Left>
 " nmap ,af :AgFile ""<Left>
