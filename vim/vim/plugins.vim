@@ -27,33 +27,26 @@ endif
 if !exists("g:override_bundles")
     " General
     if count(g:bundle_groups, 'general')
-        Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeTabsToggle']}
+        "Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeTabsToggle']}
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-dispatch'
         " Plug 'Townk/vim-autoclose'
         Plug 'jiangmiao/auto-pairs'
         Plug 'kien/ctrlp.vim'
+        "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        "Plug 'junegunn/fzf.vim'
         Plug 'matchit.zip'
         Plug 'bling/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
         " Plug 'justinmk/vim-sneak'
-        Plug 'jistr/vim-nerdtree-tabs'
+        "Plug 'jistr/vim-nerdtree-tabs'
         " Plug 'corntrace/bufexplorer'
         Plug 'jeetsukumaran/vim-buffergator'
         Plug 'mbbill/undotree'
         Plug 'vim-scripts/bufkill.vim'
         Plug 'maxbrunsfeld/vim-yankstack'
         Plug 'thomwiggers/vim-colors-solarized'
-        if executable('ag')
-            Plug 'rking/ag.vim'
-        else
-            if executable('ack-grep')
-                let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-                Plug 'mileszs/ack.vim'
-            elseif executable('ack')
-                Plug 'mileszs/ack.vim'
-            endif
-        endif
+        Plug 'mileszs/ack.vim'
         Plug 'kristijanhusak/vim-multiple-cursors'
         Plug 'EinfachToll/DidYouMean'
         Plug 'DavidGamba/vim-vmath'
@@ -64,12 +57,8 @@ if !exists("g:override_bundles")
     " General Programming
     if count(g:bundle_groups, 'programming')
         Plug 'scrooloose/syntastic'
-        let g:syntastic_enable_highlighting = 1
-        "let g:syntastic_error_symbol = '✗'
-        "let g:syntastic_warning_symbol = '⚠'
-        let g:syntastic_aggregate_errors = 0
         Plug 'tpope/vim-fugitive'
-        Plug 'gregsexton/gitv'
+        "Plug 'gregsexton/gitv'
         if version > 701
             Plug 'scrooloose/nerdcommenter'
         endif
@@ -121,7 +110,7 @@ if !exists("g:override_bundles")
 
     if count(g:bundle_groups, 'test')
         " Plug 'davidhalter/jedi-vim'
-        Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+        " Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
         " Plug 'MarcWeber/vim-addon-mw-utils'
         " Plug 'tomtom/tlib_vim'
         " Plug 'SirVer/ultisnips'

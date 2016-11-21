@@ -7,7 +7,7 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 " automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+" au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 set wildmenu                    " show list instead of just completing
 set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
