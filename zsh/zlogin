@@ -14,9 +14,9 @@
   fi
 } &!
 
-# Print a random, hopefully interesting, adage.
-#if (( $+commands[fortune] )); then
-  #fortune -a
-  #print
-#fi
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+    zprof > $HOME/zprof.log
+fi
 

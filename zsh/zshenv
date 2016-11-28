@@ -5,6 +5,17 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true  ]]; then
+    # https://kev.inburke.com/kevin/profiling-zsh-startup-time/
+    # https://carlosbecker.com/posts/speeding-up-zsh/
+    zmodload zsh/zprof
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/tmp/startlog.$$
+    setopt xtrace prompt_subst
+fi
+
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
