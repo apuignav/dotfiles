@@ -7,7 +7,9 @@ let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#branch#enabled = 1
 " let g:airline_enable_branch = 1
 " Syntastic
-let g:airline#extensions#syntastic#enabled = 1
+"let g:airline#extensions#syntastic#enabled = 1
+" Syntastic
+let g:airline#extensions#ale#enabled = 1
 " Tagbar
 let g:airline#extensions#tagbar#enabled = 1
 " Quickfix

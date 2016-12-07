@@ -54,7 +54,8 @@ if !exists("g:override_bundles")
 
     " General Programming
     if count(g:bundle_groups, 'programming')
-        Plug 'scrooloose/syntastic'
+        "Plug 'scrooloose/syntastic'
+        Plug 'w0rp/ale'
         Plug 'tpope/vim-fugitive'
         "Plug 'gregsexton/gitv'
         if version > 701
