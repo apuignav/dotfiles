@@ -9,7 +9,7 @@ filetype on
 call plug#begin()
 
 " Use local bundles if available {
-if filereadable(expand("~/.vimrc.bundles.local"))
+if filereadable(expand('~/.vimrc.bundles.local'))
     source ~/.vimrc.bundles.local
 endif
 " }
@@ -24,7 +24,7 @@ endif
 " To override all the included bundles, put
 " g:override_bundles = 1
 " in the .vimrc.bundles.local file
-if !exists("g:override_bundles")
+if !exists('g:override_bundles')
     " General
     if count(g:bundle_groups, 'general')
         "Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeTabsToggle']}
@@ -55,10 +55,13 @@ if !exists("g:override_bundles")
     " General Programming
     if count(g:bundle_groups, 'programming')
         "Plug 'scrooloose/syntastic'
-        Plug 'w0rp/ale'
+        if v:version >= 800
+            Plug 'w0rp/ale'
+            Plug 'metakirby5/codi.vim'
+        endif
         Plug 'tpope/vim-fugitive'
         "Plug 'gregsexton/gitv'
-        if version > 701
+        if v:version > 701
             Plug 'scrooloose/nerdcommenter'
         endif
         Plug 'godlygeek/tabular'
@@ -77,7 +80,7 @@ if !exists("g:override_bundles")
     " Python
     if count(g:bundle_groups, 'python')
         " if version > 701
-            " Plug 'davidhalter/jedi-vim', {'for': 'python'}
+        " Plug 'davidhalter/jedi-vim', {'for': 'python'}
         " endif
         Plug 'klen/python-mode', {'for': 'python'}
         Plug 'python.vim', {'for': 'python'}
