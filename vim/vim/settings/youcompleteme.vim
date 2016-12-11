@@ -7,3 +7,4 @@ let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 nnoremap <leader>gd :YcmCompleter GoTo<CR>
 
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extr_conf.py'
