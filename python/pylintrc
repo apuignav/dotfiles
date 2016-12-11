@@ -5,7 +5,7 @@
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-init-hook='import sys; import os; sys.path.append(os.path.dirname(__file__))'
+init-hook='import sys; import os; sys.path.append(os.path.dirname(__file__)); sys.path.append(".")'
 
 # Add files or directories to the blacklist. They should be base names, not
 # paths.
@@ -185,7 +185,7 @@ max-nested-blocks=5
 [FORMAT]
 
 # Maximum number of characters on a single line.
-max-line-length=100
+max-line-length=120
 
 # Regexp for a line that is allowed to be longer than the limit.
 ignore-long-lines=^\s*(# )?<?https?://\S+>?$
