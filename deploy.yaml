@@ -2,6 +2,7 @@
 
 - shell:
     - [mkdir -p $HOME/.local, Make local dir]
+    - [mkdir -p $HOME/.config, Make local config dir]
 
 # Zsh
 - shell:
@@ -18,6 +19,7 @@
 # Python
 - link:
     ~/.pylintrc: python/pylintrc
+    ~/.config/pycodestyle: python/pycodestyle
     ~/.pythonrc: python/pythonrc
     ~/.percol.d: python/percol.d/
 - shell:
