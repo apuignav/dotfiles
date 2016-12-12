@@ -55,8 +55,11 @@ py
 pybtex
 pycolors
 pycrypto
+pylama
 pyflakes
 pylint
+pycodestyle
+pydocstyle
 pyparsing
 pysqlite
 pysrt
@@ -105,4 +108,3 @@ ZODB
 zope.interface
 passpie
 zenlog
-cookiecutter
