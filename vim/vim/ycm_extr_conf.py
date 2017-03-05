@@ -71,7 +71,16 @@ flags = ['-Wall',
          '-isystem',
          '../llvm/tools/clang/include',
          '-I',
-         '.', ]
+         '.',
+         '-I',
+         '/usr/local/Cellar/llvm34/HEAD/lib/llvm-3.4/bin/../lib/c++/v1',
+         '-I',
+         '/usr/local/include',
+         '-I',
+         '/usr/local/Cellar/llvm34/HEAD/lib/llvm-3.4/bin/../lib/clang/3.4/include',
+         '-I',
+         '/usr/include'
+         ]
 
 flags.extend(subprocess.check_output(['root-config', '--cflags']).rstrip('\n').split())
 

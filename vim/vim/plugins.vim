@@ -17,8 +17,8 @@ endif
 " In the .vimrc.bundles.local file
 " list only the plugin groups to use
 if !exists('g:bundle_groups')
-    let g:bundle_groups=['general', 'programming', 'python', 'misc', 'ultisnips', 'last', 'test']
-    " let g:bundle_groups=['test']
+    let g:bundle_groups=['general', 'programming', 'python', 'misc', 'ultisnips', 'last']
+     "let g:bundle_groups=['test']
 endif
 
 " To override all the included bundles, put
@@ -112,12 +112,26 @@ if !exists('g:override_bundles')
     endif
 
     if count(g:bundle_groups, 'test')
-        " Plug 'davidhalter/jedi-vim'
-        " Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
-        " Plug 'MarcWeber/vim-addon-mw-utils'
-        " Plug 'tomtom/tlib_vim'
-        " Plug 'SirVer/ultisnips'
-        " Plug 'honza/vim-snippets'
+        "if v:version >= 800
+        "    Plug 'metakirby5/codi.vim'
+        "    Plug 'neomake/neomake'
+        "else
+        "    Plug 'scrooloose/syntastic'
+        "endif
+        "Plug 'tpope/vim-fugitive'
+        "if v:version > 701
+        "    Plug 'scrooloose/nerdcommenter'
+        "endif
+        "Plug 'godlygeek/tabular'
+        "Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}
+        "if executable('ctags')
+        "    Plug 'majutsushi/tagbar'
+        "endif
+        "Plug 'michaeljsmith/vim-indent-object'
+        "Plug 'vim-scripts/argtextobj.vim'
+        "Plug 'mutewinter/swap-parameters'
+        "Plug 'gregsexton/MatchTag'
+        "Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
     endif
 
     if count(g:bundle_groups, 'unite')
