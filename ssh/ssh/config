@@ -103,7 +103,8 @@ Host epflb lpheb
   ForwardX11 yes
 
 Host cernvm
-  Hostname 192.168.139.129
+  Hostname 127.0.0.1
+  Port 2222
   User apuignav
   ForwardX11Trusted yes
   ForwardX11 yes
