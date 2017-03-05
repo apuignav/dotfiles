@@ -19,6 +19,7 @@
 # Python
 - link:
     ~/.pylintrc: python/pylintrc
+    ~/.pydocstyle: python/pydocstyle
     ~/.config/pycodestyle: python/pycodestyle
     ~/.pythonrc: python/pythonrc
     ~/.percol.d: python/percol.d/
