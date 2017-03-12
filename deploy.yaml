@@ -46,6 +46,11 @@
 - shell:
     - [vim/configure_vim.sh, Configuring vim]
 
+# mackup
+- link:
+    ~/.mackup: mackup/mackup
+    ~/.mackup.cfg: mackup/mackup.cfg
+
 # more simlinks
 - link:
     ~/.scripts: scripts/bin/
