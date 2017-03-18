@@ -1,12 +1,5 @@
-appscript
-APScheduler
-astroid
-babelfish
 beautifulsoup4
 bibtexparser
-BTrees
-charade
-click
 colorama
 coverage
 Cython
@@ -40,7 +33,6 @@ oauthlib
 objgraph
 paramiko
 parse
-pathfinder
 pdfrw
 Pebble
 percol
@@ -62,7 +54,6 @@ pylint
 pycodestyle
 pydocstyle
 pyparsing
-pysqlite
 pysrt
 pytest
 python-dateutil
@@ -76,8 +67,9 @@ reportlab
 requests
 requests-oauthlib
 rfc3987
-root-numpy
-rootpy >= dev
+root_numpy
+rootpy
+git+https://github.com/jkbr/httpie.git
 rst2pdf
 scipy
 setuptools
@@ -85,7 +77,6 @@ sh
 six
 Sphinx
 subliminal
-symmetricjsonrpc
 sympy
 termcolor
 toolz
@@ -94,18 +85,8 @@ uncertainties
 uritemplate.py
 urwid
 validictory
-vim-bridge
 virtualenv
-web.py
-wget
-whelk
 wsgiref
-xbmc-json
-xdot
-zc.lockfile
-ZConfig
-zdaemon
-ZODB
-zope.interface
 passpie
-zenlog
+fasteners
+pandocfilters
