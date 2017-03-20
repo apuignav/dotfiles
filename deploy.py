@@ -11,6 +11,12 @@ import os
 import subprocess
 
 
+DOTFILES_DIR = os.path.abspath(os.path.expandvars("$HOME/dotfiles"))
+LOCAL_DIR = os.path.join(DOTFILES_DIR, 'local')
+DOTBOT_DIR = os.path.join(DOTFILES_DIR, 'dotbot')
+CURRENT_DIR = os.getcwd()
+
+
 class DotbotError(Exception):
     """Error in deployment with dotbot."""
     pass
@@ -69,54 +75,30 @@ def dotbot(config_file, base_dir):
 def deploy():
     """Deploy dotfiles.
 
-    1. Clone the local git repository, update if necessary.
-    2. Ask user for which machine is going to be used.
-    3. Deploy a pre-dotfiles local machine dotfiles if necessary
-    4. Deploy the dotfiles
-    5. Deploy the local machine dotfiles
+    1. Update local repository if necessary.
+    2. Deploy a pre-dotfiles local machine dotfiles if necessary
+    3. Deploy the dotfiles
+    4. Deploy the local machine dotfiles
 
     """
 
     # Clone local git repo, update if necessary
     if not os.path.exists(LOCAL_DIR):
-        status, _ = git("clone", "https://github.com/apuignav/dotfiles-local.git", "local")
-        if status:
-            raise OSError("Failed cloning/updated local git repo!")
-        # Magic: fetch all remote branches and create trackingi local ones
-        # http://stackoverflow.com/questions/67699/clone-all-remote-branches-with-git
-        os.chdir(LOCAL_DIR)
-        os.system(r"git branch -a |"
-                  r"grep -v HEAD | "
-                  r"perl -ne 'chomp($_); s|^\*?\s*||; if (m|(.+)/(.+)| && not $d{$2})"
-                  r"{print qq(git branch --track $2 $1/$2\n)} else {$d{$_}=1}' "
-                  r"| sh -xfs")
+        raise OSError("Dotfiles have not been properly initialized")
     os.chdir(LOCAL_DIR)
     git("pull --all")
-    # Choose machine
-    branches = [branch.replace('*', '').strip()
-                for branch in git('branch')[1]
-                if 'master' not in branch]
-    machine = None
-    while machine not in branches:
-        machine = raw_input('Choose a machine [%s]: ' % (','.join(branches)))
-    git("checkout", machine)
     os.chdir(DOTFILES_DIR)
-    git("git submodule update --init --recursive dotbot")
+    if not os.path.exists(os.path.join(DOTBOT_DIR, "bin/dotbot")):
+        raise OSError("Dotfiles have not been properly initialized, dotbot executable not found")
     # Now deploy pre-dotfiles for local machine
-    if dotbot(os.path.join(LOCAL_DIR, 'deploy_pre.yaml'), LOCAL_DIR):
-        raise DotbotError("Error deploying pre-dotfiles for local machine!")
+#    if dotbot(os.path.join(LOCAL_DIR, 'deploy_pre.yaml'), LOCAL_DIR):
+#        raise DotbotError("Error deploying pre-dotfiles for local machine!")
     # Now deploy dotfiles
     if dotbot(os.path.join(DOTFILES_DIR, 'deploy.yaml'), DOTFILES_DIR):
         raise DotbotError("Error deploying dotfiles!")
-    # Now deploy local machine dotfiles
+#    # Now deploy local machine dotfiles
     if dotbot(os.path.join(LOCAL_DIR, 'deploy.yaml'), LOCAL_DIR):
         raise DotbotError("Error deploying dotfiles for local machine!")
-
-
-DOTFILES_DIR = os.path.abspath(os.path.dirname(__file__))
-LOCAL_DIR = os.path.join(DOTFILES_DIR, 'local')
-DOTBOT_DIR = os.path.join(DOTFILES_DIR, 'dotbot')
-CURRENT_DIR = os.getcwd()
 
 if __name__ == '__main__':
     deploy()
