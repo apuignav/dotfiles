@@ -1,0 +1,7 @@
+# ssh
+- link:
+    ~/.ssh: ssh/ssh/
+- shell:
+    - [ssh/setup_keys.sh && ssh/fix_permissions.sh, Setting up ssh keys and permissions]
+
+

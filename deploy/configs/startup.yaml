@@ -1,0 +1,10 @@
+- clean: ['~']
+
+- shell:
+    - [mkdir -p $HOME/.local, Make local dir]
+    - [mkdir -p $HOME/.config, Make local config dir]
+
+- link:
+    ~/.scripts: scripts/bin/
+    #~/.ballast.conf: config/ballast.conf
+

@@ -1,0 +1,7 @@
+# Git
+#- shell:
+#    - [cp git/gitconfig ~/.gitconfig]
+- link:
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+

@@ -1,0 +1,11 @@
+# Zsh
+- shell:
+    - [zsh/deploy_prezto.sh, Deploying/updating prezto]
+
+- link:
+    ~/.zlogin: zsh/zlogin
+    ~/.zlogout: zsh/zlogout
+    ~/.zpreztorc: zsh/zpreztorc
+    ~/.zprofile: zsh/zprofile
+    ~/.zshrc: zsh/zshrc
+    ~/.zprezto/modules/prompt/functions/prompt_apuignav_setup: zsh/prompt/prompt_apuignav_setup

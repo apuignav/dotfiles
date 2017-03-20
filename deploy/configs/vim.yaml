@@ -1,0 +1,8 @@
+# vim
+- link:
+    ~/.vim: vim/vim/
+    ~/.vimrc: vim/vimrc
+    ~/.gvimrc: vim/gvimrc
+- shell:
+    - [vim/configure_vim.sh, Configuring vim]
+
