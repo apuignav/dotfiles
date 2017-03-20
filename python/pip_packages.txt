@@ -90,3 +90,4 @@ wsgiref
 passpie
 fasteners
 pandocfilters
+jupyter
