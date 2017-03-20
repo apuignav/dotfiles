@@ -2,7 +2,7 @@
 
 set -e
 
-BASE_CONFIG="base"
+BASE_CONFIG="defaults"
 CONFIG_SUFFIX=".yaml"
 
 META_DIR="deploy"
