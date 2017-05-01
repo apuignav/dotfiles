@@ -1,7 +1,7 @@
 Host *
   Protocol 2
   ServerAliveInterval 30
-  PubkeyAcceptedKeyTypes ssh-dss
+  PubkeyAcceptedKeyTypes ssh-rsa
 
 Host raspi
   HostName 192.168.1.120
