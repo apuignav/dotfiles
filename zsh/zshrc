@@ -104,7 +104,6 @@ if [[ -s "$HOME/dotfiles/zsh/k/k.sh" ]]; then
   source "$HOME/dotfiles/zsh/k/k.sh"
 fi
 
-
 # Platform-dependent aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
@@ -169,13 +168,6 @@ if exists percol; then
     bindkey '^R' percol_select_history
 fi
 
-# Git
-function git-attic() {
-    git log --raw --no-renames --date=short --format="%h %cd" "$@" |
-    awk '/^[0-9a-f]/ { commit=$1; date=$2 } /^:/ && $5 == "D" { print date, commit "^:" $6 }' |
-    git -p column
-}
-
 # Nice extraction function
 extract () {
     if [ -f $1 ] ; then
@@ -197,33 +189,18 @@ extract () {
     fi
 }
 
-# Fancy set tab title
-function tab-title () {
-    # Deactivate the prezto default
-    # https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
-    add-zsh-hook -d precmd _terminal-set-titles-with-path
-    add-zsh-hook -d preexec _terminal-set-titles-with-command
-    # Set the title
-    set-tab-title "$@"
-}
+# Locales
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export C_CTYPE="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME=en"en_US.UTF-8"
 
-# Pandoc - LaTeX
-function markdown2beamer () {
-    filename=$1
-    shift
-    pandoc -t beamer -V theme:m -V themeopts:progressbar=frametitle,noframetitleoffset,block=fill --latex-engine xelatex --filter ~/.pandoc/filters/alert_filter.py "$@" -s "$filename" -o "`basename $filename .md`.pdf"
-}
-
-function markdown2beamersource () {
-    filename=$1
-    shift
-    pandoc -t beamer -V theme:m -V themeopts:progressbar=frametitle,noframetitleoffset,block=fill --latex-engine xelatex --filter ~/.pandoc/filters/alert_filter.py "$@" -s "$filename" -o "`basename $filename .md`.tex"
-}
 
 #######################################################################
 # Machine-dependent things
 #######################################################################
-
 # Load machine-dependent rc (if needed)
 [[ -f ~/.localrc ]] && source ~/.localrc
 

@@ -4,9 +4,6 @@
 [submodule "scripts/gists/git-hack-ship-chop"]
 	path = scripts/gists/git-hack-ship-chop
 	url = https://gist.github.com/132be8a5a21dae863481.git
-[submodule "scripts/gitinspector"]
-	path = scripts/gitinspector
-	url = https://code.google.com/p/gitinspector
 [submodule "scripts/gists/rsync_parallel"]
 	path = scripts/gists/rsync_parallel
 	url = git@github.com:7888068.git
