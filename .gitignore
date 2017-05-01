@@ -43,6 +43,7 @@ vim/vim/spell/*.spl
 
 # SSH
 ssh/ssh/id_dsa*
+ssh/ssh/id_rsa*
 ssh/ssh/environment*
 ssh/ssh/authorized_keys
 ssh/ssh/known_hosts

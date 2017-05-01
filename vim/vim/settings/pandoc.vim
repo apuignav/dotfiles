@@ -19,12 +19,12 @@ let g:pandoc#command#use_message_buffer = 1
 let g:pandoc#spell#default_langs = ["en_us", "es"]
 
 " Manage open in Mac
-if system('uname') =~# 'Darwin'
-    let g:pandoc#command#custom_open = "PreviewOpen"
-    function! PreviewOpen(file)
-        return "open -a ". a:file
-    endfunction
-endif
+"if system('uname') =~# 'Darwin'
+"    let g:pandoc#command#custom_open = "PreviewOpen"
+"    function! PreviewOpen(file)
+"        return "open -a ". a:file
+"    endfunction
+"endif
 
 " LaTeX config
 let g:pandoc#command#latex_engine = "xelatex"
