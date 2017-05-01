@@ -28,6 +28,7 @@ mccabe
 memory-profiler
 nose
 numpy
+seaborn
 oauth2
 oauthlib
 objgraph
