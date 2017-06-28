@@ -11,3 +11,8 @@ nnoremap <leader>gd :YcmCompleter GoTo<CR>
 let g:ycm_show_diagnostics_ui = 0 
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extr_conf.py'
+
+let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
+if isdirectory(s:clang_library_path)
+    let g:clang_library_path=s:clang_library_path
+endif

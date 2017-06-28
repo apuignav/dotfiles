@@ -7,6 +7,6 @@ if v:version >= 800
     " Python
     let g:neomake_python_pylama_args = ['--format', 'parsable', '-lpyflakes,pydocstyle,mccabe,pycodestyle,pylint', '--ignore=D203,D212,D213,D404,D105,I0011']
     " C++
-    let g:neomake_c_clang_args = ['-pthread', '-stdlib=libc++', '-std=c++11', '-m64', '-I/usr/local/Cellar/root6/6.04.12/include/root']
-    let g:neomake_cpp_clang_args = ['-pthread', '-stdlib=libc++', '-std=c++11', '-m64', '-I/usr/local/Cellar/root6/6.04.12/include/root']
+    let g:neomake_c_clang_args = ['-pthread', '-stdlib=libc++', '-std=c++11', '-m64', '-I/usr/local/opt/root6/include/root/']
+    let g:neomake_cpp_clang_args = ['-pthread', '-stdlib=libc++', '-std=c++11', '-m64', '-I/usr/local/opt/root6/include/root/']
 endif

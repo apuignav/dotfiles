@@ -66,7 +66,7 @@ if !exists('g:override_bundles')
             Plug 'scrooloose/nerdcommenter'
         endif
         Plug 'godlygeek/tabular'
-        Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}
+        Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c', 'h']}
         if executable('ctags')
             " Plug 'thawk/OmniCppComplete'
             Plug 'majutsushi/tagbar'
