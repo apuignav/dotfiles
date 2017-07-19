@@ -119,7 +119,7 @@ Host uzh-farm uzh
   User apuignav
   ForwardX11Trusted yes
   ForwardX11 yes
-  HostName farm-ui.physik.uzh.ch
+  HostName farm-ui2.physik.uzh.ch
 
 Host uzh-grid
   User apuignav
@@ -133,3 +133,8 @@ Host uzh-dalli dalli
   ForwardX11 yes
   HostName dalli.physik.uzh.ch
 
+Host uzh-slurm
+  User apuignav
+  ForwardX11Trusted yes
+  ForwardX11 yes
+  HostName farm-ui2.physik.uzh.ch
