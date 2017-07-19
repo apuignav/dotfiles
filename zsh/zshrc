@@ -189,6 +189,16 @@ extract () {
     fi
 }
 
+# Fancy set tab title
+function tab-title () {
+    # Deactivate the prezto default
+    # https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
+    add-zsh-hook -d precmd _terminal-set-titles-with-path
+    add-zsh-hook -d preexec _terminal-set-titles-with-command
+    # Set the title
+    set-tab-title "$@"
+}
+
 # Locales
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
