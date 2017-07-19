@@ -33,7 +33,7 @@ if !exists('g:override_bundles')
         " Plug 'Townk/vim-autoclose'
         Plug 'jiangmiao/auto-pairs'
         Plug 'kien/ctrlp.vim'
-        Plug 'matchit.zip'
+        "Plug 'vim-scripts/matchit.zip'
         Plug 'bling/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
         " Plug 'justinmk/vim-sneak'
@@ -55,7 +55,7 @@ if !exists('g:override_bundles')
     " General Programming
     if count(g:bundle_groups, 'programming')
         if v:version >= 800
-            Plug 'metakirby5/codi.vim'
+            "Plug 'metakirby5/codi.vim'
             Plug 'neomake/neomake'
         else
             Plug 'scrooloose/syntastic'
@@ -84,8 +84,8 @@ if !exists('g:override_bundles')
         " Plug 'davidhalter/jedi-vim', {'for': 'python'}
         " endif
         Plug 'klen/python-mode', {'for': 'python'}
-        Plug 'python.vim', {'for': 'python'}
-        Plug 'python_match.vim', {'for': 'python'}
+        Plug 'vim-scripts/python.vim', {'for': 'python'}
+        Plug 'vim-scripts/python_match.vim', {'for': 'python'}
         " Plug 'pythoncomplete', {'for': 'python'}
         Plug 'apuignav/vim-gf-python', {'for': 'python'}
         Plug 'thinca/vim-quickrun', {'for': 'python'}
