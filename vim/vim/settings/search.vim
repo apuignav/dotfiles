@@ -11,3 +11,5 @@ nmap <leader>hl :set hlsearch! hlsearch?<CR>
 " Match it
 let b:match_ignorecase = 1
 
+" Space Space on a word for a quick search and replace
+nmap <Space><Space> :%s/\<<C-r>=expand("<cword>")<CR>\>/
