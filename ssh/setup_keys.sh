@@ -4,7 +4,7 @@ if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     mytmpdir=`mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir'`
     cwd=$PWD
     cd $mytmpdir
-    wget -O keys.zip.gpg "https://www.dropbox.com/s/hddmaounmfdm3d9/keys.zip.gpg?dl=0"
+    curl -o keys.zip.gpg "https://www.dropbox.com/s/hddmaounmfdm3d9/keys.zip.gpg?dl=0"
     gpg -d keys.zip.gpg > keys.zip
     unzip keys.zip
 
