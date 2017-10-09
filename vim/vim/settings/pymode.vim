@@ -3,7 +3,7 @@
 if !has('python')
    let g:pymode = 1
 endif
-" Syntax checling
+" Syntax checking
 "let g:pymode_lint_checker = "pyflakes,pep8"
 let g:pymode_lint_checker = "pylint"
 let g:pymode_rope=0

@@ -18,7 +18,7 @@ endif
 " list only the plugin groups to use
 if !exists('g:bundle_groups')
     let g:bundle_groups=['general', 'programming', 'python', 'misc', 'ultisnips', 'last']
-     "let g:bundle_groups=['test']
+    " let g:bundle_groups=['general']
 endif
 
 " To override all the included bundles, put
@@ -31,7 +31,7 @@ if !exists('g:override_bundles')
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-dispatch'
         " Plug 'Townk/vim-autoclose'
-        Plug 'jiangmiao/auto-pairs'
+        "Plug 'jiangmiao/auto-pairs'
         Plug 'kien/ctrlp.vim'
         "Plug 'vim-scripts/matchit.zip'
         Plug 'bling/vim-airline'
