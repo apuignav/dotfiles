@@ -1,11 +1,12 @@
-https://www.dropbox.com/s/hddmaounmfdm3d9/keys.zip.gpg?dl=0#!/bin/bash
+!/bin/bash
 
 if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     mytmpdir=`mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir'`
     cwd=$PWD
     cd $mytmpdir
-    curl -o keys.zip.gpg "https://www.dropbox.com/s/hddmaounmfdm3d9/keys.zip.gpg?dl=0"
-    gpg -d keys.zip.gpg > keys.zip
+    # To encode: openssl des -in keys.zip -out keys.zip.enc
+    curl -o keys.zip.gpg "https://www.dropbox.com/s/cehx46pn6a5qb25/keys.zip.enc?dl=0"
+    openssl des -d -in keys.zip.enc -out keys.zip
     unzip keys.zip
 
     if [ -f "$HOME/.ssh/id_rsa.pub" ]; then
