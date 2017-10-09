@@ -53,5 +53,5 @@ config/ranger/bookmarks
 config/ranger/tagged
 config/ranger/history
 
-# Local dotfiles
-local/
+# texmf
+texmf/
