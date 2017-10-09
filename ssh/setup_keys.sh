@@ -1,6 +1,6 @@
-#!/bin/bash
+https://www.dropbox.com/s/hddmaounmfdm3d9/keys.zip.gpg?dl=0#!/bin/bash
 
-if [ ! -f "$HOME/.ssh/id_dsa" ]; then
+if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     mytmpdir=`mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir'`
     cwd=$PWD
     cd $mytmpdir
@@ -8,11 +8,11 @@ if [ ! -f "$HOME/.ssh/id_dsa" ]; then
     gpg -d keys.zip.gpg > keys.zip
     unzip keys.zip
 
-    if [ -f "$HOME/.ssh/id_dsa.pub" ]; then
-        rm $HOME/.ssh/id_dsa.pub
+    if [ -f "$HOME/.ssh/id_rsa.pub" ]; then
+        rm $HOME/.ssh/id_rsa.pub
     fi
-    cp albert/id_dsa $HOME/.ssh/id_dsa
-    cp albert/id_dsa.pub $HOME/.ssh/id_dsa.pub
+    cp id_rsa $HOME/.ssh/id_rsa
+    cp id_rsa.pub $HOME/.ssh/id_rsa.pub
     cd $cwd
     rm -rf $mytmpdir
 fi
