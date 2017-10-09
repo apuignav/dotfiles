@@ -31,15 +31,6 @@
 [submodule "prezto"]
 	path = prezto
 	url = https://github.com/sorin-ionescu/prezto.git
-[submodule "dotbot/dotbot"]
-	path = dotbot/dotbot
-	url = https://github.com/anishathalye/dotbot
-[submodule "dotbot/dotbot-brewfile"]
-	path = dotbot/dotbot-brewfile
-	url = https://github.com/sobolevn/dotbot-brewfile.git
-[submodule "dotbot/dotbot-brew"]
-	path = dotbot/dotbot-brew
-	url = https://github.com/d12frosted/dotbot-brew.git
 [submodule "deploy/dotbot-brew"]
 	path = deploy/dotbot-brew
 	url = https://github.com/d12frosted/dotbot-brew.git
