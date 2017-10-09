@@ -1,7 +1,13 @@
 # Zsh
+# Prezto is a submodule
 - shell:
-    - [zsh/deploy_prezto.sh, Deploying/updating prezto]
+    - [git submodule update --init --recursive prezto, Deploying/updating prezto]
 
+# Make sure it's linked properly
+- link:
+    ~/.prezto: prezto
+
+# Config files
 - link:
     ~/.zlogin: zsh/zlogin
     ~/.zlogout: zsh/zlogout

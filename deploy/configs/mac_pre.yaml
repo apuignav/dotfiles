@@ -1,0 +1,20 @@
+- brew:
+    - zsh
+    - git
+    - python
+    - ssh-copy-id
+    - coreutils
+    - readline
+    - gettext
+    - lua
+    - macvim --with-override-system-vim
+    - gnupg
+
+- tap:
+    -  caskroom/versions
+    -  caskroom/cask
+    -  homebrew/science
+    -  homebrew/dupes
+    -  caskroom/versions
+    -  caskroom/homebrew-fonts
+    -  burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git

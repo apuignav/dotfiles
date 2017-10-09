@@ -1,0 +1,7 @@
+# Scripts folder (make sure they have been properly pulled first)
+- shell:
+    - [git submodule update --init --recursive, Pulling submodules]
+
+- link:
+    ~/.scripts: scripts/bin/
+

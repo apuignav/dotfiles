@@ -2,4 +2,4 @@
     - command: "git remote set-url origin git@github.com:apuignav/dotfiles.git"
       description: "Setting the proper git remote"
 
-- clean: ['~']
+#- clean: ['~']

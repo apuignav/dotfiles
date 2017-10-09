@@ -1,0 +1,7 @@
+link:
+    ~/Library/texmf: texmf
+
+shell:
+    - ["git clone https://github.com/JP-Ellis/tikz-feynman.git texmf/tex/latex/", Cloning tikz-feynman]
+    - ["git clone https://github.com/matze/mtheme.git texmf/tex/latex/", Cloning Metropolis]
+    - ["cd texmf/tex/latex/mtheme/ && make install", Installing Metropolis]

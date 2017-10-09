@@ -1,0 +1,27 @@
+alias cernvm_start="vmrun -T fusion start $HOME/Documents/Virtual\ Machines.localized/CernVM.vmwarevm"
+alias cernvm_stop="vmrun -T fusion stop $HOME/Documents/Virtual\ Machines.localized/CernVM.vmwarevm"
+alias cernvm_mount="sshfs cernvm:cmtuser/ ~/Arxiu/Fisica/LHCb/Projectes/CernVM/cmtuser/ && cd ~/Arxiu/Fisica/LHCb/Projectes/CernVM/cmtuser/"
+alias cernvm_ummount="cd $HOME && umount ~/Arxiu/Fisica/LHCb/Projectes/CernVM/cmtuser/"
+# For quant logging study
+# For brewed ZSH
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
+
+# iTerm shell integration
+source ~/.iterm2_shell_integration.zsh
+
+# Configure root
+pushd $(brew --prefix root6) >/dev/null; . libexec/thisroot.sh; popd >/dev/null
+
+# Completion
+compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open alias run='open -a'
+
+# Passpie completion
+#if which passpie > /dev/null; then
+#    eval "$(passpie complete zsh)"
+#fi
+
+#if [[ -z "$TMPSHELL" ]]; then
+    #archey -c -o
+#fi

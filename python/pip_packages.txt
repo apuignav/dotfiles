@@ -68,8 +68,6 @@ reportlab
 requests
 requests-oauthlib
 rfc3987
-root_numpy
-rootpy
 git+https://github.com/jkbr/httpie.git
 rst2pdf
 scipy
@@ -92,3 +90,4 @@ passpie
 fasteners
 pandocfilters
 jupyter
+pandas

@@ -1,0 +1,6 @@
+- brew:
+    - root6 --with-fftw
+    - xrootd
+
+- shell:
+    - [pip install root root_numpy root_pandas, Installing ROOT-related python packages]
