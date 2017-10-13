@@ -74,10 +74,14 @@ $endif$
 \DefineShortVerb[commandchars=\\\{\}]{\|}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
  
+\def\tightlist{}
  
 $for(header-includes)$
 $header-includes$
 $endfor$
+
+\renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+\renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
 
 \title{$title$}
 $if(author)$
