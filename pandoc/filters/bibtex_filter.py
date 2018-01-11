@@ -163,7 +163,7 @@ class BibTeXFormatter(object):
         self.bib = None
 
     def __call__(self, key, value, fmt, meta):
-        if not self.bib:
+        if self.bib:
             if 'bibliography' in meta:
                 self.bib = {}
                 bib_files = [file_block['c'][0]['c'] for file_block in meta['bibliography']['c']]
@@ -171,7 +171,7 @@ class BibTeXFormatter(object):
                 for bib_file in bib_files:
                     logging.debug('Loading bibliography -> %s', bib_file)
                     self.bib.update(load_bib(bib_file).entries_dict)
-        if key == 'Cite':
+        if self.bib and key == 'Cite':
             #  logging.info(str(value))
             cites = []
             for cite in value[0]:

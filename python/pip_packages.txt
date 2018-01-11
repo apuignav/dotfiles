@@ -1,3 +1,4 @@
+pip
 beautifulsoup4
 bibtexparser
 colorama
@@ -16,6 +17,7 @@ fuzzywuzzy
 guessit
 httplib2
 ipython
+ipdb
 itty
 Jinja2
 line-profiler
@@ -36,12 +38,11 @@ paramiko
 parse
 pdfrw
 Pebble
-percol
 persistent
 pexpect
 Pillow
 ply
-progressbar
+progressbar33
 psutil
 pudb
 py
@@ -85,7 +86,6 @@ uritemplate.py
 urwid
 validictory
 virtualenv
-wsgiref
 passpie
 fasteners
 pandocfilters
