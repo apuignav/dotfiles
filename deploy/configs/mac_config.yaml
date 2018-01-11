@@ -59,6 +59,7 @@
     - qt
     - mkvtoolnix --with-gui    
     - mas
+    - peco
 
 # Software
 - cask:

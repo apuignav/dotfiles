@@ -72,7 +72,7 @@ else
     alias -g G=" | grep"
 fi
 alias -g P=" | pyp"
-alias -g C=" | percol"
+alias -g C=" | peco"
 alias -g NUL="> /dev/null 2>&1"
 alias -g W=" | wc -l"
 alias -g F=" | field "
@@ -155,17 +155,20 @@ tbrowser () {
   fi
 }
 
-if exists percol; then
-    function percol_select_history() {
-        local tac
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
-        CURSOR=$#BUFFER         # move cursor
-        zle -R -c               # refresh
-    }
+if which peco &> /dev/null; then
+  function peco_select_history() {
+    local tac
+    { which gtac &> /dev/null && tac="gtac" } || \
+      { which tac &> /dev/null && tac="tac" } || \
+      tac="tail -r"
+    BUFFER=$(fc -l -n 1 | eval $tac | \
+                peco --layout=top-down --query "$LBUFFER")
+    CURSOR=$#BUFFER # move cursor
+    zle -R -c       # refresh
+  }
 
-    zle -N percol_select_history
-    bindkey '^R' percol_select_history
+  zle -N peco_select_history
+  bindkey '^R' peco_select_history
 fi
 
 # Nice extraction function
