@@ -28,3 +28,6 @@ let g:pandoc#spell#default_langs = ["en_us", "es"]
 
 " LaTeX config
 let g:pandoc#command#latex_engine = "xelatex"
+
+" Templates
+let g:pandoc#command#templates_file = $HOME. '/.vim/vim-pandoc-templates'

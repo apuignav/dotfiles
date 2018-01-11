@@ -48,8 +48,8 @@ if !exists('g:override_bundles')
         Plug 'kristijanhusak/vim-multiple-cursors'
         Plug 'EinfachToll/DidYouMean'
         Plug 'DavidGamba/vim-vmath'
-        Plug 'vim-pandoc/vim-pandoc-syntax'
         Plug 'vim-pandoc/vim-pandoc'
+        Plug 'vim-pandoc/vim-pandoc-syntax'
     endif
 
     " General Programming
@@ -73,9 +73,9 @@ if !exists('g:override_bundles')
         endif
         Plug 'michaeljsmith/vim-indent-object'
         Plug 'vim-scripts/argtextobj.vim'
-        Plug 'mutewinter/swap-parameters'
+        Plug 'machakann/vim-swap'
         Plug 'gregsexton/MatchTag'
-        Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+        Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
     endif
 
     " Python
@@ -98,6 +98,7 @@ if !exists('g:override_bundles')
         Plug 'parnmatt/vim-root'
         " Plug 'tpope/vim-markdown', {'for': ['mkd', 'markdown']}
         Plug 'junegunn/goyo.vim', {'for': ['markdown', 'mkd', 'tex']}
+        Plug 'dbmrq/vim-ditto', {'for': ['markdown', 'mkd']}
         Plug 'amix/vim-zenroom2', {'for': ['markdown', 'mkd']}
         Plug 'chrisbra/csv.vim', {'for': 'csv'}
         " Plug 'tpope/vim-speeddating'

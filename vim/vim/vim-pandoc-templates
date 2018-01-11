@@ -1,7 +1,7 @@
 slides|beamer -V theme:metropolis -V themeopts:progressbar=frametitle -V themeopts:block=fill -V themeopts:numbering=fraction -V themeopts:titleformat=allsmallcaps --filter="~/.pandoc/filters/alert_filter.py" --filter="~/.pandoc/filters/column_filter.py" --filter="~/.pandoc/filters/center_filter.py" --filter="~/.pandoc/filters/bibtex_filter.py" --standalone
-nice|pdf --latex-engine xelatex --template=nice -V documentclass:scrartcl -V papersize:a4paper -V fontsize:11pt --standalone
-tufte|pdf --latex-engine lualatex --template=tufte -V papersize:a4paper -V fontsize:11pt --standalone
-tuftetex|latex --latex-engine lualatex --template=tufte -V papersize:a4paper -V fontsize:11pt --standalone
+nice|pdf --pdf-engine xelatex --template=nice -V documentclass:scrartcl -V papersize:a4paper -V fontsize:11pt --standalone
+tufte|pdf --pdf-engine lualatex --template=tufte -V papersize:a4paper -V fontsize:11pt --standalone
+tuftetex|latex --pdf-engine lualatex --template=tufte -V papersize:a4paper -V fontsize:11pt --standalone
 nicetex|latex --template=nice -V documentclass:scrartcl -V papersize:a4paper -V fontsize:11pt --standalone
-cvstyle|pdf --latex-engine xelatex --template=cvstyle -V documentclass:scrartcl -V papersize:a4paper -V fontsize:12pt --standalone
-cvstyletex|latex --latex-engine xelatex --template=cvstyle -V documentclass:scrartcl -V papersize:a4paper -V fontsize:12pt --standalone
+cvstyle|pdf --pdf-engine xelatex --template=cvstyle -V documentclass:scrartcl -V papersize:a4paper -V fontsize:12pt --standalone
+cvstyletex|latex --pdf-engine xelatex --template=cvstyle -V documentclass:scrartcl -V papersize:a4paper -V fontsize:12pt --standalone

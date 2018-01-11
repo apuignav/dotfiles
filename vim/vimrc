@@ -32,6 +32,8 @@ if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 
+set clipboard=exclude:.*
+
 " =============== Basic settings ===============
 filetype plugin indent on   " Automatically detect file types.
 syntax on                   " syntax highlighting

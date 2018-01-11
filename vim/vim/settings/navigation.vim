@@ -36,3 +36,7 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 "with ,z and ,x
 nnoremap <silent> ,z :bp<CR>
 nnoremap <silent> ,x :bn<CR>
+
+" Easy go to end and beginning of line
+inoremap <C-e> <Esc>A
+inoremap <C-a> <Esc>I
