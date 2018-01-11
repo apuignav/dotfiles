@@ -1,9 +1,3 @@
-[submodule "scripts/gists/lphe-ja"]
-	path = scripts/gists/lphe-ja
-	url = https://gist.github.com/5319680.git
-[submodule "scripts/gists/git-hack-ship-chop"]
-	path = scripts/gists/git-hack-ship-chop
-	url = https://gist.github.com/132be8a5a21dae863481.git
 [submodule "scripts/gists/rsync_parallel"]
 	path = scripts/gists/rsync_parallel
 	url = git@github.com:7888068.git
