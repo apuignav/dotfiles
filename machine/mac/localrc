@@ -12,10 +12,13 @@ HELPDIR=/usr/local/share/zsh/helpfiles
 source ~/.iterm2_shell_integration.zsh
 
 # Configure root
-pushd $(brew --prefix root6) >/dev/null; . libexec/thisroot.sh; popd >/dev/null
+pushd $(brew --prefix root6) >/dev/null; . bin/thisroot.sh; popd >/dev/null
 
 # Completion
 compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open alias run='open -a'
+
+# Disable system python
+alias python='echo "Choose python2 or python3"'
 
 # Passpie completion
 #if which passpie > /dev/null; then

@@ -8,5 +8,8 @@ scripts
 mac_config
 root
 latex
+vim
 mackup
+pandoc
+mac_post
 cleanup

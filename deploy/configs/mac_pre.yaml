@@ -2,12 +2,13 @@
     - zsh
     - git
     - python
+    - python3
     - ssh-copy-id
     - coreutils
     - readline
     - gettext
     - lua
-    - macvim --with-override-system-vim
+#    - macvim --with-override-system-vim
     - gnupg
 
 - tap:

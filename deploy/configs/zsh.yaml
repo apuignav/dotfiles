@@ -5,7 +5,7 @@
 
 # Make sure it's linked properly
 - link:
-    ~/.prezto: prezto
+    ~/.zprezto: prezto
 
 # Config files
 - link:

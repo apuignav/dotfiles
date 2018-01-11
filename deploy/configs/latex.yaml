@@ -1,8 +1,8 @@
-link:
+- link:
     ~/Library/texmf: texmf
 
-shell:
-    - ["mkdir texmf/tex/latex", Preparing directory structure]
+- shell:
+    - ["mkdir -p texmf/tex/latex", Preparing directory structure]
     - ["git clone https://github.com/JP-Ellis/tikz-feynman.git texmf/tex/latex/tikz-feynman", Cloning tikz-feynman]
     - ["git clone https://github.com/matze/mtheme.git texmf/tex/latex/mtheme", Cloning Metropolis]
     - ["cd texmf/tex/latex/mtheme/ && make install && cd -", Installing Metropolis]

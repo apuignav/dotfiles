@@ -1,0 +1,6 @@
+- brew:
+    - xrootd
+    - root6 --with-python3 --without-python
+
+- shell:
+    - [pip3 install rootpy root_numpy root_pandas, Installing ROOT-related python packages]

@@ -56,7 +56,8 @@
     - fpp
     - python3
     - burntsushi/ripgrep/ripgrep-bin
-    - mkvtoolnix-gui --with-gui    
+    - qt
+    - mkvtoolnix --with-gui    
     - mas
 
 # Software
@@ -65,6 +66,7 @@
     - android-file-transfer
     - bibdesk
     - calibre
+    - coconutbattery
     - cyberduck
     - day-o
     - dropbox
@@ -90,10 +92,10 @@
 
 # Apple store
 - shell:
-    - command: mas signin --dialog "djkarras@gmail.com"
-      stdout: true
-      stderr: true
-      stdin: true
+    # - command: mas signin --dialog "djkarras@gmail.com"
+    #   stdout: true
+    #   stderr: true
+    #   stdin: true
     # mas list
     # 937984704 Amphetamine (3.0.2)
     # 408981434 iMovie (10.1.7)
@@ -106,7 +108,7 @@
     - [mas install 585829637 937984704 404010395, Installing apps from the App Store]
 
 - shell:
-    - [open https://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/, Install MenuMeters!]
+    - ["open https://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/", Install MenuMeters!]
 
 # Fonts
 - cask:
@@ -157,4 +159,4 @@
 - shell:
   # TODO: Iterm properly
     - description: "Installing iterm integration"
-      command: "curl -L https://iterm2.com/misc/install_shell_integration.zsh | zsh"
+      command: "curl -L https://iterm2.com/misc/zsh_startup.in -o ~/.iterm2_shell_integration.zsh"
