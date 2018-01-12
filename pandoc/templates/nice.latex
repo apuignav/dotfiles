@@ -12,18 +12,15 @@ $if(euro)$
   \usepackage{eurosym}
 $endif$
 \else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
     \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text}
-  \setallmainfonts[Numbers={Proportional,OldStyle}]{Minion Pro}
-  \setsansfont[Numbers={Proportional,OldStyle}]{Open Sans}
-  \setmathsfont(Digits,Latin,Greek)[Numbers={Proportional,Lining}]{Minion Pro}
-  \setmathrm[Numbers=Lining]{Minion Pro}
-  \newcommand{\euro}{€}
+    \usepackage{unicode-math}
+    \setmainfont[Numbers={OldStyle,Proportional}]{TeX Gyre Pagella}
+    \setmathfont{TeX Gyre Pagella Math}
+    \setsansfont[BoldFont={Fira Sans Bold}]{Fira Sans Light}
+    \setmonofont[ItalicFont={Inconsolata},Scale=0.95]{Inconsolata}  % No bold :-(
+    \usepackage{fontawesome}
+    \usepackage{academicons}
+\newcommand{\euro}{€}
 $if(mainfont)$
     \setmainfont{$mainfont$}
 $endif$
@@ -41,6 +38,21 @@ $if(CJKmainfont)$
     \setCJKmainfont[$CJKoptions$]{$CJKmainfont$}
 $endif$
 \fi
+% Titling
+\newfontfamily\HeaderCaps[LetterSpace=2.5,WordSpace=1.3]{Fira Sans Light} 
+\newfontfamily\HeaderTitleCaps[LetterSpace=0.8,WordSpace=1.0]{Fira Sans Light} 
+\newfontfamily\SubHeaderTitleCaps[LetterSpace=5.0,WordSpace=1.1,Numbers=OldStyle]{Fira Sans Light} 
+\newfontfamily\DateFont[Numbers=OldStyle]{Fira Sans Light} 
+\setkomafont{subject}{\vspace{-2.8cm}\color{halfgray}\scshape}
+\setkomafont{title}{\vspace{-1.2cm}\sffamily\HeaderTitleCaps\scshape\linespread{0.8}}
+\setkomafont{author}{\vspace{-0.3cm}\SubHeaderTitleCaps\scshape}
+\setkomafont{date}{\DateFont\small}
+\usepackage{sectsty} 
+\usepackage[normalem]{ulem} 
+\setkomafont{section}{\Large\sffamily\bfseries}
+\setkomafont{subsection}{\large\sffamily\bfseries}
+\setkomafont{subsubsection}{\normalfont\large\itshape}
+
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
@@ -139,10 +151,13 @@ $if(verbatim-in-note)$
 $endif$
 
 $if(title)$
-\title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
+\title{\MakeLowercase{$title$}}
+$endif$
+$if(subtitle)$
+\subject{\MakeLowercase{$subtitle$}}
 $endif$
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+\author{$for(author)$\MakeLowercase{$author$}$sep$ \and $endfor$}
 $endif$
 \date{$date$}
 \newcommand{\alert}[1]{#1}
