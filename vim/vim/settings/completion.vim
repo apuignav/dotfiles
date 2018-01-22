@@ -10,7 +10,7 @@ endif
 " au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 set wildmenu                    " show list instead of just completing
-set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
+set wildmode=longest,list,full  " command <Tab> completion, list matches, then longest common part, then all.
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=*sass-cache*
@@ -21,6 +21,7 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.pdf
 
 " set completeopt=menu,preview,longest
 set completeopt=menu,longest
