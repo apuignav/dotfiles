@@ -60,6 +60,7 @@
     - mkvtoolnix --with-gui    
     - mas
     - peco
+    - bib-tool
 
 # Software
 - cask:
