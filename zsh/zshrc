@@ -65,6 +65,7 @@ zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.pdf'
 function exists { which $1 &> /dev/null }
 # Global aliases
 if exists rg; then
+    alias rg="rg -S"
     alias -g G=" | rg"
 elif exists ag; then
     alias -g G=" | ag"
