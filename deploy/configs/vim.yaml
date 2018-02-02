@@ -5,4 +5,5 @@
     ~/.gvimrc: vim/gvimrc
 - shell:
     - [vim/configure_vim.sh, Configuring vim]
+    - [mkdir ~/.vim/undo, Creating undo directory]
 
