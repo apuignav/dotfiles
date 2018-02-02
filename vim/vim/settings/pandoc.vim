@@ -7,7 +7,7 @@ let g:pandoc#syntax#conceal#use = 0
 let g:pandoc#filetypes#pandoc_markdown = 1
 
 " Disable folding and keyboard shortcuts
-let g:pandoc#modules#disabled = ["folding", "keyboard"]
+let g:pandoc#modules#disabled = ["folding", "keyboard", "chdir"]
 
 " Set text width
 let g:pandoc#formatting#textwidth = 100

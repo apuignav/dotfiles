@@ -4,7 +4,7 @@
 nnoremap \v :!open %:r.pdf &<CR><CR>
 
 " Set make
-set makeprg=([[\ -f\ Makefile\ ]]\ &&\ (make\ $*;\ true)\\\|\\\|\ latexrun\ --latex-cmd=xelatex\ \"%\"\ $*)
+setl makeprg=([[\ -f\ Makefile\ ]]\ &&\ (make\ $*;\ true)\\\|\\\|\ latexrun\ --latex-cmd=xelatex\ \"%\"\ $*)
 
 " Faster editing
 set nocursorline

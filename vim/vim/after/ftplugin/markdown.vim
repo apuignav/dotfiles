@@ -1,5 +1,5 @@
 " Open the current document in MacDown.app
-set tabstop=2
-set softtabstop=2
-set makeprg=pandoc\ \"%\"\ -o\ \"%:r.pdf\"\ \&\&\ open\ \"%:r.pdf\"
+setl tabstop=2
+setl softtabstop=2
+setl makeprg=pandoc\ \"%\"\ -o\ \"%:r.pdf\"\ \&\&\ open\ \"%:r.pdf\"
 command! Ql silent !qlmanage -p "%" &> /dev/null
