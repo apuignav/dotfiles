@@ -2,6 +2,7 @@
     ~/.paths: machine/mac/paths
     ~/.aliases: machine/mac/aliases
     ~/.localrc: machine/mac/localrc
+    ~/.ripgreprc: machine/mac/ripgreprc
 
 # Formulae
 - brew:
