@@ -10,5 +10,5 @@ map <leader>s? z=
 func! SpellCorrect()
     exe "normal! mz[s1z=`z"
 endfunc
-inoremap <c-s> <esc>:call SpellCorrect()<cr>A
-nnoremap <c-s> <esc>:call SpellCorrect()<cr>`z
+inoremap <c-s> <esc>:call SpellCorrect()<cr>a
+nnoremap <c-s> <esc>:call SpellCorrect()<cr>
