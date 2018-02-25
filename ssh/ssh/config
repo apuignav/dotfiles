@@ -138,3 +138,11 @@ Host uzh-slurm
   ForwardX11Trusted yes
   ForwardX11 yes
   HostName farm-ui2.physik.uzh.ch
+
+Host vesta
+  User apuign
+  ForwardX11Trusted yes
+  ForwardX11 yes
+  HostName cluster.s3it.uzh.ch
+
+
