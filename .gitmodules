@@ -31,3 +31,6 @@
 [submodule "deploy/dotbot"]
 	path = deploy/dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "scripts/gists/rename-mp3"]
+	path = scripts/gists/rename-mp3
+	url = git@gist.github.com:30db0abd8a6d1a7d20d6b076e4f5cd96.git
