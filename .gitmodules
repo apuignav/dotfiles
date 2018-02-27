@@ -13,9 +13,6 @@
 [submodule "scripts/gists/summer-of-scripts"]
 	path = scripts/gists/summer-of-scripts
 	url = git@gist.github.com:/54cd2f75df01615172c0.git
-[submodule "scripts/latexrun"]
-	path = scripts/latexrun
-	url = git@github.com:aclements/latexrun.git
 [submodule "zsh/k"]
 	path = zsh/k
 	url = git@github.com:rimraf/k.git
