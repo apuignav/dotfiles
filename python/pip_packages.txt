@@ -69,7 +69,6 @@ reportlab
 requests
 requests-oauthlib
 rfc3987
-git+https://github.com/jkbr/httpie.git
 rst2pdf
 scipy
 setuptools

@@ -47,6 +47,10 @@ echo ""
 echo "Allowing text selection in Quick Look/Preview in Finder by default"
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
+echo ""
+echo "Disabling HFP"
+defaults write com.apple.BluetoothAudioAgent "Disable HFP" -int 1
+
 for app in  "Dock" "Finder" "SystemUIServer";
 do
   killall "${app}" > /dev/null 2>&1

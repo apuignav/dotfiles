@@ -62,14 +62,14 @@
     - mas
     - peco
     - bib-tool
+    - youtube-dl
 
 # Software
 - cask:
     - adapter
-    - android-file-transfer
+    - android-platform-tools
     - bibdesk
     - calibre
-    - coconutbattery
     - cyberduck
     - day-o
     - dropbox
@@ -91,6 +91,7 @@
     - spotify
     - the-unarchiver
     - transmission
+    - xquartz
     - vlc
 
 # Apple store
@@ -143,8 +144,8 @@
     - font-tex-gyre-pagella-math
     - font-alegreya
     - font-alegreya-sans
-    - font-alegreya-sans-sc
-    - font-alegreya-sc
+      #- font-alegreya-sans-sc
+      #- font-alegreya-sc
     - font-fontawesome
 
 # Fix a few things
@@ -163,4 +164,4 @@
 - shell:
   # TODO: Iterm properly
     - description: "Installing iterm integration"
-      command: "curl -L https://iterm2.com/misc/zsh_startup.in -o ~/.iterm2_shell_integration.zsh"
+      command: "curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh"

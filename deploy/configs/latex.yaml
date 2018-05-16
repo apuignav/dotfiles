@@ -3,7 +3,7 @@
 
 - shell:
     - ["mkdir -p texmf/tex/latex", Preparing directory structure]
-    - ["git clone https://github.com/JP-Ellis/tikz-feynman.git texmf/tex/latex/tikz-feynman", Cloning tikz-feynman]
-    - ["git clone https://github.com/matze/mtheme.git texmf/tex/latex/mtheme", Cloning Metropolis]
+    - ["git clone https://github.com/JP-Ellis/tikz-feynman.git texmf/tex/latex/tikz-feynman || (cd texmf/tex/latex/tikz-feynman && git pull && cd -)", Cloning tikz-feynman]
+    - ["git clone https://github.com/matze/mtheme.git texmf/tex/latex/mtheme || (cd texmf/tex/latex/mtheme && git pull && cd -)", Cloning Metropolis]
     - ["cd texmf/tex/latex/mtheme/ && make install && cd -", Installing Metropolis]
     - ["texhash $HOME/Library/texmf", Hashing LaTeX]

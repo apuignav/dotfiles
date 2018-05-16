@@ -4,7 +4,7 @@
     ~/.pydocstyle: python/pydocstyle
     ~/.config/pycodestyle: python/pycodestyle
     ~/.pythonrc: python/pythonrc
-    ~/.passpie: ~/Dropbox/Backup/Security/.passpie
+    #~/.passpie: ~/Dropbox/Backup/Security/.passpie
 
 - shell:
     - [pip2 install --upgrade -r python/pip_packages.txt, Installing python packages]
