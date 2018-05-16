@@ -3,7 +3,7 @@ if v:version >= 800
     function! MyOnBattery()
         let answer = system("system_profiler SPPowerDataType | grep Connected | awk '{print $2}'")
         let answer = substitute(answer, '\n$', '', '')
-        return answer == 'Yes'
+        return answer == 'No'
     endfunction
     
     " Run on write
