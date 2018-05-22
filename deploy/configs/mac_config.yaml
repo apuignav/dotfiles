@@ -38,7 +38,6 @@
     - iftop
     - tmux
     - reattach-to-user-namespace
-    - archey
     - gd
     - flac
     - lame
