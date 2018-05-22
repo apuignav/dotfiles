@@ -86,17 +86,12 @@ alias grep='grep --color=auto'
 alias cernProxy='ssh -D 8080 -Nf cern'
 alias cernProxyDestroy='ps -ef | grep "ssh -D 8080" | grep -v grep | awk '"'"'{print $2}'"'"' | xargs kill'
 alias root="root -l"
-# Alias for git workflow
-alias hsc='hack&&ship&&chop'
 # Pyp alias
 alias pypr="pyp --rerun"
 # Environment
 #export LSCOLORS="gxfxcxdxbxegedabagacad"
 # LHCb
 export DLHCB=svn+ssh://svn.cern.ch/reps/lhcbdocs
-# Git
-alias git-sync-fork="git fetch upstream; git checkout master; git merge upstream/master"
-alias git-rebase-fork="git fetch upstream; git checkout master; git rebase upstream/master"
 
 # Load k.sh
 # https://github.com/rimraf/k
