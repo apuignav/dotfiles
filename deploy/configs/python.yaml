@@ -6,9 +6,3 @@
     ~/.pythonrc: python/pythonrc
     #~/.passpie: ~/Dropbox/Backup/Security/.passpie
 
-- shell:
-    - [pip2 install --upgrade -r python/pip_packages.txt, Installing python packages]
-    - [pip3 install --upgrade -r python/pip_packages.txt, Installing python packages]
-    - [pip2 install --upgrade -r python/pip2_packages.txt, Installing python 2 packages]
-    - [pip3 install --upgrade -r python/pip3_packages.txt, Installing python 3 packages]
-

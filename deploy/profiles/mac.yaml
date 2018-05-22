@@ -3,6 +3,8 @@ startup
 mac_pre
 zsh
 python
+pip2_root
+pip3_root
 git
 scripts
 mac_config
