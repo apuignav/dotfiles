@@ -29,6 +29,7 @@ bindkey '^h' backward-delete-char
 # ctrl-w removed word backwards
 bindkey '^w' backward-kill-word
 bindkey '^ ' forward-word
+bindkey '^b' backward-word
 
 
 # Last minute binding
