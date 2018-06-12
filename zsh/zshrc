@@ -36,6 +36,7 @@ bindkey '^b' backward-word
 bindkey "^[[3~" delete-char
 
 unsetopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE
 unsetopt AUTO_NAME_DIRS      # Auto add variable-stored paths to ~ list.
 unsetopt COMPLETE_IN_WORD    # Complete from both ends of a word
 unsetopt CLOBBER             # Don't overwrite existing files with > and >>
