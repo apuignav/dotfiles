@@ -5,7 +5,7 @@ set signcolumn=yes
 
 " Point YCM to the Pipenv created virtualenv, if possible
 " At first, get the output of 'pipenv --venv' command.
-let pipenv_venv_path = system('pipenv --venv')
+let pipenv_venv_path = system('PIPENV_MAX_DEPTH=10 pipenv --venv')
 " The above system() call produces a non zero exit code whenever
 " a proper virtual environment has not been found.
 " So, second, we only point YCM to the virtual environment when
