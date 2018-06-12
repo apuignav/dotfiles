@@ -57,7 +57,7 @@
     - python3
     - burntsushi/ripgrep/ripgrep-bin
     - qt
-    - mkvtoolnix --with-gui    
+    - mkvtoolnix --with-qt    
     - mas
     - peco
     - bib-tool
