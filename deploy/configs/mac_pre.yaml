@@ -12,7 +12,8 @@
     - gnupg
 
 - tap:
-    -  caskroom/versions
-    -  caskroom/cask
-    -  caskroom/homebrew-fonts
-    -  burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
+    - caskroom/versions
+    - caskroom/cask
+    - caskroom/homebrew-fonts
+    - burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
+    - buo/cask-upgrade
