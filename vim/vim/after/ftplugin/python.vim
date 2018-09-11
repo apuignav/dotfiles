@@ -16,7 +16,7 @@ let pipenv_venv_path = system('PIPENV_MAX_DEPTH=10 pipenv --venv')
 if shell_error == 0
   let venv_path = substitute(pipenv_venv_path, '\n', '', '')
   let g:ycm_python_binary_path = venv_path . '/bin/python'
-  if filereadable(venv_path . '/bin/pylama')
-      let g:neomake_python_pylama_exe = venv_path . '/bin/pylama'
+  if filereadable(venv_path . '/bin/pylava')
+      let g:neomake_python_pylama_exe = venv_path . '/bin/pylava'
   endif
 endif

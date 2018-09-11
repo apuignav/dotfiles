@@ -1,4 +1,5 @@
 if v:version >= 800
+    let g:neomake_python_python_exe = 'python3'
     " Check battery
     function! MyOnBattery()
         let answer = system("system_profiler SPPowerDataType | grep Connected | awk '{print $2}'")

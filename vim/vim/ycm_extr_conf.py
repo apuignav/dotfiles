@@ -82,7 +82,7 @@ flags = ['-Wall',
          '/usr/include'
          ]
 
-flags.extend(subprocess.check_output(['root-config', '--cflags']).rstrip('\n').split())
+flags.extend(subprocess.check_output(['root-config', '--cflags'], universal_newlines=True).rstrip('\n').split())
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for

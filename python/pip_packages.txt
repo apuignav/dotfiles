@@ -10,6 +10,7 @@ enum34
 Fabric
 filemagic
 flake8
+frosted
 fonttools
 fs
 fuckit
