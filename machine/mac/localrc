@@ -20,6 +20,8 @@ compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app 
 # Disable system python
 alias python='echo "Choose python2 or python3"'
 
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
+
 # Passpie completion
 #if which passpie > /dev/null; then
 #    eval "$(passpie complete zsh)"
