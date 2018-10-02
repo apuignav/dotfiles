@@ -50,6 +50,7 @@ if !exists('g:override_bundles')
         Plug 'DavidGamba/vim-vmath'
         Plug 'vim-pandoc/vim-pandoc'
         Plug 'vim-pandoc/vim-pandoc-syntax'
+        Plug 'djmoch/vim-makejob'
     endif
 
     " General Programming
