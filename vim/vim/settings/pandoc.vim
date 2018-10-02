@@ -16,7 +16,7 @@ let g:pandoc#formatting#textwidth = 100
 let g:pandoc#command#use_message_buffer = 1
 
 " Set spelling language
-let g:pandoc#spell#default_langs = ["en_us", "es"]
+let g:pandoc#spell#default_langs = ["en_gb", "es"]
 
 " Manage open in Mac
 "if system('uname') =~# 'Darwin'
