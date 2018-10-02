@@ -50,8 +50,8 @@ py
 pybtex
 pycolors
 pycrypto
-pylama
-pylama_pylint
+pylava
+pylava-pylint
 pyflakes
 pylint
 pycodestyle
