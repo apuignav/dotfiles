@@ -4,7 +4,11 @@
 nnoremap <leader>v :!open %:r.pdf &<CR><CR>
 
 " Set make
-setl makeprg=([[\ -f\ Makefile\ ]]\ &&\ (make\ $*;\ true)\\\|\\\|\ latexmk\ -xelatex\ \"%\"\ $*)
+if filereadable("Makefile")
+    setl makeprg=make
+else
+    setl makeprg=latexmk\ -lualatex
+endif
 
 " Faster editing
 set nocursorline
