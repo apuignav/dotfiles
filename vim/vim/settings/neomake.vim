@@ -1,4 +1,5 @@
 if v:version >= 800
+    call neomake#config#set('ft.python.pylama.exe', 'pylava')
     let g:neomake_python_python_exe = 'python3'
     " Check battery
     function! MyOnBattery()
