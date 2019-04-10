@@ -18,7 +18,7 @@ $endif$
     \setmathfont{TeX Gyre Pagella Math}
     \setsansfont[BoldFont={Fira Sans Bold}]{Fira Sans Light}
     \setmonofont[ItalicFont={Inconsolata},Scale=0.95]{Inconsolata}  % No bold :-(
-    \usepackage{fontawesome}
+    \usepackage{fontawesome5}
     \usepackage{academicons}
 \newcommand{\euro}{€}
 $if(mainfont)$
@@ -51,7 +51,7 @@ $endif$
 \usepackage[normalem]{ulem} 
 \setkomafont{section}{\Large\sffamily\bfseries}
 \setkomafont{subsection}{\large\sffamily\bfseries}
-\setkomafont{subsubsection}{\normalfont\large\itshape}
+\setkomafont{subsubsection}{\normalfont\itshape}
 
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
