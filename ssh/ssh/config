@@ -1,7 +1,7 @@
 Host *
   Protocol 2
   ServerAliveInterval 30
-  PubkeyAcceptedKeyTypes ssh-rsa
+  PubkeyAcceptedKeyTypes ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa
 
 Host raspi
   HostName 192.168.1.120
@@ -9,8 +9,8 @@ Host raspi
   ForwardX11 no
   ForwardX11Trusted no
 
-Host cern lxplus.cern.ch
- HostName lxplus.cern.ch
+Host cern lxplus7.cern.ch
+ HostName lxplus7.cern.ch
  User apuignav
  PubkeyAuthentication no
  ForwardX11 yes
@@ -139,10 +139,18 @@ Host uzh-slurm
   ForwardX11 yes
   HostName farm-ui2.physik.uzh.ch
 
+Host uzh-gpu
+  User apuignav
+  ForwardX11Trusted yes
+  ForwardX11 yes
+  HostName farm-gpu.physik.uzh.ch
+
 Host vesta
   User apuign
   ForwardX11Trusted yes
   ForwardX11 yes
   HostName cluster.s3it.uzh.ch
 
-
+Host space
+  User albert
+  HostName 192.168.0.3
