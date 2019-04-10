@@ -113,6 +113,7 @@
 
 - shell:
     - ["open https://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/", Install MenuMeters!]
+    - ["open https://mathpix.com/", Install Snip!"]
 
 # Fonts
 - cask:
@@ -147,6 +148,8 @@
       #- font-alegreya-sans-sc
       #- font-alegreya-sc
     - font-fontawesome
+    - font-academicons
+    - font-public-sans
 
 # Fix a few things
 - shell:
