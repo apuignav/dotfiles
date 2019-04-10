@@ -1,6 +1,6 @@
 [user]
-    name = Albert Puig
-    email = albert.puig@cern.ch
+	name = Albert Puig
+	email = albert.puig@cern.ch
 
 [color]
     diff = auto
@@ -103,5 +103,14 @@
 
 [push]
     default = simple
+
+[submodule]
+	recurse = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
 # EOF

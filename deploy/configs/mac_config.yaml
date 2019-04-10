@@ -32,6 +32,7 @@
     - parallel
     - fftw
     - git-annex
+    - git-lfs
     - gsl
     - isl
     - gpg2
