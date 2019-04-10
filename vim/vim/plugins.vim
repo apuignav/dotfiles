@@ -18,7 +18,7 @@ endif
 " list only the plugin groups to use
 if !exists('g:bundle_groups')
     let g:bundle_groups=['general', 'programming', 'python', 'misc', 'ultisnips', 'last']
-    " let g:bundle_groups=['general']
+     "let g:bundle_groups=['test']
 endif
 
 " To override all the included bundles, put
@@ -50,7 +50,8 @@ if !exists('g:override_bundles')
         Plug 'DavidGamba/vim-vmath'
         Plug 'vim-pandoc/vim-pandoc'
         Plug 'vim-pandoc/vim-pandoc-syntax'
-        Plug 'djmoch/vim-makejob'
+        Plug 'https://git.danielmoch.com/vim-makejob.git'
+        "Plug 'djmoch/vim-makejob'
     endif
 
     " General Programming
@@ -77,6 +78,7 @@ if !exists('g:override_bundles')
         Plug 'machakann/vim-swap'
         Plug 'gregsexton/MatchTag'
         Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
+        Plug 'vim-python/python-syntax'
     endif
 
     " Python
@@ -114,26 +116,7 @@ if !exists('g:override_bundles')
     endif
 
     if count(g:bundle_groups, 'test')
-        "if v:version >= 800
-        "    Plug 'metakirby5/codi.vim'
-        "    Plug 'neomake/neomake'
-        "else
-        "    Plug 'scrooloose/syntastic'
-        "endif
-        "Plug 'tpope/vim-fugitive'
-        "if v:version > 701
-        "    Plug 'scrooloose/nerdcommenter'
-        "endif
-        "Plug 'godlygeek/tabular'
-        "Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}
-        "if executable('ctags')
-        "    Plug 'majutsushi/tagbar'
-        "endif
-        "Plug 'michaeljsmith/vim-indent-object'
-        "Plug 'vim-scripts/argtextobj.vim'
-        "Plug 'mutewinter/swap-parameters'
-        "Plug 'gregsexton/MatchTag'
-        "Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+        Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
     endif
 
     if count(g:bundle_groups, 'unite')
