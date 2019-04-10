@@ -51,7 +51,7 @@ pybtex
 pycolors
 pycrypto
 pylava
-pylava-pylint
+pylava_pylint
 pyflakes
 pylint
 pycodestyle
