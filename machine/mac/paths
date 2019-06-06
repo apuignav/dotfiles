@@ -1,15 +1,15 @@
 # Variables
-export BREW=`brew --prefix`
+#export BREW=`brew --prefix`
 # export HOMEBREW_BUILD_FROM_SOURCE=1
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export TERM=xterm-256color
 # Setting the editors properly
-export EDITOR="$BREW/bin/mvim -v"
-export FPEDITOR="$BREW/bin/mvim -v"
-export VISUAL="$BREW/bin/mvim -v"
-export GIT_EDITOR="$BREW/bin/mvim -v"
+export EDITOR="$HOMEBREW_PREFIX/bin/mvim -v"
+export FPEDITOR="$HOMEBREW_PREFIX/bin/mvim -v"
+export VISUAL="$HOMEBREW_PREFIX/bin/mvim -v"
+export GIT_EDITOR="$HOMEBREW_PREFIX/bin/mvim -v"
 export OS=Darwin
-export MANPATH=$MANPATH:$BREW/man
+export MANPATH=$MANPATH:$HOMEBREW_PREFIX/man
 #export ROOTSYS=$(brew --prefix root6)
 #export ROOTSYS=/usr/local/opt/root6
 #GOSYS=$(brew --prefix go)
@@ -21,7 +21,7 @@ hash -d cmtuser=~/Arxiu/Fisica/LHCb/Projectes/CernVM/cmtuser
 # Path games
 cdpath+=(~/Arxiu/Fisica/LHCb/Projectes)
 # LD_LIBRARY_PATH
-NEW_LD_LIBRARY_PATH=$BREW/lib:/usr/lib:/usr/local/cuda/lib
+NEW_LD_LIBRARY_PATH=$HOMEBREW_PREFIX/lib:/usr/lib:/usr/local/cuda/lib
 if [ -z "${LD_LIBRARY_PATH}" ]; then
   LD_LIBRARY_PATH=$NEW_LD_LIBRARY_PATH; export LD_LIBRARY_PATH
 else
@@ -32,14 +32,14 @@ if [ -z "${GOPATH}" ]; then
     GOPATH=${GOSYS}/bin; export GOPATH
 fi
 # PATH
-NEW_PATH=$BREW/bin:$BREW/sbin:${GOSYS}/libexec/bin:${GOPATH}/bin
+NEW_PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:${GOSYS}/libexec/bin:${GOPATH}/bin
 if [ -z "${PATH}" ]; then
   PATH=$NEW_PATH; export PATH
 else
   PATH=$NEW_PATH:$PATH; export PATH
 fi
 # PYTHONPATH
-NEW_PYTHONPATH=$BREW/lib:/Users/albert/Arxiu/Fisica/LHCb/Projectes/PyLHCb:/Users/albert/Arxiu/Fisica/LHCb/Projectes/SciFi/python
+NEW_PYTHONPATH=$HOMEBREW_PREFIX/lib:/Users/albert/Arxiu/Fisica/LHCb/Projectes/PyLHCb:/Users/albert/Arxiu/Fisica/LHCb/Projectes/SciFi/python
 if [ -z "${PYTHONPATH}" ]; then
   PYTHONPATH=$NEW_PYTHONPATH; export PYTHONPATH
 else
