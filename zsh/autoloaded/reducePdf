@@ -1,0 +1,4 @@
+filename=$(basename "$1")
+filename="${filename%.*}"
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$filename-compressed.pdf $filename.pdf
+mv -f $filename-compressed.pdf $filename.pdf

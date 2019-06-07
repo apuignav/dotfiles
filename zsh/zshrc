@@ -31,7 +31,6 @@ bindkey '^w' backward-kill-word
 bindkey '^ ' forward-word
 bindkey '^b' backward-word
 
-
 # Last minute binding
 bindkey "^[[3~" delete-char
 
@@ -105,52 +104,19 @@ fi
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 #######################################################################
-# Functions
+# Setting autoloaded functions
 #######################################################################
-function mkc () {
-    mkdir -p "$@" && cd "$@"
-}
+my_zsh_fpath=${HOME}/dotfiles/zsh/autoloaded
 
-function sdu() {
-    du -sk $@ | sort -nr | cut -f2 | sed -e "s/^/\"/g;s/$/\"/g" | xargs du -sh
-}
+fpath=($my_zsh_fpath $fpath)
 
-function up() {
-        if (( $# != 1 ))
-        then
-                cd ..
-        else
-                upstr="." 
-                for i in {1..$1}
-                do
-                        upstr="$upstr/.." 
-                done
-                cd $upstr
-        fi
-}
-
-function reducePdf() {
-    filename=$(basename "$1")
-    filename="${filename%.*}"
-    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$filename-compressed.pdf $filename.pdf
-    mv -f $filename-compressed.pdf $filename.pdf
-}
-
-tbrowser () {
-  # Check a file has been specified
-  if (( $# == 0 )); then
-    echo "No file(s) specified."
-  else
-    # For each file, check it exists
-    for i; do
-      if [ ! -f $i ]; then
-        echo "Could not find file $i"
-        return 1;
-      fi
+if [[ -d "$my_zsh_fpath" ]]; then
+    for func in $my_zsh_fpath/*; do
+        autoload -Uz ${func:t}
     done
-    root -l $* $HOME/.scripts/new_browser.C
-  fi
-}
+fi
+unset my_zsh_fpath
+
 
 if which peco &> /dev/null; then
   function peco_select_history() {
@@ -167,37 +133,6 @@ if which peco &> /dev/null; then
   zle -N peco_select_history
   bindkey '^R' peco_select_history
 fi
-
-# Nice extraction function
-extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)        tar vxjf $1       ;;
-            *.tar.gz)         tar vxzf $1       ;;
-            *.bz2)            bunzip2 $1        ;;
-            # *.rar)            unrar x $1        ;;
-            *.gz)             gunzip $1         ;;
-            *.tar)            tar vxf $1        ;;
-            *.tbz2)           tar vxjf $1       ;;
-            *.tgz)            tar vxzf $1       ;;
-            *.zip)            unzip $1          ;;
-            *.Z)              uncompress $1     ;;
-            *)                echo "'$1' cannot be extracted via extract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
-
-# Fancy set tab title
-function tab-title () {
-    # Deactivate the prezto default
-    # https://github.com/sorin-ionescu/prezto/blob/master/modules/terminal/init.zsh
-    add-zsh-hook -d precmd _terminal-set-titles-with-path
-    add-zsh-hook -d preexec _terminal-set-titles-with-command
-    # Set the title
-    set-tab-title "$@"
-}
 
 # Locales
 export LC_ALL="en_US.UTF-8"
