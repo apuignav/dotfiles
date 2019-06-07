@@ -25,11 +25,3 @@ alias bujo='cd "/Users/albert/Arxiu/Projectes/Bullet Journal/bujo/001/" && open 
 
 export PATH=/usr/local/opt/python/libexec/bin:$PATH:/usr/local/miniconda3/bin
 
-# Passpie completion
-#if which passpie > /dev/null; then
-#    eval "$(passpie complete zsh)"
-#fi
-
-#if [[ -z "$TMPSHELL" ]]; then
-    #archey -c -o
-#fi

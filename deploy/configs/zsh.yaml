@@ -15,4 +15,5 @@
     ~/.zprofile: zsh/zprofile
     ~/.zshrc: zsh/zshrc
     ~/.zshenv: zsh/zshenv
-    ~/.zprezto/modules/prompt/functions/prompt_apuignav_setup: zsh/prompt/prompt_apuignav_setup
+    ~/.purepower: zsh/gimbo.zsh
+    #~/.zprezto/modules/prompt/functions/prompt_apuignav_setup: zsh/prompt/prompt_apuignav_setup

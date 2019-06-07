@@ -325,7 +325,7 @@ fi
   # gives us that.
   #
   function maybe_newline() {
-      if [[ -n "$VIRTUAL_ENV" || -n $(get_vcs_root) ]]; then
+      if [[ -n "$VIRTUAL_ENV" || -n $(get_vcs_root) || -n "$CONDA_DEFAULT_ENV" ]]; then
           echo "\n│"
       fi
   }
@@ -356,6 +356,7 @@ fi
       pyenv
       custom_maybe_newline
       virtualenv
+      anaconda
       custom_vcs_root vcs_joined
   )
   typeset -ga POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
@@ -384,8 +385,8 @@ fi
   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX="│ "
   typeset -g POWERLEVEL9K_CUSTOM_MAYBE_NEWLINE_BACKGROUND=none
   typeset -g POWERLEVEL9K_CUSTOM_MAYBE_NEWLINE_FOREGROUND=none
-  typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND=none
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=015
+  typeset -g POWERLEVEL9K_{VIRTUALENV,ANACONDA}_BACKGROUND=none
+  typeset -g POWERLEVEL9K_{VIRTUALENV,ANACONDA}_FOREGROUND=015
   typeset -g POWERLEVEL9K_CUSTOM_VCS_ROOT_BACKGROUND=none
   typeset -g POWERLEVEL9K_CUSTOM_VCS_ROOT_FOREGROUND=245
 

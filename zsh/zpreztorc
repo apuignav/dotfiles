@@ -180,3 +180,4 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 #
 zstyle ':prezto:module:autosuggestions:color' found 'fg=brwhite,underline'
 zstyle ':prezto:module:autosuggestions' color 'yes'
+
