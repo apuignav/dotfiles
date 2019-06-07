@@ -1,4 +1,4 @@
-slides|beamer -V theme:metropolis -V themeopts:progressbar=frametitle -V themeopts:block=fill -V themeopts:numbering=fraction -V themeopts:titleformat=smallcaps --filter="~/.pandoc/filters/alert_filter.py" --filter="~/.pandoc/filters/column_filter.py" --filter="~/.pandoc/filters/center_filter.py" --filter="~/.pandoc/filters/bibtex_filter.py" --standalone --template=default.beamer --pdf-engine xelatex 
+slides|beamer -V theme:metropolis -V themeopts:progressbar=frametitle -V themeopts:block=fill -V themeopts:numbering=fraction -V themeopts:titleformat=smallcaps --filter="~/.pandoc/filters/alert_filter.py" --filter="~/.pandoc/filters/column_filter.py" --filter="~/.pandoc/filters/center_filter.py" --filter="~/.pandoc/filters/bibtex_filter.py" --standalone --template=default.beamer --pdf-engine xelatex
 nice|pdf --pdf-engine xelatex --template=nice -V documentclass:scrartcl -V papersize:a4paper -V fontsize:11pt --standalone
 tufte|pdf --pdf-engine lualatex --template=tufte -V papersize:a4paper -V fontsize:11pt --standalone
 tuftetex|latex --pdf-engine lualatex --template=tufte -V papersize:a4paper -V fontsize:11pt --standalone
