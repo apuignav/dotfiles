@@ -1,0 +1,1 @@
+rsync -az $HOME /Volumes/HAL/Backup2 --exclude="$HOME/.dropbox" --exclude="$HOME/.docker" --exclude="$HOME/Library/Caches/" --exclude="$HOME/Library/Application Support" --exclude="$HOME/Library/Saved Application State/" --exclude="$HOME/.Trash" --exclude=".DS_Store" --delete-excluded --info=progress2
