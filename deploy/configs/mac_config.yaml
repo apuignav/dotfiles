@@ -149,6 +149,7 @@
       #- font-alegreya-sans-sc
       #- font-alegreya-sc
     - font-fontawesome
+    - font-awesome-terminal-fonts
     - font-academicons
     - font-public-sans
 
