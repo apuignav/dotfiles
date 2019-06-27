@@ -16,9 +16,6 @@
 [submodule "zsh/k"]
 	path = zsh/k
 	url = git@github.com:rimraf/k.git
-[submodule "scripts/markdown2ctags"]
-	path = scripts/markdown2ctags
-	url = git@github.com:jszakmeister/markdown2ctags.git
 [submodule "prezto"]
 	path = prezto
 	url = https://github.com/sorin-ionescu/prezto.git
