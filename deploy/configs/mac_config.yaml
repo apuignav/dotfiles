@@ -97,20 +97,18 @@
 
 # Apple store
 - shell:
-    # - command: mas signin --dialog "djkarras@gmail.com"
-    #   stdout: true
-    #   stderr: true
-    #   stdin: true
+    - command: mas signin --dialog "djkarras@gmail.com"
+      stdout: true
+      stderr: true
+      stdin: true
     # mas list
-    # 937984704 Amphetamine (3.0.2)
-    # 408981434 iMovie (10.1.7)
-    # 497799835 Xcode (8.3.3)
-    # 409201541 Pages (6.3)
-    # 585829637 Todoist (7.0.2)
-    # 409183694 Keynote (7.3)
-    # 404010395 TextWrangler (5.5.2)
-    # 409203825 Numbers (4.3)
-    - [mas install 585829637 937984704 404010395, Installing apps from the App Store]
+#937984704 Amphetamine (4.2)
+#409201541 Pages (8.0)
+#409183694 Keynote (9.0.2)
+#408981434 iMovie (10.1.12)
+#404010395 TextWrangler (5.5.2)
+#409203825 Numbers (6.0)
+    - [mas install 937984704 409201541 409183694 408981434 404010395 409203825, Installing apps from the App Store]
 
 - shell:
     - ["open https://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/", Install MenuMeters!]
