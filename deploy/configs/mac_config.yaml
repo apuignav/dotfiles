@@ -59,7 +59,6 @@
     - python3
     - burntsushi/ripgrep/ripgrep-bin
     - qt
-    - mkvtoolnix --with-qt    
     - mas
     - peco
     - bib-tool
@@ -75,7 +74,6 @@
     - day-o
     - dropbox
     - evernote
-    - fork
     - franz
     - gimp
     - google-chrome
@@ -83,8 +81,9 @@
     - latexit
     - libreoffice
     - mactex
+    - mathpix-snipping-tool
+    - mkvtoolnix
     - nvalt
-    - qlmarkdown
     - scummvm
     - skype
     - soulseek
@@ -96,11 +95,11 @@
     - vlc
 
 # Apple store
-- shell:
-    - command: mas signin --dialog "djkarras@gmail.com"
-      stdout: true
-      stderr: true
-      stdin: true
+#- shell:
+#    - command: mas signin --dialog "djkarras@gmail.com"
+#      stdout: true
+#      stderr: true
+#      stdin: true
     # mas list
 #937984704 Amphetamine (4.2)
 #409201541 Pages (8.0)
@@ -108,11 +107,10 @@
 #408981434 iMovie (10.1.12)
 #404010395 TextWrangler (5.5.2)
 #409203825 Numbers (6.0)
-    - [mas install 937984704 409201541 409183694 408981434 404010395 409203825, Installing apps from the App Store]
+#    - [mas install 937984704 409201541 409183694 408981434 404010395 409203825, Installing apps from the App Store]
 
 - shell:
     - ["open https://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/", Install MenuMeters!]
-    - ["open https://mathpix.com/", Install Snip!"]
 
 # Fonts
 - cask:
@@ -124,12 +122,10 @@
     - font-source-serif-pro
     - font-raleway
     - font-raleway-dots
-    - font-aleo
     - font-fjalla-one
     - font-alfa-slab-one
     - font-montserrat
     - font-montserrat-subrayada
-    - font-titillium-web
     - font-antic-slab
     - font-crimson-text
     - font-domine
@@ -163,8 +159,3 @@
       stdout: true
       stderr: true
       stdin: true
-
-- shell:
-  # TODO: Iterm properly
-    - description: "Installing iterm integration"
-      command: "curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh"

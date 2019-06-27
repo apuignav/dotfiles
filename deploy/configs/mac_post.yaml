@@ -1,2 +1,2 @@
 - brew:
-    - macvim --with-python3 --with-override-system-vim
+    - macvim

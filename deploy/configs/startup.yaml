@@ -6,5 +6,5 @@
     - [mkdir -p $HOME/.config, Make local config dir]
 
 - shell:
-    - [git submodule update --init --recursive, Pulling submodules]
+    - [GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" git submodule update --init --recursive, Pulling submodules]
 
