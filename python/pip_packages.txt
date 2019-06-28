@@ -76,7 +76,7 @@ PyYAML
 pyzmq
 q
 radon
-readline
+gnureadline
 reportlab
 requests
 requests-oauthlib
