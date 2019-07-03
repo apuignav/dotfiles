@@ -4,5 +4,6 @@
     ~/.pydocstyle: python/pydocstyle
     ~/.config/pycodestyle: python/pycodestyle
     ~/.pythonrc: python/pythonrc
+    ~/.matplotlibrc: python/matplotlibrc
     #~/.passpie: ~/Dropbox/Backup/Security/.passpie
 
