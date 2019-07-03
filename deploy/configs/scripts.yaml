@@ -4,4 +4,4 @@
 
 - link:
     ~/.scripts: scripts/bin/
-
+    ~/.backuprc: config/backup_config.yaml

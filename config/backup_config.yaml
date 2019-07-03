@@ -1,0 +1,28 @@
+rsync-config:
+    - "-az"
+    - "--info=progress2"
+profiles:
+    user:
+        origin: "/Users/albert"
+        dest: "/Volumes/HAL/Backup2"
+        excludes:
+            - "albert/.dropbox"
+            - "albert/Library/Caches/"
+            - "albert/Library/Application Support" 
+            - "albert/Library/Saved Application State/"
+            - "albert/.Trash"
+            - ".DS_Store"
+        extra-config:
+            - "--delete-excluded"
+    mp3:
+        origin: "/Users/albert/Arxiu/Personal/Music/MP3/"
+        dest: "raspi:/media/RaspiHD/Music"
+        excludes:
+            - ".DS_Store"
+            - "To listen"
+            - "backup.sh"
+        extra-config:
+            - "--delete"
+            - "--iconv=utf-8-mac,utf-8"
+            - "-vhr"
+        post-run-cmd: 'curl -i -X POST -d "{\"jsonrpc\": \"2.0\", \"method\": \"AudioLibrary.Scan\", \"id\": \"mybash\"}" -H "content-type:application/json" http://192.168.1.120:8080/jsonrpc > /dev/null 2>&1'

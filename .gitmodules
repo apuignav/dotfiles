@@ -28,3 +28,6 @@
 [submodule "scripts/gists/rename-mp3"]
 	path = scripts/gists/rename-mp3
 	url = git@gist.github.com:30db0abd8a6d1a7d20d6b076e4f5cd96.git
+[submodule "scripts/backup"]
+	path = scripts/backup
+	url = git@github.com:apuignav/backup.git
