@@ -1,6 +1,6 @@
 [user]
 	name = Albert Puig
-	email = albert.puig@cern.ch
+	email = apuignav@gmail.com
 
 [color]
     diff = auto
@@ -96,7 +96,7 @@
 
 [core]
 	editor = mvim -v
-    excludesfile = ~/.gitignore_global
+	excludesfile = /Users/albert/.gitignore_global
 
 [help]
 	autocorrect = 5
@@ -114,3 +114,11 @@
 	required = true
 
 # EOF
+[commit]
+	template = /Users/albert/.stCommitMsg
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
