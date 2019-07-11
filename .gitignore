@@ -48,10 +48,8 @@ ssh/ssh/environment*
 ssh/ssh/authorized_keys
 ssh/ssh/known_hosts
 
-# Ranger
-config/ranger/bookmarks
-config/ranger/tagged
-config/ranger/history
-
 # texmf
 texmf/
+
+# Zplugin
+zplugin
