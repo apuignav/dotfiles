@@ -34,6 +34,7 @@
     - git-annex
     - git-lfs
     - gsl
+    - ghi
     - isl
     - gpg2
     - gnuplot
@@ -88,6 +89,7 @@
     - skype
     - soulseek
     - spectacle
+    - sourcetree
     - spotify
     - the-unarchiver
     - transmission
