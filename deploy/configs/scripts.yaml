@@ -1,7 +1,12 @@
 # Scripts folder (make sure they have been properly pulled first)
 - shell:
     - [git submodule update --init --recursive, Pulling submodules]
+    - command: config/get_private.sh
+      stdin: true
+      stdout: true
+      description: Getting private encoded keys
 
 - link:
     ~/.scripts: scripts/bin/
     ~/.backuprc: config/backup_config.yaml
+    ~/.photorc: config/photo_config.yaml

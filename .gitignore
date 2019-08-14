@@ -53,3 +53,5 @@ texmf/
 
 # Zplugin
 zplugin
+
+config/photo_config.yaml
