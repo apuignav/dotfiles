@@ -28,3 +28,11 @@ profiles:
             - delete-from-dest
             - "--iconv=utf-8-mac,utf-8"
         post-run-cmd: 'curl -i -X POST -d "{\"jsonrpc\": \"2.0\", \"method\": \"AudioLibrary.Scan\", \"id\": \"mybash\"}" -H "content-type:application/json" http://192.168.1.120:8080/jsonrpc > /dev/null 2>&1'
+    photos-to-hal: 
+        origin: "/Volumes/LaCie/Photos/"
+        dest: "/Volumes/HAL/Photos"
+        excludes:
+            - ".DS_Store"
+        extra-config:
+            - delete-from-dest
+            - "--iconv=utf-8-mac,utf-8"
