@@ -12,6 +12,8 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 " Tagbar
 let g:airline#extensions#tagbar#enabled = 1
+" Virtualenv
+let g:airline#extensions#virtualenv#enabled = 1
 " Quickfix
 let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 let g:airline#extensions#quickfix#location_text = 'Location'
