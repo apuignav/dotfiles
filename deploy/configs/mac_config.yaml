@@ -59,11 +59,13 @@
     - fpp
     - python3
     - burntsushi/ripgrep/ripgrep-bin
+    - fd
     - qt
     - mas
     - peco
     - bib-tool
     - youtube-dl
+    - displayplacer
 
 # Software
 - cask:

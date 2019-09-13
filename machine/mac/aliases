@@ -5,11 +5,6 @@ alias reloadEthernet='sudo kextunload /System/Library/Extensions/IONetworkingFam
 alias istatRestart='rm -f ~/Library/Preferences/com.bjango.istatmenus.plist && killall SystemUIServer'
 alias cleanDsStore='find . -type f -name "*.DS_Store" -ls -delete'
 
-# Backup
-alias backupMP3='rsync -aE --delete --progress MP3/ /Volumes/RaspiHD/Music'
-alias backupRadiative='rsync --delete -avPe ssh lphea:/panasas/radiative /Volumes/HAL/LHCb/.'
-alias backupSciFi='rsync --delete -avPe ssh lphea:/panasas/scifi_testbeam /Volumes/HAL/LHCb/SciFi/TestBeam/.'
-
 # Quick way to rebuild the Launch Services database and get rid of duplicates in the Open With submenu.
 # http://www.leancrew.com/all-this/2013/02/getting-rid-of-open-with-duplicates/
 alias fixOpenWith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
@@ -22,11 +17,15 @@ alias stfu="osascript -e 'set volume output muted true'"
 # Apps
 alias sourcetree='open -a SourceTree .'
 
-function vim() {
-    if [ -f $1 ]; then
-        open -a MacVim $@
-    else
-        mvim $@
-    fi
-}
+# Position screens
+alias disphome='displayplacer "id:BF55BD70-2F3C-FBF6-A552-E44A2CE656E4 res:1920x1200 hz:60 color_depth:8 scaling:off origin:(0,0) degree:0" "id:8B78D316-B997-F726-D566-55E188294EBF res:1680x1050 color_depth:4 scaling:on origin:(-1680,92) degree:0"'
+
+alias vim='mvim'
+#function vim() {
+#    if [ -f $1 ]; then
+#        open -a MacVim $@
+#    else
+#        mvim $@
+#    fi
+#}
 
