@@ -7,7 +7,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
 " Some python config
-let g:ultisnips_python_style = "google"
+let g:ultisnips_python_style = "numpy"
 
 " Enable tabbing through list of results
 function! g:UltiSnips_Complete()
