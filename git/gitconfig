@@ -95,8 +95,8 @@
     user = apuignav
 
 [core]
-	editor = mvim -v
-	excludesfile = /Users/albert/.gitignore_global
+	editor = vim
+	excludesfile = ~/.gitignore_global
 
 [help]
 	autocorrect = 5
