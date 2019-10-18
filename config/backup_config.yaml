@@ -5,6 +5,7 @@ rsync-config:
     - progress
 profiles:
     user:
+        info: "User folder backup to HAL, incremental copy."
         origin: "/Users/albert"
         dest: "/Volumes/HAL/Backup2"
         excludes:
@@ -18,6 +19,7 @@ profiles:
         extra-config:
             - delete-excluded
     mp3:
+        info: "MP3 to raspi, exact copy."
         origin: "/Users/albert/Arxiu/Personal/Music/MP3/"
         dest: "raspi:/media/RaspiHD/Music"
         excludes:
@@ -29,6 +31,7 @@ profiles:
             - "--iconv=utf-8-mac,utf-8"
         post-run-cmd: 'curl -i -X POST -d "{\"jsonrpc\": \"2.0\", \"method\": \"AudioLibrary.Scan\", \"id\": \"mybash\"}" -H "content-type:application/json" http://192.168.1.120:8080/jsonrpc > /dev/null 2>&1'
     photos-to-hal: 
+        info: "Photos from LaCie to HAL, exact copy."
         origin: "/Volumes/LaCie/Photos/"
         dest: "/Volumes/HAL/Photos"
         excludes:
