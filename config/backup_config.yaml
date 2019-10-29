@@ -4,20 +4,50 @@ rsync-config:
     - human-readable
     - progress
 profiles:
+    # Backup user, skipping archive
     user:
-        info: "User folder backup to HAL, incremental copy."
+        info: "User folder backup to HAL, exact copy ignoring Arxiu/Personal/Projectes/Archive."
         origin: "/Users/albert"
-        dest: "/Volumes/HAL/Backup2"
+        dest: "/Volumes/Backup"
         excludes:
             - "albert/.dropbox"
             - "albert/.npm/_cacache"
             - "albert/Library/Caches/"
+            - "albert/Library/Calendars/"
+            - "albert/Library/Group Containers/"
             - "albert/Library/Application Support" 
             - "albert/Library/Saved Application State/"
             - "albert/.Trash"
             - ".DS_Store"
         extra-config:
+            - --filter='protect albert/Arxiu/Personal/Projectes/Archive/**/*'
+            - --filter='protect albert/Arxiu/Work/Projects/Archive/**/*'
+            - delete-from-dest
             - delete-excluded
+        post-run-cmd: 
+            - 'cd {dest}/albert/Arxiu/Personal/Projectes && tree -d Archive -L 2 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Personal/Projectes/Archive && cd -'
+            - 'cd {dest}/albert/Arxiu/Work/Projects && tree -d Archive -L 4 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Work/Projects/Archive && cd -'
+    # Backup archive
+    _archive:
+        excludes:
+            - ".DS_Store"
+        extra-config:
+            - delete-excluded
+            - --filter='protect Archive/**/*'
+        tree-depth: 2
+        post-run-cmd: 'cd {dest} && tree -d Archive -L {tree-depth} -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin} && cd -'
+    personal-archive:
+        info: "Personal projects archive backup to HAL, incremental. Keeps a list of archived projects in ~/Arxiu/Personal/Projectes/Archive/Archive.txt."
+        origin: "/Users/albert/Arxiu/Personal/Projectes/Archive"
+        dest: "/Volumes/Backup/albert/Arxiu/Personal/Projectes"
+        inherit-from: _archive
+    work-archive:
+        info: "Work projects archive backup to HAL, incremental. Keeps a list of archived projects in ~/Arxiu/Work/Projects/Archive/Archive.txt."
+        origin: "/Users/albert/Arxiu/Work/Projects/Archive"
+        dest: "/Volumes/Backup/albert/Arxiu/Work/Projects"
+        tree-depth: 4
+        inherit-from: _archive
+    # MP3
     mp3:
         info: "MP3 to raspi, exact copy."
         origin: "/Users/albert/Arxiu/Personal/Music/MP3/"
