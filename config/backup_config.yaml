@@ -6,7 +6,7 @@ rsync-config:
 profiles:
     # Backup user, skipping archive
     user:
-        info: "User folder backup to HAL, exact copy ignoring Arxiu/Personal/Projectes/Archive."
+        info: "User folder backup to HAL, exact copy of everything except archives, which are protected against deletion."
         origin: "/Users/albert"
         dest: "/Volumes/Backup"
         excludes:
@@ -20,13 +20,13 @@ profiles:
             - "albert/.Trash"
             - ".DS_Store"
         extra-config:
-            - --filter='protect albert/Arxiu/Personal/Projectes/Archive/**/*'
-            - --filter='protect albert/Arxiu/Work/Projects/Archive/**/*'
+            - --filter='protect albert/Arxiu/Personal/Archive/**/*'
+            - --filter='protect albert/Arxiu/Work/Archive/**/*'
             - delete-from-dest
             - delete-excluded
         post-run-cmd: 
-            - 'cd {dest}/albert/Arxiu/Personal/Projectes && tree -d Archive -L 2 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Personal/Projectes/Archive && cd -'
-            - 'cd {dest}/albert/Arxiu/Work/Projects && tree -d Archive -L 4 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Work/Projects/Archive && cd -'
+            - 'cd {dest}/albert/Arxiu/Personal && tree -d Archive -L 2 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Personal/Archive && cd -'
+            - 'cd {dest}/albert/Arxiu/Work && tree -d Archive -L 4 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Work/Archive && cd -'
     # Backup archive
     _archive:
         excludes:
@@ -50,7 +50,7 @@ profiles:
     # MP3
     mp3:
         info: "MP3 to raspi, exact copy."
-        origin: "/Users/albert/Arxiu/Personal/Music/MP3/"
+        origin: "/Users/albert/Arxiu/Media/Music/MP3/"
         dest: "raspi:/media/RaspiHD/Music"
         excludes:
             - ".DS_Store"
@@ -59,7 +59,8 @@ profiles:
         extra-config:
             - delete-from-dest
             - "--iconv=utf-8-mac,utf-8"
-        post-run-cmd: 'curl -i -X POST -d "{\"jsonrpc\": \"2.0\", \"method\": \"AudioLibrary.Scan\", \"id\": \"mybash\"}" -H "content-type:application/json" http://192.168.1.120:8080/jsonrpc > /dev/null 2>&1'
+        post-run-cmd: "curl -i -X POST -d \"{{\\\"jsonrpc\\\": \\\"2.0\\\", \\\"method\\\": \\\"AudioLibrary.Scan\\\", \\\"id\\\": \\\"mybash\\\"}}\" -H \"content-type:application/json\" http://192.168.1.120:8080/jsonrpc > /dev/null 2>&1"
+    # Photos
     photos-to-hal: 
         info: "Photos from LaCie to HAL, exact copy."
         origin: "/Volumes/LaCie/Photos/"
@@ -70,4 +71,17 @@ profiles:
             - "Photos/Photos"
         extra-config:
             - delete-from-dest
-            - "--iconv=utf-8-mac,utf-8"
+    photos-to-black: 
+        info: "Photos from LaCie to HAL, exact copy of the key folders (Black is small)."
+        origin: "/Volumes/LaCie/Photos/"
+        dest: "/Volumes/Black"
+        excludes:
+            - ".DS_Store"
+            - "Photos/Albums"
+            - "Photos/Photos"
+            - "Staging area/4-ImportTrash"
+            - "Staging area/99-Backup"
+            - "Staging area/ToDeleteAfterFixingStagingLibrary"
+            - "Backup/Just in case"
+        extra-config:
+            - delete-from-dest
