@@ -19,7 +19,8 @@ export GS_LIB=/usr/local/share/ghostscript/Resource/Init/
 # Dir aliases
 hash -d cmtuser=~/Arxiu/Fisica/LHCb/Projectes/CernVM/cmtuser
 # Path games
-cdpath+=(~/Arxiu/Fisica/LHCb/Projectes)
+cdpath+=(~/Arxiu/Work/Projects)
+cdpath+=(~/Arxiu/Work/Projects/Ongoing)
 # LD_LIBRARY_PATH
 NEW_LD_LIBRARY_PATH=$HOMEBREW_PREFIX/lib:/usr/lib:/usr/local/cuda/lib
 if [ -z "${LD_LIBRARY_PATH}" ]; then
