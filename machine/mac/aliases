@@ -13,6 +13,7 @@ alias fixOpenWith='/System/Library/Frameworks/CoreServices.framework/Frameworks/
 alias tmlog="syslog -F '\$Time \$Message' -k Sender com.apple.backupd-auto -k Time ge -30m | tail -n 1"
 alias ip="curl icanhazip.com"
 alias stfu="osascript -e 'set volume output muted true'"
+alias pip=pip3
 
 # Apps
 alias sourcetree='open -a SourceTree .'
@@ -21,22 +22,37 @@ alias sourcetree='open -a SourceTree .'
 alias disphome='displayplacer "id:BF55BD70-2F3C-FBF6-A552-E44A2CE656E4 res:1920x1200 hz:60 color_depth:8 scaling:off origin:(0,0) degree:0" "id:8B78D316-B997-F726-D566-55E188294EBF res:1680x1050 color_depth:4 scaling:on origin:(-1680,0) degree:0"'
 alias dispproton='displayplacer "id:BBA903BF-7AAA-9021-7CA4-4FD3D61160ED res:1920x1200 hz:60 color_depth:8 scaling:off origin:(0,0) degree:0" "id:8B78D316-B997-F726-D566-55E188294EBF res:1680x1050 color_depth:4 scaling:on origin:(-1680,462) degree:0"'
 
-alias pip='pip3'
-
 # alias vim='mvim'
 function vim() {
-    file="`basename $1`"
-    for server in `mvim --serverlist` 
+    files=( "$@" )
+    local -a new_window_files
+    for file in $files
     do
-        foundfile=`mvim --servername $server --remote-expr "WhichTab('$file')"`
-        if [[ $foundfile > 0 ]]
+        case $file in
+          /*) ;;  # Absolute path
+          *) file="$(pwd)/$file" ;;
+        esac
+        #echo $file
+        for server in `mvim --serverlist` 
+        do
+            foundfile=`mvim --servername $server --remote-expr "WhichTab('$file')"`
+            if [[ $foundfile > 0 ]]
+            then
+                mvim --servername $server --remote-expr "foreground()"  > /dev/null
+                mvim --servername $server --remote-send ":exec \"tabnext $foundfile\" <CR>" > /dev/null
+                break
+                #return
+                #mvim --servername $server --remote-send ":$line <CR>"
+            fi
+        done
+        if [[ $foundfile = 0 ]]
         then
-            mvim --servername $server --remote-expr "foreground()"  > /dev/null
-            mvim --servername $server --remote-send ":exec \"tabnext $foundfile\" <CR>" > /dev/null
-            return
-            mvim --servername $server --remote-send ":$line <CR>"
+          new_window_files+=($file)
         fi
     done
-    mvim $1
+    # echo $new_window_files
+    if [ ${#new_window_files[@]} -ne 0 ]; then
+        mvim -p $new_window_files
+    fi
 }
 
