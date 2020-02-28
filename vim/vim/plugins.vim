@@ -18,7 +18,7 @@ endif
 " list only the plugin groups to use
 if !exists('g:bundle_groups')
     let g:bundle_groups=['general', 'programming', 'python', 'misc', 'ultisnips', 'last']
-     "let g:bundle_groups=['test']
+    "let g:bundle_groups=['test']
 endif
 
 " To override all the included bundles, put
@@ -79,6 +79,7 @@ if !exists('g:override_bundles')
         Plug 'gregsexton/MatchTag'
         Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
         Plug 'vim-python/python-syntax'
+        Plug 'derekwyatt/vim-scala', {'for': ['scala']}
     endif
 
     " Python
@@ -92,6 +93,7 @@ if !exists('g:override_bundles')
         " Plug 'pythoncomplete', {'for': 'python'}
         Plug 'apuignav/vim-gf-python', {'for': 'python'}
         Plug 'thinca/vim-quickrun', {'for': 'python'}
+        Plug 'psf/black', {'for': 'python'}
     endif
 
     " Misc
@@ -116,7 +118,13 @@ if !exists('g:override_bundles')
     endif
 
     if count(g:bundle_groups, 'test')
-        Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
+        "Plug 'Shougo/deoplete.nvim'
+        "Plug 'roxma/nvim-yarp'
+        "Plug 'roxma/vim-hug-neovim-rpc'
+        "Plug 'deoplete-plugins/deoplete-jedi'
+        "let g:deoplete#enable_at_startup = 1
+        "let g:deoplete#sources#jedi#enable_typeinfo = 0
+        "Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
     endif
 
     if count(g:bundle_groups, 'unite')

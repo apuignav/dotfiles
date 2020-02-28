@@ -24,7 +24,7 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.pdf
 
 " set completeopt=menu,preview,longest
-set completeopt=menu,longest
+set completeopt=longest,menu
 
 " Ctags 
 " set tags=./tags;/,~/.vimtags,~/.vim/tags/root.tags

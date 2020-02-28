@@ -1,4 +1,5 @@
 autocmd FileType python setlocal completeopt-=preview
+autocmd BufWritePre *.py silent execute ':Black'
 
 " Set sign column for neovim
 set signcolumn=yes

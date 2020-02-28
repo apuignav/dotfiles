@@ -36,6 +36,7 @@ vim/vim/yankring_history
 vim/vim/undo
 vim/vim/autoload/plug.vim*
 vim/vim/spell/*.spl
+vim/vim/black
 
 # SASS
 # ----------------------------------------------------------------------------------------------
