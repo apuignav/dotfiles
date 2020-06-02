@@ -59,7 +59,7 @@ confidence=
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
-disable=getslice-method,unpacking-in-except,using-cmp-argument,cmp-builtin,buffer-builtin,dict-iter-method,parameter-unpacking,raising-string,setslice-method,backtick,zip-builtin-not-iterating,basestring-builtin,map-builtin-not-iterating,reload-builtin,delslice-method,xrange-builtin,import-star-module-level,long-suffix,coerce-builtin,print-statement,old-division,unicode-builtin,nonzero-method,coerce-method,standarderror-builtin,unichr-builtin,indexing-exception,old-raise-syntax,old-octal-literal,oct-method,input-builtin,execfile-builtin,apply-builtin,useless-suppression,long-builtin,next-method-called,hex-method,no-absolute-import,round-builtin,cmp-method,filter-builtin-not-iterating,dict-view-method,metaclass-assignment,old-ne-operator,file-builtin,reduce-builtin,suppressed-message,intern-builtin,raw_input-builtin,range-builtin-not-iterating
+disable=getslice-method,unpacking-in-except,using-cmp-argument,cmp-builtin,buffer-builtin,dict-iter-method,parameter-unpacking,raising-string,setslice-method,backtick,zip-builtin-not-iterating,basestring-builtin,map-builtin-not-iterating,reload-builtin,delslice-method,xrange-builtin,import-star-module-level,long-suffix,coerce-builtin,print-statement,old-division,unicode-builtin,nonzero-method,coerce-method,standarderror-builtin,unichr-builtin,indexing-exception,old-raise-syntax,old-octal-literal,oct-method,input-builtin,execfile-builtin,apply-builtin,useless-suppression,long-builtin,next-method-called,hex-method,no-absolute-import,round-builtin,cmp-method,filter-builtin-not-iterating,dict-view-method,metaclass-assignment,old-ne-operator,file-builtin,reduce-builtin,suppressed-message,intern-builtin,raw_input-builtin,range-builtin-not-iterating,W292,C0330,C0304
 
 
 [REPORTS]
@@ -95,7 +95,7 @@ evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / stateme
 bad-functions=map,filter
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=i,j,k,ex,Run,_,x,y,z,mu,db,df
+good-names=i,j,k,ex,Run,_,x,y,z,mu,db,df,ax
 
 # Bad variable names which should always be refused, separated by a comma
 bad-names=foo,bar,baz,toto,tutu,tata
