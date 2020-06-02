@@ -1,7 +1,10 @@
 Host *
   Protocol 2
   ServerAliveInterval 30
-  PubkeyAcceptedKeyTypes ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa
+ # PubkeyAcceptedKeyTypes ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa
+ # PubkeyAcceptedKeyTypes ssh-rsa
+  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_rsa
 
 Host raspi
   HostName 192.168.1.120
@@ -154,3 +157,15 @@ Host vesta
 Host space
   User albert
   HostName 192.168.0.3
+
+Host opsx opsx01 opsx-01
+  User albert
+  Hostname 185.70.40.219
+  IdentitiesOnly yes
+
+Host opsx02 opsx-02
+  User albert
+  Hostname 185.70.40.219
+  Hostname 185.70.40.227
+  IdentitiesOnly yes
+  
