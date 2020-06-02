@@ -24,7 +24,22 @@ alias dispproton='displayplacer "id:BBA903BF-7AAA-9021-7CA4-4FD3D61160ED res:192
 
 # alias vim='mvim'
 function vim() {
-    files=( "$@" )
+    args=()
+    files=()
+
+    for i in "$@"; do
+        if [ "${i:0:1}" = "-" ]; then
+            args+=("$i")
+        else
+            files+=("$i")
+        fi;
+    done;
+
+    if [ ${#files[@]} -eq 0 ]; then
+        mvim
+        return
+    fi
+
     local -a new_window_files
     for file in $files
     do
@@ -32,7 +47,8 @@ function vim() {
           /*) ;;  # Absolute path
           *) file="$(pwd)/$file" ;;
         esac
-        #echo $file
+        # echo $file
+        foundfile=0
         for server in `mvim --serverlist` 
         do
             foundfile=`mvim --servername $server --remote-expr "WhichTab('$file')"`
@@ -45,14 +61,15 @@ function vim() {
                 #mvim --servername $server --remote-send ":$line <CR>"
             fi
         done
+        # echo $foundfile
         if [[ $foundfile = 0 ]]
         then
           new_window_files+=($file)
         fi
     done
-    # echo $new_window_files
+
     if [ ${#new_window_files[@]} -ne 0 ]; then
-        mvim -p $new_window_files
+        mvim $args $new_window_files
     fi
 }
 
