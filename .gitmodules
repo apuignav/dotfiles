@@ -31,3 +31,6 @@
 [submodule "scripts/backup"]
 	path = scripts/backup
 	url = git@github.com:apuignav/backup.git
+[submodule "scripts/gists/to_timestamp"]
+	path = scripts/gists/to_timestamp
+	url = https://gist.github.com/apuignav/76df48fa6c0e44832b7665b6bc99708d
