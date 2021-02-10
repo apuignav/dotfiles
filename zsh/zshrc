@@ -154,3 +154,4 @@ export LC_TIME=en"en_US.UTF-8"
 #######################################################################
 [[ -f ~/.pythonrc ]] && export PYTHONSTARTUP=~/.pythonrc
 
+

@@ -1,8 +1,3 @@
-alias cernvm_start="vmrun -T fusion start $HOME/Documents/Virtual\ Machines.localized/CernVM.vmwarevm"
-alias cernvm_stop="vmrun -T fusion stop $HOME/Documents/Virtual\ Machines.localized/CernVM.vmwarevm"
-alias cernvm_mount="sshfs cernvm:cmtuser/ ~/Arxiu/Fisica/LHCb/Projectes/CernVM/cmtuser/ && cd ~/Arxiu/Fisica/LHCb/Projectes/CernVM/cmtuser/"
-alias cernvm_ummount="cd $HOME && umount ~/Arxiu/Fisica/LHCb/Projectes/CernVM/cmtuser/"
-# For quant logging study
 # For brewed ZSH
 unalias run-help
 autoload run-help
@@ -11,17 +6,10 @@ HELPDIR=/usr/local/share/zsh/helpfiles
 # iTerm shell integration
 #source ~/.iterm2_shell_integration.zsh
 
-# Configure root
-function init_root() {
-    pushd $(brew --prefix root6) >/dev/null; . bin/thisroot.sh; popd >/dev/null
-}
+# eval $(thefuck --alias)
 
 # Completion
-compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open alias run='open -a'
+compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*.app | sed 's|^.*/\([^/]*\)\.app.*|\\1|;s/ /\\\\ /g'`" -- open alias run='open -a'
 
-# Disable system python
-#alias python='echo "Choose python2 or python3"'
-alias bujo='cd "/Users/albert/Arxiu/Projectes/Bullet Journal/bujo/001/" && open README.md'
-
-export PATH=/usr/local/opt/python/libexec/bin:$PATH:/usr/local/miniconda3/bin
+export PATH=$PATH:/usr/local/Caskroom/miniconda/base/bin
 

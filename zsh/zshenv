@@ -5,19 +5,35 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+
 PROFILE_STARTUP=false
 if [[ "$PROFILE_STARTUP" == true  ]]; then
     echo "Starting in logging mode"
-    # https://kev.inburke.com/kevin/profiling-zsh-startup-time/
-    # https://carlosbecker.com/posts/speeding-up-zsh/
-    zmodload zsh/zprof
-    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-    #PS4=$'%D{%M%S%.} %N:%i> '
-    #exec 3>&2 2>$HOME/tmp/startlog.$$
+    # Mode 1
+    ## https://kev.inburke.com/kevin/profiling-zsh-startup-time/
+    ## https://carlosbecker.com/posts/speeding-up-zsh/
+    #zmodload zsh/zprof
+    ## http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    ##PS4=$'%D{%M%S%.} %N:%i> '
+    ##exec 3>&2 2>$HOME/tmp/startlog.$$
+    ##setopt xtrace prompt_subst
+    #PS4=$'\\\011%D{%s%6.}\011%x\011%I\011%N\011%e\011'
+    #exec 3>&2 2>/tmp/zshstart.$$.log
     #setopt xtrace prompt_subst
-    PS4=$'\\\011%D{%s%6.}\011%x\011%I\011%N\011%e\011'
-    exec 3>&2 2>/tmp/zshstart.$$.log
-    setopt xtrace prompt_subst
+    
+    # Mode 2
+    # https://esham.io/2018/02/zsh-profiling
+    zmodload zsh/datetime
+    setopt PROMPT_SUBST
+    PS4='$EPOCHREALTIME,%N,%i,'
+
+    logfile=$(mktemp zsh_profile.XXXXXXXX)
+    echo "Logging to $logfile"
+    exec 3>&2 2>$logfile
+
+    setopt XTRACE
+    # Analyze with https://gist.github.com/apuignav/16b023324f2b3eefab96021567269232#file-analyze_zsh_profile-py
+
 fi
 
 # Ensure that a non-login, non-interactive shell has a defined environment.
