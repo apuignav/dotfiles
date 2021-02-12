@@ -52,9 +52,9 @@ echo "Disabling HFP"
 defaults write com.apple.BluetoothAudioAgent "Disable HFP" -int 1
 
 #https://root-forum.cern.ch/t/x11-forwarding-through-ssh-on-lxplus/19836#p96664
-echo ""
-echo "Fixing XQuartz"
-defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+#echo ""
+#echo "Fixing XQuartz"
+#defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
 
 for app in  "Dock" "Finder" "SystemUIServer";
 do

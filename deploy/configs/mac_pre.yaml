@@ -2,19 +2,15 @@
     - zsh
     - git
     - python
-    - python@2
+#    - python@2
     - ssh-copy-id
     - coreutils
     - readline
     - gettext
     - lua
-#    - macvim --with-override-system-vim
     - gnupg
 
 - tap:
-    - caskroom/versions
-    - caskroom/cask
-    - caskroom/homebrew-fonts
-    - burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git
-    - buo/cask-upgrade
-    - jakehilborn/jakehilborn
+#    - caskroom/versions
+    - homebrew/cask-fonts
+    #- buo/cask-upgrade

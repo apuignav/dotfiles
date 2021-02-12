@@ -7,10 +7,9 @@ pip3_root
 git
 scripts
 mac_config
-root_py3
 latex
 vim
-mackup
 pandoc
+conda
 mac_post
 cleanup

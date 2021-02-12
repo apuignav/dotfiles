@@ -6,13 +6,10 @@
 
 # Formulae
 - brew:
-    - automake
-    - autoconf
     - llvm
     - gcc
     - cmake
     - glib
-    - vala
     - ctags
     - git-extras
     - hub
@@ -20,9 +17,6 @@
     - rsync
     - curl
     - ruby
-    - pkg-config
-    - boost
-    - berkeley-db
     - sqlite
     - openssl
     - fontforge
@@ -40,62 +34,63 @@
     - gnuplot
     - iftop
     - tmux
-    - reattach-to-user-namespace
-    - gd
     - flac
     - lame
     - exiftool
     - ghostscript
     - x264
     - libmatroska
-    - pygobject
-    - mobile-shell
     - pandoc
-    - pandoc-citeproc
     - cloc
     - graphviz
-    - mackup
-    - svn
     - fpp
-    - python3
-    - burntsushi/ripgrep/ripgrep-bin
     - fd
-    - qt
     - mas
     - peco
-    - bib-tool
     - youtube-dl
-    - displayplacer
-
+    - tree
+    - pyenv
+    - svn
+    - rsync
+    - ripgrep
+    - mactex-no-gui
+    - miniconda
 # Software
-- cask:
     - adapter
-    - android-platform-tools
-    - bibdesk
+    # - android-platform-tools
+    # - bibdesk
     - calibre
-    - cyberduck
-    - day-o
+    # - cyberduck
+    - itsycal
     - dropbox
-    - evernote
-    - franz
+    # - evernote
     - gimp
     - google-chrome
-    - iterm2-beta
+    - intellij-idea-ce
+    - iterm2
     - latexit
-    - libreoffice
+    #- libreoffice
     - mactex
     - mathpix-snipping-tool
     - mkvtoolnix
     - nvalt
-    - scummvm
+    - openvpn-connect
+    # - scummvm
     - skype
     - soulseek
-    - spectacle
+    - rectangle
+    - slack
     - sourcetree
     - spotify
+    - stats
     - the-unarchiver
-    - transmission
-    - xquartz
+    - homebrew/cask/transmission
+    - whatsapp
+    - telegram
+    - homebrew/cask/docker
+    - scala@2.12
+    - openjdk@8
+    # - xquartz
     - vlc
 
 # Apple store
@@ -113,8 +108,8 @@
 #409203825 Numbers (6.0)
 #    - [mas install 937984704 409201541 409183694 408981434 404010395 409203825, Installing apps from the App Store]
 
-- shell:
-    - ["open https://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/", Install MenuMeters!]
+#- shell:
+#    - ["open https://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/", Install MenuMeters!]
 
 # Fonts
 - cask:
