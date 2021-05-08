@@ -1,0 +1,3 @@
+If I can't install python with pyenv
+- https://dev.to/kojikanao/install-python-3-8-0-via-pyenv-on-bigsur-4oee
+- https://github.com/pyenv/pyenv/issues/1643
