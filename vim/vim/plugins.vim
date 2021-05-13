@@ -44,14 +44,14 @@ if !exists('g:override_bundles')
         Plug 'vim-scripts/bufkill.vim'
         Plug 'maxbrunsfeld/vim-yankstack'
         Plug 'thomwiggers/vim-colors-solarized'
+        "Plug 'morhetz/gruvbox'
         Plug 'mileszs/ack.vim'
         Plug 'kristijanhusak/vim-multiple-cursors'
         Plug 'EinfachToll/DidYouMean'
         Plug 'DavidGamba/vim-vmath'
         Plug 'vim-pandoc/vim-pandoc'
         Plug 'vim-pandoc/vim-pandoc-syntax'
-        Plug 'https://git.danielmoch.com/vim-makejob.git'
-        "Plug 'djmoch/vim-makejob'
+        "Plug 'https://git.danielmoch.com/vim-makejob'
     endif
 
     " General Programming
@@ -80,6 +80,8 @@ if !exists('g:override_bundles')
         Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
         Plug 'vim-python/python-syntax'
         Plug 'derekwyatt/vim-scala', {'for': ['scala']}
+        Plug 'cespare/vim-toml'
+        "Plug 'cjrh/vim-conda'
     endif
 
     " Python
@@ -100,7 +102,6 @@ if !exists('g:override_bundles')
     if count(g:bundle_groups, 'misc')
         " Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': ['tex', 'latex']}
         Plug 'lervag/vimtex', {'for': ['tex', 'latex']}
-        Plug 'parnmatt/vim-root'
         " Plug 'tpope/vim-markdown', {'for': ['mkd', 'markdown']}
         Plug 'junegunn/goyo.vim', {'for': ['markdown', 'mkd', 'tex']}
         Plug 'dbmrq/vim-ditto', {'for': ['markdown', 'mkd']}
