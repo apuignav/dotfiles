@@ -6,153 +6,38 @@ Host *
   IdentityFile ~/.ssh/id_ed25519
   IdentityFile ~/.ssh/id_rsa
 
+## Check if we're going through vpngate-04 (ZUR1), in which case use sysgate-04
+Match host sysgate exec "ping -c 1 -q 172.20.192.20"
+  Hostname 172.20.192.20
+  User albert
+  IdentityFile ~/.ssh/id_ed25519
+  ControlPath ~/.ssh/sockets/%r@%h:%p
+  ControlMaster auto
+  ControlPersist 1s  
+
+## Check if we're going through vpngate-01 (GV2), in which case use sysgate-01
+Match host sysgate exec "ping -t 1 -o 172.20.0.20"
+  Hostname 172.20.0.20
+  User albert
+  IdentityFile ~/.ssh/id_ed25519
+  ControlPath ~/.ssh/sockets/%r@%h:%p
+  ControlMaster auto
+  ControlPersist 1s
+ 
+## Check if we're going through vpngate-03 (FR3), in which case use sysgate-03
+Match host sysgate exec "ping -c 1 -q 172.20.128.20"
+  Hostname 172.20.128.20
+  User albert
+  IdentityFile ~/.ssh/id_ed25519
+  ControlPath ~/.ssh/sockets/%r@%h:%p
+  ControlMaster auto
+  ControlPersist 1s
+
 Host raspi
   HostName 192.168.1.120
   User osmc
   ForwardX11 no
   ForwardX11Trusted no
-
-Host cern lxplus7.cern.ch
- HostName lxplus7.cern.ch
- User apuignav
- PubkeyAuthentication no
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host lxplus*.cern.ch
- User apuignav
- PubkeyAuthentication no
- ForwardX11 yes
- ForwardX11Trusted yes
- ControlPath ~/.ssh/%h.%p.%r
- ControlMaster auto
-
-Host cerntunnel
- Hostname lxplus.cern.ch
- User apuignav
- LocalForward 2222 lbgw02.cern.ch:22
- ForwardX11 yes
- ForwardX11Trusted yes
- GSSAPIauthentication yes
- GSSAPIDelegateCredentials yes
-
-Host onlinetunnel
- Hostname localhost
- Port 2222
- User apuignav
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host plustunnel
- Hostname lbgw.cern.ch
- User apuignav
- LocalForward 2220 plus07:22
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host plus
- Hostname localhost
- Port 2220
- User apuignav
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host casa
- Hostname djkarras.mooo.com
- User albert
- ForwardX11 no
- ForwardX11Trusted no
-
-Host online
- HostName lbgw
- User apuignav
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host router
- HostName 192.168.1.1
- User albert
-
-Host porta
-  HostName porta.ecm.ub.es
-  User ecm2004
- ForwardX11 yes
- ForwardX11Trusted yes
-
-Host cernsvn svn.cern.ch
-  HostName svn.cern.ch
-  User apuignav
-  GSSAPIauthentication yes
-  GSSAPIDelegateCredentials yes
-  ForwardX11 no
-  ForwardX11Trusted no
-
-Host lpheserver
-  HostName lpheserv2.epfl.ch
-  User puignava
-  ForwardX11Trusted yes
-  ForwardX11 yes
-
-Host epfla lphea
-  Hostname lphelc1a.epfl.ch
-  User puignava
-  ForwardX11Trusted yes
-  ForwardX11 yes
-
-Host epflb lpheb
-  Hostname lphelc1b.epfl.ch
-  User puignava
-  ForwardX11Trusted yes
-  ForwardX11 yes
-
-Host cernvm
-  Hostname 127.0.0.1
-  Port 2222
-  User apuignav
-  ForwardX11Trusted yes
-  ForwardX11 yes
-  
-Host lphe lphe1
-  User puignava
-  ProxyCommand ~/.scripts/ballast -c ~/.ballast.conf lphe1
-  ForwardX11Trusted yes
-  ForwardX11 yes
-
-Host uzh-farm uzh
-  User apuignav
-  ForwardX11Trusted yes
-  ForwardX11 yes
-  HostName farm-ui2.physik.uzh.ch
-
-Host uzh-grid
-  User apuignav
-  ForwardX11Trusted yes
-  ForwardX11 yes
-  HostName grid-ui.physik.uzh.ch
-
-Host uzh-dalli dalli
-  User apuignav
-  ForwardX11Trusted yes
-  ForwardX11 yes
-  HostName dalli.physik.uzh.ch
-
-Host uzh-slurm
-  User apuignav
-  ForwardX11Trusted yes
-  ForwardX11 yes
-  HostName farm-ui2.physik.uzh.ch
-
-Host uzh-gpu
-  User apuignav
-  ForwardX11Trusted yes
-  ForwardX11 yes
-  HostName farm-gpu.physik.uzh.ch
-
-Host vesta
-  User apuign
-  ForwardX11Trusted yes
-  ForwardX11 yes
-  HostName cluster.s3it.uzh.ch
 
 Host space
   User albert
@@ -163,9 +48,35 @@ Host opsx opsx01 opsx-01
   Hostname 185.70.40.219
   IdentitiesOnly yes
 
-Host opsx02 opsx-02
+Host opsx04 opsx-04
   User albert
-  Hostname 185.70.40.219
-  Hostname 185.70.40.227
+  Hostname 185.70.40.224
   IdentitiesOnly yes
   
+#Host opsi-01
+#Hostname vmk-opsi-01.ctrl.plabs.ch
+#User albert
+#IdentityFile ~/.ssh/id_ed25519
+#ProxyJump sysgate
+ 
+#Host opsi-03
+#Hostname vmk-opsi-03.ctrl.plabs.ch
+#User albert
+#IdentityFile ~/.ssh/id_ed25519
+#ProxyJump sysgate
+ 
+#Host opsi-04
+#Hostname vmk-opsi-04.ctrl.plabs.ch
+#User albert
+#IdentityFile ~/.ssh/id_ed25519
+#ProxyJump sysgate
+
+Host opsx-infra opsx-01-infra
+  Hostname vmk-opsx-01.ctrl.plabs.ch
+  User albert
+  ProxyJump sysgate
+
+Host opsx-04-infra
+  Hostname vmk-opsx-04.ctrl.plabs.ch
+  User albert
+  ProxyJump sysgate

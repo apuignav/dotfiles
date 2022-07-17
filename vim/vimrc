@@ -32,6 +32,12 @@ if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 
+" Use project vimrc if available {
+if filereadable($PWD . "/.vimrc.project")
+    source $PWD/.vimrc.project
+endif
+
+
 set clipboard=exclude:.*
 
 " =============== Basic settings ===============

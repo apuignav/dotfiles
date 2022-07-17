@@ -1,6 +1,7 @@
 # Python
 - link:
     ~/.pylintrc: python/pylintrc
+    ~/.flake8: python/flake8
     ~/.pydocstyle: python/pydocstyle
     ~/.config/pycodestyle: python/pycodestyle
     ~/.pythonrc: python/pythonrc

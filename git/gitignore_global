@@ -33,7 +33,6 @@ Thumbs.db
 # Logs and databases
 # ----------------------------------------------------------------------------------------------
 *.log
-*.sql
 *.sqlite
 
 # Windows   taken from: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore

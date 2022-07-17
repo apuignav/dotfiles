@@ -1,6 +1,6 @@
 [user]
 	name = Albert Puig
-	email = albert.puig.navarro@protonmail.com
+	email = albert.puig.navarro@proton.ch
 
 [color]
     diff = auto
@@ -124,3 +124,5 @@
 	trustExitCode = true
 [pull]
 	rebase = true
+[init]
+	defaultBranch = master

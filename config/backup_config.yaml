@@ -42,7 +42,7 @@ profiles:
             - delete-from-dest
             - delete-excluded
         post-run-cmd: 
-            - 'cd {dest}/albert/Arxiu/Personal && tree -d Archive -L 2 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Personal/Archive && cd -'
+            - 'cd {dest}/albert/Arxiu/Personal && tree -d Archive -L 3 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Personal/Archive && cd -'
             - 'cd {dest}/albert/Arxiu/Work && tree -d Archive -L 4 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Work/Archive && cd -'
 
     # Backup archive

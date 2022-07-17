@@ -10,4 +10,5 @@ create_default_packages:
   - pandoc
   - matplotlib
   - jupyter_nbextensions_configurator
+  - jupyter_contrib_nbextensions
   - pip

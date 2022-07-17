@@ -1,2 +1,2 @@
 - link:
-  ~/.condarc: conda/condarc
+    ~/.condarc: conda/condarc

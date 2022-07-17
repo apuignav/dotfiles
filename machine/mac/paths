@@ -1,5 +1,7 @@
 # Variables
-export HOMEBREW_PREFIX=`brew --prefix`
+export HOMEBREW_PREFIX=/usr/local
+# Disabled for efficiency
+#export HOMEBREW_PREFIX=`brew --prefix`
 # export HOMEBREW_BUILD_FROM_SOURCE=1
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export TERM=xterm-256color
@@ -40,7 +42,7 @@ else
   PATH=$NEW_PATH:$PATH; export PATH
 fi
 # PYTHONPATH
-NEW_PYTHONPATH=$HOMEBREW_PREFIX/lib:/Users/albert/Arxiu/Fisica/LHCb/Projectes/PyLHCb:/Users/albert/Arxiu/Fisica/LHCb/Projectes/SciFi/python
+NEW_PYTHONPATH=$HOMEBREW_PREFIX/lib
 if [ -z "${PYTHONPATH}" ]; then
   PYTHONPATH=$NEW_PYTHONPATH; export PYTHONPATH
 else
