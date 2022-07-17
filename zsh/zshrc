@@ -1,17 +1,133 @@
+# Start configuration added by Zim install {{{
 #
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+# User configuration sourced by interactive shells
 #
 
-# Vi mode (http://dougblack.io/words/zsh-vi-mode.html)
-bindkey -v
+# -----------------
+# Zsh configuration
+# -----------------
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+#
+# History
+#
+
+# Remove older command from the history if a duplicate is to be added.
+setopt HIST_IGNORE_ALL_DUPS
+
+#
+# Input/output
+#
+
+# Set editor default keymap to emacs (`-e`) or vi (`-v`)
+bindkey -e
+
+# Prompt for spelling correction of commands.
+#setopt CORRECT
+
+# Customize spelling correction prompt.
+#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
+
+# -----------------
+# Zim configuration
+# -----------------
+
+# Use degit instead of git as the default tool to install and update modules.
+zstyle ':zim:zmodule' use 'degit'
+
+# --------------------
+# Module configuration
+# --------------------
+
+#
+# git
+#
+
+# Set a custom prefix for the generated aliases. The default prefix is 'G'.
+#zstyle ':zim:git' aliases-prefix 'g'
+
+#
+# input
+#
+
+# Append `../` to your input for each `.` you type after an initial `..`
+#zstyle ':zim:input' double-dot-expand yes
+
+#
+# termtitle
+#
+
+# Set a custom terminal title format using prompt expansion escape sequences.
+# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
+# If none is provided, the default '%n@%m: %~' is used.
+#zstyle ':zim:termtitle' format '%1~'
+
+#
+# zsh-autosuggestions
+#
+
+ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
+# Disable automatic widget re-binding on each precmd. This can be set when
+# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# Customize the style that the suggestions are shown with.
+# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+#
+# zsh-syntax-highlighting
+#
+
+
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# Customize the main highlighter styles.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
+#typeset -A ZSH_HIGHLIGHT_STYLES
+#ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
+
+# ------------------
+# Initialize modules
+# ------------------
+
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
 fi
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
+# ------------------------------
+# Post-init module configuration
+# ------------------------------
+
+#
+# zsh-history-substring-search
+#
+
+zmodload -F zsh/terminfo +p:terminfo
+# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
+for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
+for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
+for key ('k') bindkey -M vicmd ${key} history-substring-search-up
+for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+unset key
+# }}} End configuration added by Zim install
 
 #######################################################################
 # ZSH
@@ -31,6 +147,9 @@ bindkey '^w' backward-kill-word
 bindkey '^ ' forward-word
 bindkey '^b' backward-word
 
+# Save commands (https://sgeb.io/posts/2016/11/til-bash-zsh-half-typed-commands/)
+bindkey '^q' push-line-or-edit
+
 # Last minute binding
 bindkey "^[[3~" delete-char
 
@@ -47,15 +166,9 @@ setopt autopushd pushdsilent pushdtohome
 setopt pushdignoredups
 # This reverts the +/- operators.
 setopt pushdminus
-# Overwrite prezto
-for index ({1..9}) unalias "$index"
-for index ({1..9}) alias "c$index"="cd -${index}"; unset index
 
 # Report CPU usage for commands running longer than 20 seconds
-REPORTTIME=20
-
-# Change suggestion style
-ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
+zstyle ':zim:duration-info' threshold 20
 
 # Improve vim tab completion 
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.pdf'
@@ -84,9 +197,6 @@ alias rg='rg --smart-case'
 # General things
 alias scpresume='rsync --partial --progress --rsh=ssh --archive'
 alias grep='grep --color=auto'
-alias cernProxy='ssh -D 8080 -Nf cern'
-alias cernProxyDestroy='ps -ef | grep "ssh -D 8080" | grep -v grep | awk '"'"'{print $2}'"'"' | xargs kill'
-alias root="root -l"
 # Pyp alias
 alias pypr="pyp --rerun"
 # Environment
@@ -134,6 +244,14 @@ if which peco &> /dev/null; then
   bindkey '^R' peco_select_history
 fi
 
+function portforwarding() { 
+    N=$((3000 + RANDOM % 10000))
+    echo "Port forwording on $2:$3"
+    echo "Listen on localhost:$1"
+
+    noglob ssh -L *:${1}:localhost:${N} opsx-infra ssh -L ${N}:localhost:${3} -N ${2}
+}
+
 # Locales
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
@@ -154,4 +272,5 @@ export LC_TIME=en"en_US.UTF-8"
 #######################################################################
 [[ -f ~/.pythonrc ]] && export PYTHONSTARTUP=~/.pythonrc
 
-
+source ~/dotfiles/zsh/gimbo.zsh
+zstyle :zim:prompt theme powerlevel10k

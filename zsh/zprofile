@@ -81,6 +81,7 @@ fi
 #######################################################################
 # pyenv
 #######################################################################
+eval "$(pyenv init --path)"
 if command -v pyenv 1>/dev/null 2>&1; then
     if [ -z "$PYENV_INITIALIZED" ]; then
         eval "$(pyenv init -)"

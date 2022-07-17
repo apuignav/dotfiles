@@ -297,6 +297,8 @@ fi
   typeset -g POWERLEVEL9K_CUSTOM_RPROMPT_BACKGROUND=none
   typeset -g POWERLEVEL9K_CUSTOM_RPROMPT_FOREGROUND=012
 
+  # typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=same-dir
+
   function custom_rprompt() {}  # redefine this to show stuff in custom_rprompt segment
 
 

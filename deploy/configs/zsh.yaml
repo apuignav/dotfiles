@@ -1,19 +1,15 @@
 # Zsh
-# Prezto is a submodule
-- shell:
-    - [git submodule update --init --recursive prezto, Deploying/updating prezto]
+- shell
+  - [curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh, Installing zim]
+  - [zimfw install, Installing zim modules]
 
-# Make sure it's linked properly
-- link:
-    ~/.zprezto: prezto
 
 # Config files
 - link:
     ~/.zlogin: zsh/zlogin
     ~/.zlogout: zsh/zlogout
-    ~/.zpreztorc: zsh/zpreztorc
     ~/.zprofile: zsh/zprofile
     ~/.zshrc: zsh/zshrc
+    ~/.zimrc: zsh/zimrc
     ~/.zshenv: zsh/zshenv
     ~/.purepower: zsh/gimbo.zsh
-    #~/.zprezto/modules/prompt/functions/prompt_apuignav_setup: zsh/prompt/prompt_apuignav_setup
