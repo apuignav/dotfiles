@@ -16,17 +16,10 @@
     - wget
     - rsync
     - curl
-    - ruby
     - sqlite
     - openssl
-    - fontforge
-    - freetype
-    - fontconfig
-    - lcdf-typetools
     - parallel
     - fftw
-    - git-annex
-    - git-lfs
     - gsl
     - ghi
     - isl
@@ -45,15 +38,12 @@
     - graphviz
     - fpp
     - fd
-    - mas
     - peco
     - youtube-dl
     - tree
-    - pyenv
-    - svn
     - rsync
     - ripgrep
-    - mactex-no-gui
+    - svn
     - miniconda
 # Software
     - adapter
@@ -71,7 +61,7 @@
     - latexit
     #- libreoffice
     - mactex
-    - mathpix-snipping-tool
+    #- mathpix-snipping-tool
     - mkvtoolnix
     - nvalt
     - openvpn-connect
@@ -83,13 +73,14 @@
     - sourcetree
     - spotify
     - stats
-    - the-unarchiver
+    #- the-unarchiver
     - homebrew/cask/transmission
     - whatsapp
     - telegram
+    - visual-studio-code
     - homebrew/cask/docker
-    - scala@2.12
-    - openjdk@8
+    #- scala@2.12
+    #- openjdk@8
     # - xquartz
     - vlc
 
@@ -153,8 +144,8 @@
       stdout: true
       stderr: true
       stdin: true
-    - description: "Fixing zsh"
-      command: "machine/mac/fix_zsh.sh"
-      stdout: true
-      stderr: true
-      stdin: true
+#    - description: "Fixing zsh"
+#      command: "machine/mac/fix_zsh.sh"
+#      stdout: true
+#      stderr: true
+#      stdin: true

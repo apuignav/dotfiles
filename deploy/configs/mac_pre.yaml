@@ -1,3 +1,10 @@
+- shell:
+    - 
+      command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      stdout: true
+      stderr: true
+      stdin: true
+    
 - brew:
     - zsh
     - git
@@ -9,6 +16,7 @@
     - gettext
     - lua
     - gnupg
+    - pyenv
 
 - tap:
 #    - caskroom/versions

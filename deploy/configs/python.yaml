@@ -4,7 +4,12 @@
     ~/.flake8: python/flake8
     ~/.pydocstyle: python/pydocstyle
     ~/.config/pycodestyle: python/pycodestyle
-    ~/.pythonrc: python/pythonrc
+    #~/.pythonrc: python/pythonrc
     ~/.matplotlibrc: python/matplotlibrc
     #~/.passpie: ~/Dropbox/Backup/Security/.passpie
+    
+- shell:
+    - [pyenv install 3.10.4, Installing python in pyenv]
+    - [pyenv global 3.10.4, Making python 3.10.4 the default, restart the shell after!]
+
 

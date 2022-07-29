@@ -1,8 +1,12 @@
 # Zsh
-- shell
-  - [curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh, Installing zim]
-  - [zimfw install, Installing zim modules]
-
+- shell:
+  - 
+    command: [curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh, Installing zim]
+    stdout: true
+    stdin: true
+    stderr: true
+  - [rm ~/.zshrc, Removing zim installed zshrc]
+  - [rm ~/.zimrc, Removing default zim zimrc]
 
 # Config files
 - link:
@@ -13,3 +17,6 @@
     ~/.zimrc: zsh/zimrc
     ~/.zshenv: zsh/zshenv
     ~/.purepower: zsh/gimbo.zsh
+
+- shell:
+  - [zimfw install, Installing zim modules]
