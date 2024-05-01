@@ -1,5 +1,5 @@
 set background=dark     " Assume a dark background
-colorscheme solarized
+colorscheme nord
 set tabpagemax=15               " only show 15 tabs
 set showmode                    " display the current mode
 set title            " Show the filename in the window titlebar
@@ -11,7 +11,6 @@ if has('gui_running')
         set transparency=0
     endif
     set guioptions-=T           " remove the toolbar
-    set guioptions=-t
     "set lines=50                " 40 lines of text instead of 24,
     set guifont=Source_Code_Pro_for_Powerline:h13
 else

@@ -1,3 +1,0 @@
-- shell:
-    - [pip2 install --user --upgrade -r python/pip_packages.txt, Installing python packages]
-    - [pip2 install --user --upgrade -r python/pip2_packages.txt, Installing python 2 packages]

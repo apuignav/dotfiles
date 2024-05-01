@@ -6,6 +6,15 @@ Host *
   IdentityFile ~/.ssh/id_ed25519
   IdentityFile ~/.ssh/id_rsa
 
+## Check if we're going through vpngate-03 (FR3), in which case use sysgate-03
+Match host sysgate exec "ping -c 1 -q 172.20.128.20"
+  Hostname 172.20.128.20
+  User albert
+  IdentityFile ~/.ssh/id_ed25519
+  ControlPath ~/.ssh/sockets/%r@%h:%p
+  ControlMaster auto
+  ControlPersist 1s
+  
 ## Check if we're going through vpngate-04 (ZUR1), in which case use sysgate-04
 Match host sysgate exec "ping -c 1 -q 172.20.192.20"
   Hostname 172.20.192.20
@@ -13,7 +22,7 @@ Match host sysgate exec "ping -c 1 -q 172.20.192.20"
   IdentityFile ~/.ssh/id_ed25519
   ControlPath ~/.ssh/sockets/%r@%h:%p
   ControlMaster auto
-  ControlPersist 1s  
+  ControlPersist 1s
 
 ## Check if we're going through vpngate-01 (GV2), in which case use sysgate-01
 Match host sysgate exec "ping -t 1 -o 172.20.0.20"
@@ -23,18 +32,9 @@ Match host sysgate exec "ping -t 1 -o 172.20.0.20"
   ControlPath ~/.ssh/sockets/%r@%h:%p
   ControlMaster auto
   ControlPersist 1s
- 
-## Check if we're going through vpngate-03 (FR3), in which case use sysgate-03
-Match host sysgate exec "ping -c 1 -q 172.20.128.20"
-  Hostname 172.20.128.20
-  User albert
-  IdentityFile ~/.ssh/id_ed25519
-  ControlPath ~/.ssh/sockets/%r@%h:%p
-  ControlMaster auto
-  ControlPersist 1s
 
 Host raspi
-  HostName 192.168.1.120
+  HostName 172.22.22.5
   User osmc
   ForwardX11 no
   ForwardX11Trusted no
@@ -45,12 +45,12 @@ Host space
 
 Host opsx opsx01 opsx-01
   User albert
-  Hostname 185.70.40.219
+  HostName 185.70.40.219
   IdentitiesOnly yes
 
 Host opsx04 opsx-04
   User albert
-  Hostname 185.70.40.224
+  HostName 185.70.40.224
   IdentitiesOnly yes
   
 #Host opsi-01
@@ -72,11 +72,12 @@ Host opsx04 opsx-04
 #ProxyJump sysgate
 
 Host opsx-infra opsx-01-infra
-  Hostname vmk-opsx-01.ctrl.plabs.ch
+  HostName vmk-opsx-01.ctrl.plabs.ch
   User albert
   ProxyJump sysgate
 
 Host opsx-04-infra
-  Hostname vmk-opsx-04.ctrl.plabs.ch
+  HostName vmk-opsx-04.ctrl.plabs.ch
   User albert
   ProxyJump sysgate
+

@@ -1,5 +1,8 @@
 - defaults:
     shell:
-        stdin: true
-        stdout: true
-        stderr: true
+      stdin: true
+      stdout: true
+      stderr: true
+    link:
+      create: true
+      relink: true

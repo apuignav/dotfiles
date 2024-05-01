@@ -1,4 +1,0 @@
-- shell:
-    - [pip3 install --user --upgrade -r python/pip_packages.txt, Installing python packages]
-    - [pip3 install --user --upgrade -r python/pip3_packages.txt, Installing python 3 packages]
-

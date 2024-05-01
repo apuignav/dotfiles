@@ -216,6 +216,8 @@ fi
 #######################################################################
 # Setting autoloaded functions
 #######################################################################
+autoload zmv
+
 my_zsh_fpath=${HOME}/dotfiles/zsh/autoloaded
 
 fpath=($my_zsh_fpath $fpath)
@@ -252,6 +254,12 @@ function portforwarding() {
     noglob ssh -L *:${1}:localhost:${N} opsx-infra ssh -L ${N}:localhost:${3} -N ${2}
 }
 
+function dotenv() { 
+    set -o allexport
+    source .env 
+    set +o allexport 
+}
+
 # Locales
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
@@ -274,3 +282,7 @@ export LC_TIME=en"en_US.UTF-8"
 
 source ~/dotfiles/zsh/gimbo.zsh
 zstyle :zim:prompt theme powerlevel10k
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

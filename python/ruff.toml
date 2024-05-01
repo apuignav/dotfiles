@@ -1,0 +1,53 @@
+[lint]
+# Enable flake8-bugbear (`B`) rules.
+select = [
+    "E",
+    "F",
+    "B",
+    "W",
+    "D",
+    "UP",
+    "ANN",
+    "ASYNC",
+    # "FBT",
+    "C4",
+    "FA",
+    "ISC",
+    "ICN",
+    "PT",
+    "RET",
+    "SIM",
+    "ARG",
+    "PTH",
+    "FIX",
+    "PD",
+    # "TRY",
+    "NPY",
+    "RUF",
+]
+#select = ["ALL"]
+
+# Never enforce `E501` (line length violations).
+ignore = [
+    "E501",
+    "ANN101",
+    "ANN204",
+    "ANN401", # Any is needed by FastAPI
+]
+
+# Avoid trying to fix flake8-bugbear (`B`) violations.
+unfixable = ["B"]
+
+# Ignore `E402` (import violations) in all `__init__.py` files, and in `path/to/file.py`.
+[lint.per-file-ignores]
+"__init__.py" = ["E402"]
+
+[flake8-annotations]
+mypy-init-return = false
+
+[flake8-bugbear]
+# Allow default arguments like, e.g., `data: List[str] = fastapi.Query(None)`.
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query"]
+
+[pydocstyle]
+convention = "numpy"

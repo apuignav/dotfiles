@@ -1,0 +1,9 @@
+- shell:
+      - [
+            pip3 install --upgrade -r python/pip_packages.txt,
+            Installing python packages,
+        ]
+      - [
+            poetry config virtualenvs.in-project true,
+            Setting poetry to use local envs,
+        ]

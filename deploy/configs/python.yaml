@@ -1,15 +1,9 @@
 # Python
+- create:
+    - ~/Library/Application Support/ruff
 - link:
-    ~/.pylintrc: python/pylintrc
-    ~/.flake8: python/flake8
-    ~/.pydocstyle: python/pydocstyle
-    ~/.config/pycodestyle: python/pycodestyle
-    #~/.pythonrc: python/pythonrc
     ~/.matplotlibrc: python/matplotlibrc
-    #~/.passpie: ~/Dropbox/Backup/Security/.passpie
-    
+    ~/Library/Application Support/ruff/ruff.toml: python/ruff.toml
 - shell:
-    - [pyenv install 3.10.4, Installing python in pyenv]
-    - [pyenv global 3.10.4, Making python 3.10.4 the default, restart the shell after!]
-
-
+    - [pyenv install 3.12.3, Installing python in pyenv]
+    - [pyenv global 3.12.3, Making python 3.12.3 the default. Restart the shell after!]

@@ -43,7 +43,7 @@ if !exists('g:override_bundles')
         Plug 'mbbill/undotree'
         Plug 'vim-scripts/bufkill.vim'
         Plug 'maxbrunsfeld/vim-yankstack'
-        Plug 'thomwiggers/vim-colors-solarized'
+        Plug 'nordtheme/vim'
         "Plug 'morhetz/gruvbox'
         Plug 'mileszs/ack.vim'
         Plug 'kristijanhusak/vim-multiple-cursors'
@@ -77,7 +77,7 @@ if !exists('g:override_bundles')
         Plug 'vim-scripts/argtextobj.vim'
         Plug 'machakann/vim-swap'
         Plug 'gregsexton/MatchTag'
-        Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
+        "Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
         Plug 'vim-python/python-syntax'
         Plug 'derekwyatt/vim-scala', {'for': ['scala']}
         Plug 'cespare/vim-toml'

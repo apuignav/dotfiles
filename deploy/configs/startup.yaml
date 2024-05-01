@@ -1,10 +1,12 @@
 # Setup what is needed, create folders, etc
-- clean: ['~']
-
-- shell:
-    - [mkdir -p $HOME/.local, Make local dir]
-    - [mkdir -p $HOME/.config, Make local config dir]
-
+- clean: ["~"]
+- create:
+    - ~/.local
+    - ~/.config
 - shell:
     - [GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" git submodule update --init --recursive, Pulling submodules]
-
+- shell:
+    - command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      stdout: true
+      stderr: true
+      stdin: true
