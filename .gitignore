@@ -48,6 +48,7 @@ ssh/ssh/id_rsa*
 ssh/ssh/environment*
 ssh/ssh/authorized_keys
 ssh/ssh/known_hosts
+ssh/ssh/id_*
 
 # texmf
 texmf/
