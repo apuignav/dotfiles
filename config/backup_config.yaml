@@ -13,32 +13,13 @@ profiles:
         excludes:
             - "albert/.dropbox"
             - "albert/.npm/_cacache"
-            - "albert/Library/Accounts"
-            - "albert/Library/Autosave"
-            - "albert/Library/Caches/"
-            - "albert/Library/Calendars/"
-            - "albert/Library/Containers"
-            - "albert/Library/Cookies"
-            - "albert/Library/HomeKit"
-            - "albert/Library/IdentityServices"
-            - "albert/Library/Mail"
-            - "albert/Library/Messages"
-            - "albert/Library/Metadata"
-            - "albert/Library/PersonalizationPortrait"
-            - "albert/Library/Safari"
-            - "albert/Library/Sharing"
-            - "albert/Library/Suggestions"
-            - "albert/Library/Group Containers/"
-            - "albert/Library/Autosave Information/"
-            - "albert/Library/Application Support" 
-            - "albert/Library/Assistant" 
-            - "albert/Library/Saved Application State/"
-            - "albert/Library/Preferences/com.apple.homed.*"
+            - "albert/Library"
             - "albert/.Trash"
             - ".DS_Store"
         extra-config:
             - --filter='protect albert/Arxiu/Personal/Archive/***'
             - --filter='protect albert/Arxiu/Work/Archive/***'
+            - --filter='protect albert/Arxiu/Vault/4\\ Archive/***'
             - delete-from-dest
             - delete-excluded
         post-run-cmd: 

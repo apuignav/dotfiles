@@ -1,5 +1,5 @@
 # Restore Arxiu
-rsync -a /Volumes/Backup/albert/Arxiu /Users/albert --exclude 'Work/Archive/*' --exclude 'Personal/Archive/*' --progress
+rsync -a /Volumes/Backup/albert/Arxiu /Users/albert --exclude 'Work/Archive/*' --exclude 'Personal/Archive/*' --exclude 'Vault/4\ Archive/*' --progress
 cp /Volumes/Backup/albert/Pictures/Bombillos.png $HOME/Pictures
 # Restore zsh history
 cp /Volumes/Backup/albert/.zsh_history $HOME/
