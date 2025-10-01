@@ -11,7 +11,7 @@ profiles:
         origin: "/Users/albert"
         dest: "/Volumes/Backup"
         use-nobackupdelete:
-            - "/Arxiu"
+            - "Arxiu"
         excludes:
             - "albert/.dropbox"
             - "albert/.npm"
@@ -26,6 +26,8 @@ profiles:
             - "albert/.cursor"
             - "albert/.zim/modules"
             - "albert/.docker"
+            - "albert/.zcompdump*"
+            - "albert/.ollama"
             - "**/.eggs"
             - "**/.venv"
             - "**/.DS_Store"
