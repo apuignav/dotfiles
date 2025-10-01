@@ -2,6 +2,10 @@
 #
 # User configuration sourced by interactive shells
 #
+# Cursor fix https://forum.cursor.com/t/agent-not-detecting-that-a-command-has-completed/65052/41
+[[ "$PAGER" == "head -n 10000 | cat" ]] && return
+[[ "$COMPOSER_NO_INTERACTION" == "1" ]] && return
+
 
 # -----------------
 # Zsh configuration
@@ -199,6 +203,7 @@ alias scpresume='rsync --partial --progress --rsh=ssh --archive'
 alias grep='grep --color=auto'
 # Pyp alias
 alias pypr="pyp --rerun"
+alias jup="uv run --with jupyter jupyter lab"
 # Environment
 #export LSCOLORS="gxfxcxdxbxegedabagacad"
 # LHCb

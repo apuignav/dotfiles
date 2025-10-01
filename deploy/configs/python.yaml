@@ -5,5 +5,5 @@
     ~/.matplotlibrc: python/matplotlibrc
     ~/Library/Application Support/ruff/ruff.toml: python/ruff.toml
 - shell:
-    - [pyenv install 3.12.3, Installing python in pyenv]
-    - [pyenv global 3.12.3, Making python 3.12.3 the default. Restart the shell after!]
+    - [pyenv install -s 3.12.2, Installing python in pyenv]
+    - [pyenv global 3.12.2, Making python 3.12.3 the default. Restart the shell after!]

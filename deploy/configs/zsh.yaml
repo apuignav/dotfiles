@@ -2,7 +2,7 @@
 - shell:
       - command:
             [
-                "curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh",
+                "[ -e $HOME/.zim ] || curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh",
                 Installing zim,
             ]
         stdout: true
@@ -19,4 +19,4 @@
       ~/.zimrc: zsh/zimrc
       ~/.zshenv: zsh/zshenv
 - shell:
-      - [zimfw install, Installing zim modules]
+      - [zimfw install, Installing zim modules. It will fail because powerlevel needs you to restart the terminal.]

@@ -1,6 +1,6 @@
 - shell:
       - [
-            pip3 install --upgrade -r python/pip_packages.txt,
+            pip3 install --upgrade -r python/packages.txt,
             Installing python packages,
         ]
       - [

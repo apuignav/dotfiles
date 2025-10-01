@@ -30,6 +30,13 @@ fi
 #######################################################################
 # Paths
 #######################################################################
+# Set the list of directories that Zsh searches for programs.
+path=(
+  /usr/local/{bin,sbin}
+  /opt/homebrew/{bin,sbin}
+  $path
+)
+
 [[ -d ~/.scripts ]] && export PATH=$PATH:$HOME/.scripts
 [[ -d ~/.local/bin ]] && export PATH=$PATH:$HOME/.local/bin
 [[ -d ~/.local/lib ]] && export PYTHONPATH=$HOME/.local/lib:$PYTHONPATH
@@ -41,11 +48,6 @@ typeset -gU cdpath fpath mailpath path
 # Set the the list of directories that cd searches.
 cdpath=(
   $cdpath
-)
-# Set the list of directories that Zsh searches for programs.
-path=(
-  /usr/local/{bin,sbin}
-  $path
 )
 #######################################################################
 # Less
@@ -91,3 +93,7 @@ fi
 if which pyenv-virtualenv-init > /dev/null; then 
     eval "$(pyenv virtualenv-init -)"
 fi
+
+# Added by OrbStack: command-line tools and integration
+# Comment this line if you don't want it to be added again.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

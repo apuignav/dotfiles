@@ -1,1 +1,11 @@
-ssh startup mac_config zsh python git scripts latex vim pandoc conda cleanup
+ssh
+startup
+mac_config
+zsh python
+git
+scripts
+latex
+vim
+pandoc
+conda
+cleanup

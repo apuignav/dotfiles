@@ -1,5 +1,6 @@
 alias ip="curl icanhazip.com"
 alias stfu="osascript -e 'set volume output muted true'"
+alias compare_dirs='uv run $HOME/dotfiles/scripts/misc/compare_dirs'
 
 # alias vim='mvim'
 function vim() {

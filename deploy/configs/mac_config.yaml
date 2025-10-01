@@ -4,6 +4,8 @@
       stdout: false
       stderr: false
       include: ["tap", "brew", "cask", "mas"]
+- shell
+  - [machine/mac/defaults.sh, "Setting up defaults"] 
 - link:
     ~/.paths: machine/mac/paths
     ~/.aliases: machine/mac/aliases
@@ -11,4 +13,4 @@
     ~/.ripgreprc: machine/mac/ripgreprc
 - brewfile:
     # This accepts the same options as `brew bundle` command:
-    file: dotfiles/machine/mac/Brewfile
+    - machine/mac/Brewfile

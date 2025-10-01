@@ -5,3 +5,4 @@ tuftetex|latex --pdf-engine lualatex --template=tufte -V papersize:a4paper -V fo
 nicetex|latex --template=nice -V documentclass:scrartcl -V papersize:a4paper -V fontsize:11pt --standalone
 cvstyle|pdf --pdf-engine xelatex --template=cvstyle -V documentclass:scrartcl -V papersize:a4paper -V fontsize:12pt --standalone
 cvstyletex|latex --pdf-engine xelatex --template=cvstyle -V documentclass:scrartcl -V papersize:a4paper -V fontsize:12pt --standalone
+letter|latex --template=letter -V papersize:a4paper -V fontsize:12pt --standalone

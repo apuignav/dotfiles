@@ -1,7 +1,6 @@
 # Variables
-export HOMEBREW_PREFIX=/usr/local
 # Disabled for efficiency
-#export HOMEBREW_PREFIX=`brew --prefix`
+export HOMEBREW_PREFIX=`brew --prefix`
 # export HOMEBREW_BUILD_FROM_SOURCE=1
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 #export TERM=xterm-256color
