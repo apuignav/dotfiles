@@ -28,6 +28,7 @@ profiles:
             - "albert/.docker"
             - "albert/.zcompdump*"
             - "albert/.ollama"
+            - "albert/.aider"
             - "**/.eggs"
             - "**/.venv"
             - "**/.DS_Store"
@@ -37,14 +38,46 @@ profiles:
             - "**/__pycache__"
             - "**/.ipynb_checkpoints"
         extra-config:
-            # - --filter='protect albert/Arxiu/Personal/Archive/***'
-            # - --filter='protect albert/Arxiu/Work/Archive/***'
-            # - --filter='protect albert/Arxiu/Vault/4\\ Archive/***'
             - delete-from-dest
             - delete-excluded
-        # post-run-cmd:
-        #     - "cd {dest}/albert/Arxiu/Personal && tree -d Archive -L 3 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Personal/Archive && cd -"
-        #     - "cd {dest}/albert/Arxiu/Work && tree -d Archive -L 4 -N >| Archive/Archive.txt && cp -a Archive/Archive.txt {origin}/Arxiu/Work/Archive && cd -"
+
+    dotfiles:
+        info: "Backup dotfiles"
+        origin: "/Users/albert/dotfiles"
+        dest: "/Volumes/Backup/albert"
+        use-nobackupdelete:
+            - "."
+        excludes:
+            - "**/.eggs"
+            - "**/.venv"
+            - "**/.DS_Store"
+            - "**/.nox"
+            - "**/.tox"
+            - "**/.cache"
+            - "**/__pycache__"
+            - "**/.ipynb_checkpoints"
+        extra-config:
+            - delete-from-dest
+            - delete-excluded
+            
+    arxiu:
+        info: "Backup Arxiu"
+        origin: "/Users/albert/Arxiu"
+        dest: "/Volumes/Backup/albert"
+        use-nobackupdelete:
+            - "."
+        excludes:
+            - "**/.eggs"
+            - "**/.venv"
+            - "**/.DS_Store"
+            - "**/.nox"
+            - "**/.tox"
+            - "**/.cache"
+            - "**/__pycache__"
+            - "**/.ipynb_checkpoints"
+        extra-config:
+            - delete-from-dest
+            - delete-excluded
 
     # Backup archive
     # _archive:

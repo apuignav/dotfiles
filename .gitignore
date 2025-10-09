@@ -57,3 +57,5 @@ texmf/
 zplugin
 
 config/photo_config.yaml
+
+zsh/zsh_history
