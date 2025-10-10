@@ -1,7 +1,8 @@
 ssh
 startup
 mac_config
-zsh python
+zsh
+python
 git
 scripts
 latex

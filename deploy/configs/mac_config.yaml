@@ -4,7 +4,7 @@
       stdout: false
       stderr: false
       include: ["tap", "brew", "cask", "mas"]
-- shell
+- shell:
   - [machine/mac/defaults.sh, "Setting up defaults"] 
 - link:
     ~/.paths: machine/mac/paths

@@ -5,5 +5,5 @@
     ~/.gvimrc: vim/gvimrc
 - shell:
     - [vim/configure_vim.sh, Configuring vim]
-- create 
+- create:
     -  ~/.vim/undo

@@ -1,7 +1,7 @@
 - create:
     - ~/Library/texmf/tex/latex
 - shell:
-    - ["git clone https://github.com/JP-Ellis/tikz-feynman.git ~/Library/texmf/tex/latex/tikz-feynman || (cd texmf/tex/latex/tikz-feynman && git pull && cd -)", Cloning tikz-feynman]
-    - ["git clone https://github.com/matze/mtheme.git ~/Library/texmf/tex/latex/mtheme || (cd texmf/tex/latex/mtheme && git pull && cd -)", Cloning Metropolis]
-    - ["cd ~/Library/texmf/tex/latex/mtheme/ && make install && cd -", Installing Metropolis]
+#    - ["git clone https://github.com/JP-Ellis/tikz-feynman.git ~/Library/texmf/tex/latex/tikz-feynman || (cd texmf/tex/latex/tikz-feynman && git pull && cd -)", Cloning tikz-feynman]
+#    - ["git clone https://github.com/matze/mtheme.git ~/Library/texmf/tex/latex/mtheme || (cd texmf/tex/latex/mtheme && git pull && cd -)", Cloning Metropolis]
+#    - ["cd ~/Library/texmf/tex/latex/mtheme/ && make install && cd -", Installing Metropolis]
     - ["texhash ~/Library/texmf", Hashing LaTeX]
