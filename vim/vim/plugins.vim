@@ -95,7 +95,8 @@ if !exists('g:override_bundles')
         " Plug 'pythoncomplete', {'for': 'python'}
         Plug 'apuignav/vim-gf-python', {'for': 'python'}
         Plug 'thinca/vim-quickrun', {'for': 'python'}
-        Plug 'psf/black', {'for': 'python'}
+        " Plug 'psf/black', {'for': 'python'}
+        Plug 'shaoran/vim-ruff', {'for': 'python'}
     endif
 
     " Misc
