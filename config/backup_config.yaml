@@ -15,7 +15,7 @@ profiles:
         excludes:
             - "albert/.dropbox"
             - "albert/.npm"
-            - "albert/Library"
+            - "albert/Library/**"
             - "albert/.Trash"
             - "albert/.sdkman"
             - "albert/.rustup"
@@ -29,6 +29,7 @@ profiles:
             - "albert/.zcompdump*"
             - "albert/.ollama"
             - "albert/.aider"
+            - "albert/.local"
             - "**/.eggs"
             - "**/.venv"
             - "**/.DS_Store"
@@ -37,6 +38,9 @@ profiles:
             - "**/.cache"
             - "**/__pycache__"
             - "**/.ipynb_checkpoints"
+        includes:
+            - "albert/Library/Preferences/"
+            - "albert/Library/Preferences/**"
         extra-config:
             - delete-from-dest
             - delete-excluded
