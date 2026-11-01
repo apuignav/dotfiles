@@ -1,0 +1,7 @@
+# herdr (terminal multiplexer for coding agents) and Collie (phone PWA).
+# Pinned, checksum-verified downloads; see herdr/README.md.
+- shell:
+    - command: herdr/install.sh
+      stdout: true
+      stderr: true
+      description: Installing herdr and Collie
